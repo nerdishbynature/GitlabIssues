@@ -26,5 +26,6 @@
 @property (nonatomic, retain) NSNumber * wall_enabled;
 @property (nonatomic, retain) NSNumber * wiki_enabled;
 @property (nonatomic, retain) Owner *owner;
+@property (nonatomic, retain) NSNumber * isFavorite;
 
 @end
