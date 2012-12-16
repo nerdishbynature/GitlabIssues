@@ -38,6 +38,20 @@
 		9710B60C167E2DAF00F26DE2 /* PBLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B60A167E2DAF00F26DE2 /* PBLog.m */; };
 		9710B610167E30F000F26DE2 /* NBNHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B60F167E30F000F26DE2 /* NBNHomeScreenViewController.m */; };
 		9710B614167E345B00F26DE2 /* GitLab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9710B612167E345B00F26DE2 /* GitLab.xcdatamodeld */; };
+		9710B617167E34B300F26DE2 /* Milestone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B616167E34B300F26DE2 /* Milestone.m */; };
+		9710B61A167E34C600F26DE2 /* Assignee.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B619167E34C600F26DE2 /* Assignee.m */; };
+		9710B61D167E34C600F26DE2 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B61C167E34C600F26DE2 /* Author.m */; };
+		9710B620167E34C600F26DE2 /* Issue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B61F167E34C600F26DE2 /* Issue.m */; };
+		9710B623167E34C600F26DE2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B622167E34C600F26DE2 /* User.m */; };
+		9710B626167E34C700F26DE2 /* Domain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B625167E34C700F26DE2 /* Domain.m */; };
+		9710B629167E34C700F26DE2 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B628167E34C700F26DE2 /* Comment.m */; };
+		9710B62C167E34C700F26DE2 /* Snippet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B62B167E34C700F26DE2 /* Snippet.m */; };
+		9710B62F167E34C700F26DE2 /* MergeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B62E167E34C700F26DE2 /* MergeRequest.m */; };
+		9710B632167E34C700F26DE2 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B631167E34C700F26DE2 /* Project.m */; };
+		9710B635167E34C700F26DE2 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B634167E34C700F26DE2 /* Note.m */; };
+		9710B638167E34C700F26DE2 /* SSH_key.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B637167E34C700F26DE2 /* SSH_key.m */; };
+		9710B63B167E34C700F26DE2 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B63A167E34C700F26DE2 /* Session.m */; };
+		9710B63E167E34C700F26DE2 /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B63D167E34C700F26DE2 /* Owner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +117,34 @@
 		9710B60E167E30F000F26DE2 /* NBNHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNHomeScreenViewController.h; path = Views/NBNHomeScreenViewController.h; sourceTree = "<group>"; };
 		9710B60F167E30F000F26DE2 /* NBNHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNHomeScreenViewController.m; path = Views/NBNHomeScreenViewController.m; sourceTree = "<group>"; };
 		9710B613167E345B00F26DE2 /* GitLab.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GitLab.xcdatamodel; sourceTree = "<group>"; };
+		9710B615167E34B300F26DE2 /* Milestone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Milestone.h; path = Models/Milestone.h; sourceTree = "<group>"; };
+		9710B616167E34B300F26DE2 /* Milestone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Milestone.m; path = Models/Milestone.m; sourceTree = "<group>"; };
+		9710B618167E34C600F26DE2 /* Assignee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Assignee.h; path = Models/Assignee.h; sourceTree = "<group>"; };
+		9710B619167E34C600F26DE2 /* Assignee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Assignee.m; path = Models/Assignee.m; sourceTree = "<group>"; };
+		9710B61B167E34C600F26DE2 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Author.h; path = Models/Author.h; sourceTree = "<group>"; };
+		9710B61C167E34C600F26DE2 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Author.m; path = Models/Author.m; sourceTree = "<group>"; };
+		9710B61E167E34C600F26DE2 /* Issue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Issue.h; path = Models/Issue.h; sourceTree = "<group>"; };
+		9710B61F167E34C600F26DE2 /* Issue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Issue.m; path = Models/Issue.m; sourceTree = "<group>"; };
+		9710B621167E34C600F26DE2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Models/User.h; sourceTree = "<group>"; };
+		9710B622167E34C600F26DE2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Models/User.m; sourceTree = "<group>"; };
+		9710B624167E34C700F26DE2 /* Domain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Domain.h; path = Models/Domain.h; sourceTree = "<group>"; };
+		9710B625167E34C700F26DE2 /* Domain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Domain.m; path = Models/Domain.m; sourceTree = "<group>"; };
+		9710B627167E34C700F26DE2 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = Models/Comment.h; sourceTree = "<group>"; };
+		9710B628167E34C700F26DE2 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = Models/Comment.m; sourceTree = "<group>"; };
+		9710B62A167E34C700F26DE2 /* Snippet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Snippet.h; path = Models/Snippet.h; sourceTree = "<group>"; };
+		9710B62B167E34C700F26DE2 /* Snippet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Snippet.m; path = Models/Snippet.m; sourceTree = "<group>"; };
+		9710B62D167E34C700F26DE2 /* MergeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MergeRequest.h; path = Models/MergeRequest.h; sourceTree = "<group>"; };
+		9710B62E167E34C700F26DE2 /* MergeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MergeRequest.m; path = Models/MergeRequest.m; sourceTree = "<group>"; };
+		9710B630167E34C700F26DE2 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Project.h; path = Models/Project.h; sourceTree = "<group>"; };
+		9710B631167E34C700F26DE2 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = Models/Project.m; sourceTree = "<group>"; };
+		9710B633167E34C700F26DE2 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Note.h; path = Models/Note.h; sourceTree = "<group>"; };
+		9710B634167E34C700F26DE2 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Note.m; path = Models/Note.m; sourceTree = "<group>"; };
+		9710B636167E34C700F26DE2 /* SSH_key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSH_key.h; path = Models/SSH_key.h; sourceTree = "<group>"; };
+		9710B637167E34C700F26DE2 /* SSH_key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSH_key.m; path = Models/SSH_key.m; sourceTree = "<group>"; };
+		9710B639167E34C700F26DE2 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Session.h; path = Models/Session.h; sourceTree = "<group>"; };
+		9710B63A167E34C700F26DE2 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Session.m; path = Models/Session.m; sourceTree = "<group>"; };
+		9710B63C167E34C700F26DE2 /* Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Owner.h; path = Models/Owner.h; sourceTree = "<group>"; };
+		9710B63D167E34C700F26DE2 /* Owner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Owner.m; path = Models/Owner.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +317,34 @@
 			isa = PBXGroup;
 			children = (
 				9710B612167E345B00F26DE2 /* GitLab.xcdatamodeld */,
+				9710B63C167E34C700F26DE2 /* Owner.h */,
+				9710B63D167E34C700F26DE2 /* Owner.m */,
+				9710B639167E34C700F26DE2 /* Session.h */,
+				9710B63A167E34C700F26DE2 /* Session.m */,
+				9710B636167E34C700F26DE2 /* SSH_key.h */,
+				9710B637167E34C700F26DE2 /* SSH_key.m */,
+				9710B633167E34C700F26DE2 /* Note.h */,
+				9710B634167E34C700F26DE2 /* Note.m */,
+				9710B630167E34C700F26DE2 /* Project.h */,
+				9710B631167E34C700F26DE2 /* Project.m */,
+				9710B62D167E34C700F26DE2 /* MergeRequest.h */,
+				9710B62E167E34C700F26DE2 /* MergeRequest.m */,
+				9710B62A167E34C700F26DE2 /* Snippet.h */,
+				9710B62B167E34C700F26DE2 /* Snippet.m */,
+				9710B627167E34C700F26DE2 /* Comment.h */,
+				9710B628167E34C700F26DE2 /* Comment.m */,
+				9710B624167E34C700F26DE2 /* Domain.h */,
+				9710B625167E34C700F26DE2 /* Domain.m */,
+				9710B621167E34C600F26DE2 /* User.h */,
+				9710B622167E34C600F26DE2 /* User.m */,
+				9710B61E167E34C600F26DE2 /* Issue.h */,
+				9710B61F167E34C600F26DE2 /* Issue.m */,
+				9710B61B167E34C600F26DE2 /* Author.h */,
+				9710B61C167E34C600F26DE2 /* Author.m */,
+				9710B618167E34C600F26DE2 /* Assignee.h */,
+				9710B619167E34C600F26DE2 /* Assignee.m */,
+				9710B615167E34B300F26DE2 /* Milestone.h */,
+				9710B616167E34B300F26DE2 /* Milestone.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -402,6 +472,20 @@
 				9710B5FD167E2CB700F26DE2 /* Reachability.m in Sources */,
 				9710B610167E30F000F26DE2 /* NBNHomeScreenViewController.m in Sources */,
 				9710B614167E345B00F26DE2 /* GitLab.xcdatamodeld in Sources */,
+				9710B617167E34B300F26DE2 /* Milestone.m in Sources */,
+				9710B61A167E34C600F26DE2 /* Assignee.m in Sources */,
+				9710B61D167E34C600F26DE2 /* Author.m in Sources */,
+				9710B620167E34C600F26DE2 /* Issue.m in Sources */,
+				9710B623167E34C600F26DE2 /* User.m in Sources */,
+				9710B626167E34C700F26DE2 /* Domain.m in Sources */,
+				9710B629167E34C700F26DE2 /* Comment.m in Sources */,
+				9710B62C167E34C700F26DE2 /* Snippet.m in Sources */,
+				9710B62F167E34C700F26DE2 /* MergeRequest.m in Sources */,
+				9710B632167E34C700F26DE2 /* Project.m in Sources */,
+				9710B635167E34C700F26DE2 /* Note.m in Sources */,
+				9710B638167E34C700F26DE2 /* SSH_key.m in Sources */,
+				9710B63B167E34C700F26DE2 /* Session.m in Sources */,
+				9710B63E167E34C700F26DE2 /* Owner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

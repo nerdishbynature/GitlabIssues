@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="11G63b" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Assignee" representedClassName="Assignee" syncable="YES">
         <attribute name="blocked" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
@@ -137,7 +137,7 @@
         <element name="Domain" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Issue" positionX="-270" positionY="54" width="128" height="210"/>
         <element name="MergeRequest" positionX="394" positionY="0" width="128" height="180"/>
-        <element name="Milestone" positionX="198" positionY="207" width="128" height="150"/>
+        <element name="Milestone" positionX="-36" positionY="-24" width="128" height="150"/>
         <element name="Note" positionX="-198" positionY="387" width="128" height="105"/>
         <element name="Owner" positionX="124" positionY="519" width="128" height="135"/>
         <element name="Project" positionX="-371" positionY="405" width="128" height="240"/>
