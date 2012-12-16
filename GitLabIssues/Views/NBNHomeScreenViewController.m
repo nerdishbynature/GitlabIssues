@@ -8,7 +8,6 @@
 
 #import "NBNHomeScreenViewController.h"
 #import "Domain.h"
-#import "Issue.h"
 
 @interface NBNHomeScreenViewController ()
 
