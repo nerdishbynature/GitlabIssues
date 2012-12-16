@@ -21,6 +21,9 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
+    
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"GitLabIssues.sqlite"];
+    
     NBNHomeScreenViewController *homeScreen = [[NBNHomeScreenViewController alloc] initWithStyle:UITableViewStyleGrouped];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homeScreen];
