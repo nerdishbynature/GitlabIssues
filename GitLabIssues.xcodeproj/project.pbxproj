@@ -79,6 +79,7 @@
 		9710B693167E354000F26DE2 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B676167E353F00F26DE2 /* MagicalRecord+ShorthandSupport.m */; };
 		9710B694167E354000F26DE2 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B678167E353F00F26DE2 /* MagicalRecord.m */; };
 		9710B696167E355800F26DE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B695167E355700F26DE2 /* CoreData.framework */; };
+		9710B69B167E385800F26DE2 /* NSManagedObjectContext+Queryable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B69A167E385800F26DE2 /* NSManagedObjectContext+Queryable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +228,8 @@
 		9710B679167E353F00F26DE2 /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		9710B67A167E353F00F26DE2 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
 		9710B695167E355700F26DE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9710B699167E385800F26DE2 /* NSManagedObjectContext+Queryable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Queryable.h"; sourceTree = "<group>"; };
+		9710B69A167E385800F26DE2 /* NSManagedObjectContext+Queryable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Queryable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +311,7 @@
 		9710B5AF167E2C4500F26DE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9710B697167E385700F26DE2 /* ios-queryable */,
 				9710B63F167E353F00F26DE2 /* MagicalRecord */,
 				9710B606167E2D7400F26DE2 /* PBLog */,
 				9710B5DD167E2C9500F26DE2 /* ASI */,
@@ -535,6 +539,15 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		9710B697167E385700F26DE2 /* ios-queryable */ = {
+			isa = PBXGroup;
+			children = (
+				9710B699167E385800F26DE2 /* NSManagedObjectContext+Queryable.h */,
+				9710B69A167E385800F26DE2 /* NSManagedObjectContext+Queryable.m */,
+			);
+			path = "ios-queryable";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -698,6 +711,7 @@
 				9710B692167E354000F26DE2 /* MagicalRecord+Setup.m in Sources */,
 				9710B693167E354000F26DE2 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				9710B694167E354000F26DE2 /* MagicalRecord.m in Sources */,
+				9710B69B167E385800F26DE2 /* NSManagedObjectContext+Queryable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

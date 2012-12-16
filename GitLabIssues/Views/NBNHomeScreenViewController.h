@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Domain.h"
 
 @interface NBNHomeScreenViewController : UITableViewController
 

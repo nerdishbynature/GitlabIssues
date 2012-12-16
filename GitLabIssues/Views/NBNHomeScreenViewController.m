@@ -7,15 +7,19 @@
 //
 
 #import "NBNHomeScreenViewController.h"
+#import "Domain.h"
+#import "Issue.h"
 
 @interface NBNHomeScreenViewController ()
 
 @property (nonatomic, retain) NSArray *menuArray;
+@property (nonatomic, retain) NSArray *domainArray;
 
 @end
 
 @implementation NBNHomeScreenViewController
 @synthesize menuArray;
+@synthesize domainArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,6 +38,8 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(logout:)];
     self.navigationItem.rightBarButtonItem = item;
     [item release];
+    
+    self.domainArray = [Domain findAll];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,6 +63,10 @@
         case 0:
             return self.menuArray.count;
             break;
+
+        case 1:
+            return self.domainArray.count;
+            break;
             
         default:
             return 1;
@@ -79,7 +89,10 @@
         case 0:
             cell.textLabel.text = [self.menuArray objectAtIndex:indexPath.row];
             break;
-            
+        case 1:
+            Domain *domain = (Domain*)[self.domainArray objectAtIndex:indexPath.row];
+            cell.textLabel.text = domain.domain;
+            break;
         default:
             cell.textLabel.text = [NSString stringWithFormat:@"%i",indexPath.row];
             break;
@@ -150,7 +163,10 @@
 -(void)dealloc{
     [super dealloc];
     self.menuArray = nil;
+    self.domainArray = nil;
+    
     [menuArray release];
+    [domainArray release];
 }
 
 @end

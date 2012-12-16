@@ -13,4 +13,5 @@
     #import <Foundation/Foundation.h>
     #define MR_SHORTHAND
     #import "CoreData+MagicalRecord.h"
+    #import "NSManagedObjectContext+Queryable.h"
 #endif
