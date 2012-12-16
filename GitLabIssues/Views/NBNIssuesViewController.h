@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Project.h"
 
-@interface NBNIssuesViewController : UITableViewController
+@interface NBNIssuesViewController : UITableViewController <UISearchDisplayDelegate>
 
 +(NBNIssuesViewController *)loadWithProject:(Project *)project;
 

@@ -15,18 +15,37 @@
 
 @property (nonatomic, retain) Project *project;
 @property (nonatomic, retain) NSArray *issues;
+@property (nonatomic, retain) UISearchDisplayController *searchDisplayController;
+@property (nonatomic, retain) UISearchBar *searchBar;
+@property (nonatomic, retain) NSArray *issuesSearchResults;
 
 @end
 
 @implementation NBNIssuesViewController
 @synthesize project;
 @synthesize issues;
+@synthesize searchDisplayController;
+@synthesize searchBar;
+@synthesize issuesSearchResults;
 
 +(NBNIssuesViewController *)loadWithProject:(Project *)_project{
     NBNIssuesViewController *issueViewController = [[NBNIssuesViewController alloc] initWithStyle:UITableViewStylePlain];
     issueViewController.project = _project;
-    
+    [issueViewController createSearchBar];
     return issueViewController;
+}
+
+- (void)createSearchBar {
+
+    if (self.tableView && !self.tableView.tableHeaderView) {
+        self.searchBar = [[[UISearchBar alloc] init] autorelease];
+        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
+        self.searchDisplayController.searchResultsDelegate = self;
+        self.searchDisplayController.searchResultsDataSource = self;
+        self.searchDisplayController.delegate = self;
+        searchBar.frame = CGRectMake(0, 0, 0, 38);
+        self.tableView.tableHeaderView = self.searchBar;
+    }
 }
 
 - (void)viewDidLoad
@@ -64,7 +83,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.issues.count;
+    if ([self.tableView isEqual:self.searchDisplayController.searchResultsTableView]) {
+        return [self.issuesSearchResults count];
+    } else{
+        return self.issues.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,7 +100,13 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    Issue *issue = [self.issues objectAtIndex:indexPath.row];
+    Issue *issue;
+    if ([self.tableView isEqual:self.searchDisplayController.searchResultsTableView]) {
+        issue = [self.issuesSearchResults objectAtIndex:indexPath.row];
+    } else{
+        issue = [self.issues objectAtIndex:indexPath.row];
+    }
+    
     cell.textLabel.text = issue.title;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Created by %@", issue.author.name];
     
@@ -96,6 +125,23 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+#pragma mark - Search
+
+-(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope{
+    self.issuesSearchResults = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"title == %@",searchText] toArray];
+    [self.tableView reloadData];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+    [self filterContentForSearchText:searchString scope:nil];
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption{
+    [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:nil];
+    return YES;
 }
 
 -(void)starThisProject{
