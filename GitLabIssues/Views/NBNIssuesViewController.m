@@ -37,6 +37,14 @@
         self.issues = [Issue findAllSortedBy:@"identifier" ascending:YES];
         [self.tableView reloadData];
     }];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [[NSManagedObjectContext MR_contextForCurrentThread] save];
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,6 +96,14 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+-(void)starThisProject{
+    if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
+        self.project.isFavorite = [NSNumber numberWithBool:NO];
+    } else{
+        self.project.isFavorite = [NSNumber numberWithBool:YES];
+    }
 }
 
 - (void)dealloc
