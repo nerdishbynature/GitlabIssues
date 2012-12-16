@@ -13,14 +13,7 @@
 
 +(void)loadProjectsForDomain:(Domain *)domain onSuccess:(void (^)(void))block{
     
-    Session *session;
-    
-    if ([Session findAll].count > 0) {
-        session = [[Session findAll] objectAtIndex:0]; //there can only be one
-    } else{
-        session = [Session generateSession];
-    }
-    
+    Session *session = [Session generateSession];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v2/projects?private_token=%@", domain.protocol, domain.domain, session.private_token]];
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];

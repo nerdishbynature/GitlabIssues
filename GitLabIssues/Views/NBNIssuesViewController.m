@@ -43,6 +43,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [[NSManagedObjectContext MR_defaultContext] MR_saveNestedContexts];
 }
 
 - (void)didReceiveMemoryWarning
