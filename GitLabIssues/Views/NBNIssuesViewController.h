@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Project.h"
 
 @interface NBNIssuesViewController : UITableViewController
+
++(NBNIssuesViewController *)loadWithProject:(Project *)project;
 
 @end
