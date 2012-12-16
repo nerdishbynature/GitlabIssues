@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NBNFindReposViewController : UITableViewController
+@interface NBNFindReposViewController : UITableViewController <UISearchDisplayDelegate>
 
 @end

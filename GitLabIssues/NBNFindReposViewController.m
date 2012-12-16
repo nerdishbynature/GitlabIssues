@@ -7,31 +7,56 @@
 //
 
 #import "NBNFindReposViewController.h"
+#import "NBNProjectConnection.h"
+#import "Project.h"
+#import "NBNIssuesViewController.h"
 
 @interface NBNFindReposViewController ()
+
+@property (nonatomic, retain) NSArray *projectsArray;
+@property (nonatomic, retain) UISearchDisplayController *searchDisplayController;
+@property (nonatomic, retain) UISearchBar *searchBar;
+@property (nonatomic, retain) NSArray *projectsSearchResults;
 
 @end
 
 @implementation NBNFindReposViewController
+@synthesize projectsArray;
+@synthesize searchDisplayController;
+@synthesize searchBar;
+@synthesize projectsSearchResults;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        [self createSearchBar];
     }
     return self;
+}
+
+- (void)createSearchBar {
+    
+    if (self.tableView && !self.tableView.tableHeaderView) {
+        self.searchBar = [[[UISearchBar alloc] init] autorelease];
+        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
+        self.searchDisplayController.searchResultsDelegate = self;
+        self.searchDisplayController.searchResultsDataSource = self;
+        self.searchDisplayController.delegate = self;
+        searchBar.frame = CGRectMake(0, 0, 0, 38);
+        self.tableView.tableHeaderView = self.searchBar;
+    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [NBNProjectConnection loadProjectsForDomain:[[Domain findAll] objectAtIndex:0] onSuccess:^{
+        self.projectsArray = [Project findAllSortedBy:@"identifier" ascending:YES];
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,79 +69,58 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    if ([self.tableView isEqual:self.searchDisplayController.searchResultsTableView]) {
+        return [self.projectsSearchResults count];
+    } else{
+        return self.projectsArray.count;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+    Project *project = [self.projectsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = project.name;
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    Project *project;
+    if ([self.tableView isEqual:self.searchDisplayController.searchResultsTableView]) {
+        project = [self.projectsSearchResults objectAtIndex:indexPath.row];
+    } else{
+        project = [self.projectsArray objectAtIndex:indexPath.row];
+    }
+    
+    NBNIssuesViewController *issues = [NBNIssuesViewController loadWithProject:project];
+    [self.navigationController pushViewController:issues animated:YES];
+    [issues release];
+}
+
+-(void)dealloc{
+    self.projectsArray = nil;
+    
+    [projectsArray release];
+    [super dealloc];
 }
 
 @end
