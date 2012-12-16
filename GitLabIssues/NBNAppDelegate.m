@@ -7,6 +7,7 @@
 //
 
 #import "NBNAppDelegate.h"
+#import "NBNHomeScreenViewController.h"
 
 @implementation NBNAppDelegate
 
@@ -20,6 +21,18 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
+    
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"GitLabIssues.sqlite"];
+    
+    NBNHomeScreenViewController *homeScreen = [[NBNHomeScreenViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homeScreen];
+    
+    self.window.rootViewController = navController;
+    
+    [navController release];
+    [homeScreen release];
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
