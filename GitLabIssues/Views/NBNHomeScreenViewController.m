@@ -84,19 +84,13 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    switch (indexPath.section) {
-        case 0:
-            cell.textLabel.text = [self.menuArray objectAtIndex:indexPath.row];
-            break;
-        case 1:
-            Domain *domain = (Domain*)[self.domainArray objectAtIndex:indexPath.row];
-            cell.textLabel.text = domain.domain;
-            break;
-        default:
-            cell.textLabel.text = [NSString stringWithFormat:@"%i",indexPath.row];
-            break;
+    if (indexPath.section == 0) {
+        cell.textLabel.text = [self.menuArray objectAtIndex:indexPath.row];
+    } else{
+        Domain *domain = (Domain*)[self.domainArray objectAtIndex:indexPath.row];
+        cell.textLabel.text = domain.domain;
     }
-    
+
     return cell;
 }
 
