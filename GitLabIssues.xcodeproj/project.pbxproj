@@ -37,6 +37,7 @@
 		9710B60B167E2DAF00F26DE2 /* PBFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B608167E2DAF00F26DE2 /* PBFileLogger.m */; };
 		9710B60C167E2DAF00F26DE2 /* PBLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B60A167E2DAF00F26DE2 /* PBLog.m */; };
 		9710B610167E30F000F26DE2 /* NBNHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B60F167E30F000F26DE2 /* NBNHomeScreenViewController.m */; };
+		9710B614167E345B00F26DE2 /* GitLab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9710B612167E345B00F26DE2 /* GitLab.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		9710B60A167E2DAF00F26DE2 /* PBLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBLog.m; sourceTree = "<group>"; };
 		9710B60E167E30F000F26DE2 /* NBNHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNHomeScreenViewController.h; path = Views/NBNHomeScreenViewController.h; sourceTree = "<group>"; };
 		9710B60F167E30F000F26DE2 /* NBNHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNHomeScreenViewController.m; path = Views/NBNHomeScreenViewController.m; sourceTree = "<group>"; };
+		9710B613167E345B00F26DE2 /* GitLab.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GitLab.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				9710B5B7167E2C4500F26DE2 /* NBNAppDelegate.h */,
 				9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */,
+				9710B611167E343000F26DE2 /* Models */,
 				9710B60D167E30D300F26DE2 /* HomeScreen */,
 				9710B5AF167E2C4500F26DE2 /* Supporting Files */,
 			);
@@ -266,6 +269,14 @@
 				9710B60F167E30F000F26DE2 /* NBNHomeScreenViewController.m */,
 			);
 			name = HomeScreen;
+			sourceTree = "<group>";
+		};
+		9710B611167E343000F26DE2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9710B612167E345B00F26DE2 /* GitLab.xcdatamodeld */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,6 +401,7 @@
 				9710B5F9167E2CAB00F26DE2 /* ASINetworkQueue.m in Sources */,
 				9710B5FD167E2CB700F26DE2 /* Reachability.m in Sources */,
 				9710B610167E30F000F26DE2 /* NBNHomeScreenViewController.m in Sources */,
+				9710B614167E345B00F26DE2 /* GitLab.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +578,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9710B612167E345B00F26DE2 /* GitLab.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9710B613167E345B00F26DE2 /* GitLab.xcdatamodel */,
+			);
+			currentVersion = 9710B613167E345B00F26DE2 /* GitLab.xcdatamodel */;
+			path = GitLab.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9710B59B167E2C4500F26DE2 /* Project object */;
 }
