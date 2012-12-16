@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Project.h"
 
 @interface NBNIssuesConnection : NSObject
+
++(void)loadIssuesForProject:(Project *)project onSuccess:(void (^)(void))block;
 
 @end
