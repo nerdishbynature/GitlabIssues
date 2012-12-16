@@ -23,6 +23,9 @@
 @property (nonatomic, retain) MergeRequest *mergeRequests;
 @property (nonatomic, retain) Note *notes;
 @property (nonatomic, retain) Snippet *snippets;
+
++(Author *)createAndParseJSON:(NSDictionary *)dict;
+
 @end
 
 @interface Author (CoreDataGeneratedAccessors)

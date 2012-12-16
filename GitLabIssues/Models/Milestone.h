@@ -20,6 +20,9 @@
 @property (nonatomic, retain) NSNumber * identifier;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSSet *issue;
+
++(Milestone *)createAndParseJSON:(NSDictionary *)dict;
+
 @end
 
 @interface Milestone (CoreDataGeneratedAccessors)

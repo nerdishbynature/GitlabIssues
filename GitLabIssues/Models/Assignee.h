@@ -20,6 +20,9 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *issues;
 @property (nonatomic, retain) NSSet *mergeRequests;
+
++(Assignee *)createAndParseJSON:(NSDictionary *)dict;
+
 @end
 
 @interface Assignee (CoreDataGeneratedAccessors)
