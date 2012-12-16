@@ -86,6 +86,7 @@
         <attribute name="default_branch" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="descriptionString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="issues_enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="merge_requests_enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -140,7 +141,7 @@
         <element name="Milestone" positionX="-36" positionY="-24" width="128" height="150"/>
         <element name="Note" positionX="-198" positionY="387" width="128" height="105"/>
         <element name="Owner" positionX="124" positionY="519" width="128" height="135"/>
-        <element name="Project" positionX="-371" positionY="405" width="128" height="240"/>
+        <element name="Project" positionX="-371" positionY="405" width="128" height="253"/>
         <element name="Session" positionX="-585" positionY="315" width="128" height="135"/>
         <element name="Snippet" positionX="-407" positionY="207" width="128" height="150"/>
         <element name="SSH_key" positionX="-414" positionY="27" width="128" height="90"/>

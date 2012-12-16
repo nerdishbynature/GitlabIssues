@@ -25,5 +25,6 @@
 @dynamic wall_enabled;
 @dynamic wiki_enabled;
 @dynamic owner;
+@synthesize isFavorite;
 
 @end
