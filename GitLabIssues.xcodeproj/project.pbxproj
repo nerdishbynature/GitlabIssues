@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5A8167E2C4500F26DE2 /* UIKit.framework */; };
+		9710B5AB167E2C4500F26DE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5AA167E2C4500F26DE2 /* Foundation.framework */; };
+		9710B5AD167E2C4500F26DE2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5AC167E2C4500F26DE2 /* CoreGraphics.framework */; };
+		9710B5B3167E2C4500F26DE2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9710B5B1167E2C4500F26DE2 /* InfoPlist.strings */; };
+		9710B5B5167E2C4500F26DE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B5B4167E2C4500F26DE2 /* main.m */; };
+		9710B5B9167E2C4500F26DE2 /* NBNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */; };
+		9710B5BB167E2C4500F26DE2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9710B5BA167E2C4500F26DE2 /* Default.png */; };
+		9710B5BD167E2C4500F26DE2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9710B5BC167E2C4500F26DE2 /* Default@2x.png */; };
+		9710B5BF167E2C4500F26DE2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9710B5BE167E2C4500F26DE2 /* Default-568h@2x.png */; };
+		9710B5C7167E2C4600F26DE2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5C6167E2C4600F26DE2 /* SenTestingKit.framework */; };
+		9710B5C8167E2C4600F26DE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5A8167E2C4500F26DE2 /* UIKit.framework */; };
+		9710B5C9167E2C4600F26DE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5AA167E2C4500F26DE2 /* Foundation.framework */; };
+		9710B5D1167E2C4600F26DE2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9710B5CF167E2C4600F26DE2 /* InfoPlist.strings */; };
+		9710B5D4167E2C4600F26DE2 /* GitLabIssuesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B5D3167E2C4600F26DE2 /* GitLabIssuesTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9710B5CA167E2C4600F26DE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9710B59B167E2C4500F26DE2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9710B5A3167E2C4500F26DE2;
+			remoteInfo = GitLabIssues;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9710B5A4167E2C4500F26DE2 /* GitLabIssues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitLabIssues.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9710B5A8167E2C4500F26DE2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9710B5AA167E2C4500F26DE2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9710B5AC167E2C4500F26DE2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9710B5B0167E2C4500F26DE2 /* GitLabIssues-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GitLabIssues-Info.plist"; sourceTree = "<group>"; };
+		9710B5B2167E2C4500F26DE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9710B5B4167E2C4500F26DE2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9710B5B6167E2C4500F26DE2 /* GitLabIssues-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GitLabIssues-Prefix.pch"; sourceTree = "<group>"; };
+		9710B5B7167E2C4500F26DE2 /* NBNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBNAppDelegate.h; sourceTree = "<group>"; };
+		9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NBNAppDelegate.m; sourceTree = "<group>"; };
+		9710B5BA167E2C4500F26DE2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9710B5BC167E2C4500F26DE2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9710B5BE167E2C4500F26DE2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9710B5C5167E2C4600F26DE2 /* GitLabIssuesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitLabIssuesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9710B5C6167E2C4600F26DE2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9710B5CE167E2C4600F26DE2 /* GitLabIssuesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GitLabIssuesTests-Info.plist"; sourceTree = "<group>"; };
+		9710B5D0167E2C4600F26DE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9710B5D2167E2C4600F26DE2 /* GitLabIssuesTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GitLabIssuesTests.h; sourceTree = "<group>"; };
+		9710B5D3167E2C4600F26DE2 /* GitLabIssuesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GitLabIssuesTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9710B5A1167E2C4500F26DE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */,
+				9710B5AB167E2C4500F26DE2 /* Foundation.framework in Frameworks */,
+				9710B5AD167E2C4500F26DE2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9710B5C1167E2C4600F26DE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9710B5C7167E2C4600F26DE2 /* SenTestingKit.framework in Frameworks */,
+				9710B5C8167E2C4600F26DE2 /* UIKit.framework in Frameworks */,
+				9710B5C9167E2C4600F26DE2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9710B599167E2C4500F26DE2 = {
+			isa = PBXGroup;
+			children = (
+				9710B5AE167E2C4500F26DE2 /* GitLabIssues */,
+				9710B5CC167E2C4600F26DE2 /* GitLabIssuesTests */,
+				9710B5A7167E2C4500F26DE2 /* Frameworks */,
+				9710B5A5167E2C4500F26DE2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9710B5A5167E2C4500F26DE2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9710B5A4167E2C4500F26DE2 /* GitLabIssues.app */,
+				9710B5C5167E2C4600F26DE2 /* GitLabIssuesTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9710B5A7167E2C4500F26DE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9710B5A8167E2C4500F26DE2 /* UIKit.framework */,
+				9710B5AA167E2C4500F26DE2 /* Foundation.framework */,
+				9710B5AC167E2C4500F26DE2 /* CoreGraphics.framework */,
+				9710B5C6167E2C4600F26DE2 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9710B5AE167E2C4500F26DE2 /* GitLabIssues */ = {
+			isa = PBXGroup;
+			children = (
+				9710B5B7167E2C4500F26DE2 /* NBNAppDelegate.h */,
+				9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */,
+				9710B5AF167E2C4500F26DE2 /* Supporting Files */,
+			);
+			path = GitLabIssues;
+			sourceTree = "<group>";
+		};
+		9710B5AF167E2C4500F26DE2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9710B5B0167E2C4500F26DE2 /* GitLabIssues-Info.plist */,
+				9710B5B1167E2C4500F26DE2 /* InfoPlist.strings */,
+				9710B5B4167E2C4500F26DE2 /* main.m */,
+				9710B5B6167E2C4500F26DE2 /* GitLabIssues-Prefix.pch */,
+				9710B5BA167E2C4500F26DE2 /* Default.png */,
+				9710B5BC167E2C4500F26DE2 /* Default@2x.png */,
+				9710B5BE167E2C4500F26DE2 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9710B5CC167E2C4600F26DE2 /* GitLabIssuesTests */ = {
+			isa = PBXGroup;
+			children = (
+				9710B5D2167E2C4600F26DE2 /* GitLabIssuesTests.h */,
+				9710B5D3167E2C4600F26DE2 /* GitLabIssuesTests.m */,
+				9710B5CD167E2C4600F26DE2 /* Supporting Files */,
+			);
+			path = GitLabIssuesTests;
+			sourceTree = "<group>";
+		};
+		9710B5CD167E2C4600F26DE2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9710B5CE167E2C4600F26DE2 /* GitLabIssuesTests-Info.plist */,
+				9710B5CF167E2C4600F26DE2 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9710B5A3167E2C4500F26DE2 /* GitLabIssues */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9710B5D7167E2C4600F26DE2 /* Build configuration list for PBXNativeTarget "GitLabIssues" */;
+			buildPhases = (
+				9710B5A0167E2C4500F26DE2 /* Sources */,
+				9710B5A1167E2C4500F26DE2 /* Frameworks */,
+				9710B5A2167E2C4500F26DE2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GitLabIssues;
+			productName = GitLabIssues;
+			productReference = 9710B5A4167E2C4500F26DE2 /* GitLabIssues.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9710B5C4167E2C4600F26DE2 /* GitLabIssuesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9710B5DA167E2C4600F26DE2 /* Build configuration list for PBXNativeTarget "GitLabIssuesTests" */;
+			buildPhases = (
+				9710B5C0167E2C4600F26DE2 /* Sources */,
+				9710B5C1167E2C4600F26DE2 /* Frameworks */,
+				9710B5C2167E2C4600F26DE2 /* Resources */,
+				9710B5C3167E2C4600F26DE2 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9710B5CB167E2C4600F26DE2 /* PBXTargetDependency */,
+			);
+			name = GitLabIssuesTests;
+			productName = GitLabIssuesTests;
+			productReference = 9710B5C5167E2C4600F26DE2 /* GitLabIssuesTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9710B59B167E2C4500F26DE2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = NBN;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = nerdishbynature;
+			};
+			buildConfigurationList = 9710B59E167E2C4500F26DE2 /* Build configuration list for PBXProject "GitLabIssues" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9710B599167E2C4500F26DE2;
+			productRefGroup = 9710B5A5167E2C4500F26DE2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9710B5A3167E2C4500F26DE2 /* GitLabIssues */,
+				9710B5C4167E2C4600F26DE2 /* GitLabIssuesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9710B5A2167E2C4500F26DE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9710B5B3167E2C4500F26DE2 /* InfoPlist.strings in Resources */,
+				9710B5BB167E2C4500F26DE2 /* Default.png in Resources */,
+				9710B5BD167E2C4500F26DE2 /* Default@2x.png in Resources */,
+				9710B5BF167E2C4500F26DE2 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9710B5C2167E2C4600F26DE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9710B5D1167E2C4600F26DE2 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9710B5C3167E2C4600F26DE2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9710B5A0167E2C4500F26DE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9710B5B5167E2C4500F26DE2 /* main.m in Sources */,
+				9710B5B9167E2C4500F26DE2 /* NBNAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9710B5C0167E2C4600F26DE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9710B5D4167E2C4600F26DE2 /* GitLabIssuesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9710B5CB167E2C4600F26DE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9710B5A3167E2C4500F26DE2 /* GitLabIssues */;
+			targetProxy = 9710B5CA167E2C4600F26DE2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9710B5B1167E2C4500F26DE2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9710B5B2167E2C4500F26DE2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9710B5CF167E2C4600F26DE2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9710B5D0167E2C4600F26DE2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9710B5D5167E2C4600F26DE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9710B5D6167E2C4600F26DE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9710B5D8167E2C4600F26DE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
+				INFOPLIST_FILE = "GitLabIssues/GitLabIssues-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9710B5D9167E2C4600F26DE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
+				INFOPLIST_FILE = "GitLabIssues/GitLabIssues-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9710B5DB167E2C4600F26DE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitLabIssues.app/GitLabIssues";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
+				INFOPLIST_FILE = "GitLabIssuesTests/GitLabIssuesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		9710B5DC167E2C4600F26DE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitLabIssues.app/GitLabIssues";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
+				INFOPLIST_FILE = "GitLabIssuesTests/GitLabIssuesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9710B59E167E2C4500F26DE2 /* Build configuration list for PBXProject "GitLabIssues" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9710B5D5167E2C4600F26DE2 /* Debug */,
+				9710B5D6167E2C4600F26DE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9710B5D7167E2C4600F26DE2 /* Build configuration list for PBXNativeTarget "GitLabIssues" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9710B5D8167E2C4600F26DE2 /* Debug */,
+				9710B5D9167E2C4600F26DE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9710B5DA167E2C4600F26DE2 /* Build configuration list for PBXNativeTarget "GitLabIssuesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9710B5DB167E2C4600F26DE2 /* Debug */,
+				9710B5DC167E2C4600F26DE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9710B59B167E2C4500F26DE2 /* Project object */;
+}
