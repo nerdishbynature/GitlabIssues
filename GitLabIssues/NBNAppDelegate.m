@@ -25,13 +25,14 @@
     
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"GitLabIssues.sqlite"];
     
-    Domain *domain = [Domain createEntity];
-    domain.protocol = @"http";
-    domain.domain = @"ip";
-    domain.email = @"admin@local.host";
-    domain.password = @"5iveL!fe";
+    if ([Domain findAll].count == 0) {
+        Domain *domain = [Domain createEntity];
+        domain.protocol = @"http";
+        domain.domain = @"<ip>";
+        domain.email = @"<user>";
+        domain.password = @"<pw>";
+    }
     
-    [[NSManagedObjectContext MR_defaultContext] save];
     
     NBNHomeScreenViewController *homeScreen = [[NBNHomeScreenViewController alloc] initWithStyle:UITableViewStyleGrouped];
     
