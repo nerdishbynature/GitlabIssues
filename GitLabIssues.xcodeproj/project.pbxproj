@@ -80,6 +80,7 @@
 		9710B694167E354000F26DE2 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B678167E353F00F26DE2 /* MagicalRecord.m */; };
 		9710B696167E355800F26DE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B695167E355700F26DE2 /* CoreData.framework */; };
 		9710B69B167E385800F26DE2 /* NSManagedObjectContext+Queryable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B69A167E385800F26DE2 /* NSManagedObjectContext+Queryable.m */; };
+		9713925F167E8E1C00AB2E39 /* NBNFindReposViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9713925E167E8E1C00AB2E39 /* NBNFindReposViewController.m */; };
 		973285F6167E4B0400CFACC2 /* NBNFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 973285F5167E4B0400CFACC2 /* NBNFavoritesViewController.m */; };
 		973285FF167E517800CFACC2 /* NBNProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 973285FE167E517800CFACC2 /* NBNProjectsViewController.m */; };
 		97328602167E525300CFACC2 /* NBNProjectConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 97328601167E525300CFACC2 /* NBNProjectConnection.m */; };
@@ -237,6 +238,8 @@
 		9710B695167E355700F26DE2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9710B699167E385800F26DE2 /* NSManagedObjectContext+Queryable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Queryable.h"; sourceTree = "<group>"; };
 		9710B69A167E385800F26DE2 /* NSManagedObjectContext+Queryable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Queryable.m"; sourceTree = "<group>"; };
+		9713925D167E8E1C00AB2E39 /* NBNFindReposViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNFindReposViewController.h; sourceTree = "<group>"; };
+		9713925E167E8E1C00AB2E39 /* NBNFindReposViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBNFindReposViewController.m; sourceTree = "<group>"; };
 		973285F4167E4B0400CFACC2 /* NBNFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNFavoritesViewController.h; path = Views/NBNFavoritesViewController.h; sourceTree = "<group>"; };
 		973285F5167E4B0400CFACC2 /* NBNFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNFavoritesViewController.m; path = Views/NBNFavoritesViewController.m; sourceTree = "<group>"; };
 		973285FD167E517800CFACC2 /* NBNProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNProjectsViewController.h; path = Views/NBNProjectsViewController.h; sourceTree = "<group>"; };
@@ -318,6 +321,7 @@
 			children = (
 				9710B5B7167E2C4500F26DE2 /* NBNAppDelegate.h */,
 				9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */,
+				9713925B167E8E0500AB2E39 /* FindRepos */,
 				97328608167E5D6200CFACC2 /* Issues */,
 				973285FB167E514500CFACC2 /* Projects */,
 				973285F2167E4AEE00CFACC2 /* Favorite */,
@@ -568,6 +572,15 @@
 			path = "ios-queryable";
 			sourceTree = "<group>";
 		};
+		9713925B167E8E0500AB2E39 /* FindRepos */ = {
+			isa = PBXGroup;
+			children = (
+				9713925D167E8E1C00AB2E39 /* NBNFindReposViewController.h */,
+				9713925E167E8E1C00AB2E39 /* NBNFindReposViewController.m */,
+			);
+			name = FindRepos;
+			sourceTree = "<group>";
+		};
 		973285F2167E4AEE00CFACC2 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
@@ -770,6 +783,7 @@
 				97328602167E525300CFACC2 /* NBNProjectConnection.m in Sources */,
 				97328607167E5D5D00CFACC2 /* NBNIssuesViewController.m in Sources */,
 				9732860B167E5F1D00CFACC2 /* NBNIssuesConnection.m in Sources */,
+				9713925F167E8E1C00AB2E39 /* NBNFindReposViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
