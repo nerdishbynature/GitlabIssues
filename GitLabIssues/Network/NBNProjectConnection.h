@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ASIHTTPRequest.h"
+#import "ASIDownloadCache.h"
+#import "Project.h"
+#import "Domain.h"
+#import "Session.h"
 
 @interface NBNProjectConnection : NSObject
+
++(void)loadProjectsForDomain:(Domain *)domain onSuccess:(void (^)(void))block;
 
 @end
