@@ -9,6 +9,7 @@
 #import "NBNHomeScreenViewController.h"
 #import "NBNFavoritesViewController.h"
 #import "NBNProjectsViewController.h"
+#import "NBNFindReposViewController.h"
 #import "Domain.h"
 
 @interface NBNHomeScreenViewController ()
@@ -143,6 +144,11 @@
             [self.navigationController pushViewController:favorites animated:YES];
             
             [favorites release];
+        } else if (indexPath.row == 2){ // Find Repos
+            NBNFindReposViewController *findRepos = [[NBNFindReposViewController alloc] initWithStyle:UITableViewStyleGrouped];
+            [self.navigationController pushViewController:findRepos animated:YES];
+
+            [findRepos release];
         }
         
     } else if (indexPath.section == 1){
