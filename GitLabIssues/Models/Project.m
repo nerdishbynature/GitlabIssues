@@ -55,6 +55,7 @@
     project.identifier = [NSNumber numberWithInt:[[dict objectForKey:@"id"] integerValue]];
     project.code = [dict objectForKey:@"code"];
     project.name = [dict objectForKey:@"name"];
+    project.isFavorite = [NSNumber numberWithBool:NO];
     
     if (![dict objectForKey:@"description"]) {
         project.descriptionString = [dict objectForKey:@"description"];
