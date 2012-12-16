@@ -85,6 +85,8 @@
 		97328602167E525300CFACC2 /* NBNProjectConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 97328601167E525300CFACC2 /* NBNProjectConnection.m */; };
 		97328603167E55DD00CFACC2 /* PBFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B608167E2DAF00F26DE2 /* PBFileLogger.m */; };
 		97328604167E55DD00CFACC2 /* PBLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B60A167E2DAF00F26DE2 /* PBLog.m */; };
+		97328607167E5D5D00CFACC2 /* NBNIssuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97328606167E5D5D00CFACC2 /* NBNIssuesViewController.m */; };
+		9732860B167E5F1D00CFACC2 /* NBNIssuesConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9732860A167E5F1D00CFACC2 /* NBNIssuesConnection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +243,10 @@
 		973285FE167E517800CFACC2 /* NBNProjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNProjectsViewController.m; path = Views/NBNProjectsViewController.m; sourceTree = "<group>"; };
 		97328600167E525300CFACC2 /* NBNProjectConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNProjectConnection.h; path = Network/NBNProjectConnection.h; sourceTree = "<group>"; };
 		97328601167E525300CFACC2 /* NBNProjectConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNProjectConnection.m; path = Network/NBNProjectConnection.m; sourceTree = "<group>"; };
+		97328605167E5D5D00CFACC2 /* NBNIssuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssuesViewController.h; path = Views/NBNIssuesViewController.h; sourceTree = "<group>"; };
+		97328606167E5D5D00CFACC2 /* NBNIssuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssuesViewController.m; path = Views/NBNIssuesViewController.m; sourceTree = "<group>"; };
+		97328609167E5F1D00CFACC2 /* NBNIssuesConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssuesConnection.h; path = Views/NBNIssuesConnection.h; sourceTree = "<group>"; };
+		9732860A167E5F1D00CFACC2 /* NBNIssuesConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssuesConnection.m; path = Views/NBNIssuesConnection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +318,7 @@
 			children = (
 				9710B5B7167E2C4500F26DE2 /* NBNAppDelegate.h */,
 				9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */,
+				97328608167E5D6200CFACC2 /* Issues */,
 				973285FB167E514500CFACC2 /* Projects */,
 				973285F2167E4AEE00CFACC2 /* Favorite */,
 				9710B60D167E30D300F26DE2 /* HomeScreen */,
@@ -581,6 +588,17 @@
 			name = Projects;
 			sourceTree = "<group>";
 		};
+		97328608167E5D6200CFACC2 /* Issues */ = {
+			isa = PBXGroup;
+			children = (
+				97328605167E5D5D00CFACC2 /* NBNIssuesViewController.h */,
+				97328606167E5D5D00CFACC2 /* NBNIssuesViewController.m */,
+				97328609167E5F1D00CFACC2 /* NBNIssuesConnection.h */,
+				9732860A167E5F1D00CFACC2 /* NBNIssuesConnection.m */,
+			);
+			name = Issues;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -750,6 +768,8 @@
 				973285F6167E4B0400CFACC2 /* NBNFavoritesViewController.m in Sources */,
 				973285FF167E517800CFACC2 /* NBNProjectsViewController.m in Sources */,
 				97328602167E525300CFACC2 /* NBNProjectConnection.m in Sources */,
+				97328607167E5D5D00CFACC2 /* NBNIssuesViewController.m in Sources */,
+				9732860B167E5F1D00CFACC2 /* NBNIssuesConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
