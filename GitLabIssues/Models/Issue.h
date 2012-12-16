@@ -25,4 +25,6 @@
 @property (nonatomic, retain) Author *author;
 @property (nonatomic, retain) Milestone *milestone;
 
++(Issue *)createAndParseJSON:(NSDictionary *)dict;
+
 @end

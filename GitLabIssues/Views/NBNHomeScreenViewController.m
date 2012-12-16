@@ -8,6 +8,7 @@
 
 #import "NBNHomeScreenViewController.h"
 #import "NBNFavoritesViewController.h"
+#import "NBNProjectsViewController.h"
 #import "Domain.h"
 
 @interface NBNHomeScreenViewController ()
@@ -145,7 +146,10 @@
         }
         
     } else if (indexPath.section == 1){
-    
+        NBNProjectsViewController *projects = [[NBNProjectsViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        [self.navigationController pushViewController:projects animated:YES];
+        
+        [projects release];
     }
 }
 

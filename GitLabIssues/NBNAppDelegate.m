@@ -8,6 +8,7 @@
 
 #import "NBNAppDelegate.h"
 #import "NBNHomeScreenViewController.h"
+#import "Domain.h"
 
 @implementation NBNAppDelegate
 
@@ -23,6 +24,14 @@
     // Override point for customization after application launch.
     
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"GitLabIssues.sqlite"];
+    
+    Domain *domain = [Domain createEntity];
+    domain.protocol = @"http";
+    domain.domain = @"ip";
+    domain.email = @"admin@local.host";
+    domain.password = @"5iveL!fe";
+    
+    [[NSManagedObjectContext MR_defaultContext] save];
     
     NBNHomeScreenViewController *homeScreen = [[NBNHomeScreenViewController alloc] initWithStyle:UITableViewStyleGrouped];
     

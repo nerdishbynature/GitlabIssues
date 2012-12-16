@@ -27,4 +27,26 @@
 @dynamic notes;
 @dynamic snippets;
 
++(Author *)createAndParseJSON:(NSDictionary *)dict{
+    Author *author = [Author createEntity];
+    /*{
+     
+     "id": 1,
+     "email": "john@example.com",
+     "name": "John Smith",
+     "blocked": false,
+     "created_at": "2012-05-23T08:00:58Z",
+     "access_level": 40
+     }*/
+    if ([(NSNull *)dict isMemberOfClass:[NSNull class]]) {
+        return author;
+    }
+    author.identifier = [NSNumber numberWithInt:[[dict objectForKey:@"id"] integerValue]];
+    author.email = [dict objectForKey:@"email"];
+    author.name = [dict objectForKey:@"name"];
+    //self.blocked = [NSNumber numberWithInt:[[dict valueForKey:@"blocked"] integerValue]];
+    
+    return author;
+}
+
 @end
