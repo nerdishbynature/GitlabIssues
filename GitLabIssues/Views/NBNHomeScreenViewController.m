@@ -10,15 +10,20 @@
 
 @interface NBNHomeScreenViewController ()
 
+@property (nonatomic, retain) NSArray *menuArray;
+
 @end
 
 @implementation NBNHomeScreenViewController
+@synthesize menuArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.title = @"GitLab:Issues";
+        self.menuArray = @[@"Favorites", @"Dashboard", @"Find Repos"];
     }
     return self;
 }
@@ -26,12 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(logout:)];
+    self.navigationItem.rightBarButtonItem = item;
+    [item release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +53,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    switch (section) {
+        case 0:
+            return self.menuArray.count;
+            break;
+            
+        default:
+            return 1;
+            break;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,9 +72,18 @@
     // Configure the cell...
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%i",indexPath.row];
+    switch (indexPath.section) {
+        case 0:
+            cell.textLabel.text = [self.menuArray objectAtIndex:indexPath.row];
+            break;
+            
+        default:
+            cell.textLabel.text = [NSString stringWithFormat:@"%i",indexPath.row];
+            break;
+    }
     
     return cell;
 }
@@ -107,6 +126,12 @@
     return YES;
 }
 */
+                             
+#pragma mark - IBActions
+                             
+-(void)logout:(id)sender{
+    
+}
 
 #pragma mark - Table view delegate
 
@@ -120,6 +145,12 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+-(void)dealloc{
+    [super dealloc];
+    self.menuArray = nil;
+    [menuArray release];
 }
 
 @end
