@@ -43,8 +43,6 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
-    [[NSManagedObjectContext MR_contextForCurrentThread] save];
 }
 
 - (void)didReceiveMemoryWarning

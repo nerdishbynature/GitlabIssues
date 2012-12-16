@@ -43,8 +43,6 @@
                 [Issue createAndParseJSON:dict];
             }
         }
-        
-        [[NSManagedObjectContext MR_defaultContext] MR_save];
         block();
     }];
     

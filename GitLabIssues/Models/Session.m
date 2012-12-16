@@ -52,7 +52,6 @@
         session.blocked = [NSNumber numberWithBool:[[dict objectForKey:@"blocked"] boolValue]];
         session.name = [dict objectForKey:@"name"];
         
-        [[NSManagedObjectContext MR_defaultContext] MR_save];
     }];
     
     [request setFailedBlock:^{
