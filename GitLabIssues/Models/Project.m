@@ -27,4 +27,53 @@
 @dynamic owner;
 @synthesize isFavorite;
 
++(Project *)createAndParseJSON:(NSDictionary *)dict{
+    Project *project = [Project createEntity];
+    
+    /*{
+     "id": 5,
+     "code": "gitlab",
+     "name": "gitlab",
+     "description": null,
+     "path": "gitlab",
+     "default_branch": "api",
+     "owner": {
+     "id": 1,
+     "email": "john@example.com",
+     "name": "John Smith",
+     "blocked": false,
+     "created_at": "2012-05-23T08:00:58Z"
+     },
+     "private": true,
+     "issues_enabled": true,
+     "merge_requests_enabled": true,
+     "wall_enabled": true,
+     "wiki_enabled": true,
+     "created_at": "2012-05-30T12:49:20Z"
+     }*/
+    
+    project.identifier = [NSNumber numberWithInt:[[dict objectForKey:@"id"] integerValue]];
+    project.code = [dict objectForKey:@"code"];
+    project.name = [dict objectForKey:@"name"];
+    
+    if (![dict objectForKey:@"description"]) {
+        project.descriptionString = [dict objectForKey:@"description"];
+    }
+    
+    if (![dict objectForKey:@"default_branch"]) {
+        project.default_branch = [dict objectForKey:@"default_branch"];
+    }
+    
+    project.path = [dict objectForKey:@"path"];
+    
+    
+    project.private = [NSNumber numberWithBool:[[dict objectForKey:@"private"] boolValue]];
+    project.issues_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"issures_enabled"] boolValue]];
+    project.merge_requests_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"merge_requests_enabled"] boolValue]];
+    project.wall_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"wall_enabled"] boolValue]];
+    project.wiki_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"wiki_enabled"] boolValue]];
+    
+    return project;
+}
+
 @end

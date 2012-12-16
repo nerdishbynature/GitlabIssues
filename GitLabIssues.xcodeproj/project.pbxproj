@@ -304,6 +304,7 @@
 			children = (
 				9710B5B7167E2C4500F26DE2 /* NBNAppDelegate.h */,
 				9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */,
+				973285FB167E514500CFACC2 /* Projects */,
 				973285F2167E4AEE00CFACC2 /* Favorite */,
 				9710B611167E343000F26DE2 /* Models */,
 				9710B60D167E30D300F26DE2 /* HomeScreen */,
@@ -559,6 +560,13 @@
 				973285F5167E4B0400CFACC2 /* NBNFavoritesViewController.m */,
 			);
 			name = Favorite;
+			sourceTree = "<group>";
+		};
+		973285FB167E514500CFACC2 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Projects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -28,4 +28,6 @@
 @property (nonatomic, retain) Owner *owner;
 @property (nonatomic, retain) NSNumber * isFavorite;
 
++(Project *)createAndParseJSON:(NSDictionary *)json;
+
 @end
