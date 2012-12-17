@@ -10,4 +10,6 @@
 
 @interface NBNLabelsConnection : NSObject
 
++(void)loadAllLabelsForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block;
+
 @end
