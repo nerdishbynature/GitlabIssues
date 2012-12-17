@@ -7,31 +7,57 @@
 //
 
 #import "NBNMilestonesListViewController.h"
+#import "Milestone.h"
+#import "NBNMilestoneConnection.h"
 
 @interface NBNMilestonesListViewController ()
+
+@property (nonatomic, retain) NSArray *milestonesArray;
+@property (nonatomic, retain) NSArray *milestonesSearchArray;
+@property (nonatomic, retain) UISearchBar *searchBar;
+@property (nonatomic, retain) UISearchDisplayController *searchDisplayController;
+@property (nonatomic, assign) NSUInteger projectID;
 
 @end
 
 @implementation NBNMilestonesListViewController
+@synthesize milestonesArray;
+@synthesize milestonesSearchArray;
+@synthesize searchBar;
+@synthesize searchDisplayController;
+@synthesize delegate;
+@synthesize projectID;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
++(NBNMilestonesListViewController *)loadControllerWithProjectID:(NSUInteger)_projectID{
+    NBNMilestonesListViewController *listController = [[NBNMilestonesListViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    listController.projectID = _projectID;
+    listController.title = @"Milestones";
+    [listController createSearchBar];
+    
+    return listController;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [NBNMilestoneConnection loadAllMilestonesForProjectID:self.projectID onSuccess:^{
+        self.milestonesArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Milestone"] where:@"project_id == %i", projectID] toArray];
+        [self.tableView reloadData];
+    }];
+}
+
+- (void)createSearchBar {
+    
+    if (self.tableView && !self.tableView.tableHeaderView) {
+        self.searchBar = [[[UISearchBar alloc] init] autorelease];
+        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
+        self.searchDisplayController.searchResultsDelegate = self;
+        self.searchDisplayController.searchResultsDataSource = self;
+        self.searchDisplayController.delegate = self;
+        self.searchBar.frame = CGRectMake(0, 0, 0, 38);
+        self.tableView.tableHeaderView = self.searchBar;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,79 +70,81 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return self.milestonesSearchArray.count;
+    } else{
+        return self.milestonesArray.count;
+    }
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    Milestone *milestone;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        milestone = [self.milestonesSearchArray objectAtIndex:indexPath.row];
+    } else{
+        milestone = [self.milestonesArray objectAtIndex:indexPath.row];
+    }
+    
+    cell.textLabel.text = milestone.title;
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
+
+#pragma mark - Search
+
+-(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope{
+    self.milestonesSearchArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Milestone"] where:@"title contains[cd] %@", searchText] toArray];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
     return YES;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption{
+    [self filterContentForSearchText:[self.searchDisplayController.searchBar text]
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
     return YES;
 }
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    
+    if (self.delegate) {
+        Milestone *milestone;
+        
+        if (tableView == self.searchDisplayController.searchResultsTableView) {
+            milestone = [self.milestonesSearchArray objectAtIndex:indexPath.row];
+        } else{
+            milestone = [self.milestonesArray objectAtIndex:indexPath.row];
+        }
+        
+        [self.delegate didSelectMilestone:milestone];
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

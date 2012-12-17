@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Milestone.h"
 
-@interface NBNMilestonesListViewController : UITableViewController
+@protocol NBNMilestoneListDelegate <NSObject>
+
+-(void)didSelectMilestone:(Milestone *)selectedMilestone;
+
+@end
+
+@interface NBNMilestonesListViewController : UITableViewController <UISearchDisplayDelegate>
+
+@property (nonatomic, assign) id<NBNMilestoneListDelegate> delegate;
+
++(NBNMilestonesListViewController *)loadControllerWithProjectID:(NSUInteger)_projectID;
 
 @end
