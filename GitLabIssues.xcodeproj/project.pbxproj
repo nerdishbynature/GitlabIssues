@@ -94,6 +94,10 @@
 		979C64E7167F10F300B3E2D5 /* NSString+NSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64E5167F10F300B3E2D5 /* NSString+NSHash.m */; };
 		979C64EF167F187A00B3E2D5 /* NBNIssueFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64ED167F187A00B3E2D5 /* NBNIssueFilterViewController.m */; };
 		979C64F0167F187A00B3E2D5 /* NBNIssueFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 979C64EE167F187A00B3E2D5 /* NBNIssueFilterViewController.xib */; };
+		979C64F5167F343D00B3E2D5 /* NBNMilestoneConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64F4167F343D00B3E2D5 /* NBNMilestoneConnection.m */; };
+		979C64F8167F351100B3E2D5 /* NBNMilestonesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64F7167F351100B3E2D5 /* NBNMilestonesListViewController.m */; };
+		979C64FC167F522700B3E2D5 /* NBNLabelsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64FB167F522700B3E2D5 /* NBNLabelsListViewController.m */; };
+		979C64FF167F52F100B3E2D5 /* NBNLabelsConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64FE167F52F000B3E2D5 /* NBNLabelsConnection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +270,14 @@
 		979C64EC167F187A00B3E2D5 /* NBNIssueFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssueFilterViewController.h; path = Views/NBNIssueFilterViewController.h; sourceTree = "<group>"; };
 		979C64ED167F187A00B3E2D5 /* NBNIssueFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssueFilterViewController.m; path = Views/NBNIssueFilterViewController.m; sourceTree = "<group>"; };
 		979C64EE167F187A00B3E2D5 /* NBNIssueFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NBNIssueFilterViewController.xib; path = Views/NBNIssueFilterViewController.xib; sourceTree = "<group>"; };
+		979C64F3167F343D00B3E2D5 /* NBNMilestoneConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNMilestoneConnection.h; path = Network/NBNMilestoneConnection.h; sourceTree = "<group>"; };
+		979C64F4167F343D00B3E2D5 /* NBNMilestoneConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNMilestoneConnection.m; path = Network/NBNMilestoneConnection.m; sourceTree = "<group>"; };
+		979C64F6167F351100B3E2D5 /* NBNMilestonesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNMilestonesListViewController.h; path = Views/NBNMilestonesListViewController.h; sourceTree = "<group>"; };
+		979C64F7167F351100B3E2D5 /* NBNMilestonesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNMilestonesListViewController.m; path = Views/NBNMilestonesListViewController.m; sourceTree = "<group>"; };
+		979C64FA167F522700B3E2D5 /* NBNLabelsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNLabelsListViewController.h; path = Views/NBNLabelsListViewController.h; sourceTree = "<group>"; };
+		979C64FB167F522700B3E2D5 /* NBNLabelsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNLabelsListViewController.m; path = Views/NBNLabelsListViewController.m; sourceTree = "<group>"; };
+		979C64FD167F52F000B3E2D5 /* NBNLabelsConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNLabelsConnection.h; path = Network/NBNLabelsConnection.h; sourceTree = "<group>"; };
+		979C64FE167F52F000B3E2D5 /* NBNLabelsConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNLabelsConnection.m; path = Network/NBNLabelsConnection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +349,7 @@
 			children = (
 				9710B5B7167E2C4500F26DE2 /* NBNAppDelegate.h */,
 				9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */,
+				979C64F2167F342700B3E2D5 /* Connections */,
 				9713925B167E8E0500AB2E39 /* FindRepos */,
 				97328608167E5D6200CFACC2 /* Issues */,
 				973285FB167E514500CFACC2 /* Projects */,
@@ -646,6 +659,29 @@
 			path = NSHash;
 			sourceTree = "<group>";
 		};
+		979C64F2167F342700B3E2D5 /* Connections */ = {
+			isa = PBXGroup;
+			children = (
+				979C64F3167F343D00B3E2D5 /* NBNMilestoneConnection.h */,
+				979C64F4167F343D00B3E2D5 /* NBNMilestoneConnection.m */,
+				979C64FD167F52F000B3E2D5 /* NBNLabelsConnection.h */,
+				979C64FE167F52F000B3E2D5 /* NBNLabelsConnection.m */,
+				979C64F9167F520700B3E2D5 /* FilterComponents */,
+			);
+			name = Connections;
+			sourceTree = "<group>";
+		};
+		979C64F9167F520700B3E2D5 /* FilterComponents */ = {
+			isa = PBXGroup;
+			children = (
+				979C64F6167F351100B3E2D5 /* NBNMilestonesListViewController.h */,
+				979C64F7167F351100B3E2D5 /* NBNMilestonesListViewController.m */,
+				979C64FA167F522700B3E2D5 /* NBNLabelsListViewController.h */,
+				979C64FB167F522700B3E2D5 /* NBNLabelsListViewController.m */,
+			);
+			name = FilterComponents;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -824,6 +860,10 @@
 				979C64E6167F10F300B3E2D5 /* NSData+NSHash.m in Sources */,
 				979C64E7167F10F300B3E2D5 /* NSString+NSHash.m in Sources */,
 				979C64EF167F187A00B3E2D5 /* NBNIssueFilterViewController.m in Sources */,
+				979C64F5167F343D00B3E2D5 /* NBNMilestoneConnection.m in Sources */,
+				979C64F8167F351100B3E2D5 /* NBNMilestonesListViewController.m in Sources */,
+				979C64FC167F522700B3E2D5 /* NBNLabelsListViewController.m in Sources */,
+				979C64FF167F52F100B3E2D5 /* NBNLabelsConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
