@@ -92,6 +92,8 @@
 		979C64DF167F0B9C00B3E2D5 /* NBNIssueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 979C64DD167F0B9C00B3E2D5 /* NBNIssueDetailViewController.xib */; };
 		979C64E6167F10F300B3E2D5 /* NSData+NSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64E3167F10F300B3E2D5 /* NSData+NSHash.m */; };
 		979C64E7167F10F300B3E2D5 /* NSString+NSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64E5167F10F300B3E2D5 /* NSString+NSHash.m */; };
+		979C64EF167F187A00B3E2D5 /* NBNIssueFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64ED167F187A00B3E2D5 /* NBNIssueFilterViewController.m */; };
+		979C64F0167F187A00B3E2D5 /* NBNIssueFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 979C64EE167F187A00B3E2D5 /* NBNIssueFilterViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -261,6 +263,9 @@
 		979C64E3167F10F300B3E2D5 /* NSData+NSHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+NSHash.m"; sourceTree = "<group>"; };
 		979C64E4167F10F300B3E2D5 /* NSString+NSHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSHash.h"; sourceTree = "<group>"; };
 		979C64E5167F10F300B3E2D5 /* NSString+NSHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSHash.m"; sourceTree = "<group>"; };
+		979C64EC167F187A00B3E2D5 /* NBNIssueFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssueFilterViewController.h; path = Views/NBNIssueFilterViewController.h; sourceTree = "<group>"; };
+		979C64ED167F187A00B3E2D5 /* NBNIssueFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssueFilterViewController.m; path = Views/NBNIssueFilterViewController.m; sourceTree = "<group>"; };
+		979C64EE167F187A00B3E2D5 /* NBNIssueFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NBNIssueFilterViewController.xib; path = Views/NBNIssueFilterViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -621,6 +626,9 @@
 				979C64DB167F0B9B00B3E2D5 /* NBNIssueDetailViewController.h */,
 				979C64DC167F0B9B00B3E2D5 /* NBNIssueDetailViewController.m */,
 				979C64DD167F0B9C00B3E2D5 /* NBNIssueDetailViewController.xib */,
+				979C64EC167F187A00B3E2D5 /* NBNIssueFilterViewController.h */,
+				979C64ED167F187A00B3E2D5 /* NBNIssueFilterViewController.m */,
+				979C64EE167F187A00B3E2D5 /* NBNIssueFilterViewController.xib */,
 				97328609167E5F1D00CFACC2 /* NBNIssuesConnection.h */,
 				9732860A167E5F1D00CFACC2 /* NBNIssuesConnection.m */,
 			);
@@ -715,6 +723,7 @@
 				9710B5BD167E2C4500F26DE2 /* Default@2x.png in Resources */,
 				9710B5BF167E2C4500F26DE2 /* Default-568h@2x.png in Resources */,
 				979C64DF167F0B9C00B3E2D5 /* NBNIssueDetailViewController.xib in Resources */,
+				979C64F0167F187A00B3E2D5 /* NBNIssueFilterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,6 +823,7 @@
 				979C64DE167F0B9C00B3E2D5 /* NBNIssueDetailViewController.m in Sources */,
 				979C64E6167F10F300B3E2D5 /* NSData+NSHash.m in Sources */,
 				979C64E7167F10F300B3E2D5 /* NSString+NSHash.m in Sources */,
+				979C64EF167F187A00B3E2D5 /* NBNIssueFilterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
