@@ -7,6 +7,14 @@
 //
 
 #import "NBNIssueFilterViewController.h"
+#import "NBNMilestonesListViewController.h"
+#import "Project.h"
+
+NSString *const kKeyAssignedFilter = @"kKeyAssignedFilter";
+NSString *const kKeyMilestoneFilter = @"kKeyMilestoneFilter";
+NSString *const kKeyLabelsFilter = @"kKeyLabelsFilter";
+NSString *const kKeyIssueStatusFilter = @"kKeyIssueStatusFilter";
+NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 
 @interface NBNIssueFilterViewController ()
 
@@ -23,6 +31,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *addAssignedButton;
 @property (retain, nonatomic) IBOutlet UIButton *addMilestoneButton;
 @property (retain, nonatomic) IBOutlet UIButton *addLabelButton;
+@property (nonatomic, retain) NSMutableDictionary *filterDict;
 
 
 @end
@@ -42,6 +51,8 @@
 @synthesize addMilestoneButton;
 @synthesize addLabelButton;
 @synthesize delegate;
+@synthesize filterDict;
+@synthesize project;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -84,7 +95,11 @@
 }
 
 - (IBAction)addMilestones:(UIButton *)sender {
-
+    NBNMilestonesListViewController *listController = [NBNMilestonesListViewController loadControllerWithProjectID:[self.project.identifier integerValue]];
+    listController.delegate = self;
+    
+    [self.navigationController pushViewController:listController animated:YES];
+    [listController release];
 }
 
 - (IBAction)addLabels:(UIButton *)sender {
@@ -97,7 +112,7 @@
 
 -(void)apply:(id)sender{
     if (self.delegate) {
-        [self.delegate applyFilter:nil];
+        [self.delegate applyFilter:self.filterDict];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -106,6 +121,16 @@
     [addAssignedButton release];
     [addMilestoneButton release];
     [addLabelButton release];
+    [filterDict release];
+
     [super dealloc];
 }
+
+
+#pragma mark - Delegates
+
+-(void)didSelectMilestone:(Milestone *)selectedMilestone{
+    
+}
+
 @end

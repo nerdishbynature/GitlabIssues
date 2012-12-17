@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NBNMilestonesListViewController.h"
+#import "Project.h"
+
+extern NSString *const kKeyAssignedFilter;
+extern NSString *const kKeyMilestoneFilter;
+extern NSString *const kKeyLabelsFilter;
+extern NSString *const kKeyIssueStatusFilter;
+extern NSString *const kKeySortIssuesFilter;
 
 @protocol NBNIssueFilterDelegate <NSObject>
 
@@ -14,8 +22,9 @@
 
 @end
 
-@interface NBNIssueFilterViewController : UIViewController
+@interface NBNIssueFilterViewController : UIViewController <NBNMilestoneListDelegate>
 
 @property (nonatomic, assign) id<NBNIssueFilterDelegate> delegate;
+@property (nonatomic, retain) Project *project;
 
 @end
