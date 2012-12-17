@@ -18,7 +18,6 @@
 @property (nonatomic, retain) UISearchDisplayController *searchDisplayController;
 @property (nonatomic, retain) UISearchBar *searchBar;
 @property (nonatomic, retain) NSArray *issuesSearchResults;
-@property (nonatomic, retain) UIToolbar *toolBar;
 
 @end
 
@@ -33,7 +32,6 @@
     NBNIssuesViewController *issueViewController = [[NBNIssuesViewController alloc] initWithStyle:UITableViewStylePlain];
     issueViewController.project = _project;
     [issueViewController createSearchBar];
-    [issueViewController createToolBar];
     return issueViewController;
 }
 
@@ -51,15 +49,14 @@
 }
 
 -(void)createToolBar{
-    if (self.tableView && !self.toolBar) {
-        self.toolBar = [[[UIToolbar alloc] init] autorelease];
+    if (self.tableView && self.toolbarItems.count == 0) {
         UIBarButtonItem *createButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(addNewIssue)];
         UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshIssues)];
         UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(filter)];
+        UIBarButtonItem	*flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         
-        self.toolBar.items = @[createButton, refreshButton, filterButton];
-        self.toolBar.frame = CGRectMake(0, self.tableView.frame.size.height-44.f-38.f, self.view.frame.size.width, 38);
-        [self.view addSubview:self.toolBar];
+        [self setToolbarItems:@[createButton, refreshButton, flex, filterButton] animated:YES];
+        self.navigationController.toolbarHidden = NO;
     }
 }
 
@@ -80,13 +77,19 @@
     [super viewDidLoad];
     
     self.title = self.project.name;
-
+    
+    
     [NBNIssuesConnection loadIssuesForProject:self.project onSuccess:^{
         self.issues = [[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] orderBy:@"identifier"] toArray];
         [self.tableView reloadData];
     }];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self createToolBar];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
