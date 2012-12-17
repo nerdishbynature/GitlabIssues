@@ -11,6 +11,7 @@
 #import "Author.h"
 #import "NBNIssuesConnection.h"
 #import "NBNIssueDetailViewController.h"
+#import "NBNIssueFilterViewController.h"
 
 @interface NBNIssuesViewController ()
 
@@ -66,11 +67,22 @@
 }
 
 -(void)refreshIssues{
-    
+    [NBNIssuesConnection loadIssuesForProject:self.project onSuccess:^{
+        self.issues = [[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] orderBy:@"identifier"] toArray];
+        [self.tableView reloadData];
+    }];
 }
 
 -(void)filter{
-
+    NBNIssueFilterViewController *issueFilterViewController = [[NBNIssueFilterViewController alloc] initWithNibName:@"NBNIssueFilterViewController" bundle:nil];
+    issueFilterViewController.delegate = self;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:issueFilterViewController];
+    [issueFilterViewController release];
+    
+    navController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:navController animated:YES completion:nil];
+    
+    [navController release];
 }
 
 - (void)viewDidLoad
@@ -79,13 +91,14 @@
     
     self.title = self.project.name;
     
-    
-    [NBNIssuesConnection loadIssuesForProject:self.project onSuccess:^{
-        self.issues = [[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] orderBy:@"identifier"] toArray];
-        [self.tableView reloadData];
-    }];
-    
+    [self refreshIssues];
+        
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.toolbarHidden = NO;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -190,13 +203,24 @@
     }
 }
 
+
+-(void)applyFilter:(NSDictionary *)filterDictionary{
+    
+}
+
 - (void)dealloc
 {
     self.project = nil;
     self.issues = nil;
+    self.searchDisplayController = nil;
+    self.searchBar = nil;
+    self.issuesSearchResults = nil;
     
     [project release];
     [issues release];
+    [searchDisplayController release];
+    [searchBar release];
+    [issuesSearchResults release];
     [super dealloc];
 }
 
