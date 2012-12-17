@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol NBNIssueFilterDelegate <NSObject>
+
+-(void)applyFilter:(NSDictionary *)filterDictionary;
+
+@end
+
 @interface NBNIssueFilterViewController : UIViewController
+
+@property (nonatomic, assign) id<NBNIssueFilterDelegate> delegate;
 
 @end
