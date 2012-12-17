@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Issue.h"
 
 @interface NBNIssueDetailViewController : UIViewController
+
++(NBNIssueDetailViewController *)loadViewControllerWithIssue:(Issue *)_issue;
 
 @end
