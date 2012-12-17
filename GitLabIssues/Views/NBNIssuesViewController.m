@@ -10,6 +10,7 @@
 #import "Issue.h"
 #import "Author.h"
 #import "NBNIssuesConnection.h"
+#import "NBNIssueDetailViewController.h"
 
 @interface NBNIssuesViewController ()
 
@@ -149,14 +150,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    Issue *issue;
+    if (tableView == self.searchDisplayController.searchResultsTableView){
+        issue = [self.issuesSearchResults objectAtIndex:indexPath.row];
+    } else{
+        issue = [self.issues objectAtIndex:indexPath.row];
+    }
+    
+    NBNIssueDetailViewController *issueController = [NBNIssueDetailViewController loadViewControllerWithIssue:issue];
+    [self.navigationController pushViewController:issueController animated:YES];
+    
+    [issueController release];
 }
 
 #pragma mark - Search
