@@ -10,4 +10,6 @@
 
 @interface NBNMilestoneConnection : NSObject
 
++(void)loadAllMilestonesForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block;
+
 @end
