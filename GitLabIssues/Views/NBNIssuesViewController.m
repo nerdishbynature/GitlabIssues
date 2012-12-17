@@ -76,6 +76,7 @@
 -(void)filter{
     NBNIssueFilterViewController *issueFilterViewController = [[NBNIssueFilterViewController alloc] initWithNibName:@"NBNIssueFilterViewController" bundle:nil];
     issueFilterViewController.delegate = self;
+    issueFilterViewController.project = self.project;
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:issueFilterViewController];
     [issueFilterViewController release];
     
