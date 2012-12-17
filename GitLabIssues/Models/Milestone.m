@@ -19,8 +19,9 @@
 @dynamic identifier;
 @dynamic title;
 @dynamic issue;
+@dynamic project_id;
 
-+(Milestone *)createAndParseJSON:(NSDictionary *)dict{
++(Milestone *)createAndParseJSON:(NSDictionary *)dict andProjectID:(NSUInteger)projectID{
     Milestone *milestone = [Milestone createEntity];
     /*
      "milestone": {
@@ -39,6 +40,7 @@
     milestone.title = [dict objectForKey:@"title"];
     milestone.descriptionString = [dict objectForKey:@"description"],
     milestone.closed = [NSNumber numberWithBool:[[dict objectForKey:@"closed"] boolValue]];
+    milestone.project_id = [NSNumber numberWithInt:projectID];
     
     return milestone;
 }

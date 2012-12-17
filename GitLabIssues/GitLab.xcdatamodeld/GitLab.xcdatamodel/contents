@@ -63,6 +63,7 @@
         <attribute name="descriptionString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="due_date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="project_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="issue" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Issue" inverseName="milestone" inverseEntity="Issue" syncable="YES"/>
     </entity>
@@ -138,7 +139,7 @@
         <element name="Domain" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Issue" positionX="-261" positionY="33" width="128" height="210"/>
         <element name="MergeRequest" positionX="394" positionY="0" width="128" height="180"/>
-        <element name="Milestone" positionX="-36" positionY="-24" width="128" height="150"/>
+        <element name="Milestone" positionX="-36" positionY="-24" width="128" height="163"/>
         <element name="Note" positionX="-198" positionY="387" width="128" height="105"/>
         <element name="Owner" positionX="124" positionY="519" width="128" height="135"/>
         <element name="Project" positionX="-371" positionY="405" width="128" height="253"/>
