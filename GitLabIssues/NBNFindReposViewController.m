@@ -32,6 +32,7 @@
     if (self) {
         // Custom initialization
         [self createSearchBar];
+        self.title = @"Search";
     }
     return self;
 }
@@ -76,7 +77,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if ([self.tableView isEqual:self.searchDisplayController.searchResultsTableView]) {
+    if (tableView == self.searchDisplayController.searchResultsTableView){
         return [self.projectsSearchResults count];
     } else{
         return self.projectsArray.count;
@@ -94,7 +95,13 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    Project *project = [self.projectsArray objectAtIndex:indexPath.row];
+    Project *project;
+    if (tableView == self.searchDisplayController.searchResultsTableView){
+        project = [self.projectsSearchResults objectAtIndex:indexPath.row];
+    } else{
+        project = [self.projectsArray objectAtIndex:indexPath.row];
+    }
+    
     cell.textLabel.text = project.name;
     
     return cell;
@@ -105,7 +112,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Project *project;
-    if ([self.tableView isEqual:self.searchDisplayController.searchResultsTableView]) {
+    if (tableView == self.searchDisplayController.searchResultsTableView){
         project = [self.projectsSearchResults objectAtIndex:indexPath.row];
     } else{
         project = [self.projectsArray objectAtIndex:indexPath.row];
@@ -114,6 +121,23 @@
     NBNIssuesViewController *issues = [NBNIssuesViewController loadWithProject:project];
     [self.navigationController pushViewController:issues animated:YES];
     [issues release];
+}
+
+#pragma mark - Searching
+
+-(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope{
+    self.projectsSearchResults = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"name contains[cd] %@",searchText] toArray];
+    PBLog(@"filtering %@ got %i results %@", searchText, self.projectsSearchResults.count, self.projectsSearchResults);
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+    [self filterContentForSearchText:searchString scope:nil];
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption{
+    [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:nil];
+    return YES;
 }
 
 -(void)dealloc{
