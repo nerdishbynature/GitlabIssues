@@ -24,4 +24,6 @@
 @property (nonatomic, retain) NSNumber * theme_id;
 @property (nonatomic, retain) NSString * twitter;
 
++(User *)createAndParseJSON:(NSDictionary *)dict;
+
 @end
