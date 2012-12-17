@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NBNLabelsListViewController : UITableViewController
+@protocol NBNLabelListDelegate <NSObject>
+
+//-(void)didSelectLabel:(Label *)label;
+
+@end
+
+@interface NBNLabelsListViewController : UITableViewController <UISearchDisplayDelegate>
+
+@property (nonatomic, assign) id<NBNLabelListDelegate> delegate;
 
 @end
