@@ -43,21 +43,53 @@
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
         self.searchDisplayController.delegate = self;
-        searchBar.frame = CGRectMake(0, 0, 0, 38);
+        self.searchBar.frame = CGRectMake(0, 0, 0, 38);
         self.tableView.tableHeaderView = self.searchBar;
     }
+}
+
+-(void)createToolBar{
+    if (self.tableView && self.toolbarItems.count == 0) {
+        UIBarButtonItem *createButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(addNewIssue)];
+        UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshIssues)];
+        UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(filter)];
+        UIBarButtonItem	*flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        
+        [self setToolbarItems:@[createButton, refreshButton, flex, filterButton] animated:YES];
+        self.navigationController.toolbarHidden = NO;
+    }
+}
+
+-(void)addNewIssue{
+    
+}
+
+-(void)refreshIssues{
+    
+}
+
+-(void)filter{
+
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    self.title = self.project.name;
+    
+    
     [NBNIssuesConnection loadIssuesForProject:self.project onSuccess:^{
-        self.issues = [Issue findAllSortedBy:@"identifier" ascending:YES];
+        self.issues = [[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] orderBy:@"identifier"] toArray];
         [self.tableView reloadData];
     }];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self createToolBar];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -83,7 +115,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if ([self.tableView isEqual:self.searchDisplayController.searchResultsTableView]) {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
         return [self.issuesSearchResults count];
     } else{
         return self.issues.count;
@@ -101,12 +133,12 @@
     }
     
     Issue *issue;
-    if ([self.tableView isEqual:self.searchDisplayController.searchResultsTableView]) {
+    if (tableView == self.searchDisplayController.searchResultsTableView){
         issue = [self.issuesSearchResults objectAtIndex:indexPath.row];
     } else{
         issue = [self.issues objectAtIndex:indexPath.row];
     }
-    
+
     cell.textLabel.text = issue.title;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Created by %@", issue.author.name];
     
@@ -130,17 +162,19 @@
 #pragma mark - Search
 
 -(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope{
-    self.issuesSearchResults = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"title == %@",searchText] toArray];
-    [self.tableView reloadData];
+    self.issuesSearchResults = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"title contains[cd] %@",searchText] toArray];
+    PBLog(@"searching %@ found %i results", searchText, self.issuesSearchResults.count);
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
-    [self filterContentForSearchText:searchString scope:nil];
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
     return YES;
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption{
-    [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:nil];
+    [self filterContentForSearchText:[self.searchDisplayController.searchBar text]
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
     return YES;
 }
 
