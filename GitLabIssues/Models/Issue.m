@@ -10,6 +10,9 @@
 #import "Assignee.h"
 #import "Author.h"
 #import "Milestone.h"
+#import "Domain.h"
+#import "Session.h"
+#import "ASIHTTPRequest.h"
 
 
 @implementation Issue
@@ -88,6 +91,65 @@
     }
     
     return issue;
+}
+
+-(void)save{
+    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Session *session = [[Session findAll] objectAtIndex:0];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v2/projects/%@/issues/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.identifier, session.private_token]];
+    PBLog(@"url %@", url);
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setRequestMethod:@"PUT"];
+    
+    [request appendPostData:[self toJSON]];
+    [request startSynchronous];
+    
+    if (request.error) {
+        PBLog(@"%@", request.error);
+    }
+
+}
+
+-(NSData *)toJSON{
+    NSDictionary *dict = @{ @"id" : self.project_id,
+    @"issue_id": self.identifier,
+    @"title": self.title,
+    @"description": self.descriptionString,
+    @"assignee_id": self.assignee.identifier,
+    @"milestone_id": self.milestone.identifier,
+    @"closed": self.closed };
+    
+    return [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:nil];
+}
+
+-(void)saveMilestone{
+    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Session *session = [[Session findAll] objectAtIndex:0];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v2/projects/%@/milestones/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.milestone.identifier, session.private_token]];
+    PBLog(@"url %@", url);
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setRequestMethod:@"PUT"];
+    
+    [request appendPostData:[self milestoneToJSON]];
+    [request startSynchronous];
+    
+    PBLog(@"%@", request.error);
+    PBLog(@"%@", request.responseString);
+}
+
+-(NSData *)milestoneToJSON{
+    NSDictionary *dict = @{
+    @"id" : self.project_id,
+    @"milestone_id": self.milestone.identifier,
+    @"title": self.milestone.title,
+    @"description": self.milestone.descriptionString,
+    @"closed": self.milestone.closed };
+    
+    return [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:nil];
 }
 
 @end

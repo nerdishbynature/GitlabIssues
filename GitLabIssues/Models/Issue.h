@@ -26,5 +26,6 @@
 @property (nonatomic, retain) Milestone *milestone;
 
 +(Issue *)createAndParseJSON:(NSDictionary *)dict;
+-(void)save;
 
 @end

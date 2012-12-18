@@ -132,6 +132,7 @@
 		979C6580168062A800B3E2D5 /* BWLongTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C6576168062A800B3E2D5 /* BWLongTextViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		979C6581168062A800B3E2D5 /* BWSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C6579168062A800B3E2D5 /* BWSelectViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		979C65881680678400B3E2D5 /* NBNIssueEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C65871680678400B3E2D5 /* NBNIssueEditViewController.m */; };
+		979C658C16806A0800B3E2D5 /* NBNUsersConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C658B16806A0700B3E2D5 /* NBNUsersConnection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -387,6 +388,8 @@
 		979C6579168062A800B3E2D5 /* BWSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWSelectViewController.m; sourceTree = "<group>"; };
 		979C65861680678400B3E2D5 /* NBNIssueEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssueEditViewController.h; path = Views/NBNIssueEditViewController.h; sourceTree = "<group>"; };
 		979C65871680678400B3E2D5 /* NBNIssueEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssueEditViewController.m; path = Views/NBNIssueEditViewController.m; sourceTree = "<group>"; };
+		979C658A16806A0700B3E2D5 /* NBNUsersConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNUsersConnection.h; path = Network/NBNUsersConnection.h; sourceTree = "<group>"; };
+		979C658B16806A0700B3E2D5 /* NBNUsersConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNUsersConnection.m; path = Network/NBNUsersConnection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -780,6 +783,8 @@
 				979C64F4167F343D00B3E2D5 /* NBNMilestoneConnection.m */,
 				979C64FD167F52F000B3E2D5 /* NBNLabelsConnection.h */,
 				979C64FE167F52F000B3E2D5 /* NBNLabelsConnection.m */,
+				979C658A16806A0700B3E2D5 /* NBNUsersConnection.h */,
+				979C658B16806A0700B3E2D5 /* NBNUsersConnection.m */,
 			);
 			name = Connections;
 			sourceTree = "<group>";
@@ -1138,6 +1143,7 @@
 				979C6580168062A800B3E2D5 /* BWLongTextViewController.m in Sources */,
 				979C6581168062A800B3E2D5 /* BWSelectViewController.m in Sources */,
 				979C65881680678400B3E2D5 /* NBNIssueEditViewController.m in Sources */,
+				979C658C16806A0800B3E2D5 /* NBNUsersConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
