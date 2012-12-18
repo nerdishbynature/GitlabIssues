@@ -106,12 +106,12 @@
                 }];
         }
         
-        
-        
         [self.formModel registerMapping:mapping];
         
         [mapping buttonSave:@"Save" handler:^{
             PBLog(@"Issue: %@", self.issue);
+            [self.issue createANewOnServer];
+            
             [self dismissViewControllerAnimated:YES completion:nil];
             [[NSManagedObjectContext MR_defaultContext] MR_save];
         }];
