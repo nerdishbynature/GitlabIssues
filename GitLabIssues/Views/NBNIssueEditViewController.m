@@ -22,6 +22,7 @@
 @implementation NBNIssueEditViewController
 @synthesize formModel;
 @synthesize issue;
+@synthesize editMode;
 
 +(NBNIssueEditViewController *)loadViewControllerWithIssue:(Issue *)_issue{
     NBNIssueEditViewController *editViewController = [[NBNIssueEditViewController alloc] initWithStyle:UITableViewStyleGrouped];
@@ -38,7 +39,13 @@
 {
     [super viewDidLoad];
     
-    self.title = @"New Issue";
+    if(self.editMode){
+        self.title = [NSString stringWithFormat:@"Edit Issue #%@", self.issue.project_id];
+    } else{
+        self.title = @"New Issue";
+    }
+    
+    [self setupBarButtons];
     
     self.formModel = [FKFormModel formTableModelForTableView:self.tableView navigationController:self.navigationController];
     
@@ -107,19 +114,35 @@
         }
         
         [self.formModel registerMapping:mapping];
-        
-        [mapping buttonSave:@"Save" handler:^{
-            PBLog(@"Issue: %@", self.issue);
-            [self.issue createANewOnServer];
-            
-            [self dismissViewControllerAnimated:YES completion:nil];
-            [[NSManagedObjectContext MR_defaultContext] MR_save];
-        }];
     }];
     
     
     
     [self.formModel loadFieldsWithObject:self.issue];
+}
+
+-(void)setupBarButtons{
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Discard" style:UIBarButtonItemStyleBordered target:self action:@selector(discard)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(saveIssue)];
+}
+
+-(void)discard{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Do you want to discard your changes?" message:@"" delegate:self cancelButtonTitle:@"Keep" otherButtonTitles:@"Discard", nil];
+    [alert show];
+    [alert release];
+}
+
+-(void)saveIssue{
+    PBLog(@"Issue: %@", self.issue);
+    if (self.editMode) {
+        [self.issue saveChanges];
+    } else{
+        [self.issue createANewOnServer];
+    }
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [[NSManagedObjectContext MR_defaultContext] MR_save];
 }
 
 - (void)didReceiveMemoryWarning
@@ -136,6 +159,18 @@
     [issue release];
     
     [super dealloc];
+}
+
+#pragma mark - UIAlertView
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        // do nothing
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else{
+        
+    }
+    
 }
 
 @end
