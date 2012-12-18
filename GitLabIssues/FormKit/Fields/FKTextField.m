@@ -32,7 +32,7 @@
     if (self) {
         _textField = [[UITextField alloc] init];
         
-        self.textField.textAlignment = UITextAlignmentRight;
+        self.textField.textAlignment = NSTextAlignmentRight;
         
         [self.textField addTarget:self
                            action:@selector(textFieldDidChangeValue)
