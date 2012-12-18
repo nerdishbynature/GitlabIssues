@@ -350,6 +350,7 @@
 				9710B5B7167E2C4500F26DE2 /* NBNAppDelegate.h */,
 				9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */,
 				979C64F2167F342700B3E2D5 /* Connections */,
+				979C64F9167F520700B3E2D5 /* FilterComponents */,
 				9713925B167E8E0500AB2E39 /* FindRepos */,
 				97328608167E5D6200CFACC2 /* Issues */,
 				973285FB167E514500CFACC2 /* Projects */,
@@ -666,7 +667,6 @@
 				979C64F4167F343D00B3E2D5 /* NBNMilestoneConnection.m */,
 				979C64FD167F52F000B3E2D5 /* NBNLabelsConnection.h */,
 				979C64FE167F52F000B3E2D5 /* NBNLabelsConnection.m */,
-				979C64F9167F520700B3E2D5 /* FilterComponents */,
 			);
 			name = Connections;
 			sourceTree = "<group>";
