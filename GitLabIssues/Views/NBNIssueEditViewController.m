@@ -38,7 +38,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Add your domain";
+    self.title = @"New Issue";
     
     self.formModel = [FKFormModel formTableModelForTableView:self.tableView navigationController:self.navigationController];
     
