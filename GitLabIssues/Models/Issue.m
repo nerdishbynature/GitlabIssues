@@ -168,7 +168,7 @@
 
 -(NSData *)toJSON{
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:@"id" forKey:self.project_id];
+    [dict setObject:self.project_id forKey:@"id"];
     [dict setObject:self.identifier forKey:@"issue_id"];
     
     if (self.title)
