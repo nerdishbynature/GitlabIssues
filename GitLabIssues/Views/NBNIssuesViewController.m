@@ -12,6 +12,7 @@
 #import "NBNIssuesConnection.h"
 #import "NBNIssueDetailViewController.h"
 #import "NBNIssueFilterViewController.h"
+#import "NBNIssueEditViewController.h"
 
 @interface NBNIssuesViewController ()
 
@@ -63,7 +64,17 @@
 }
 
 -(void)addNewIssue{
+    Issue *issue = [Issue createEntity];
+    issue.project_id = self.project.identifier; // this is important
     
+    NBNIssueEditViewController *editViewController = [NBNIssueEditViewController loadViewControllerWithIssue:issue];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:editViewController];
+    navController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    
+    [self presentViewController:navController animated:YES completion:nil];
+    
+    [editViewController release];
+    [navController release];
 }
 
 -(void)refreshIssues{
