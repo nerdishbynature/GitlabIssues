@@ -7,11 +7,9 @@
 //
 
 #import "GLLoginViewController.h"
-#import "GLProjectsViewController.h"
 #import "FormKit.h"
 #import "Domain.h"
 #import "Session.h"
-#import "JSON.h"
 #import "ASIFormDataRequest.h"
 
 @interface GLLoginViewController ()
@@ -44,16 +42,18 @@
     [super viewDidLoad];
     
     if ([Domain findAll].count == 0) {
-        Domain *domain = [Domain createEntity];
-        domain.protocol = @"http";
-        domain.domain = @"<ip>";
-        domain.email = @"<user>";
-        domain.password = @"<pw>";
+        self.domain = [Domain createEntity];
+        self.domain.protocol = @"http";
+        self.domain.domain = @"";
+        self.domain.email = @"";
+        self.domain.password = @"";
     } else{
         
         self.domain = [[Domain findAll] objectAtIndex:0];
     
     }
+    
+    self.title = @"Add your domain";
     
     self.formModel = [FKFormModel formTableModelForTableView:self.tableView navigationController:self.navigationController];
     
@@ -74,25 +74,14 @@
         [mapping mapAttribute:@"domain" title:@"Domain" type:FKFormAttributeMappingTypeText];
         [mapping mapAttribute:@"email" title:@"Email" type:FKFormAttributeMappingTypeText];
         [mapping mapAttribute:@"password" title:@"Password" type:FKFormAttributeMappingTypePassword];
-        [mapping mapAttribute:@"remember_me" title:@"Remember me" type:FKFormAttributeMappingTypeBoolean];
 
         [self.formModel registerMapping:mapping];
         
         [mapping buttonSave:@"Connect" handler:^{
             PBLog(@"save pressed");
-            
-            [request setCompletionBlock:^{
-                PBLog(@"Domain: %@", self.domain);
-                [self dismissViewControllerAnimated:YES completion:nil];
-                [[NSManagedObjectContext MR_defaultContext] MR_save];
-            }];
-            
-            [request setFailedBlock:^{
-                PBLog(@"err %@",request.error);
-            }];
-            
-            [request startSynchronous];
-            
+            PBLog(@"Domain: %@", self.domain);
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [[NSManagedObjectContext MR_defaultContext] MR_save];
         }];
     }];
     
