@@ -32,6 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title = @"Projects";
 
     [NBNProjectConnection loadProjectsForDomain:[[Domain findAll] objectAtIndex:0] onSuccess:^{
         self.projectsArray = [Project findAllSortedBy:@"identifier" ascending:YES];
