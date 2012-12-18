@@ -103,7 +103,7 @@
     
     self.title = self.project.name;
     
-    [self refreshIssues];
+    
         
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)];
 }
@@ -111,6 +111,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.toolbarHidden = NO;
+    [self refreshIssues];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
