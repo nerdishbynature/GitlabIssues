@@ -52,4 +52,28 @@
     [request startAsynchronous];
 }
 
+
+
++(NSArray *)loadMilestonesWithProjectID:(NSUInteger)projectID{
+    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Session *firstSession = [[Session findAll] objectAtIndex:0];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v2/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, firstSession.private_token]];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request startSynchronous];
+    
+    NSArray *milestoneJSONArray = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+    NSMutableArray *milestoneArray = [[NSMutableArray alloc] initWithCapacity:milestoneJSONArray.count];
+    
+    for (NSDictionary *dict in milestoneJSONArray) {
+        Milestone *milestone = [Milestone createAndParseJSON:dict andProjectID:projectID];
+        [milestoneArray addObject:milestone];
+    }
+    
+    [[NSManagedObjectContext MR_defaultContext] MR_save];
+    
+    return milestoneArray;
+}
+
+
 @end

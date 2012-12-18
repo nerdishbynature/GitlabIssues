@@ -12,4 +12,7 @@
 
 +(void)loadAllMilestonesForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block;
 
+
++(NSArray *)loadMilestonesWithProjectID:(NSUInteger)projectID;
+
 @end
