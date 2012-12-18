@@ -94,6 +94,11 @@
 }
 
 -(void)save{
+}
+
+//@see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#edit-issue
+
+-(void)saveChanges{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     Session *session = [[Session findAll] objectAtIndex:0];
     
@@ -109,17 +114,69 @@
     if (request.error) {
         PBLog(@"%@", request.error);
     }
+}
 
+//@see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#new-issue
+
+-(void)createANewOnServer{
+    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Session *session = [[Session findAll] objectAtIndex:0];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v2/projects/%@/issues?private_token=%@",domain.protocol, domain.domain, self.project_id, session.private_token]];
+    PBLog(@"url %@", url);
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    
+    [request appendPostData:[self toCreateJSON]];
+    [request startSynchronous];
+    
+    if (request.error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:request.responseStatusMessage message:request.error.localizedFailureReason delegate:self cancelButtonTitle:@"Dimiss" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        PBLog(@"%@", request.error);
+    }
+}
+
+-(NSData *)toCreateJSON{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:self.project_id forKey:@"id"];
+    
+    if (self.title)
+        [dict setObject:self.title forKey:@"title"];
+    
+    if (self.descriptionString)
+        [dict setObject:self.descriptionString forKey:@"description"];
+    
+    if (self.assignee.identifier)
+        [dict setObject:self.assignee.identifier forKey:@"assignee_id"];
+    
+    if (self.milestone.identifier)
+        [dict setObject:self.milestone.identifier forKey:@"milestone_id"];
+    
+    return [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:nil];
 }
 
 -(NSData *)toJSON{
-    NSDictionary *dict = @{ @"id" : self.project_id,
-    @"issue_id": self.identifier,
-    @"title": self.title,
-    @"description": self.descriptionString,
-    @"assignee_id": self.assignee.identifier,
-    @"milestone_id": self.milestone.identifier,
-    @"closed": self.closed };
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:@"id" forKey:self.project_id];
+    [dict setObject:self.identifier forKey:@"issue_id"];
+    
+    if (self.title)
+        [dict setObject:self.title forKey:@"title"];
+
+    if (self.descriptionString)
+        [dict setObject:self.descriptionString forKey:@"description"];
+    
+    if (self.assignee.identifier)
+        [dict setObject:self.assignee.identifier forKey:@"assignee_id"];
+    
+    if (self.milestone.identifier)
+        [dict setObject:self.milestone.identifier forKey:@"milestone_id"];
+    
+    if (self.closed)
+        [dict setObject:self.closed forKey:@"closed"];
     
     return [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:nil];
 }

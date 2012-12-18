@@ -27,5 +27,7 @@
 
 +(Issue *)createAndParseJSON:(NSDictionary *)dict;
 -(void)save;
+-(void)saveChanges;
+-(void)createANewOnServer;
 
 @end
