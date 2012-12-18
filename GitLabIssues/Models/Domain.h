@@ -19,4 +19,9 @@
 @property (nonatomic, retain) NSString * protocol;
 @property (nonatomic, retain) NSNumber * remember_me;
 
+/**
+ Only used for FormKit
+ */
+-(void)save;
+
 @end
