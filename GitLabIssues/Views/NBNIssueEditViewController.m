@@ -7,31 +7,119 @@
 //
 
 #import "NBNIssueEditViewController.h"
+#import "NBNMilestoneConnection.h"
+#import "NBNUsersConnection.h"
+#import "FormKit.h"
+#import "Issue.h"
+#import "Assignee.h"
+#import "Milestone.h"
 
 @interface NBNIssueEditViewController ()
-
+@property (nonatomic, retain) FKFormModel *formModel;
+@property (nonatomic, retain) Issue *issue;
 @end
 
 @implementation NBNIssueEditViewController
+@synthesize formModel;
+@synthesize issue;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
++(NBNIssueEditViewController *)loadViewControllerWithIssue:(Issue *)_issue{
+    NBNIssueEditViewController *editViewController = [[NBNIssueEditViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    editViewController.issue = _issue;
+    
+    return editViewController;
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.title = @"Add your domain";
+    
+    self.formModel = [FKFormModel formTableModelForTableView:self.tableView navigationController:self.navigationController];
+    
+    [FKFormMapping mappingForClass:[Issue class] block:^(FKFormMapping *mapping) {
+        [mapping sectionWithTitle:@"" footer:@"" identifier:@"edit"];
+        
+        [mapping mapAttribute:@"title" title:@"Title" type:FKFormAttributeMappingTypeText];
+        [mapping mapAttribute:@"descriptionString" title:@"Description" type:FKFormAttributeMappingTypeBigText];
+        
+        [mapping mapAttribute:@"assignee"
+                        title:@"Assignee"
+                 showInPicker:YES
+            selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
+                *selectedValueIndex = 0;
+                
+                NSMutableArray *assigneNameArray = [[NSMutableArray alloc] init];
+                for (Assignee *assignee in [NBNUsersConnection loadMembersWithProjectID:[self.issue.project_id integerValue]]) {
+                    [assigneNameArray addObject:assignee.name];
+                }
+                return assigneNameArray;
+                
+                
+            } valueFromSelectBlock:^id(id value, id object, NSInteger selectedValueIndex) {
+                
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", value];
+                self.issue.assignee = [[Assignee findAllWithPredicate:predicate] objectAtIndex:0];
+                
+                [[NSManagedObjectContext MR_defaultContext] MR_save];
+                
+                return self.issue.assignee;
+            } labelValueBlock:^id(id value, id object) {
+                
+                Assignee *assignee = (Assignee *)value;
+                return assignee.name;
+            }];
+        
+        NSArray *milestoneArray = [NBNMilestoneConnection loadMilestonesWithProjectID:[self.issue.project_id integerValue]];
+        
+        if (milestoneArray.count > 0) {
+            [mapping mapAttribute:@"milestone"
+                            title:@"Milestone"
+                     showInPicker:YES
+                selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
+                    *selectedValueIndex = 0;
+                    
+                    NSMutableArray *milestoneNameArray = [[NSMutableArray alloc] init];
+                    for (Milestone *milestone in [NBNMilestoneConnection loadMilestonesWithProjectID:[self.issue.project_id integerValue]]) {
+                        [milestoneNameArray addObject:milestone.title];
+                    }
+                    return milestoneNameArray;
+                    
+                    
+                } valueFromSelectBlock:^id(id value, id object, NSInteger selectedValueIndex) {
+                    
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@", value];
+                    self.issue.milestone = [[Milestone findAllWithPredicate:predicate] objectAtIndex:0];
+                    
+                    [[NSManagedObjectContext MR_defaultContext] MR_save];
+                    
+                    return self.issue.milestone;
+                } labelValueBlock:^id(id value, id object) {
+                    
+                    Milestone *milestone = (Milestone *)value;
+                    return milestone.title;
+                }];
+        }
+        
+        
+        
+        [self.formModel registerMapping:mapping];
+        
+        [mapping buttonSave:@"Save" handler:^{
+            PBLog(@"Issue: %@", self.issue);
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [[NSManagedObjectContext MR_defaultContext] MR_save];
+        }];
+    }];
+    
+    
+    
+    [self.formModel loadFieldsWithObject:self.issue];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,83 +128,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+-(void)dealloc{
+    self.formModel = nil;
+    self.issue = nil;
     
-    // Configure the cell...
+    [formModel release];
+    [issue release];
     
-    return cell;
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    [super dealloc];
 }
 
 @end

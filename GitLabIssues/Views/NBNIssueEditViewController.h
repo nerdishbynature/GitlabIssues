@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Issue.h"
 
 @interface NBNIssueEditViewController : UITableViewController
+
+/**
+ @brief Creates ViewController with associated issue and returns it
+ @return NBNIssueEditViewController instance
+ */
++(NBNIssueEditViewController *)loadViewControllerWithIssue:(Issue *)_issue;
 
 @end
