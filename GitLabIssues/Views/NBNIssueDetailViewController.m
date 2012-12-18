@@ -7,6 +7,7 @@
 //
 
 #import "NBNIssueDetailViewController.h"
+#import "NBNIssueEditViewController.h"
 #import "NSString+NSHash.h"
 #import "ASIHTTPRequest.h"
 #import "ASIDownloadCache.h"
@@ -56,6 +57,8 @@
     [super viewDidLoad];
     
     self.navigationController.toolbarHidden = YES;
+    self.title = [NSString stringWithFormat:@"Issue #%@", self.issue.identifier];
+    
     // Do any additional setup after loading the view from its nib.
     self.assignedLabel.text = @"Assigned:";
     self.assignedDescriptionLabel.text = self.issue.assignee.name;
@@ -73,6 +76,14 @@
     self.descriptionLabel.frame = CGRectMake(self.descriptionLabel.frame.origin.x, self.descriptionLabel.frame.origin.y, expectedSize.height, self.descriptionLabel.frame.size.height);
     
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.descriptionLabel.frame.origin.y + expectedSize.height);
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editIssue)];
+}
+
+-(void)editIssue{
+    NBNIssueEditViewController *editViewController = [NBNIssueEditViewController loadViewControllerWithIssue:self.issue];
+    
+    
 }
 
 -(void)loadAuthorImage{
