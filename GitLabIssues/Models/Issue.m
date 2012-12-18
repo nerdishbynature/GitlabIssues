@@ -67,28 +67,7 @@
      "created_at": "2012-06-28T12:58:06Z"
      }*/
     
-    issue.identifier = [NSNumber numberWithInt:[[dict objectForKey:@"id"] integerValue]];
-    issue.project_id = [NSNumber numberWithInt:[[dict objectForKey:@"project_id"] integerValue]];
-    issue.title = [dict objectForKey:@"title"];
-    
-    int closedInt = [[dict valueForKey:@"closed"] integerValue];
-    issue.closed = [NSNumber numberWithInt:closedInt];
-    
-    if (![[dict objectForKey:@"description"] isMemberOfClass:[NSNull class]]) {
-        issue.descriptionString = [dict objectForKey:@"description"];
-    }
-    
-    if ([dict objectForKey:@"assignee"]) {
-        issue.assignee = [Assignee createAndParseJSON:[dict objectForKey:@"assignee"]];
-    }
-    
-    if ([dict objectForKey:@"milestone"]) {
-        issue.milestone = [Milestone createAndParseJSON:[dict objectForKey:@"milestone"] andProjectID:[issue.project_id integerValue]];
-    }
-    
-    if ([dict objectForKey:@"author"]) {
-        issue.author = [Author createAndParseJSON:[dict objectForKey:@"author"]];
-    }
+    [issue parseServerResponse:dict];
     
     return issue;
 }
@@ -119,6 +98,7 @@
 //@see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#new-issue
 
 -(void)createANewOnServer{
+    
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     Session *session = [[Session findAll] objectAtIndex:0];
     
@@ -136,6 +116,34 @@
         [alert show];
         [alert release];
         PBLog(@"%@", request.error);
+    }
+    NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
+    
+    [self parseServerResponse:responseDict];
+}
+
+-(void)parseServerResponse:(NSDictionary *)dict{
+    self.identifier = [NSNumber numberWithInt:[[dict objectForKey:@"id"] integerValue]];
+    self.project_id = [NSNumber numberWithInt:[[dict objectForKey:@"project_id"] integerValue]];
+    self.title = [dict objectForKey:@"title"];
+    
+    int closedInt = [[dict valueForKey:@"closed"] integerValue];
+    self.closed = [NSNumber numberWithInt:closedInt];
+    
+    if (![[dict objectForKey:@"description"] isMemberOfClass:[NSNull class]]) {
+        self.descriptionString = [dict objectForKey:@"description"];
+    }
+    
+    if ([dict objectForKey:@"assignee"]) {
+        self.assignee = [Assignee createAndParseJSON:[dict objectForKey:@"assignee"]];
+    }
+    
+    if ([dict objectForKey:@"milestone"]) {
+        self.milestone = [Milestone createAndParseJSON:[dict objectForKey:@"milestone"] andProjectID:[self.project_id integerValue]];
+    }
+    
+    if ([dict objectForKey:@"author"]) {
+        self.author = [Author createAndParseJSON:[dict objectForKey:@"author"]];
     }
 }
 
