@@ -80,7 +80,7 @@
     }
     
     if ([dict objectForKey:@"milestone"]) {
-        issue.milestone = [Milestone createAndParseJSON:[dict objectForKey:@"milestone"]];
+        issue.milestone = [Milestone createAndParseJSON:[dict objectForKey:@"milestone"] andProjectID:[issue.project_id integerValue]];
     }
     
     if ([dict objectForKey:@"author"]) {

@@ -23,4 +23,26 @@
 @dynamic theme_id;
 @dynamic twitter;
 
++(User *)createAndParseJSON:(NSDictionary *)dict{
+    User *user = [User createEntity];
+    /*{
+     
+     "id": 1,
+     "email": "john@example.com",
+     "name": "John Smith",
+     "blocked": false,
+     "created_at": "2012-05-23T08:00:58Z",
+     "access_level": 40
+     }*/
+    if ([(NSNull *)dict isMemberOfClass:[NSNull class]]) {
+        return user;
+    }
+    user.identifier = [NSNumber numberWithInt:[[dict objectForKey:@"id"] integerValue]];
+    user.email = [dict objectForKey:@"email"];
+    user.name = [dict objectForKey:@"name"];
+    user.blocked = [NSNumber numberWithInt:[[dict valueForKey:@"blocked"] integerValue]];
+    
+    return user;
+}
+
 @end

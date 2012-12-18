@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Project.h"
+#import "NBNIssueFilterViewController.h"
 
-@interface NBNIssuesViewController : UITableViewController <UISearchDisplayDelegate>
+@interface NBNIssuesViewController : UITableViewController <UISearchDisplayDelegate, NBNIssueFilterDelegate>
 
 +(NBNIssuesViewController *)loadWithProject:(Project *)project;
 

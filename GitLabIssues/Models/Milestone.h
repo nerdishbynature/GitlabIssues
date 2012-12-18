@@ -20,8 +20,9 @@
 @property (nonatomic, retain) NSNumber * identifier;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSSet *issue;
+@property (nonatomic, retain) NSNumber *project_id;
 
-+(Milestone *)createAndParseJSON:(NSDictionary *)dict;
++(Milestone *)createAndParseJSON:(NSDictionary *)dict andProjectID:(NSUInteger)projectID;
 
 @end
 
