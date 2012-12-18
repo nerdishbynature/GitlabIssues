@@ -46,13 +46,7 @@
     
     if ([self.domainArray count] == 0) {
 
-        GLLoginViewController *loginViewController = [[GLLoginViewController alloc] initWithStyle:UITableViewStyleGrouped];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
-        
-        [self presentViewController:navController animated:YES completion:nil];
-        
-        [loginViewController release];
-        [navController release];
+        [self logout:nil];
     }
 }
 
@@ -119,35 +113,19 @@
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    switch (indexPath.section) {
-        case 0:
-            return NO;
-            break;
-        case 1:
-            return YES;
-            break;
-        default:
-            return NO;
-            break;
-    }
-}
-
-
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [[NSManagedObjectContext MR_defaultContext] delete:[self.domainArray objectAtIndex:indexPath.row]];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }      
+    return NO;
 }
                              
 #pragma mark - IBActions
                              
 -(void)logout:(id)sender{
+    GLLoginViewController *loginViewController = [[GLLoginViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
     
+    [self presentViewController:navController animated:YES completion:nil];
+    
+    [loginViewController release];
+    [navController release];
 }
 
 #pragma mark - Table view delegate
