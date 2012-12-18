@@ -73,7 +73,7 @@
     self.descriptionLabel.text = self.issue.descriptionString;
     
     CGSize expectedSize = [self.descriptionLabel.text sizeWithFont:self.descriptionLabel.font constrainedToSize:CGSizeMake(self.descriptionLabel.frame.size.width, MAXFLOAT)];
-    self.descriptionLabel.frame = CGRectMake(self.descriptionLabel.frame.origin.x, self.descriptionLabel.frame.origin.y, expectedSize.height, self.descriptionLabel.frame.size.height);
+    self.descriptionLabel.frame = CGRectMake(self.descriptionLabel.frame.origin.x, self.descriptionLabel.frame.origin.y, self.descriptionLabel.frame.size.width, expectedSize.height);
     
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.descriptionLabel.frame.origin.y + expectedSize.height);
     
@@ -82,8 +82,14 @@
 
 -(void)editIssue{
     NBNIssueEditViewController *editViewController = [NBNIssueEditViewController loadViewControllerWithIssue:self.issue];
+    editViewController.editMode = YES;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:editViewController];
+    navController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+
+    [self presentViewController:navController animated:YES completion:nil];
     
-    
+    [editViewController release];
+    [navController release];
 }
 
 -(void)loadAuthorImage{
