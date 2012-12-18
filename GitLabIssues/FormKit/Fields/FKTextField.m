@@ -33,7 +33,7 @@
         _textField = [[UITextField alloc] init];
         
         self.textField.textAlignment = NSTextAlignmentRight;
-        
+        self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         [self.textField addTarget:self
                            action:@selector(textFieldDidChangeValue)
                  forControlEvents:UIControlEventAllEditingEvents];
