@@ -10,7 +10,6 @@
 #import "FormKit.h"
 #import "Domain.h"
 #import "Session.h"
-#import "ASIFormDataRequest.h"
 
 @interface GLLoginViewController ()
 
@@ -71,8 +70,8 @@
             } labelValueBlock:^id(id value, id object) {
                 return value;
             }];
-        [mapping mapAttribute:@"domain" title:@"Domain" type:FKFormAttributeMappingTypeText];
-        [mapping mapAttribute:@"email" title:@"Email" type:FKFormAttributeMappingTypeText];
+        [mapping mapAttribute:@"domain" title:@"Domain" type:FKFormAttributeMappingTypeText keyboardType:UIKeyboardTypeURL];
+        [mapping mapAttribute:@"email" title:@"Email" type:FKFormAttributeMappingTypeText keyboardType:UIKeyboardTypeEmailAddress];
         [mapping mapAttribute:@"password" title:@"Password" type:FKFormAttributeMappingTypePassword];
 
         [self.formModel registerMapping:mapping];
@@ -80,8 +79,17 @@
         [mapping buttonSave:@"Connect" handler:^{
             PBLog(@"save pressed");
             PBLog(@"Domain: %@", self.domain);
-            [self dismissViewControllerAnimated:YES completion:nil];
-            [[NSManagedObjectContext MR_defaultContext] MR_save];
+            
+            Session *session = [Session generateSession];
+            
+            if (session.private_token) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+                [[NSManagedObjectContext MR_defaultContext] MR_save];
+            } else{
+                UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Something went wrong, please check your input." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+                [view show];
+            }
+            
         }];
     }];
     
