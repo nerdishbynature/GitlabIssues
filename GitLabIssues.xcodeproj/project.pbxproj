@@ -122,6 +122,7 @@
 		979C655D1680601400B3E2D5 /* NSObject+FKFormAttributeMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C65431680601400B3E2D5 /* NSObject+FKFormAttributeMapping.m */; };
 		979C655E1680601400B3E2D5 /* UITableViewCell+FormKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C65451680601400B3E2D5 /* UITableViewCell+FormKit.m */; };
 		979C655F1680601400B3E2D5 /* UIView+FormKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C65471680601400B3E2D5 /* UIView+FormKit.m */; };
+		979C65641680608800B3E2D5 /* GLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C65631680608800B3E2D5 /* GLLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -356,6 +357,8 @@
 		979C65451680601400B3E2D5 /* UITableViewCell+FormKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+FormKit.m"; sourceTree = "<group>"; };
 		979C65461680601400B3E2D5 /* UIView+FormKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FormKit.h"; sourceTree = "<group>"; };
 		979C65471680601400B3E2D5 /* UIView+FormKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FormKit.m"; sourceTree = "<group>"; };
+		979C65621680608800B3E2D5 /* GLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLLoginViewController.h; sourceTree = "<group>"; };
+		979C65631680608800B3E2D5 /* GLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -427,6 +430,7 @@
 			children = (
 				9710B5B7167E2C4500F26DE2 /* NBNAppDelegate.h */,
 				9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */,
+				979C65611680606500B3E2D5 /* Login */,
 				979C64F2167F342700B3E2D5 /* Connections */,
 				979C64F9167F520700B3E2D5 /* FilterComponents */,
 				9713925B167E8E0500AB2E39 /* FindRepos */,
@@ -830,6 +834,15 @@
 			path = Fields;
 			sourceTree = "<group>";
 		};
+		979C65611680606500B3E2D5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				979C65621680608800B3E2D5 /* GLLoginViewController.h */,
+				979C65631680608800B3E2D5 /* GLLoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1036,6 +1049,7 @@
 				979C655D1680601400B3E2D5 /* NSObject+FKFormAttributeMapping.m in Sources */,
 				979C655E1680601400B3E2D5 /* UITableViewCell+FormKit.m in Sources */,
 				979C655F1680601400B3E2D5 /* UIView+FormKit.m in Sources */,
+				979C65641680608800B3E2D5 /* GLLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
