@@ -18,4 +18,8 @@
 @dynamic protocol;
 @dynamic remember_me;
 
+-(void)save{
+
+}
+
 @end

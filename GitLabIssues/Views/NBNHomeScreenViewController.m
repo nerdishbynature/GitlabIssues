@@ -10,6 +10,7 @@
 #import "NBNFavoritesViewController.h"
 #import "NBNProjectsViewController.h"
 #import "NBNFindReposViewController.h"
+#import "GLLoginViewController.h"
 #import "Domain.h"
 
 @interface NBNHomeScreenViewController ()
@@ -42,6 +43,17 @@
     [item release];
     
     self.domainArray = [Domain findAll];
+    
+    if ([self.domainArray count] == 0) {
+
+        GLLoginViewController *loginViewController = [[GLLoginViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+        
+        [self presentViewController:navController animated:YES completion:nil];
+        
+        [loginViewController release];
+        [navController release];
+    }
 }
 
 - (void)didReceiveMemoryWarning
