@@ -25,9 +25,28 @@
 @property (nonatomic, retain) Author *author;
 @property (nonatomic, retain) Milestone *milestone;
 
+/**
+ @brief This method is used for parsing the returned JSON from the API
+ @param dict The JSON dictionary
+ @return Initialized User object
+ */
 +(Issue *)createAndParseJSON:(NSDictionary *)dict;
+
+/**
+ @brief Only used for FormKit
+ */
 -(void)save;
+
+/**
+ @brief Saves object in local database and PUTs the new data on the Server using the GitLab API
+ @see http://www.github.com/gitlabhq/gitlabhq/docs/api/
+ */
 -(void)saveChanges;
+
+/**
+ @brief Saves object in local database and POSTs the new data on the Server using the GitLab API
+ @see http://www.github.com/gitlabhq/gitlabhq/docs/api/
+ */
 -(void)createANewOnServer;
 
 @end

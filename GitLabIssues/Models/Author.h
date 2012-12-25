@@ -24,6 +24,12 @@
 @property (nonatomic, retain) Note *notes;
 @property (nonatomic, retain) Snippet *snippets;
 
+/**
+ @brief This method is used for parsing the returned JSON from the API
+ @param dict The JSON dictionary
+ @return Initialized User object
+ @see http://www.github.com/gitlabhq/gitlabhq/docs/api/
+ */
 +(Author *)createAndParseJSON:(NSDictionary *)dict;
 
 @end

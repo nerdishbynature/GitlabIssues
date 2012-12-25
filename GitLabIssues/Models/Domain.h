@@ -20,7 +20,7 @@
 @property (nonatomic, retain) NSNumber * remember_me;
 
 /**
- Only used for FormKit
+ @brief Only used for FormKit
  */
 -(void)save;
 
