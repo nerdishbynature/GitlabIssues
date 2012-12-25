@@ -14,7 +14,7 @@
  @brief Loads all member for the specified project.
  @param projectID The gitlab project identifier
  @return Returns an array containing all parsed users.
- @see http://www.github.com/gitlabhq/gitlabhq/docs/api/
+ @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/users.md#list-users
  */
 +(NSArray *)loadMembersWithProjectID:(NSUInteger)project_id;
 

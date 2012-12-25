@@ -14,7 +14,7 @@
  @brief Loads all Labels for the specified project.
  @param projectID The gitlab project identifier
  @param block The completion Block which is called on success
- @see http://www.github.com/gitlabhq/gitlabhq/docs/api/
+ @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/notes.md#list-issue-notes
  */
 +(void)loadAllLabelsForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block;
 
