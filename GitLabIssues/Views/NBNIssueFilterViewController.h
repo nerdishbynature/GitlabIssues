@@ -18,13 +18,24 @@ extern NSString *const kKeySortIssuesFilter;
 
 @protocol NBNIssueFilterDelegate <NSObject>
 
+/**
+ @brief Used to tell the associated view controller which filter to apply
+ @param filterDictionary is a dictionary containing the filter settings
+ */
 -(void)applyFilter:(NSDictionary *)filterDictionary;
 
 @end
 
 @interface NBNIssueFilterViewController : UIViewController <NBNMilestoneListDelegate>
 
+/**
+ @brief Used to tell the associated view controller which filter to apply
+ */
 @property (nonatomic, assign) id<NBNIssueFilterDelegate> delegate;
+
+/**
+ @brief Project used fot this ViewController
+ */
 @property (nonatomic, retain) Project *project;
 
 @end

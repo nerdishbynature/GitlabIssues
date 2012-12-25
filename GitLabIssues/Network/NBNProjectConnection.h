@@ -15,6 +15,12 @@
 
 @interface NBNProjectConnection : NSObject
 
+/**
+ @brief Loads all project for the specified domain object.
+ @param domain The domain object
+ @param block The completion Block which is called on success
+ @see http://www.github.com/gitlabhq/gitlabhq/docs/api/
+ */
 +(void)loadProjectsForDomain:(Domain *)domain onSuccess:(void (^)(void))block;
 
 @end

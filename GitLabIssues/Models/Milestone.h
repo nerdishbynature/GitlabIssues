@@ -22,6 +22,15 @@
 @property (nonatomic, retain) NSSet *issue;
 @property (nonatomic, retain) NSNumber *project_id;
 
+/**
+ @brief This method is used for parsing the returned JSON from the API
+ @param dict The JSON dictionary
+ @param projectID The associated gitlab project identifier. 
+ This is used for creating the fetch request and only load the related milestones for a project. This parameter is not returned via the API, sadly.
+ @return Initialized User object
+ @see http://www.github.com/gitlabhq/gitlabhq/docs/api/
+ @discussion Maybe someone should do a Issue on the GitlabHQ project
+ */
 +(Milestone *)createAndParseJSON:(NSDictionary *)dict andProjectID:(NSUInteger)projectID;
 
 @end

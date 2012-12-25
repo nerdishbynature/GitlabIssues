@@ -11,14 +11,29 @@
 
 @protocol NBNMilestoneListDelegate <NSObject>
 
+/**
+ @brief Called, when a milestone is selected. This delegate method is implemented in NBNIssueFilterViewController 
+ to get additional filter options.
+ @param selectedMilestone The milestone object which is selected
+ */
 -(void)didSelectMilestone:(Milestone *)selectedMilestone;
 
 @end
 
 @interface NBNMilestonesListViewController : UITableViewController <UISearchDisplayDelegate>
 
+/**
+ @brief Called, when a milestone is selected. This delegate method is implemented in NBNIssueFilterViewController
+ to get additional filter options.
+ */
 @property (nonatomic, assign) id<NBNMilestoneListDelegate> delegate;
 
+/**
+ @brief Method sets up the view controller and returns the allocated and initialized object.
+ This method is an shortcut to create the view controller and don't forget to set anything.
+ @param _projectID The gitlab project identifier used to initialize the view controller.
+ @return Returns an allocated and initialized view controller object.
+ */
 +(NBNMilestonesListViewController *)loadControllerWithProjectID:(NSUInteger)_projectID;
 
 @end

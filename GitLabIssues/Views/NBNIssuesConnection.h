@@ -11,6 +11,12 @@
 
 @interface NBNIssuesConnection : NSObject
 
+/**
+ @brief Loads all issues for the specified project.
+ @param project The project object
+ @param block The completion Block which is called on success
+ @see http://www.github.com/gitlabhq/gitlabhq/docs/api/
+ */
 +(void)loadIssuesForProject:(Project *)project onSuccess:(void (^)(void))block;
 
 @end

@@ -28,6 +28,11 @@
 @property (nonatomic, retain) Owner *owner;
 @property (nonatomic, retain) NSNumber * isFavorite;
 
+/**
+ @brief This method is used for parsing the returned JSON from the API
+ @param dict The JSON dictionary
+ @return Initialized Project object
+ */
 +(Project *)createAndParseJSON:(NSDictionary *)json;
 
 @end
