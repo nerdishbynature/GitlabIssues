@@ -41,6 +41,11 @@
             if ([[Issue MR_findAllWithPredicate:issueFinder] count] == 0) {
             
                 [Issue createAndParseJSON:dict];
+            } else if ([[Issue MR_findAllWithPredicate:issueFinder] count] == 1){
+                
+                Issue *issue = [[Issue MR_findAllWithPredicate:issueFinder] objectAtIndex:0];
+                [issue parseServerResponse:dict];
+                
             }
         }
         block();
