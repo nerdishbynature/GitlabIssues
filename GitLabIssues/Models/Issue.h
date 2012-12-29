@@ -49,4 +49,10 @@
  */
 -(void)createANewOnServer;
 
+/**
+ @brief Catches the object and updates the data
+ @see http://www.github.com/gitlabhq/gitlabhq/docs/api/
+ */
+-(void)parseServerResponse:(NSDictionary *)dict;
+
 @end
