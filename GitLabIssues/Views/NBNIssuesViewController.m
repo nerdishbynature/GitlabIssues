@@ -79,7 +79,7 @@
 
 -(void)refreshIssues{
     [NBNIssuesConnection loadIssuesForProject:self.project onSuccess:^{
-        self.issues = [[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] orderBy:@"identifier"] toArray];
+        self.issues = [[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] where:@"closed == 0"] orderBy:@"identifier"] toArray];
         [self.tableView reloadData];
     }];
 }
