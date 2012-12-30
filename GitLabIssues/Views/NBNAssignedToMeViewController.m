@@ -31,10 +31,9 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
     Session *session = [[Session findAll] objectAtIndex:0];
     self.projects = [[NSMutableArray alloc] init];
     
@@ -51,7 +50,7 @@
     
     [self.tableView reloadData];
     
-    self.title = @"Assigned To Me";
+    self.tabBarController.title = @"Assigned To Me";
 }
 
 - (void)didReceiveMemoryWarning

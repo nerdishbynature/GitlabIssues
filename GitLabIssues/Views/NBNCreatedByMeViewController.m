@@ -22,9 +22,9 @@
 @implementation NBNCreatedByMeViewController
 @synthesize projects;
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
     Session *session = [[Session findAll] objectAtIndex:0];
     
     
@@ -43,7 +43,7 @@
     
     [self.tableView reloadData];
     
-    self.title = @"Created By Me";
+    self.tabBarController.title = @"Created By Me";
 }
 
 - (void)didReceiveMemoryWarning
