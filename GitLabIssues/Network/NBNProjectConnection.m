@@ -16,7 +16,7 @@
     
     Session *session = [Session generateSession];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v2/projects?private_token=%@", domain.protocol, domain.domain, session.private_token]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects?private_token=%@", domain.protocol, domain.domain, session.private_token]];
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     
     [request setCompletionBlock:^{
@@ -45,7 +45,7 @@
     Session *session = [[Session findAll] objectAtIndex:0];
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v2/projects/%@/members?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/members?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token]];
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     
     [request setCompletionBlock:^{

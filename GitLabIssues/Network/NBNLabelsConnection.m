@@ -26,7 +26,7 @@
     }
     
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v2/projects/%i/labels?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/labels?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token]];
     PBLog(@"%@", url);
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     
