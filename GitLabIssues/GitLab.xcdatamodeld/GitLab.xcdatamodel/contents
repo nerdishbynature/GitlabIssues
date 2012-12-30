@@ -45,6 +45,7 @@
         <relationship name="assignee" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Assignee" inverseName="issues" inverseEntity="Assignee" syncable="YES"/>
         <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Author" inverseName="issues" inverseEntity="Author" syncable="YES"/>
         <relationship name="milestone" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Milestone" inverseName="issue" inverseEntity="Milestone" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="issue" inverseEntity="Note" syncable="YES"/>
     </entity>
     <entity name="MergeRequest" representedClassName="MergeRequest" syncable="YES">
         <attribute name="closed" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -72,6 +73,7 @@
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Author" inverseName="notes" inverseEntity="Author" syncable="YES"/>
+        <relationship name="issue" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Issue" inverseName="notes" inverseEntity="Issue" syncable="YES"/>
     </entity>
     <entity name="Owner" representedClassName="Owner" syncable="YES">
         <attribute name="blocked" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -137,10 +139,10 @@
         <element name="Author" positionX="304" positionY="360" width="128" height="195"/>
         <element name="Comment" positionX="439" positionY="252" width="128" height="75"/>
         <element name="Domain" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="Issue" positionX="-261" positionY="33" width="128" height="210"/>
+        <element name="Issue" positionX="-270" positionY="-18" width="128" height="223"/>
         <element name="MergeRequest" positionX="394" positionY="0" width="128" height="180"/>
         <element name="Milestone" positionX="-36" positionY="-24" width="128" height="163"/>
-        <element name="Note" positionX="-198" positionY="387" width="128" height="105"/>
+        <element name="Note" positionX="-198" positionY="387" width="128" height="118"/>
         <element name="Owner" positionX="124" positionY="519" width="128" height="135"/>
         <element name="Project" positionX="-371" positionY="405" width="128" height="253"/>
         <element name="Session" positionX="-585" positionY="315" width="128" height="135"/>

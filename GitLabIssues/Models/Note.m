@@ -16,6 +16,7 @@
 @dynamic created_at;
 @dynamic identifier;
 @dynamic author;
+@synthesize issue;
 
 +(Note *)createAndParseJSON:(NSDictionary *)dict{
     Note *note = [Note createEntity];

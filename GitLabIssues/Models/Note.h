@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 
 @class Author;
+@class Issue;
 
 @interface Note : NSManagedObject
 
@@ -17,6 +18,7 @@
 @property (nonatomic, retain) NSDate * created_at;
 @property (nonatomic, retain) NSNumber * identifier;
 @property (nonatomic, retain) Author *author;
+@property (nonatomic, retain) Issue *issue;
 
 +(Note *)createAndParseJSON:(NSDictionary *)dict;
 
