@@ -34,6 +34,11 @@
     [super viewDidLoad];
 
     self.favoriteArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"isFavorite == 1"] toArray];
+    
+    for (Project *project in self.favoriteArray) {
+        PBLog(@"%@ isFavorite %@",project.name, project.isFavorite);
+    }
+    
     [self.tableView reloadData];
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;

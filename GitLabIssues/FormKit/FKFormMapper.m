@@ -496,7 +496,7 @@
         value = [self.object valueForKeyPath:keyPath];
     }
     @catch (NSException *exception) {
-        NSLog(@"Error FormKitFormMapping keyPath %@ doesn't exist for object name %@",
+        PBLog(@"Error FormKitFormMapping keyPath %@ doesn't exist for object name %@",
               keyPath, NSStringFromClass([self.object class]));
         
         value = nil;

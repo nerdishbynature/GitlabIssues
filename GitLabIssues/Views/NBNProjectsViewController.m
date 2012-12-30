@@ -36,9 +36,17 @@
     self.title = @"Projects";
 
     [NBNProjectConnection loadProjectsForDomain:[[Domain findAll] objectAtIndex:0] onSuccess:^{
-        self.projectsArray = [Project findAllSortedBy:@"identifier" ascending:YES];
+        self.projectsArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
         [self.tableView reloadData];
     }];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    for (Project *project in self.projectsArray) {
+        PBLog(@"%@ isFavorite %@",project.name, project.isFavorite);
+    }
 }
 
 - (void)didReceiveMemoryWarning

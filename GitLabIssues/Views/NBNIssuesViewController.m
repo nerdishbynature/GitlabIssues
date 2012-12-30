@@ -13,6 +13,7 @@
 #import "NBNIssueDetailViewController.h"
 #import "NBNIssueFilterViewController.h"
 #import "NBNIssueEditViewController.h"
+#import "NBNIssueCell.h"
 
 @interface NBNIssuesViewController ()
 
@@ -104,8 +105,12 @@
     self.title = self.project.name;
     
     
-        
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)];
+    if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Untar" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)];
+    } else{
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)];
+    }
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -152,11 +157,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NBNIssueCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell = [NBNIssueCell loadCellFromNib];
     }
     
     Issue *issue;
@@ -166,8 +170,7 @@
         issue = [self.issues objectAtIndex:indexPath.row];
     }
 
-    cell.textLabel.text = issue.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Created by %@", issue.author.name];
+    [cell configureCellWithIssue:issue];
     
     return cell;
 }
@@ -187,6 +190,24 @@
     [self.navigationController pushViewController:issueController animated:YES];
     
     [issueController release];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NBNIssueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    if (!cell) {
+        cell = [NBNIssueCell loadCellFromNib];
+    }
+    
+    Issue *issue;
+    if (tableView == self.searchDisplayController.searchResultsTableView){
+        issue = [self.issuesSearchResults objectAtIndex:indexPath.row];
+    } else{
+        issue = [self.issues objectAtIndex:indexPath.row];
+    }
+    
+    [cell configureCellWithIssue:issue];
+    return [cell getCalculatedHeight:issue];
 }
 
 #pragma mark - Search
@@ -211,8 +232,10 @@
 -(void)starThisProject{
     if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
         self.project.isFavorite = [NSNumber numberWithBool:NO];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)];
     } else{
         self.project.isFavorite = [NSNumber numberWithBool:YES];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Unstar" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)];
     }
 }
 

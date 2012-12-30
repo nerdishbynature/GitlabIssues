@@ -88,6 +88,8 @@
 		97328604167E55DD00CFACC2 /* PBLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B60A167E2DAF00F26DE2 /* PBLog.m */; };
 		97328607167E5D5D00CFACC2 /* NBNIssuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97328606167E5D5D00CFACC2 /* NBNIssuesViewController.m */; };
 		9732860B167E5F1D00CFACC2 /* NBNIssuesConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9732860A167E5F1D00CFACC2 /* NBNIssuesConnection.m */; };
+		97860A5016903C8F003D2092 /* NBNIssueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97860A4F16903C8F003D2092 /* NBNIssueCell.m */; };
+		97860A5216903CAC003D2092 /* NBNIssueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97860A5116903CAC003D2092 /* NBNIssueCell.xib */; };
 		979C64DE167F0B9C00B3E2D5 /* NBNIssueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64DC167F0B9B00B3E2D5 /* NBNIssueDetailViewController.m */; };
 		979C64DF167F0B9C00B3E2D5 /* NBNIssueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 979C64DD167F0B9C00B3E2D5 /* NBNIssueDetailViewController.xib */; };
 		979C64E6167F10F300B3E2D5 /* NSData+NSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64E3167F10F300B3E2D5 /* NSData+NSHash.m */; };
@@ -307,6 +309,9 @@
 		97328606167E5D5D00CFACC2 /* NBNIssuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssuesViewController.m; path = Views/NBNIssuesViewController.m; sourceTree = "<group>"; };
 		97328609167E5F1D00CFACC2 /* NBNIssuesConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssuesConnection.h; path = Views/NBNIssuesConnection.h; sourceTree = "<group>"; };
 		9732860A167E5F1D00CFACC2 /* NBNIssuesConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssuesConnection.m; path = Views/NBNIssuesConnection.m; sourceTree = "<group>"; };
+		97860A4E16903C8F003D2092 /* NBNIssueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssueCell.h; path = Views/NBNIssueCell.h; sourceTree = "<group>"; };
+		97860A4F16903C8F003D2092 /* NBNIssueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssueCell.m; path = Views/NBNIssueCell.m; sourceTree = "<group>"; };
+		97860A5116903CAC003D2092 /* NBNIssueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NBNIssueCell.xib; path = Views/NBNIssueCell.xib; sourceTree = "<group>"; };
 		979C64DB167F0B9B00B3E2D5 /* NBNIssueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssueDetailViewController.h; path = Views/NBNIssueDetailViewController.h; sourceTree = "<group>"; };
 		979C64DC167F0B9B00B3E2D5 /* NBNIssueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssueDetailViewController.m; path = Views/NBNIssueDetailViewController.m; sourceTree = "<group>"; };
 		979C64DD167F0B9C00B3E2D5 /* NBNIssueDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NBNIssueDetailViewController.xib; path = Views/NBNIssueDetailViewController.xib; sourceTree = "<group>"; };
@@ -761,6 +766,7 @@
 		97328608167E5D6200CFACC2 /* Issues */ = {
 			isa = PBXGroup;
 			children = (
+				97860A4C16903C6B003D2092 /* Cells */,
 				97328605167E5D5D00CFACC2 /* NBNIssuesViewController.h */,
 				97328606167E5D5D00CFACC2 /* NBNIssuesViewController.m */,
 				979C64DB167F0B9B00B3E2D5 /* NBNIssueDetailViewController.h */,
@@ -775,6 +781,16 @@
 				979C65871680678400B3E2D5 /* NBNIssueEditViewController.m */,
 			);
 			name = Issues;
+			sourceTree = "<group>";
+		};
+		97860A4C16903C6B003D2092 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				97860A4E16903C8F003D2092 /* NBNIssueCell.h */,
+				97860A4F16903C8F003D2092 /* NBNIssueCell.m */,
+				97860A5116903CAC003D2092 /* NBNIssueCell.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		979C64E1167F10F300B3E2D5 /* NSHash */ = {
@@ -1018,6 +1034,7 @@
 				9710B5BF167E2C4500F26DE2 /* Default-568h@2x.png in Resources */,
 				979C64DF167F0B9C00B3E2D5 /* NBNIssueDetailViewController.xib in Resources */,
 				979C64F0167F187A00B3E2D5 /* NBNIssueFilterViewController.xib in Resources */,
+				97860A5216903CAC003D2092 /* NBNIssueCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1157,6 +1174,7 @@
 				979C6581168062A800B3E2D5 /* BWSelectViewController.m in Sources */,
 				979C65881680678400B3E2D5 /* NBNIssueEditViewController.m in Sources */,
 				979C658C16806A0800B3E2D5 /* NBNUsersConnection.m in Sources */,
+				97860A5016903C8F003D2092 /* NBNIssueCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

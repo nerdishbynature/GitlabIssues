@@ -28,7 +28,7 @@
  */
 
 /*
- PBLog is an NSLog() alternative and was created for being able to log events in an non-debug build state (e.g. AdHoc).
+ PBLog is an PBLog() alternative and was created for being able to log events in an non-debug build state (e.g. AdHoc).
  Please consider README to get further setup instructions.
  Feel free to follow me on Twitter @piet_nbn .
  */
