@@ -22,7 +22,7 @@
 /**
  @brief Generates a new session using the API
  @return Initialized Session object
- @see http://www.github.com/gitlabhq/gitlabhq/docs/api/
+ @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/session.md
  */
 +(Session *)generateSession;
 

@@ -29,6 +29,7 @@
  @brief This method is used for parsing the returned JSON from the API
  @param dict The JSON dictionary
  @return Initialized User object
+ @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#single-issue
  */
 +(Issue *)createAndParseJSON:(NSDictionary *)dict;
 
@@ -39,19 +40,19 @@
 
 /**
  @brief Saves object in local database and PUTs the new data on the Server using the GitLab API
- @see http://www.github.com/gitlabhq/gitlabhq/docs/api/
+ @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#edit-issue
  */
 -(void)saveChanges;
 
 /**
  @brief Saves object in local database and POSTs the new data on the Server using the GitLab API
- @see http://www.github.com/gitlabhq/gitlabhq/docs/api/
+ @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#new-issue
  */
 -(void)createANewOnServer;
 
 /**
  @brief Catches the object and updates the data
- @see http://www.github.com/gitlabhq/gitlabhq/docs/api/
+ @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#single-issue
  */
 -(void)parseServerResponse:(NSDictionary *)dict;
 

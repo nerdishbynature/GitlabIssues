@@ -25,7 +25,7 @@
  @brief This method is used for parsing the returned JSON from the API
  @param dict The JSON dictionary
  @return Initialized User object
- @see http://www.github.com/gitlabhq/gitlabhq/docs/api/
+ @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md
  */
 +(Assignee *)createAndParseJSON:(NSDictionary *)dict;
 

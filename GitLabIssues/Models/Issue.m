@@ -37,30 +37,30 @@
      "title": "Add user settings",
      "description": "",
      "labels": [
-     "feature"
+         "feature"
      ],
      "milestone": {
-     "id": 1,
-     "title": "v1.0",
-     "description": "",
-     "due_date": "2012-07-20",
-     "closed": false,
-     "updated_at": "2012-07-04T13:42:48Z",
-     "created_at": "2012-07-04T13:42:48Z"
+         "id": 1,
+         "title": "v1.0",
+         "description": "",
+         "due_date": "2012-07-20",
+         "closed": false,
+         "updated_at": "2012-07-04T13:42:48Z",
+         "created_at": "2012-07-04T13:42:48Z"
      },
      "assignee": {
-     "id": 2,
-     "email": "jack@example.com",
-     "name": "Jack Smith",
-     "blocked": false,
-     "created_at": "2012-05-23T08:01:01Z"
+         "id": 2,
+         "email": "jack@example.com",
+         "name": "Jack Smith",
+         "blocked": false,
+         "created_at": "2012-05-23T08:01:01Z"
      },
      "author": {
-     "id": 1,
-     "email": "john@example.com",
-     "name": "John Smith",
-     "blocked": false,
-     "created_at": "2012-05-23T08:00:58Z"
+         "id": 1,
+         "email": "john@example.com",
+         "name": "John Smith",
+         "blocked": false,
+         "created_at": "2012-05-23T08:00:58Z"
      },
      "closed": false,
      "updated_at": "2012-07-12T13:43:19Z",
@@ -151,8 +151,6 @@
     
     self.created_at = [formatter dateFromString:[dict objectForKey:@"created_at"]];
     self.updated_at = [formatter dateFromString:[dict objectForKey:@"updated_at"]];
-    
-    PBLog(@"created %@ updated %@", self.created_at, self.updated_at);
 }
 
 -(NSData *)toCreateJSON{
