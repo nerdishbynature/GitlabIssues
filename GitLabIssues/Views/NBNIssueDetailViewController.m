@@ -94,7 +94,7 @@
 
 -(void)loadAuthorImage{
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [self.issue.author.email MD5]]]];
-    PBLog(@"%@", request.url);
+
     [request setCompletionBlock:^{
         self.authorImage.image = [UIImage imageWithData:request.responseData];
     }];
