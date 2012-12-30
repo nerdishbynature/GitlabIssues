@@ -18,4 +18,8 @@
 @property (nonatomic, retain) NSNumber * identifier;
 @property (nonatomic, retain) Author *author;
 
++(Note *)createAndParseJSON:(NSDictionary *)dict;
+
+-(void)parseServerResponse:(NSDictionary *)dict;
+
 @end
