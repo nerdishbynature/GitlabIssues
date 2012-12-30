@@ -8,6 +8,7 @@
 
 #import "NBNIssueDetailViewController.h"
 #import "NBNIssueEditViewController.h"
+#import "NBNIssuesConnection.h"
 #import "NSString+NSHash.h"
 #import "ASIHTTPRequest.h"
 #import "ASIDownloadCache.h"
@@ -78,6 +79,10 @@
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.descriptionLabel.frame.origin.y + expectedSize.height);
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editIssue)];
+    
+    [NBNIssuesConnection loadNotesForIssue:self.issue onSuccess:^{
+        
+    }];
 }
 
 -(void)editIssue{
