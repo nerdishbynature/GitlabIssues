@@ -84,8 +84,6 @@
         [formatter release];
         
     }
-    
-    PBLog(@"self.dateLabel.text %@", self.dateLabel.text);
 
     [self calculateSizes];
     
