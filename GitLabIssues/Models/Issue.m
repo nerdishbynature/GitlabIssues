@@ -145,6 +145,14 @@
     if ([dict objectForKey:@"author"]) {
         self.author = [Author createAndParseJSON:[dict objectForKey:@"author"]];
     }
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZ"];
+    
+    self.created_at = [formatter dateFromString:[dict objectForKey:@"created_at"]];
+    self.updated_at = [formatter dateFromString:[dict objectForKey:@"updated_at"]];
+    
+    PBLog(@"created %@ updated %@", self.created_at, self.updated_at);
 }
 
 -(NSData *)toCreateJSON{
