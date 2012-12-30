@@ -9,6 +9,7 @@
 #import "NBNFavoritesViewController.h"
 #import "NBNIssuesViewController.h"
 #import "Project.h"
+#import "NBNIssueFilterViewController.h"
 
 @interface NBNFavoritesViewController ()
 
@@ -73,7 +74,7 @@
     // Configure the cell...
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     }
     
     Project *project = [self.favoriteArray objectAtIndex:indexPath.row];
@@ -82,6 +83,13 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    NBNIssueFilterViewController *issueFilterViewController = [[NBNIssueFilterViewController alloc] initWithNibName:@"NBNIssueFilterViewController" bundle:nil];
+    issueFilterViewController.delegate = self;
+    issueFilterViewController.project = [self.favoriteArray objectAtIndex:indexPath.row];
+    
+    [self.navigationController pushViewController:issueFilterViewController animated:YES];
+}
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,6 +142,12 @@
         
         [self.tableView setEditing:YES animated:YES];
     }
+}
+
+#pragma mark - FilterDelegate
+
+-(void)applyFilter:(NSDictionary *)filterDictionary{
+    PBLog(@"WARNING - Filter is getting ignored");
 }
 
 @end

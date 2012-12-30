@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NBNIssueFilterViewController.h"
 
-@interface NBNFavoritesViewController : UITableViewController
+@interface NBNFavoritesViewController : UITableViewController <NBNIssueFilterDelegate>
 
 @end

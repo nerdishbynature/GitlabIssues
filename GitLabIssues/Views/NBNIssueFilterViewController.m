@@ -107,14 +107,24 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 }
 
 -(void)cancel:(id)sender{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 -(void)apply:(id)sender{
-    if (self.delegate) {
+    if ([self.delegate respondsToSelector:@selector(applyFilter:)]) {
         [self.delegate applyFilter:self.filterDict];
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+
 }
 
 - (void)dealloc {
