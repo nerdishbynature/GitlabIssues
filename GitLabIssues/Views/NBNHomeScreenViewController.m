@@ -10,6 +10,7 @@
 #import "NBNFavoritesViewController.h"
 #import "NBNProjectsViewController.h"
 #import "NBNFindReposViewController.h"
+#import "NBNDashboardViewController.h"
 #import "GLLoginViewController.h"
 #import "Domain.h"
 
@@ -140,6 +141,11 @@
             [self.navigationController pushViewController:favorites animated:YES];
             
             [favorites release];
+        } else if (indexPath.row == 1){ // Find Repos
+            NBNDashboardViewController *dashboard = [[NBNDashboardViewController alloc] initWithNibName:@"NBNDashboardViewController" bundle:nil];
+            [self.navigationController pushViewController:dashboard animated:YES];
+            
+            [dashboard release];
         } else if (indexPath.row == 2){ // Find Repos
             NBNFindReposViewController *findRepos = [[NBNFindReposViewController alloc] initWithStyle:UITableViewStyleGrouped];
             [self.navigationController pushViewController:findRepos animated:YES];

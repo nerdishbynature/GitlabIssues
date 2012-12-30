@@ -90,6 +90,9 @@
 		9732860B167E5F1D00CFACC2 /* NBNIssuesConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9732860A167E5F1D00CFACC2 /* NBNIssuesConnection.m */; };
 		97860A5016903C8F003D2092 /* NBNIssueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97860A4F16903C8F003D2092 /* NBNIssueCell.m */; };
 		97860A5216903CAC003D2092 /* NBNIssueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97860A5116903CAC003D2092 /* NBNIssueCell.xib */; };
+		97860A5B16909B4E003D2092 /* NBNCreatedByMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97860A5A16909B4E003D2092 /* NBNCreatedByMeViewController.m */; };
+		97860A5E16909B65003D2092 /* NBNAssignedToMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97860A5D16909B65003D2092 /* NBNAssignedToMeViewController.m */; };
+		97860A6216909C15003D2092 /* NBNDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97860A6016909C15003D2092 /* NBNDashboardViewController.m */; };
 		979C64DE167F0B9C00B3E2D5 /* NBNIssueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64DC167F0B9B00B3E2D5 /* NBNIssueDetailViewController.m */; };
 		979C64DF167F0B9C00B3E2D5 /* NBNIssueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 979C64DD167F0B9C00B3E2D5 /* NBNIssueDetailViewController.xib */; };
 		979C64E6167F10F300B3E2D5 /* NSData+NSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64E3167F10F300B3E2D5 /* NSData+NSHash.m */; };
@@ -312,6 +315,12 @@
 		97860A4E16903C8F003D2092 /* NBNIssueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssueCell.h; path = Views/NBNIssueCell.h; sourceTree = "<group>"; };
 		97860A4F16903C8F003D2092 /* NBNIssueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssueCell.m; path = Views/NBNIssueCell.m; sourceTree = "<group>"; };
 		97860A5116903CAC003D2092 /* NBNIssueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NBNIssueCell.xib; path = Views/NBNIssueCell.xib; sourceTree = "<group>"; };
+		97860A5916909B4E003D2092 /* NBNCreatedByMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNCreatedByMeViewController.h; path = Views/NBNCreatedByMeViewController.h; sourceTree = "<group>"; };
+		97860A5A16909B4E003D2092 /* NBNCreatedByMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNCreatedByMeViewController.m; path = Views/NBNCreatedByMeViewController.m; sourceTree = "<group>"; };
+		97860A5C16909B65003D2092 /* NBNAssignedToMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNAssignedToMeViewController.h; path = Views/NBNAssignedToMeViewController.h; sourceTree = "<group>"; };
+		97860A5D16909B65003D2092 /* NBNAssignedToMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNAssignedToMeViewController.m; path = Views/NBNAssignedToMeViewController.m; sourceTree = "<group>"; };
+		97860A5F16909C15003D2092 /* NBNDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNDashboardViewController.h; path = Views/NBNDashboardViewController.h; sourceTree = "<group>"; };
+		97860A6016909C15003D2092 /* NBNDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNDashboardViewController.m; path = Views/NBNDashboardViewController.m; sourceTree = "<group>"; };
 		979C64DB167F0B9B00B3E2D5 /* NBNIssueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssueDetailViewController.h; path = Views/NBNIssueDetailViewController.h; sourceTree = "<group>"; };
 		979C64DC167F0B9B00B3E2D5 /* NBNIssueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssueDetailViewController.m; path = Views/NBNIssueDetailViewController.m; sourceTree = "<group>"; };
 		979C64DD167F0B9C00B3E2D5 /* NBNIssueDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NBNIssueDetailViewController.xib; path = Views/NBNIssueDetailViewController.xib; sourceTree = "<group>"; };
@@ -478,6 +487,7 @@
 			children = (
 				9710B5B7167E2C4500F26DE2 /* NBNAppDelegate.h */,
 				9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */,
+				97860A57169099F1003D2092 /* Dashboard */,
 				979C65611680606500B3E2D5 /* Login */,
 				979C64F2167F342700B3E2D5 /* Connections */,
 				979C64F9167F520700B3E2D5 /* FilterComponents */,
@@ -791,6 +801,19 @@
 				97860A5116903CAC003D2092 /* NBNIssueCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		97860A57169099F1003D2092 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				97860A5916909B4E003D2092 /* NBNCreatedByMeViewController.h */,
+				97860A5A16909B4E003D2092 /* NBNCreatedByMeViewController.m */,
+				97860A5C16909B65003D2092 /* NBNAssignedToMeViewController.h */,
+				97860A5D16909B65003D2092 /* NBNAssignedToMeViewController.m */,
+				97860A5F16909C15003D2092 /* NBNDashboardViewController.h */,
+				97860A6016909C15003D2092 /* NBNDashboardViewController.m */,
+			);
+			name = Dashboard;
 			sourceTree = "<group>";
 		};
 		979C64E1167F10F300B3E2D5 /* NSHash */ = {
@@ -1175,6 +1198,9 @@
 				979C65881680678400B3E2D5 /* NBNIssueEditViewController.m in Sources */,
 				979C658C16806A0800B3E2D5 /* NBNUsersConnection.m in Sources */,
 				97860A5016903C8F003D2092 /* NBNIssueCell.m in Sources */,
+				97860A5B16909B4E003D2092 /* NBNCreatedByMeViewController.m in Sources */,
+				97860A5E16909B65003D2092 /* NBNAssignedToMeViewController.m in Sources */,
+				97860A6216909C15003D2092 /* NBNDashboardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

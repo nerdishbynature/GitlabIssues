@@ -128,6 +128,7 @@
     [super viewWillDisappear:animated];
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveNestedContexts];
+    self.navigationController.toolbarHidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
