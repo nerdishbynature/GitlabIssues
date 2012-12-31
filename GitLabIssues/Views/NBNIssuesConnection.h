@@ -26,6 +26,6 @@
  @param block The completion Block which is called on success
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/notes.md#list-issue-notes
  */
-+(void)loadNotesForIssue:(Issue *)issue onSuccess:(void (^)(void))block;
++(void)loadNotesForIssue:(Issue *)issue onSuccess:(void (^)(NSArray *))block;
 
 @end

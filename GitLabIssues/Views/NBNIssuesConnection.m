@@ -59,7 +59,7 @@
     [request startAsynchronous];
 }
 
-+(void)loadNotesForIssue:(Issue *)issue onSuccess:(void (^)(void))block{
++(void)loadNotesForIssue:(Issue *)issue onSuccess:(void (^)(NSArray *))block{
     
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
@@ -77,6 +77,7 @@
     
     [request setCompletionBlock:^{
         NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+        NSMutableArray *returnArray = [[[NSMutableArray alloc] initWithCapacity:array.count] autorelease];
         
         for (NSDictionary *dict in array) {
             
@@ -84,15 +85,18 @@
             
             if ([[Note MR_findAllWithPredicate:noteFinder] count] == 0) {
                 
-                [Note createAndParseJSON:dict];
+                [returnArray addObject:[Note createAndParseJSON:dict]];
+            
             } else if ([[Note MR_findAllWithPredicate:noteFinder] count] == 1){
                 
                 Note *note = [[Note MR_findAllWithPredicate:noteFinder] objectAtIndex:0];
                 [note parseServerResponse:dict];
+                note.issue = issue;
                 
+                [returnArray addObject:note];
             }
         }
-        block();
+        block(returnArray);
     }];
     
     [request setFailedBlock:^{
