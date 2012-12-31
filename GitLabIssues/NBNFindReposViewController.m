@@ -41,7 +41,7 @@
     
     if (self.tableView && !self.tableView.tableHeaderView) {
         self.searchBar = [[[UISearchBar alloc] init] autorelease];
-        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
+        self.searchDisplayController = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
         self.searchDisplayController.delegate = self;
@@ -91,7 +91,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
@@ -120,7 +120,6 @@
     
     NBNIssuesViewController *issues = [NBNIssuesViewController loadWithProject:project];
     [self.navigationController pushViewController:issues animated:YES];
-    [issues release];
 }
 
 #pragma mark - Searching
