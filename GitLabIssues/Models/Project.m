@@ -25,7 +25,7 @@
 @dynamic wall_enabled;
 @dynamic wiki_enabled;
 @dynamic owner;
-@synthesize isFavorite;
+@dynamic isFavorite;
 
 +(Project *)createAndParseJSON:(NSDictionary *)dict{
     Project *project = [Project createEntity];
