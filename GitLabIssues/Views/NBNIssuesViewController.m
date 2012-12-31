@@ -33,7 +33,7 @@
 @synthesize issuesSearchResults;
 
 +(NBNIssuesViewController *)loadWithProject:(Project *)_project{
-    NBNIssuesViewController *issueViewController = [[NBNIssuesViewController alloc] initWithStyle:UITableViewStylePlain];
+    NBNIssuesViewController *issueViewController = [[[NBNIssuesViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
     issueViewController.project = _project;
     [issueViewController createSearchBar];
     return issueViewController;
@@ -43,7 +43,7 @@
 
     if (self.tableView && !self.tableView.tableHeaderView) {
         self.searchBar = [[[UISearchBar alloc] init] autorelease];
-        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
+        self.searchDisplayController = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
         self.searchDisplayController.delegate = self;
@@ -61,6 +61,11 @@
         
         [self setToolbarItems:@[createButton, refreshButton, flex, filterButton] animated:YES];
         self.navigationController.toolbarHidden = NO;
+        
+        [createButton release];
+        [refreshButton release];
+        [filterButton release];
+        [flex release];
     }
 }
 
@@ -74,7 +79,6 @@
     
     [self presentViewController:navController animated:YES completion:nil];
     
-    [editViewController release];
     [navController release];
 }
 
@@ -106,9 +110,9 @@
     
     
     if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Untar" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)];
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Untar" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
     } else{
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)];
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
     }
     
 }
@@ -189,8 +193,6 @@
     
     NBNIssueDetailViewController *issueController = [NBNIssueDetailViewController loadViewControllerWithIssue:issue];
     [self.navigationController pushViewController:issueController animated:YES];
-    
-    [issueController release];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -233,10 +235,10 @@
 -(void)starThisProject{
     if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
         self.project.isFavorite = [NSNumber numberWithBool:NO];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)];
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
     } else{
         self.project.isFavorite = [NSNumber numberWithBool:YES];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Unstar" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)];
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Unstar" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
     }
 }
 

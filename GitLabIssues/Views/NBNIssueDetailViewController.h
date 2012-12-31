@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Issue.h"
 
-@interface NBNIssueDetailViewController : UIViewController
+@interface NBNIssueDetailViewController : UITableViewController
 
 /**
  @brief Method sets up the view controller and returns the allocated and initialized object.

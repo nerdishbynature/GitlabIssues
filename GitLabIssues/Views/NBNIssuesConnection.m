@@ -11,6 +11,7 @@
 #import "Project.h"
 #import "Domain.h"
 #import "Issue.h"
+#import "Note.h"
 #import "ASIHTTPRequest.h"
 
 @implementation NBNIssuesConnection
@@ -28,7 +29,7 @@
     }
     
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v2/projects/%@/issues?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token]];
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     
     [request setCompletionBlock:^{
@@ -49,6 +50,53 @@
             }
         }
         block();
+    }];
+    
+    [request setFailedBlock:^{
+        PBLog(@"err %@", [request error]);
+    }];
+    
+    [request startAsynchronous];
+}
+
++(void)loadNotesForIssue:(Issue *)issue onSuccess:(void (^)(NSArray *))block{
+    
+    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    
+    Session *session;
+    
+    if ([Session findAll].count > 0) {
+        session = [[Session findAll] objectAtIndex:0]; //there can only be one
+    } else{
+        session = [Session generateSession];
+    }
+    
+    //GET /projects/:id/issues/:issue_id/notes
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@/notes?private_token=%@", domain.protocol, domain.domain, issue.project_id, issue.identifier, session.private_token]];
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    
+    [request setCompletionBlock:^{
+        NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+        NSMutableArray *returnArray = [[[NSMutableArray alloc] initWithCapacity:array.count] autorelease];
+        
+        for (NSDictionary *dict in array) {
+            
+            NSPredicate *noteFinder = [NSPredicate predicateWithFormat:@"identifier = %i", [[dict objectForKey:@"id"] integerValue]]; // 1 domain means no conflicts
+            
+            if ([[Note MR_findAllWithPredicate:noteFinder] count] == 0) {
+                
+                [returnArray addObject:[Note createAndParseJSON:dict]];
+            
+            } else if ([[Note MR_findAllWithPredicate:noteFinder] count] == 1){
+                
+                Note *note = [[Note MR_findAllWithPredicate:noteFinder] objectAtIndex:0];
+                [note parseServerResponse:dict];
+                note.issue = issue;
+                
+                [returnArray addObject:note];
+            }
+        }
+        block(returnArray);
     }];
     
     [request setFailedBlock:^{

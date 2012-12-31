@@ -28,6 +28,7 @@
 @dynamic assignee;
 @dynamic author;
 @dynamic milestone;
+@dynamic notes;
 
 +(Issue *)createAndParseJSON:(NSDictionary *)dict{
     Issue *issue = [Issue createEntity];
@@ -81,7 +82,7 @@
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     Session *session = [[Session findAll] objectAtIndex:0];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v2/projects/%@/issues/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.identifier, session.private_token]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.identifier, session.private_token]];
     PBLog(@"url %@", url);
     
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
@@ -102,7 +103,7 @@
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     Session *session = [[Session findAll] objectAtIndex:0];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v2/projects/%@/issues?private_token=%@",domain.protocol, domain.domain, self.project_id, session.private_token]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@",domain.protocol, domain.domain, self.project_id, session.private_token]];
     PBLog(@"url %@", url);
     
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
@@ -151,6 +152,8 @@
     
     self.created_at = [formatter dateFromString:[dict objectForKey:@"created_at"]];
     self.updated_at = [formatter dateFromString:[dict objectForKey:@"updated_at"]];
+    
+    [formatter release];
 }
 
 -(NSData *)toCreateJSON{
@@ -199,7 +202,7 @@
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     Session *session = [[Session findAll] objectAtIndex:0];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v2/projects/%@/milestones/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.milestone.identifier, session.private_token]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/milestones/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.milestone.identifier, session.private_token]];
     PBLog(@"url %@", url);
     
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];

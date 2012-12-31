@@ -18,13 +18,13 @@
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     Session *firstSession = [[Session findAll] objectAtIndex:0];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v2/projects/%i/members?private_token=%@", domain.protocol, domain.domain, project_id, firstSession.private_token]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/members?private_token=%@", domain.protocol, domain.domain, project_id, firstSession.private_token]];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request startSynchronous];
     
     NSArray *memberJSONArray = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
     
-    NSMutableArray *memberArray = [[NSMutableArray alloc] initWithCapacity:memberJSONArray.count];
+    NSMutableArray *memberArray = [[[NSMutableArray alloc] initWithCapacity:memberJSONArray.count] autorelease];
     
     for (NSDictionary *dict in memberJSONArray) {
         [memberArray addObject:[Assignee createAndParseJSON:dict]];

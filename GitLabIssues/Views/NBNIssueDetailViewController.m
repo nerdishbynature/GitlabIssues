@@ -8,12 +8,18 @@
 
 #import "NBNIssueDetailViewController.h"
 #import "NBNIssueEditViewController.h"
+#import "NBNIssuesConnection.h"
 #import "NSString+NSHash.h"
 #import "ASIHTTPRequest.h"
 #import "ASIDownloadCache.h"
 #import "Issue.h"
 #import "Assignee.h"
 #import "Author.h"
+#import "Milestone.h"
+
+#import "NBNIssueDetailCell.h"
+#import "NBNIssueDescriptionCell.h"
+#import "NBNIssueCommentCell.h"
 
 
 @interface NBNIssueDetailViewController ()
@@ -46,7 +52,7 @@
 
 
 +(NBNIssueDetailViewController *)loadViewControllerWithIssue:(Issue *)_issue{
-    NBNIssueDetailViewController *issueController = [[NBNIssueDetailViewController alloc] initWithNibName:@"NBNIssueDetailViewController" bundle:nil];
+    NBNIssueDetailViewController *issueController = [[[NBNIssueDetailViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
     issueController.issue = _issue;
     
     return issueController;
@@ -58,26 +64,12 @@
     
     self.navigationController.toolbarHidden = YES;
     self.title = [NSString stringWithFormat:@"Issue #%@", self.issue.identifier];
-    
-    // Do any additional setup after loading the view from its nib.
-    self.assignedLabel.text = @"Assigned:";
-    self.assignedDescriptionLabel.text = self.issue.assignee.name;
-    
-    self.statusLabel.text = @"Status";
-    self.statusDescriptionLabel.text = [self.issue.closed isEqualToNumber:[NSNumber numberWithBool:YES]] ? @"Open" : @"Closed";
-    
-    [self loadAuthorImage];
-    
-    self.authorNameLabel.text = self.issue.author.name;
-    self.issueHeaderLabel.text = self.issue.title;
-    self.descriptionLabel.text = self.issue.descriptionString;
-    
-    CGSize expectedSize = [self.descriptionLabel.text sizeWithFont:self.descriptionLabel.font constrainedToSize:CGSizeMake(self.descriptionLabel.frame.size.width, MAXFLOAT)];
-    self.descriptionLabel.frame = CGRectMake(self.descriptionLabel.frame.origin.x, self.descriptionLabel.frame.origin.y, self.descriptionLabel.frame.size.width, expectedSize.height);
-    
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.descriptionLabel.frame.origin.y + expectedSize.height);
-    
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editIssue)];
+    [NBNIssuesConnection loadNotesForIssue:self.issue onSuccess:^(NSArray *notesArray) {
+        self.issue.notes = [NSSet setWithArray:notesArray];
+        [self.tableView reloadData];
+    }];
 }
 
 -(void)editIssue{
@@ -88,22 +80,123 @@
 
     [self presentViewController:navController animated:YES completion:nil];
     
-    [editViewController release];
     [navController release];
 }
 
--(void)loadAuthorImage{
-    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [self.issue.author.email MD5]]]];
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
 
-    [request setCompletionBlock:^{
-        self.authorImage.image = [UIImage imageWithData:request.responseData];
-    }];
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 5+self.issue.notes.allObjects.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *IssueDetailCellIdentifier = @"IssueDetailCellIdentifier";
+    static NSString *IssueDescriptionCellIdentifier = @"IssueDescriptionCellIdentifier";
+    static NSString *IssueCommentCellIdentifier = @"IssueCommentCellIdentifier";
     
-    [request setFailedBlock:^{
-        PBLog(@"%@", [request.error localizedDescription]);
-    }];
+    if (indexPath.row == 0) { //Assigned
+        
+        NBNIssueDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:IssueDetailCellIdentifier];
+        if (!cell) {
+            cell = [NBNIssueDetailCell loadCellFromNib];
+        }
+        
+        [cell configureCellWithHeadline:@"Assigned:" andDescription:self.issue.assignee.name];
+        
+        return cell;
+        
+    } else if (indexPath.row == 1){ // Status
+        
+        NBNIssueDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:IssueDetailCellIdentifier];
+        if (!cell) {
+            cell = [NBNIssueDetailCell loadCellFromNib];
+        }
+        
+        [cell configureCellWithHeadline:@"Status:" andDescription:[NSString stringWithFormat:@"%@", self.issue.closed ? @"Closed" : @"Open"]];
+        
+        return cell;
+        
+    } else if (indexPath.row == 2){ // Milestone
     
-    [request startAsynchronous];
+        NBNIssueDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:IssueDetailCellIdentifier];
+        if (!cell) {
+            cell = [NBNIssueDetailCell loadCellFromNib];
+        }
+        
+        [cell configureCellWithHeadline:@"Milestone:" andDescription:self.issue.milestone.title];
+    
+        return cell;
+        
+    } else if (indexPath.row == 3){ // Labels
+        
+        NBNIssueDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:IssueDetailCellIdentifier];
+        if (!cell) {
+            cell = [NBNIssueDetailCell loadCellFromNib];
+        }
+        
+        [cell configureCellWithHeadline:@"Labels:" andDescription:@"need to implement"];
+        
+        return cell;
+        
+    } else if (indexPath.row == 4){ // Issue description
+        
+        NBNIssueDescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:IssueDescriptionCellIdentifier];
+        
+        if (!cell) {
+            cell = [NBNIssueDescriptionCell loadCellFromNib];
+        }
+        
+        [cell configureCellWithIssue:self.issue];
+        
+        return cell;
+        
+    } else{
+    
+        NBNIssueCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:IssueCommentCellIdentifier];
+        
+        if (!cell) {
+            cell = [NBNIssueCommentCell loadCellFromNib];
+        }
+        
+        Note *note = [[self.issue.notes allObjects] objectAtIndex:indexPath.row-5];
+        
+        [cell configureCellWithNote:note];
+        
+        return cell;
+        
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row < 4) { // DetailCells e.g. assigned, status, milestone, labels
+        return 44;
+    } else if (indexPath.row == 4){ // description
+        NBNIssueDescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IssueDescriptionCellIdentifier"];
+        
+        if (!cell) {
+            cell = [NBNIssueDescriptionCell loadCellFromNib];
+        }
+        
+        return [cell getHeightForCellWithIssue:self.issue];
+        
+    } else if (indexPath.row > 4){ // notes
+        NBNIssueCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IssueCommentCellIdentifier"];
+        
+        if (!cell) {
+            cell = [NBNIssueCommentCell loadCellFromNib];
+        }
+        
+        Note *note = [[self.issue.notes allObjects] objectAtIndex:indexPath.row-5];
+        return [cell getHeightForCellWithNote:note];
+    } else{
+        return 44;
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+
 }
 
 - (void)didReceiveMemoryWarning

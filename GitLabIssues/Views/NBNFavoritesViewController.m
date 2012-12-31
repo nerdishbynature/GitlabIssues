@@ -73,7 +73,7 @@
     
     // Configure the cell...
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     }
     
@@ -117,8 +117,6 @@
 {
     NBNIssuesViewController *issuesViewController = [NBNIssuesViewController loadWithProject:(Project *)[self.favoriteArray objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:issuesViewController animated:YES];
-    
-    [issuesViewController release];
 }
 
 -(void)dealloc{

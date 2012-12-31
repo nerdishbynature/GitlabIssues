@@ -24,6 +24,7 @@
 @property (nonatomic, retain) Assignee *assignee;
 @property (nonatomic, retain) Author *author;
 @property (nonatomic, retain) Milestone *milestone;
+@property (nonatomic, retain) NSSet *notes;
 
 /**
  @brief This method is used for parsing the returned JSON from the API

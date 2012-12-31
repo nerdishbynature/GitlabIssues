@@ -19,7 +19,8 @@
 }
 
 - (id) init {
-    if (self == [super init]) {
+    self = [super init];
+    if (self) {
 
         NSString *fileName = @"application.log";
         NSFileManager *fileManager = [NSFileManager defaultManager];

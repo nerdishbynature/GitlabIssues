@@ -24,7 +24,7 @@
     
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v2/session", domain.protocol, domain.domain]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/session", domain.protocol, domain.domain]];
     PBLog(@"url %@", url);
     
     __block ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];

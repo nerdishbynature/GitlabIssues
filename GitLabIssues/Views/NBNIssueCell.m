@@ -87,7 +87,7 @@
 
     [self calculateSizes];
     
-    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [_issue.author.email MD5]]]];
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [_issue.author.email MD5]]] usingCache:[ASIDownloadCache sharedCache]];
 
     [request setCompletionBlock:^{
         self.developerProfilePicture.image = [UIImage imageWithData:request.responseData];

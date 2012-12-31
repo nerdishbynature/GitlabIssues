@@ -25,7 +25,7 @@
 @synthesize editMode;
 
 +(NBNIssueEditViewController *)loadViewControllerWithIssue:(Issue *)_issue{
-    NBNIssueEditViewController *editViewController = [[NBNIssueEditViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    NBNIssueEditViewController *editViewController = [[[NBNIssueEditViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
     editViewController.issue = _issue;
     
     return editViewController;
@@ -122,8 +122,8 @@
 }
 
 -(void)setupBarButtons{
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Discard" style:UIBarButtonItemStyleBordered target:self action:@selector(discard)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(saveIssue)];
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Discard" style:UIBarButtonItemStyleBordered target:self action:@selector(discard)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(saveIssue)] autorelease];
 }
 
 -(void)discard{
