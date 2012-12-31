@@ -63,7 +63,7 @@
     [request startSynchronous];
     
     NSArray *milestoneJSONArray = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
-    NSMutableArray *milestoneArray = [[NSMutableArray alloc] initWithCapacity:milestoneJSONArray.count];
+    NSMutableArray *milestoneArray = [[[NSMutableArray alloc] initWithCapacity:milestoneJSONArray.count] autorelease];
     
     for (NSDictionary *dict in milestoneJSONArray) {
         Milestone *milestone = [Milestone createAndParseJSON:dict andProjectID:projectID];

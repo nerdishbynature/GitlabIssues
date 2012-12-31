@@ -117,8 +117,6 @@
     
     NBNIssueDetailViewController *issueController = [NBNIssueDetailViewController loadViewControllerWithIssue:issue];
     [self.navigationController pushViewController:issueController animated:YES];
-    
-    [issueController release];
 }
 
 @end

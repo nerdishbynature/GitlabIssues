@@ -24,7 +24,7 @@
     
     NSArray *memberJSONArray = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
     
-    NSMutableArray *memberArray = [[NSMutableArray alloc] initWithCapacity:memberJSONArray.count];
+    NSMutableArray *memberArray = [[[NSMutableArray alloc] initWithCapacity:memberJSONArray.count] autorelease];
     
     for (NSDictionary *dict in memberJSONArray) {
         [memberArray addObject:[Assignee createAndParseJSON:dict]];

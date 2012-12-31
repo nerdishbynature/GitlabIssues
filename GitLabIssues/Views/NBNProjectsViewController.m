@@ -75,7 +75,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
@@ -91,7 +91,6 @@
 {
     NBNIssuesViewController *issues = [NBNIssuesViewController loadWithProject:(Project *)[self.projectsArray objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:issues animated:YES];
-    [issues release];
 }
 
 -(void)dealloc{

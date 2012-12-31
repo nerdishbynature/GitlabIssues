@@ -29,7 +29,7 @@
 @synthesize projectID;
 
 +(NBNMilestonesListViewController *)loadControllerWithProjectID:(NSUInteger)_projectID{
-    NBNMilestonesListViewController *listController = [[NBNMilestonesListViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    NBNMilestonesListViewController *listController = [[[NBNMilestonesListViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
     listController.projectID = _projectID;
     listController.title = @"Milestones";
     [listController createSearchBar];
@@ -51,7 +51,7 @@
     
     if (self.tableView && !self.tableView.tableHeaderView) {
         self.searchBar = [[[UISearchBar alloc] init] autorelease];
-        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
+        self.searchDisplayController = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
         self.searchDisplayController.delegate = self;
@@ -92,7 +92,7 @@
     
     // Configure the cell...
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
     Milestone *milestone;
