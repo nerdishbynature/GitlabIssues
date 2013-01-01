@@ -24,6 +24,7 @@
 @synthesize bubbleContainer;
 @synthesize bubbleView;
 @synthesize detailString;
+@synthesize delegate;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -62,6 +63,7 @@
         self.bubbleView.alwaysBounceVertical = NO;
         self.bubbleView.alwaysBounceHorizontal = NO;
         self.bubbleView.bubbleDataSource = self;
+        self.bubbleView.bounces = NO;
         self.bubbleView.bubbleDelegate = self;
         self.bubbleView.selectionStyle = HEBubbleViewSelectionStyleDefault;
         
@@ -107,7 +109,9 @@
 
 -(void)bubbleView:(HEBubbleView *)bubbleView didSelectBubbleItemAtIndex:(NSInteger)index
 {
-    NSLog(@"selected bubble at index %i", index);
+    if ([self.delegate respondsToSelector:@selector(cellWithLabel:didSelectBubbleItem:)]) {
+        [self.delegate cellWithLabel:self.headlineLabel.text didSelectBubbleItem:nil];
+    }
 }
 
 // returns wheter to show a menu callout or not for a given index
