@@ -28,4 +28,13 @@
  */
 +(void)loadNotesForIssue:(Issue *)issue onSuccess:(void (^)(NSArray *))block;
 
+/**
+ @brief Send a new Note to the server
+ @param issue The issue object
+ @param body The Note body
+ @param block The completion block which is called on success
+ @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/notes.md#new-issue-note
+ */
++(void)sendNoteForIssue:(Issue *)issue andBody:(NSString *)body onSuccess:(void (^)(void))block;
+
 @end

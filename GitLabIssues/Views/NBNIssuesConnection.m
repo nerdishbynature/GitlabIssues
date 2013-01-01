@@ -106,4 +106,37 @@
     [request startAsynchronous];
 }
 
++(void)sendNoteForIssue:(Issue *)issue andBody:(NSString *)body onSuccess:(void (^)(void))block{
+    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    
+    Session *session;
+    
+    if ([Session findAll].count > 0) {
+        session = [[Session findAll] objectAtIndex:0]; //there can only be one
+    } else{
+        session = [Session generateSession];
+    }
+    
+    //POST /projects/:id/issues/:issue_id/notes
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@/notes?private_token=%@", domain.protocol, domain.domain, issue.project_id, issue.identifier, session.private_token]];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    
+    [request setRequestMethod:@"POST"];
+    
+    NSDictionary *postDict = @{@"id": issue.project_id, @"issue_id":issue.identifier, @"body": body};
+    
+    [request appendPostData:[NSJSONSerialization dataWithJSONObject:postDict options:kNilOptions error:nil]];
+    [request startSynchronous];
+    
+    if (request.error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:request.responseStatusMessage message:request.error.localizedFailureReason delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        PBLog(@"%@", request.error);
+    } else{
+        block();
+    }
+
+}
+
 @end

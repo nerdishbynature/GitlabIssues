@@ -16,6 +16,7 @@
 #import "Assignee.h"
 #import "Author.h"
 #import "Milestone.h"
+#import "DAKeyboardControl.h"
 
 #import "NBNIssueDetailCell.h"
 #import "NBNIssueDescriptionCell.h"
@@ -25,34 +26,21 @@
 @interface NBNIssueDetailViewController ()
 
 @property (nonatomic, retain) Issue *issue;
-@property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
-@property (nonatomic, retain) IBOutlet UILabel *assignedLabel;
-@property (nonatomic, retain) IBOutlet UILabel *assignedDescriptionLabel;
-@property (nonatomic, retain) IBOutlet UILabel *statusLabel;
-@property (nonatomic, retain) IBOutlet UILabel *statusDescriptionLabel;
-@property (nonatomic, retain) IBOutlet UIImageView *authorImage;
-@property (nonatomic, retain) IBOutlet UILabel *authorNameLabel;
-@property (nonatomic, retain) IBOutlet UILabel *issueHeaderLabel;
-@property (nonatomic, retain) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, retain) UITableView *tableView;
+@property (nonatomic, retain) NSString *commentString;
+@property (nonatomic, retain) UITextField *textField;
 
 @end
 
 @implementation NBNIssueDetailViewController
 
 @synthesize issue;
-@synthesize scrollView;
-@synthesize assignedLabel;
-@synthesize assignedDescriptionLabel;
-@synthesize statusLabel;
-@synthesize statusDescriptionLabel;
-@synthesize authorImage;
-@synthesize authorNameLabel;
-@synthesize issueHeaderLabel;
-@synthesize descriptionLabel;
-
+@synthesize tableView;
+@synthesize commentString;
+@synthesize textField;
 
 +(NBNIssueDetailViewController *)loadViewControllerWithIssue:(Issue *)_issue{
-    NBNIssueDetailViewController *issueController = [[[NBNIssueDetailViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
+    NBNIssueDetailViewController *issueController = [[[NBNIssueDetailViewController alloc] init] autorelease];
     issueController.issue = _issue;
     
     return issueController;
@@ -61,14 +49,78 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self setupKeyboard];
     self.navigationController.toolbarHidden = YES;
     self.title = [NSString stringWithFormat:@"Issue #%@", self.issue.identifier];
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editIssue)];
+    [self refreshData];
+}
+
+-(void)refreshData{
     [NBNIssuesConnection loadNotesForIssue:self.issue onSuccess:^(NSArray *notesArray) {
         self.issue.notes = [NSSet setWithArray:notesArray];
         [self.tableView reloadData];
+    }];
+}
+
+-(void)setupKeyboard{    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f,
+                                                                           0.0f,
+                                                                           self.view.bounds.size.width,
+                                                                           self.view.bounds.size.height - 40.0f)];
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f,
+                                                                     self.view.bounds.size.height - 40.0f,
+                                                                     self.view.bounds.size.width,
+                                                                     40.0f)];
+    toolBar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
+    [self.view addSubview:toolBar];
+    
+
+    
+    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f,
+                                                                           6.0f,
+                                                                           toolBar.bounds.size.width - 20.0f - 68.0f,
+                                                                           30.0f)];
+    self.textField.borderStyle = UITextBorderStyleRoundedRect;
+    self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.textField.delegate = self;
+    [self.textField addTarget:self action:@selector(updateBodyUsingContentsOfTextField:) forControlEvents:UIControlEventEditingChanged];
+    [toolBar addSubview:self.textField];
+    
+    UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    sendButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+    [sendButton setTitle:@"Send" forState:UIControlStateNormal];
+    sendButton.frame = CGRectMake(toolBar.bounds.size.width - 68.0f,
+                                  6.0f,
+                                  58.0f,
+                                  29.0f);
+    [sendButton addTarget:self action:@selector(sendPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [toolBar addSubview:sendButton];
+    
+    
+    self.view.keyboardTriggerOffset = toolBar.bounds.size.height;
+    
+    [self.view addKeyboardPanningWithActionHandler:^(CGRect keyboardFrameInView) {
+        /*
+         Try not to call "self" inside this block (retain cycle).
+         But if you do, make sure to remove DAKeyboardControl
+         when you are done with the view controller by calling:
+         [self.view removeKeyboardControl];
+         */
+        
+        CGRect toolBarFrame = toolBar.frame;
+        toolBarFrame.origin.y = keyboardFrameInView.origin.y - toolBarFrame.size.height;
+        toolBar.frame = toolBarFrame;
+        
+        CGRect tableViewFrame = tableView.frame;
+        tableViewFrame.size.height = toolBarFrame.origin.y;
+        tableView.frame = tableViewFrame;
     }];
 }
 
@@ -91,14 +143,14 @@
     return 5+self.issue.notes.allObjects.count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *IssueDetailCellIdentifier = @"IssueDetailCellIdentifier";
     static NSString *IssueDescriptionCellIdentifier = @"IssueDescriptionCellIdentifier";
     static NSString *IssueCommentCellIdentifier = @"IssueCommentCellIdentifier";
     
     if (indexPath.row == 0) { //Assigned
         
-        NBNIssueDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:IssueDetailCellIdentifier];
+        NBNIssueDetailCell *cell = [_tableView dequeueReusableCellWithIdentifier:IssueDetailCellIdentifier];
         if (!cell) {
             cell = [NBNIssueDetailCell loadCellFromNib];
         }
@@ -109,7 +161,7 @@
         
     } else if (indexPath.row == 1){ // Status
         
-        NBNIssueDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:IssueDetailCellIdentifier];
+        NBNIssueDetailCell *cell = [_tableView dequeueReusableCellWithIdentifier:IssueDetailCellIdentifier];
         if (!cell) {
             cell = [NBNIssueDetailCell loadCellFromNib];
         }
@@ -120,7 +172,7 @@
         
     } else if (indexPath.row == 2){ // Milestone
     
-        NBNIssueDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:IssueDetailCellIdentifier];
+        NBNIssueDetailCell *cell = [_tableView dequeueReusableCellWithIdentifier:IssueDetailCellIdentifier];
         if (!cell) {
             cell = [NBNIssueDetailCell loadCellFromNib];
         }
@@ -131,7 +183,7 @@
         
     } else if (indexPath.row == 3){ // Labels
         
-        NBNIssueDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:IssueDetailCellIdentifier];
+        NBNIssueDetailCell *cell = [_tableView dequeueReusableCellWithIdentifier:IssueDetailCellIdentifier];
         if (!cell) {
             cell = [NBNIssueDetailCell loadCellFromNib];
         }
@@ -142,7 +194,7 @@
         
     } else if (indexPath.row == 4){ // Issue description
         
-        NBNIssueDescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:IssueDescriptionCellIdentifier];
+        NBNIssueDescriptionCell *cell = [_tableView dequeueReusableCellWithIdentifier:IssueDescriptionCellIdentifier];
         
         if (!cell) {
             cell = [NBNIssueDescriptionCell loadCellFromNib];
@@ -154,13 +206,16 @@
         
     } else{
     
-        NBNIssueCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:IssueCommentCellIdentifier];
+        NBNIssueCommentCell *cell = [_tableView dequeueReusableCellWithIdentifier:IssueCommentCellIdentifier];
         
         if (!cell) {
             cell = [NBNIssueCommentCell loadCellFromNib];
         }
         
-        Note *note = [[self.issue.notes allObjects] objectAtIndex:indexPath.row-5];
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"created_at" ascending:YES];
+        NSArray *descriptors = @[descriptor];
+        Note *note = [[[self.issue.notes allObjects] sortedArrayUsingDescriptors:descriptors] objectAtIndex:indexPath.row-5];
+
         
         [cell configureCellWithNote:note];
         
@@ -169,11 +224,11 @@
     }
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(CGFloat)tableView:(UITableView *)_tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row < 4) { // DetailCells e.g. assigned, status, milestone, labels
         return 44;
     } else if (indexPath.row == 4){ // description
-        NBNIssueDescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IssueDescriptionCellIdentifier"];
+        NBNIssueDescriptionCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"IssueDescriptionCellIdentifier"];
         
         if (!cell) {
             cell = [NBNIssueDescriptionCell loadCellFromNib];
@@ -182,13 +237,15 @@
         return [cell getHeightForCellWithIssue:self.issue];
         
     } else if (indexPath.row > 4){ // notes
-        NBNIssueCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IssueCommentCellIdentifier"];
+        NBNIssueCommentCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"IssueCommentCellIdentifier"];
         
         if (!cell) {
             cell = [NBNIssueCommentCell loadCellFromNib];
         }
         
-        Note *note = [[self.issue.notes allObjects] objectAtIndex:indexPath.row-5];
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"created_at" ascending:YES];
+        NSArray *descriptors = @[descriptor];
+        Note *note = [[[self.issue.notes allObjects] sortedArrayUsingDescriptors:descriptors] objectAtIndex:indexPath.row-5];
         return [cell getHeightForCellWithNote:note];
     } else{
         return 44;
@@ -199,6 +256,33 @@
 
 }
 
+#pragma mark - UITextFieldDelegate
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)_textField{
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+}
+
+- (void)updateBodyUsingContentsOfTextField:(id)sender {
+    
+    self.commentString = ((UITextField *)sender).text;
+    PBLog(@"updateBodyUsingContentsOfTextField: %@", self.commentString);
+}
+
+-(void)sendPressed:(id)sender{
+    [NBNIssuesConnection sendNoteForIssue:self.issue andBody:self.commentString onSuccess:^{
+        self.textField.text = @"";
+        [self.view hideKeyboard];
+        [self refreshData];
+    }];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -207,26 +291,10 @@
 
 -(void)dealloc{
     self.issue = nil;
-    self.scrollView = nil;
-    self.assignedLabel = nil;
-    self.assignedDescriptionLabel = nil;
-    self.statusLabel = nil;
-    self.statusDescriptionLabel = nil;
-    self.authorImage = nil;
-    self.authorNameLabel = nil;
-    self.issueHeaderLabel = nil;
-    self.descriptionLabel = nil;
+    self.tableView = nil;
     
     [issue release];
-    [scrollView release];
-    [assignedLabel release];
-    [assignedDescriptionLabel release];
-    [statusLabel release];
-    [statusDescriptionLabel release];
-    [authorImage release];
-    [authorNameLabel release];
-    [issueHeaderLabel release];
-    [descriptionLabel release];
+    [tableView release];
     
     [super dealloc];
 }

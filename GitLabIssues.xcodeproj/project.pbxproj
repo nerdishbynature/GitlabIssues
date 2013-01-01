@@ -90,6 +90,7 @@
 		972305861691D495005866EF /* HEBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 972305831691D495005866EF /* HEBubbleView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		972305871691D495005866EF /* HEBubbleViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 972305851691D495005866EF /* HEBubbleViewItem.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9723058D1691D821005866EF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9723058C1691D821005866EF /* QuartzCore.framework */; };
+		972305AB169322DB005866EF /* DAKeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 972305AA169322DB005866EF /* DAKeyboardControl.m */; };
 		973285F6167E4B0400CFACC2 /* NBNFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 973285F5167E4B0400CFACC2 /* NBNFavoritesViewController.m */; };
 		973285FF167E517800CFACC2 /* NBNProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 973285FE167E517800CFACC2 /* NBNProjectsViewController.m */; };
 		97328602167E525300CFACC2 /* NBNProjectConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 97328601167E525300CFACC2 /* NBNProjectConnection.m */; };
@@ -324,6 +325,8 @@
 		972305841691D495005866EF /* HEBubbleViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEBubbleViewItem.h; sourceTree = "<group>"; };
 		972305851691D495005866EF /* HEBubbleViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEBubbleViewItem.m; sourceTree = "<group>"; };
 		9723058C1691D821005866EF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		972305A9169322DB005866EF /* DAKeyboardControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAKeyboardControl.h; sourceTree = "<group>"; };
+		972305AA169322DB005866EF /* DAKeyboardControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAKeyboardControl.m; sourceTree = "<group>"; };
 		973285F4167E4B0400CFACC2 /* NBNFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNFavoritesViewController.h; path = Views/NBNFavoritesViewController.h; sourceTree = "<group>"; };
 		973285F5167E4B0400CFACC2 /* NBNFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNFavoritesViewController.m; path = Views/NBNFavoritesViewController.m; sourceTree = "<group>"; };
 		973285FD167E517800CFACC2 /* NBNProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNProjectsViewController.h; path = Views/NBNProjectsViewController.h; sourceTree = "<group>"; };
@@ -528,6 +531,7 @@
 		9710B5AF167E2C4500F26DE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				972305A8169322DB005866EF /* DAKeyboardControl */,
 				972305801691D47F005866EF /* BubbleView */,
 				979C65101680601300B3E2D5 /* FormKit */,
 				979C64E1167F10F300B3E2D5 /* NSHash */,
@@ -802,6 +806,15 @@
 				972305851691D495005866EF /* HEBubbleViewItem.m */,
 			);
 			name = BubbleView;
+			sourceTree = "<group>";
+		};
+		972305A8169322DB005866EF /* DAKeyboardControl */ = {
+			isa = PBXGroup;
+			children = (
+				972305A9169322DB005866EF /* DAKeyboardControl.h */,
+				972305AA169322DB005866EF /* DAKeyboardControl.m */,
+			);
+			path = DAKeyboardControl;
 			sourceTree = "<group>";
 		};
 		973285F2167E4AEE00CFACC2 /* Favorite */ = {
@@ -1259,6 +1272,7 @@
 				972304D81691B0B0005866EF /* NBNIssueCommentCell.m in Sources */,
 				972305861691D495005866EF /* HEBubbleView.m in Sources */,
 				972305871691D495005866EF /* HEBubbleViewItem.m in Sources */,
+				972305AB169322DB005866EF /* DAKeyboardControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
