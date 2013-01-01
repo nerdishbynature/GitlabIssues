@@ -103,11 +103,12 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        Project *project = [self.favoriteArray objectAtIndex:indexPath.row];
+        project.isFavorite = [NSNumber numberWithBool:NO];
+        
+        self.favoriteArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"isFavorite == 1"] toArray];
+        [self.tableView reloadData];
+    }     
 }
 
 
@@ -131,14 +132,14 @@
 -(IBAction)enterEditMode:(id)sender {
     
     if ([self.tableView isEditing]) {
-        // If the tableView is already in edit mode, turn it off. Also change the title of the button to reflect the intended verb (‘Edit’, in this case).
+        //Turn off edit mode
         [self.tableView setEditing:NO animated:YES];
-
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enterEditMode:)] autorelease];
     }
     else {
         // Turn on edit mode
-        
         [self.tableView setEditing:YES animated:YES];
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(enterEditMode:)] autorelease];
     }
 }
 
