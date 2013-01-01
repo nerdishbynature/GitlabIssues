@@ -38,4 +38,8 @@ extern NSString *const kKeySortIssuesFilter;
  */
 @property (nonatomic, retain) Project *project;
 
+/**
+ */
++(NBNIssueFilterViewController *)loadViewControllerWithFilter:(Filter *)_filter;
+
 @end

@@ -10,6 +10,7 @@
 #import "NBNMilestonesListViewController.h"
 #import "Project.h"
 #import "Filter.h"
+#import "Assignee.h"
 
 NSString *const kKeyAssignedFilter = @"kKeyAssignedFilter";
 NSString *const kKeyMilestoneFilter = @"kKeyMilestoneFilter";
@@ -85,7 +86,41 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 }
 
 -(void)configureView{
-    self.assignedDescriptionLabel.text = self.filter.
+    if (self.filter.assigned) {
+        self.assignedDescriptionLabel.text = self.filter.assigned.name;
+    }
+    
+    if (self.filter.milestone) {
+        self.milestoneDescriptionLabel.text = self.filter.milestone.title;
+    }
+    
+    
+    NSMutableString *labelString = [[NSMutableString alloc] init];
+    
+    for (NSString *label in self.filter.labels) {
+        if ([label isEqual:[((NSArray *)self.filter.labels) objectAtIndex:0]]) { // firstObject
+            [labelString appendFormat:@", %@", label];
+        } else{
+            [labelString appendString:label];
+        }
+        
+    }
+    
+    self.labelDescriptionLabel.text = labelString;
+    [labelString release];
+    
+    if ([self.filter.closed boolValue] == YES) {
+        self.statusSegementedControl.selectedSegmentIndex = 1;
+    } else{
+        self.statusSegementedControl.selectedSegmentIndex = 0;
+    }
+    
+    if ([self.filter.sortCreated boolValue] == YES) { // Sort created
+        self.statusSegementedControl.selectedSegmentIndex = 0;
+    } else{                                            // Sort Updated
+        self.statusSegementedControl.selectedSegmentIndex = 1;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
