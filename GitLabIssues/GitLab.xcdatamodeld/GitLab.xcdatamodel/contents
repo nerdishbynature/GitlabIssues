@@ -35,9 +35,9 @@
         <attribute name="remember_me" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <entity name="Filter" representedClassName="Filter" syncable="YES">
+        <attribute name="closed" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="labels" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="sortCreated" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="status" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="assigned" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Assignee" inverseName="filter" inverseEntity="Assignee" syncable="YES"/>
         <relationship name="milestone" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Milestone" inverseName="filter" inverseEntity="Milestone" syncable="YES"/>
         <relationship name="project" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="filter" inverseEntity="Project" syncable="YES"/>

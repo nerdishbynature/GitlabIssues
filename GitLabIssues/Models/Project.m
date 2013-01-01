@@ -75,7 +75,8 @@
     project.merge_requests_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"merge_requests_enabled"] boolValue]];
     project.wall_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"wall_enabled"] boolValue]];
     project.wiki_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"wiki_enabled"] boolValue]];
-    project.filter = [Filter createEntity];
+    project.filter = [Filter loadDefaultFilter];
+    
     return project;
 }
 

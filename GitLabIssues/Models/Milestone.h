@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Issue;
+@class Issue, Filter;
 
 @interface Milestone : NSManagedObject
 

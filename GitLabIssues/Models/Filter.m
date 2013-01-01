@@ -14,10 +14,19 @@
 @implementation Filter
 
 @dynamic labels;
-@dynamic status;
+@dynamic closed;
 @dynamic sortCreated;
 @dynamic assigned;
 @dynamic milestone;
 @dynamic project;
+
++(Filter *)loadDefaultFilter{
+    Filter *filter = [Filter createEntity];
+    filter.closed = [NSNumber numberWithBool:NO];
+    filter.sortCreated = [NSNumber numberWithBool:YES];
+    filter.labels = @[];
+    
+    return filter;
+}
 
 @end

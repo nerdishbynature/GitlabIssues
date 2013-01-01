@@ -14,10 +14,12 @@
 @interface Filter : NSManagedObject
 
 @property (nonatomic, retain) id labels;
-@property (nonatomic, retain) NSNumber * status;
+@property (nonatomic, retain) NSNumber * closed;
 @property (nonatomic, retain) NSNumber * sortCreated;
 @property (nonatomic, retain) Assignee *assigned;
 @property (nonatomic, retain) Milestone *milestone;
 @property (nonatomic, retain) Project *project;
+
++(Filter *)loadDefaultFilter;
 
 @end
