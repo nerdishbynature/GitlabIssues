@@ -34,11 +34,20 @@
 {
     [super viewDidLoad];
 
-    self.favoriteArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"isFavorite == 1"] toArray];
-    [self.tableView reloadData];
+    
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self.editButtonItem setAction:@selector(enterEditMode:)];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self refreshFavorites];
+}
+
+-(void)refreshFavorites{
+    self.favoriteArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"isFavorite == 1"] toArray];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -101,8 +110,7 @@
         Project *project = [self.favoriteArray objectAtIndex:indexPath.row];
         project.isFavorite = [NSNumber numberWithBool:NO];
         
-        self.favoriteArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"isFavorite == 1"] toArray];
-        [self.tableView reloadData];
+        [self refreshFavorites];
     }     
 }
 
