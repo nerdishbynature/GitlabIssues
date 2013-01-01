@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Issue.h"
+#import "NBNIssueDetailCell.h"
 
-@interface NBNIssueDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface NBNIssueDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, NBNIssueDetailCellDelegate>
 
 /**
  @brief Method sets up the view controller and returns the allocated and initialized object.
