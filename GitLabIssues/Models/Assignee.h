@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Issue, MergeRequest;
+@class Issue, MergeRequest, Filter;
 
 @interface Assignee : NSManagedObject
 
@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *issues;
 @property (nonatomic, retain) NSSet *mergeRequests;
+@property (nonatomic, retain) Filter *filter;
 
 /**
  @brief This method is used for parsing the returned JSON from the API

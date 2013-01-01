@@ -21,6 +21,7 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSSet *issue;
 @property (nonatomic, retain) NSNumber *project_id;
+@property (nonatomic, retain) Filter *filter;
 
 /**
  @brief This method is used for parsing the returned JSON from the API

@@ -20,6 +20,7 @@
 @dynamic title;
 @dynamic issue;
 @dynamic project_id;
+@dynamic filter;
 
 +(Milestone *)createAndParseJSON:(NSDictionary *)dict andProjectID:(NSUInteger)projectID{
     Milestone *milestone = [Milestone createEntity];
