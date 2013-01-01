@@ -10,7 +10,15 @@
 #import "HEBubbleView.h"
 #import "HEBubbleViewItem.h"
 
+@protocol NBNIssueDetailCellDelegate <NSObject>
+
+-(void)cellWithLabel:(NSString *)label didSelectBubbleItem:(HEBubbleViewItem *)item;
+
+@end
+
 @interface NBNIssueDetailCell : UITableViewCell <HEBubbleViewDataSource, HEBubbleViewDelegate>
+
+@property (nonatomic, assign) id<NBNIssueDetailCellDelegate> delegate;
 
 +(NBNIssueDetailCell *)loadCellFromNib;
 

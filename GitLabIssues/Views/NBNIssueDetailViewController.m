@@ -9,9 +9,12 @@
 #import "NBNIssueDetailViewController.h"
 #import "NBNIssueEditViewController.h"
 #import "NBNIssuesConnection.h"
+#import "NBNUsersConnection.h"
+#import "NBNMilestoneConnection.h"
 #import "NSString+NSHash.h"
 #import "ASIHTTPRequest.h"
 #import "ASIDownloadCache.h"
+
 #import "Issue.h"
 #import "Assignee.h"
 #import "Author.h"
@@ -155,6 +158,7 @@
             cell = [NBNIssueDetailCell loadCellFromNib];
         }
         
+        cell.delegate = self;
         [cell configureCellWithHeadline:@"Assigned:" andDescription:self.issue.assignee.name];
         
         return cell;
@@ -166,7 +170,8 @@
             cell = [NBNIssueDetailCell loadCellFromNib];
         }
         
-        [cell configureCellWithHeadline:@"Status:" andDescription:[NSString stringWithFormat:@"%@", self.issue.closed ? @"Closed" : @"Open"]];
+        cell.delegate = self;
+        [cell configureCellWithHeadline:@"Status:" andDescription:[NSString stringWithFormat:@"%@", [self.issue.closed boolValue] ? @"Closed" : @"Open"]];
         
         return cell;
         
@@ -176,7 +181,7 @@
         if (!cell) {
             cell = [NBNIssueDetailCell loadCellFromNib];
         }
-        
+        cell.delegate = self;
         [cell configureCellWithHeadline:@"Milestone:" andDescription:self.issue.milestone.title];
     
         return cell;
@@ -282,6 +287,42 @@
     }];
 }
 
+#pragma mark - NBNIssueDetailCellDelegate
+
+-(void)cellWithLabel:(NSString *)label didSelectBubbleItem:(HEBubbleViewItem *)item{
+    
+    if ([label isEqualToString:@"Assigned:"]) {
+        
+        NSMutableArray *assigneNameArray = [[NSMutableArray alloc] init];
+        
+        for (Assignee *assignee in [NBNUsersConnection loadMembersWithProjectID:[self.issue.project_id integerValue]]) {
+            [assigneNameArray addObject:assignee.name];
+        }
+        
+    } else if ([label isEqualToString:@"Status:"]){
+        
+        if ([self.issue.closed boolValue] == YES) {
+            self.issue.closed = [NSNumber numberWithBool:NO];
+        } else{
+            self.issue.closed = [NSNumber numberWithBool:YES];
+        }
+        
+        [self.issue saveChanges];
+        
+        [self.tableView reloadData];
+        
+    } else if ([label isEqualToString:@"Milestone:"]){
+        
+        NSMutableArray *milestoneNameArray = [[NSMutableArray alloc] init];
+        
+        for (Milestone *milestone in [NBNMilestoneConnection loadMilestonesWithProjectID:[self.issue.project_id integerValue]]) {
+            [milestoneNameArray addObject:milestone.title];
+        }
+        
+    } else if ([label isEqualToString:@"Labels:"]){
+        
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {
