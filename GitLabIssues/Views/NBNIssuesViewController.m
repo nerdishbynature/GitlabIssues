@@ -110,7 +110,7 @@
     
     
     if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Untar" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Unstar" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
     } else{
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
     }
