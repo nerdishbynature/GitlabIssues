@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Assignee, Milestone;
+@class Assignee, Milestone, Project;
 
 @interface Filter : NSManagedObject
 
@@ -18,5 +18,6 @@
 @property (nonatomic, retain) NSNumber * sortCreated;
 @property (nonatomic, retain) Assignee *assigned;
 @property (nonatomic, retain) Milestone *milestone;
+@property (nonatomic, retain) Project *project;
 
 @end

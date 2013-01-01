@@ -40,6 +40,7 @@
         <attribute name="status" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="assigned" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Assignee" inverseName="filter" inverseEntity="Assignee" syncable="YES"/>
         <relationship name="milestone" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Milestone" inverseName="filter" inverseEntity="Milestone" syncable="YES"/>
+        <relationship name="project" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="filter" inverseEntity="Project" syncable="YES"/>
     </entity>
     <entity name="Issue" representedClassName="Issue" syncable="YES">
         <attribute name="closed" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -106,6 +107,7 @@
         <attribute name="private" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="wall_enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="wiki_enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="filter" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Filter" inverseName="project" inverseEntity="Filter" syncable="YES"/>
         <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Owner" inverseName="projects" inverseEntity="Owner" syncable="YES"/>
     </entity>
     <entity name="Session" representedClassName="Session" syncable="YES">
@@ -153,11 +155,11 @@
         <element name="Milestone" positionX="-36" positionY="-24" width="128" height="178"/>
         <element name="Note" positionX="-198" positionY="387" width="128" height="118"/>
         <element name="Owner" positionX="124" positionY="519" width="128" height="135"/>
-        <element name="Project" positionX="-371" positionY="405" width="128" height="253"/>
+        <element name="Project" positionX="-371" positionY="405" width="128" height="268"/>
         <element name="Session" positionX="-585" positionY="315" width="128" height="135"/>
         <element name="Snippet" positionX="-407" positionY="207" width="128" height="150"/>
         <element name="SSH_key" positionX="-414" positionY="27" width="128" height="90"/>
         <element name="User" positionX="-621" positionY="36" width="128" height="210"/>
-        <element name="Filter" positionX="-90" positionY="306" width="128" height="118"/>
+        <element name="Filter" positionX="-90" positionY="306" width="128" height="133"/>
     </elements>
 </model>

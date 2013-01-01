@@ -18,5 +18,6 @@
 @dynamic sortCreated;
 @dynamic assigned;
 @dynamic milestone;
+@dynamic project;
 
 @end

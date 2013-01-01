@@ -9,6 +9,7 @@
 #import "NBNIssueFilterViewController.h"
 #import "NBNMilestonesListViewController.h"
 #import "Project.h"
+#import "Filter.h"
 
 NSString *const kKeyAssignedFilter = @"kKeyAssignedFilter";
 NSString *const kKeyMilestoneFilter = @"kKeyMilestoneFilter";
@@ -32,6 +33,7 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 @property (retain, nonatomic) IBOutlet UIButton *addMilestoneButton;
 @property (retain, nonatomic) IBOutlet UIButton *addLabelButton;
 @property (nonatomic, retain) NSMutableDictionary *filterDict;
+@property (nonatomic, retain) Filter *filter;
 
 
 @end
@@ -53,6 +55,15 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 @synthesize delegate;
 @synthesize filterDict;
 @synthesize project;
+@synthesize filter;
+
++(NBNIssueFilterViewController *)loadViewControllerWithFilter:(Filter *)_filter{
+    NBNIssueFilterViewController *filterController = [[[NBNIssueFilterViewController alloc] initWithNibName:@"NBNIssueFilterViewController" bundle:nil] autorelease];
+    filterController.filter = _filter;
+    [filterController configureView];
+    
+    return filterController;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -71,6 +82,10 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(apply:)] autorelease];
     self.title = @"Issues Filter";
     
+}
+
+-(void)configureView{
+    self.assignedDescriptionLabel.text = self.filter.
 }
 
 - (void)didReceiveMemoryWarning

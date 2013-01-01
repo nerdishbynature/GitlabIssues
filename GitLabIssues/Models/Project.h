@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Owner;
+@class Owner, Filter;
 
 @interface Project : NSManagedObject
 
@@ -27,6 +27,7 @@
 @property (nonatomic, retain) NSNumber * wiki_enabled;
 @property (nonatomic, retain) Owner *owner;
 @property (nonatomic, retain) NSNumber * isFavorite;
+@property (nonatomic, retain) Filter *filter;
 
 /**
  @brief This method is used for parsing the returned JSON from the API
