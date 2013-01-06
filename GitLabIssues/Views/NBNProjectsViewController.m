@@ -25,19 +25,15 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.title = @"Projects";
+        [self refreshDataSource];
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    self.title = @"Projects";
-
+-(void)viewDidAppear:(BOOL)animated{
     [NBNProjectConnection loadProjectsForDomain:[[Domain findAll] objectAtIndex:0] onSuccess:^{
-        self.projectsArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
-        [self.tableView reloadData];
+        [self refreshDataSource];
     }];
 }
 
@@ -91,6 +87,11 @@
 {
     NBNIssuesViewController *issues = [NBNIssuesViewController loadWithProject:(Project *)[self.projectsArray objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:issues animated:YES];
+}
+
+-(void)refreshDataSource{
+    self.projectsArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
+    [self.tableView reloadData];
 }
 
 -(void)dealloc{

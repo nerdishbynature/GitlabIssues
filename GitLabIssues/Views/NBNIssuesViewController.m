@@ -82,11 +82,9 @@
     [navController release];
 }
 
--(void)refreshIssues{
-    [NBNIssuesConnection loadIssuesForProject:self.project onSuccess:^{
-        self.issues = [[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] where:@"closed == 0"] orderBy:@"identifier"] toArray];
-        [self.tableView reloadData];
-    }];
+-(void)refreshDataSource{
+    self.issues = [[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] where:@"closed == 0"] orderBy:@"identifier"] toArray];
+    [self.tableView reloadData];
 }
 
 -(void)filter{
@@ -120,11 +118,15 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.toolbarHidden = NO;
-    [self refreshIssues];
+    [self refreshDataSource];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    [NBNIssuesConnection loadIssuesForProject:self.project onSuccess:^{
+        [self refreshDataSource];
+    }];
+    
     [self createToolBar];
 }
 
