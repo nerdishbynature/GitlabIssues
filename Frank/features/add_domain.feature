@@ -1,7 +1,7 @@
 Feature: Adding a new domain
 
-Scenario: Adding a new domain
+Scenario: Type in a domain
 Given I launch the app
-Then I should see a navigation bar titled "Add your domain"
 
-When I touch the cell marked "Protocol"
+When I touch the cell marked "Domain"
+When I enter the text "www.nerdishbynature.biz" from keyboard to the textfield "Domain"
