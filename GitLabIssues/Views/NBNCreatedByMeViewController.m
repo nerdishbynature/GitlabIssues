@@ -119,4 +119,12 @@
     [self.navigationController pushViewController:issueController animated:YES];
 }
 
+- (void)dealloc
+{
+    self.projects = nil;
+
+    [projects release];
+    [super dealloc];
+}
+
 @end

@@ -8,6 +8,7 @@
 
 #import "Project.h"
 #import "Owner.h"
+#import "Filter.h"
 
 
 @implementation Project
@@ -26,6 +27,7 @@
 @dynamic wiki_enabled;
 @dynamic owner;
 @dynamic isFavorite;
+@dynamic filter;
 
 +(Project *)createAndParseJSON:(NSDictionary *)dict{
     Project *project = [Project createEntity];
@@ -73,6 +75,7 @@
     project.merge_requests_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"merge_requests_enabled"] boolValue]];
     project.wall_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"wall_enabled"] boolValue]];
     project.wiki_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"wiki_enabled"] boolValue]];
+    project.filter = [Filter loadDefaultFilter];
     
     return project;
 }

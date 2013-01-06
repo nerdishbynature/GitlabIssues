@@ -145,6 +145,19 @@
     [[NSManagedObjectContext MR_defaultContext] MR_save];
 }
 
+#pragma mark - UIAlertView
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        // do nothing
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else{
+        
+    }
+    
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -159,18 +172,6 @@
     [issue release];
     
     [super dealloc];
-}
-
-#pragma mark - UIAlertView
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 1) {
-        // do nothing
-        [self dismissViewControllerAnimated:YES completion:nil];
-    } else{
-        
-    }
-    
 }
 
 @end

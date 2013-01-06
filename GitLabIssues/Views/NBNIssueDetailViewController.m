@@ -333,9 +333,13 @@
 -(void)dealloc{
     self.issue = nil;
     self.tableView = nil;
+    self.commentString = nil;
+    self.textField = nil;
     
     [issue release];
     [tableView release];
+    [commentString release];
+    [textField release];
     
     [super dealloc];
 }

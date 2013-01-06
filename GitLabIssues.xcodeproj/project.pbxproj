@@ -91,6 +91,7 @@
 		972305871691D495005866EF /* HEBubbleViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 972305851691D495005866EF /* HEBubbleViewItem.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9723058D1691D821005866EF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9723058C1691D821005866EF /* QuartzCore.framework */; };
 		972305AB169322DB005866EF /* DAKeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 972305AA169322DB005866EF /* DAKeyboardControl.m */; };
+		972305B616933BE7005866EF /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 972305B516933BE7005866EF /* Filter.m */; };
 		973285F6167E4B0400CFACC2 /* NBNFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 973285F5167E4B0400CFACC2 /* NBNFavoritesViewController.m */; };
 		973285FF167E517800CFACC2 /* NBNProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 973285FE167E517800CFACC2 /* NBNProjectsViewController.m */; };
 		97328602167E525300CFACC2 /* NBNProjectConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 97328601167E525300CFACC2 /* NBNProjectConnection.m */; };
@@ -103,6 +104,8 @@
 		97860A5B16909B4E003D2092 /* NBNCreatedByMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97860A5A16909B4E003D2092 /* NBNCreatedByMeViewController.m */; };
 		97860A5E16909B65003D2092 /* NBNAssignedToMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97860A5D16909B65003D2092 /* NBNAssignedToMeViewController.m */; };
 		97860A6216909C15003D2092 /* NBNDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97860A6016909C15003D2092 /* NBNDashboardViewController.m */; };
+		979993AD169986AA00AEA929 /* EmojiList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 979993AA169986AA00AEA929 /* EmojiList.plist */; };
+		979993AE169986AA00AEA929 /* PBEmojiLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 979993AC169986AA00AEA929 /* PBEmojiLabel.m */; };
 		979C64DE167F0B9C00B3E2D5 /* NBNIssueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64DC167F0B9B00B3E2D5 /* NBNIssueDetailViewController.m */; };
 		979C64E6167F10F300B3E2D5 /* NSData+NSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64E3167F10F300B3E2D5 /* NSData+NSHash.m */; };
 		979C64E7167F10F300B3E2D5 /* NSString+NSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64E5167F10F300B3E2D5 /* NSString+NSHash.m */; };
@@ -327,6 +330,8 @@
 		9723058C1691D821005866EF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		972305A9169322DB005866EF /* DAKeyboardControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAKeyboardControl.h; sourceTree = "<group>"; };
 		972305AA169322DB005866EF /* DAKeyboardControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAKeyboardControl.m; sourceTree = "<group>"; };
+		972305B416933BE7005866EF /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filter.h; path = Models/Filter.h; sourceTree = "<group>"; };
+		972305B516933BE7005866EF /* Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Filter.m; path = Models/Filter.m; sourceTree = "<group>"; };
 		973285F4167E4B0400CFACC2 /* NBNFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNFavoritesViewController.h; path = Views/NBNFavoritesViewController.h; sourceTree = "<group>"; };
 		973285F5167E4B0400CFACC2 /* NBNFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNFavoritesViewController.m; path = Views/NBNFavoritesViewController.m; sourceTree = "<group>"; };
 		973285FD167E517800CFACC2 /* NBNProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNProjectsViewController.h; path = Views/NBNProjectsViewController.h; sourceTree = "<group>"; };
@@ -346,6 +351,9 @@
 		97860A5D16909B65003D2092 /* NBNAssignedToMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNAssignedToMeViewController.m; path = Views/NBNAssignedToMeViewController.m; sourceTree = "<group>"; };
 		97860A5F16909C15003D2092 /* NBNDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNDashboardViewController.h; path = Views/NBNDashboardViewController.h; sourceTree = "<group>"; };
 		97860A6016909C15003D2092 /* NBNDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNDashboardViewController.m; path = Views/NBNDashboardViewController.m; sourceTree = "<group>"; };
+		979993AA169986AA00AEA929 /* EmojiList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EmojiList.plist; sourceTree = "<group>"; };
+		979993AB169986AA00AEA929 /* PBEmojiLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBEmojiLabel.h; sourceTree = "<group>"; };
+		979993AC169986AA00AEA929 /* PBEmojiLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBEmojiLabel.m; sourceTree = "<group>"; };
 		979C64DB167F0B9B00B3E2D5 /* NBNIssueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssueDetailViewController.h; path = Views/NBNIssueDetailViewController.h; sourceTree = "<group>"; };
 		979C64DC167F0B9B00B3E2D5 /* NBNIssueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssueDetailViewController.m; path = Views/NBNIssueDetailViewController.m; sourceTree = "<group>"; };
 		979C64E2167F10F300B3E2D5 /* NSData+NSHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+NSHash.h"; sourceTree = "<group>"; };
@@ -531,6 +539,7 @@
 		9710B5AF167E2C4500F26DE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				979993A9169986AA00AEA929 /* PBEmojiLabel */,
 				972305A8169322DB005866EF /* DAKeyboardControl */,
 				972305801691D47F005866EF /* BubbleView */,
 				979C65101680601300B3E2D5 /* FormKit */,
@@ -630,6 +639,8 @@
 			isa = PBXGroup;
 			children = (
 				9710B612167E345B00F26DE2 /* GitLab.xcdatamodeld */,
+				972305B416933BE7005866EF /* Filter.h */,
+				972305B516933BE7005866EF /* Filter.m */,
 				9710B63C167E34C700F26DE2 /* Owner.h */,
 				9710B63D167E34C700F26DE2 /* Owner.m */,
 				9710B639167E34C700F26DE2 /* Session.h */,
@@ -880,6 +891,17 @@
 			name = Dashboard;
 			sourceTree = "<group>";
 		};
+		979993A9169986AA00AEA929 /* PBEmojiLabel */ = {
+			isa = PBXGroup;
+			children = (
+				979993AA169986AA00AEA929 /* EmojiList.plist */,
+				979993AB169986AA00AEA929 /* PBEmojiLabel.h */,
+				979993AC169986AA00AEA929 /* PBEmojiLabel.m */,
+			);
+			name = PBEmojiLabel;
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		979C64E1167F10F300B3E2D5 /* NSHash */ = {
 			isa = PBXGroup;
 			children = (
@@ -1124,6 +1146,7 @@
 				972304DA1691B0CE005866EF /* NBNIssueDetailCell.xib in Resources */,
 				972304DC1691B0EB005866EF /* NBNIssueDescriptionCell.xib in Resources */,
 				972304DE1691B102005866EF /* NBNIssueCommentCell.xib in Resources */,
+				979993AD169986AA00AEA929 /* EmojiList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1273,6 +1296,8 @@
 				972305861691D495005866EF /* HEBubbleView.m in Sources */,
 				972305871691D495005866EF /* HEBubbleViewItem.m in Sources */,
 				972305AB169322DB005866EF /* DAKeyboardControl.m in Sources */,
+				972305B616933BE7005866EF /* Filter.m in Sources */,
+				979993AE169986AA00AEA929 /* PBEmojiLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

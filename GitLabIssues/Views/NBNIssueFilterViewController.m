@@ -9,6 +9,8 @@
 #import "NBNIssueFilterViewController.h"
 #import "NBNMilestonesListViewController.h"
 #import "Project.h"
+#import "Filter.h"
+#import "Assignee.h"
 
 NSString *const kKeyAssignedFilter = @"kKeyAssignedFilter";
 NSString *const kKeyMilestoneFilter = @"kKeyMilestoneFilter";
@@ -32,6 +34,7 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 @property (retain, nonatomic) IBOutlet UIButton *addMilestoneButton;
 @property (retain, nonatomic) IBOutlet UIButton *addLabelButton;
 @property (nonatomic, retain) NSMutableDictionary *filterDict;
+@property (nonatomic, retain) Filter *filter;
 
 
 @end
@@ -53,6 +56,15 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 @synthesize delegate;
 @synthesize filterDict;
 @synthesize project;
+@synthesize filter;
+
++(NBNIssueFilterViewController *)loadViewControllerWithFilter:(Filter *)_filter{
+    NBNIssueFilterViewController *filterController = [[[NBNIssueFilterViewController alloc] initWithNibName:@"NBNIssueFilterViewController" bundle:nil] autorelease];
+    filterController.filter = _filter;
+    [filterController configureView];
+    
+    return filterController;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -70,6 +82,44 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel:)] autorelease];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(apply:)] autorelease];
     self.title = @"Issues Filter";
+    
+}
+
+-(void)configureView{
+    if (self.filter.assigned) {
+        self.assignedDescriptionLabel.text = self.filter.assigned.name;
+    }
+    
+    if (self.filter.milestone) {
+        self.milestoneDescriptionLabel.text = self.filter.milestone.title;
+    }
+    
+    
+    NSMutableString *labelString = [[NSMutableString alloc] init];
+    
+    for (NSString *label in self.filter.labels) {
+        if ([label isEqual:[((NSArray *)self.filter.labels) objectAtIndex:0]]) { // firstObject
+            [labelString appendFormat:@", %@", label];
+        } else{
+            [labelString appendString:label];
+        }
+        
+    }
+    
+    self.labelDescriptionLabel.text = labelString;
+    [labelString release];
+    
+    if ([self.filter.closed boolValue] == YES) {
+        self.statusSegementedControl.selectedSegmentIndex = 1;
+    } else{
+        self.statusSegementedControl.selectedSegmentIndex = 0;
+    }
+    
+    if ([self.filter.sortCreated boolValue] == YES) { // Sort created
+        self.statusSegementedControl.selectedSegmentIndex = 0;
+    } else{                                            // Sort Updated
+        self.statusSegementedControl.selectedSegmentIndex = 1;
+    }
     
 }
 
@@ -128,11 +178,37 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 }
 
 - (void)dealloc {
+    self.assignedLabel = nil;
+    self.assignedDescriptionLabel = nil;
+    self.milestoneLabel = nil;
+    self.milestoneDescriptionLabel = nil;
+    self.labelsLabel = nil;
+    self.labelDescriptionLabel = nil;
+    self.issueStatusHeaderLabel = nil;
+    self.statusSegementedControl = nil;
+    self.issueSortHeaderLabel = nil;
+    self.sortSegementedControl = nil;
+    self.addAssignedButton = nil;
+    self.addMilestoneButton = nil;
+    self.addLabelButton = nil;
+    self.filterDict = nil;
+    self.filter = nil;
+    
+    [assignedLabel release];
+    [assignedDescriptionLabel release];
+    [milestoneLabel release];
+    [labelsLabel release];
+    [labelDescriptionLabel release];
+    [issueStatusHeaderLabel release];
+    [statusSegementedControl release];
+    [issueSortHeaderLabel release];
+    [sortSegementedControl release];
     [addAssignedButton release];
     [addMilestoneButton release];
     [addLabelButton release];
     [filterDict release];
-
+    [filter release];
+    
     [super dealloc];
 }
 

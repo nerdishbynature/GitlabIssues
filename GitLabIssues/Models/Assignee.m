@@ -20,6 +20,7 @@
 @dynamic name;
 @dynamic issues;
 @dynamic mergeRequests;
+@dynamic filter;
 
 +(Assignee *)createAndParseJSON:(NSDictionary *)dict{
     Assignee *assignee = [Assignee createEntity];
