@@ -99,6 +99,7 @@
 		97328604167E55DD00CFACC2 /* PBLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B60A167E2DAF00F26DE2 /* PBLog.m */; };
 		97328607167E5D5D00CFACC2 /* NBNIssuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97328606167E5D5D00CFACC2 /* NBNIssuesViewController.m */; };
 		9732860B167E5F1D00CFACC2 /* NBNIssuesConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9732860A167E5F1D00CFACC2 /* NBNIssuesConnection.m */; };
+		9771CCB8169A086500DC1200 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9771CCB7169A086500DC1200 /* MBProgressHUD.m */; };
 		97860A5016903C8F003D2092 /* NBNIssueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97860A4F16903C8F003D2092 /* NBNIssueCell.m */; };
 		97860A5216903CAC003D2092 /* NBNIssueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97860A5116903CAC003D2092 /* NBNIssueCell.xib */; };
 		97860A5B16909B4E003D2092 /* NBNCreatedByMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97860A5A16909B4E003D2092 /* NBNCreatedByMeViewController.m */; };
@@ -342,6 +343,8 @@
 		97328606167E5D5D00CFACC2 /* NBNIssuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssuesViewController.m; path = Views/NBNIssuesViewController.m; sourceTree = "<group>"; };
 		97328609167E5F1D00CFACC2 /* NBNIssuesConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssuesConnection.h; path = Views/NBNIssuesConnection.h; sourceTree = "<group>"; };
 		9732860A167E5F1D00CFACC2 /* NBNIssuesConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssuesConnection.m; path = Views/NBNIssuesConnection.m; sourceTree = "<group>"; };
+		9771CCB6169A086500DC1200 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		9771CCB7169A086500DC1200 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		97860A4E16903C8F003D2092 /* NBNIssueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssueCell.h; path = Views/NBNIssueCell.h; sourceTree = "<group>"; };
 		97860A4F16903C8F003D2092 /* NBNIssueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssueCell.m; path = Views/NBNIssueCell.m; sourceTree = "<group>"; };
 		97860A5116903CAC003D2092 /* NBNIssueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NBNIssueCell.xib; path = Views/NBNIssueCell.xib; sourceTree = "<group>"; };
@@ -539,6 +542,7 @@
 		9710B5AF167E2C4500F26DE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9771CCB4169A085200DC1200 /* MBProgressHUD */,
 				979993A9169986AA00AEA929 /* PBEmojiLabel */,
 				972305A8169322DB005866EF /* DAKeyboardControl */,
 				972305801691D47F005866EF /* BubbleView */,
@@ -866,6 +870,15 @@
 				979C65871680678400B3E2D5 /* NBNIssueEditViewController.m */,
 			);
 			name = Issues;
+			sourceTree = "<group>";
+		};
+		9771CCB4169A085200DC1200 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				9771CCB6169A086500DC1200 /* MBProgressHUD.h */,
+				9771CCB7169A086500DC1200 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		97860A4C16903C6B003D2092 /* Cells */ = {
@@ -1298,6 +1311,7 @@
 				972305AB169322DB005866EF /* DAKeyboardControl.m in Sources */,
 				972305B616933BE7005866EF /* Filter.m in Sources */,
 				979993AE169986AA00AEA929 /* PBEmojiLabel.m in Sources */,
+				9771CCB8169A086500DC1200 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

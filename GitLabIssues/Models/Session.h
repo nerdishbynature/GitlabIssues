@@ -26,4 +26,6 @@
  */
 +(Session *)generateSession;
 
++(void)generateSessionWithCompletion:(void (^)(Session *session))block;
+
 @end

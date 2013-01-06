@@ -24,39 +24,72 @@
     
     if ([Session findAll].count > 0) {
         session = [[Session findAll] objectAtIndex:0]; //there can only be one
+        
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token]];
+        __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        
+        [request setCompletionBlock:^{
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+            
+            for (NSDictionary *dict in array) {
+                
+                NSPredicate *issueFinder = [NSPredicate predicateWithFormat:@"identifier = %i", [[dict objectForKey:@"id"] integerValue]]; // 1 domain means no conflicts
+                
+                if ([[Issue MR_findAllWithPredicate:issueFinder] count] == 0) {
+                    
+                    [Issue createAndParseJSON:dict];
+                } else if ([[Issue MR_findAllWithPredicate:issueFinder] count] == 1){
+                    
+                    Issue *issue = [[Issue MR_findAllWithPredicate:issueFinder] objectAtIndex:0];
+                    [issue parseServerResponse:dict];
+                    
+                }
+            }
+            block();
+        }];
+        
+        [request setFailedBlock:^{
+            PBLog(@"err %@", [request error]);
+        }];
+        
+        [request startAsynchronous];
+        
     } else{
-        session = [Session generateSession];
+        
+        [Session generateSessionWithCompletion:^(Session *session) {
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token]];
+            __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+            
+            [request setCompletionBlock:^{
+                NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+                
+                for (NSDictionary *dict in array) {
+                    
+                    NSPredicate *issueFinder = [NSPredicate predicateWithFormat:@"identifier = %i", [[dict objectForKey:@"id"] integerValue]]; // 1 domain means no conflicts
+                    
+                    if ([[Issue MR_findAllWithPredicate:issueFinder] count] == 0) {
+                        
+                        [Issue createAndParseJSON:dict];
+                    } else if ([[Issue MR_findAllWithPredicate:issueFinder] count] == 1){
+                        
+                        Issue *issue = [[Issue MR_findAllWithPredicate:issueFinder] objectAtIndex:0];
+                        [issue parseServerResponse:dict];
+                        
+                    }
+                }
+                block();
+            }];
+            
+            [request setFailedBlock:^{
+                PBLog(@"err %@", [request error]);
+            }];
+            
+            [request startAsynchronous];
+        }];
     }
     
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token]];
-    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    
-    [request setCompletionBlock:^{
-        NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
-        
-        for (NSDictionary *dict in array) {
-            
-            NSPredicate *issueFinder = [NSPredicate predicateWithFormat:@"identifier = %i", [[dict objectForKey:@"id"] integerValue]]; // 1 domain means no conflicts
-            
-            if ([[Issue MR_findAllWithPredicate:issueFinder] count] == 0) {
-            
-                [Issue createAndParseJSON:dict];
-            } else if ([[Issue MR_findAllWithPredicate:issueFinder] count] == 1){
-                
-                Issue *issue = [[Issue MR_findAllWithPredicate:issueFinder] objectAtIndex:0];
-                [issue parseServerResponse:dict];
-                
-            }
-        }
-        block();
-    }];
-    
-    [request setFailedBlock:^{
-        PBLog(@"err %@", [request error]);
-    }];
-    
-    [request startAsynchronous];
+   
 }
 
 +(void)loadNotesForIssue:(Issue *)issue onSuccess:(void (^)(NSArray *))block{

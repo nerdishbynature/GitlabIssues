@@ -10,15 +10,18 @@
 #import "Project.h"
 #import "NBNProjectConnection.h"
 #import "NBNIssuesViewController.h"
+#import "MBProgressHUD.h"
 
 @interface NBNProjectsViewController ()
 
 @property (nonatomic, retain) NSArray *projectsArray;
+@property (nonatomic, retain) MBProgressHUD *HUD;
 
 @end
 
 @implementation NBNProjectsViewController
 @synthesize projectsArray;
+@synthesize HUD;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -85,7 +88,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NBNIssuesViewController *issues = [NBNIssuesViewController loadWithProject:(Project *)[self.projectsArray objectAtIndex:indexPath.row]];
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+	
+	// Regiser for HUD callbacks so we can remove it from the window at the right time
+	HUD.delegate = self;
+	
+	// Show the HUD while the provided method executes in a new thread
+	[HUD showWhileExecuting:@selector(navigateToIssues:) onTarget:self withObject:(Project *)[self.projectsArray objectAtIndex:indexPath.row] animated:YES];
+}
+
+-(void)navigateToIssues:(Project *)project{
+    NBNIssuesViewController *issues = [NBNIssuesViewController loadWithProject:project];
     [self.navigationController pushViewController:issues animated:YES];
 }
 
@@ -96,8 +110,10 @@
 
 -(void)dealloc{
     self.projectsArray = nil;
+    self.HUD = nil;
     
     [projectsArray release];
+    [HUD release];
     [super dealloc];
 }
 

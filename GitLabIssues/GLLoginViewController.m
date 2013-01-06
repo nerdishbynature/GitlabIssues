@@ -80,15 +80,17 @@
             PBLog(@"save pressed");
             PBLog(@"Domain: %@", self.domain);
             
-            Session *session = [Session generateSession];
+            [Session generateSessionWithCompletion:^(Session *session) {
+                if (session.private_token) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    [[NSManagedObjectContext MR_defaultContext] MR_save];
+                } else{
+                    UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Something went wrong, please check your input." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+                    [view show];
+                }
+            }];
             
-            if (session.private_token) {
-                [self dismissViewControllerAnimated:YES completion:nil];
-                [[NSManagedObjectContext MR_defaultContext] MR_save];
-            } else{
-                UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Something went wrong, please check your input." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-                [view show];
-            }
+            
             
         }];
     }];

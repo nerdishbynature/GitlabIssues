@@ -14,31 +14,59 @@
 
 +(void)loadProjectsForDomain:(Domain *)domain onSuccess:(void (^)(void))block{
     
-    Session *session = [Session generateSession];
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects?private_token=%@", domain.protocol, domain.domain, session.private_token]];
-    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    
-    [request setCompletionBlock:^{
-        NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+    if ([Session findAll].count > 0) {
+        Session *session = [[Session findAll] objectAtIndex:0];
         
-        for (NSDictionary *dict in array) {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects?private_token=%@", domain.protocol, domain.domain, session.private_token]];
+        __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        
+        [request setCompletionBlock:^{
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             
-            NSPredicate *projectFinder = [NSPredicate predicateWithFormat:@"identifier = %i", [[dict objectForKey:@"id"] integerValue]]; // 1 domain means no conflicts
-            
-            if ([[Project MR_findAllWithPredicate:projectFinder] count] == 0) {
-                [Project createAndParseJSON:dict];
+            for (NSDictionary *dict in array) {
+                
+                NSPredicate *projectFinder = [NSPredicate predicateWithFormat:@"identifier = %i", [[dict objectForKey:@"id"] integerValue]]; // 1 domain means no conflicts
+                
+                if ([[Project MR_findAllWithPredicate:projectFinder] count] == 0) {
+                    [Project createAndParseJSON:dict];
+                }
             }
-        }
-
-        block();
-    }];
-    
-    [request setFailedBlock:^{
-        PBLog(@"err %@", [request error]);
-    }];
-    
-    [request startAsynchronous];
+            
+            block();
+        }];
+        
+        [request setFailedBlock:^{
+            PBLog(@"err %@", [request error]);
+        }];
+        
+        [request startAsynchronous];
+    } else{
+        [Session generateSessionWithCompletion:^(Session *session) {
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects?private_token=%@", domain.protocol, domain.domain, session.private_token]];
+            __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+            
+            [request setCompletionBlock:^{
+                NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+                
+                for (NSDictionary *dict in array) {
+                    
+                    NSPredicate *projectFinder = [NSPredicate predicateWithFormat:@"identifier = %i", [[dict objectForKey:@"id"] integerValue]]; // 1 domain means no conflicts
+                    
+                    if ([[Project MR_findAllWithPredicate:projectFinder] count] == 0) {
+                        [Project createAndParseJSON:dict];
+                    }
+                }
+                
+                block();
+            }];
+            
+            [request setFailedBlock:^{
+                PBLog(@"err %@", [request error]);
+            }];
+            
+            [request startAsynchronous];
+        }];
+    }
 }
 
 +(void)loadMembersForProject:(Project *)project onSuccess:(void (^)(void))block{

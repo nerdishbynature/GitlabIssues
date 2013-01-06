@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
-@interface NBNProjectsViewController : UITableViewController
+@interface NBNProjectsViewController : UITableViewController <MBProgressHUDDelegate>
 
 @end
