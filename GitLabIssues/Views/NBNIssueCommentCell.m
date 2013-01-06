@@ -11,12 +11,13 @@
 #import "ASIHTTPRequest.h"
 #import "ASIDownloadCache.h"
 #import "NSString+NSHash.h"
+#import "PBEmojiLabel.h"
 
 @interface NBNIssueCommentCell ()
 
 @property (nonatomic, retain) IBOutlet UIImageView *authorImageView;
 @property (nonatomic, retain) IBOutlet UILabel *headlineLabel;
-@property (nonatomic, retain) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, retain) IBOutlet PBEmojiLabel *descriptionLabel;
 @property (nonatomic, retain) IBOutlet UILabel *dateTimeLabel;
 @property (nonatomic, retain) Note *note;
 
@@ -56,7 +57,8 @@
     [self loadAuthorImage];
     
     self.headlineLabel.text = [NSString stringWithFormat:@"%@ commented", self.note.author.name];
-    self.descriptionLabel.text = self.note.body;
+    
+    [self.descriptionLabel setEmojiText:self.note.body];
     
     CGSize expectedSize = [self.descriptionLabel.text sizeWithFont:self.descriptionLabel.font constrainedToSize:CGSizeMake(self.descriptionLabel.frame.size.width, MAXFLOAT)];
     self.descriptionLabel.frame = CGRectMake(self.descriptionLabel.frame.origin.x, self.descriptionLabel.frame.origin.y, self.descriptionLabel.frame.size.width, expectedSize.height);
