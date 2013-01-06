@@ -178,11 +178,37 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 }
 
 - (void)dealloc {
+    self.assignedLabel = nil;
+    self.assignedDescriptionLabel = nil;
+    self.milestoneLabel = nil;
+    self.milestoneDescriptionLabel = nil;
+    self.labelsLabel = nil;
+    self.labelDescriptionLabel = nil;
+    self.issueStatusHeaderLabel = nil;
+    self.statusSegementedControl = nil;
+    self.issueSortHeaderLabel = nil;
+    self.sortSegementedControl = nil;
+    self.addAssignedButton = nil;
+    self.addMilestoneButton = nil;
+    self.addLabelButton = nil;
+    self.filterDict = nil;
+    self.filter = nil;
+    
+    [assignedLabel release];
+    [assignedDescriptionLabel release];
+    [milestoneLabel release];
+    [labelsLabel release];
+    [labelDescriptionLabel release];
+    [issueStatusHeaderLabel release];
+    [statusSegementedControl release];
+    [issueSortHeaderLabel release];
+    [sortSegementedControl release];
     [addAssignedButton release];
     [addMilestoneButton release];
     [addLabelButton release];
     [filterDict release];
-
+    [filter release];
+    
     [super dealloc];
 }
 

@@ -84,4 +84,18 @@
     [request startAsynchronous];
 }
 
+- (void)dealloc
+{
+    self.authorImage = nil;
+    self.authorNameLabel = nil;
+    self.issueHeaderLabel = nil;
+    self.descriptionLabel = nil;
+    
+    [authorImage release];
+    [authorNameLabel release];
+    [issueHeaderLabel release];
+    [descriptionLabel release];
+    [super dealloc];
+}
+
 @end

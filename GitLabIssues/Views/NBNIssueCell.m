@@ -142,12 +142,21 @@
 }
 
 - (void)dealloc {
+    self.titleLabel = nil;
+    self.dateLabel = nil;
+    self.descriptionLabel = nil;
+    self.developerProfilePicture = nil;
+    self.developerTitleLabel = nil;
+    self.createdLabel = nil;
+    self.issue = nil;
+    
     [titleLabel release];
     [dateLabel release];
     [descriptionLabel release];
     [developerProfilePicture release];
     [developerTitleLabel release];
     [createdLabel release];
+    [issue release];
     [super dealloc];
 }
 @end

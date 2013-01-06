@@ -162,12 +162,12 @@
 }
 
 -(void)dealloc{
-    [super dealloc];
     self.menuArray = nil;
     self.domainArray = nil;
     
     [menuArray release];
     [domainArray release];
+    [super dealloc];
 }
 
 @end

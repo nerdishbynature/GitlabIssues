@@ -141,8 +141,14 @@
 
 -(void)dealloc{
     self.projectsArray = nil;
+    self.searchDisplayController = nil;
+    self.searchBar = nil;
+    self.projectsSearchResults = nil;
     
     [projectsArray release];
+    [searchDisplayController release];
+    [searchBar release];
+    [projectsSearchResults release];
     [super dealloc];
 }
 

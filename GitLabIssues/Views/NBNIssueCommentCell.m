@@ -113,4 +113,20 @@
     [request startAsynchronous];
 }
 
+- (void)dealloc
+{
+    self.authorImageView = nil;
+    self.headlineLabel = nil;
+    self.descriptionLabel = nil;
+    self.dateTimeLabel = nil;
+    self.note = nil;
+    
+    [authorImageView release];
+    [headlineLabel release];
+    [descriptionLabel release];
+    [dateTimeLabel release];
+    [note release];
+    [super dealloc];
+}
+
 @end

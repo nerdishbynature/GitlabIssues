@@ -104,4 +104,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc
+{
+    self.formModel = nil;
+    self.domain = nil;
+}
+
 @end

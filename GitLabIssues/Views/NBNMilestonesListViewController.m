@@ -147,4 +147,17 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)dealloc
+{
+    self.milestonesArray = nil;
+    self.milestonesSearchArray = nil;
+    self.searchBar = nil;
+    self.searchDisplayController = nil;
+    
+    [milestonesArray release];
+    [milestonesSearchArray release];
+    [searchDisplayController release];    
+    [super dealloc];
+}
+
 @end

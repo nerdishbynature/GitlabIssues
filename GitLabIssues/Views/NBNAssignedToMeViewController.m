@@ -128,4 +128,12 @@
     [issueController release];
 }
 
+- (void)dealloc
+{
+    self.projects = nil;
+    
+    [projects release];
+    [super dealloc];
+}
+
 @end

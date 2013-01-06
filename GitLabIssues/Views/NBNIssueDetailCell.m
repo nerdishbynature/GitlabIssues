@@ -74,13 +74,6 @@
     }    
 }
 
-- (void)dealloc {
-    [headlineLabel release];
-    [bubbleContainer release];
-    [bubbleView release];
-    [detailString release];
-    [super dealloc];
-}
 
 #pragma mark - bubble view data source
 
@@ -141,5 +134,17 @@
 {
 }
 
+- (void)dealloc {
+    self.headlineLabel = nil;
+    self.bubbleContainer = nil;
+    self.bubbleView = nil;
+    self.detailString = nil;
+    
+    [headlineLabel release];
+    [bubbleContainer release];
+    [bubbleView release];
+    [detailString release];
+    [super dealloc];
+}
 
 @end
