@@ -384,6 +384,7 @@
     
     FKFormAttributeMapping *attributeMapping = [FKFormAttributeMapping attributeMapping];
     attributeMapping.title = title;
+    attributeMapping.accessibilityLabel = title;
     attributeMapping.attribute = attribute;
     attributeMapping.type = type;
     [self addAttributeMappingToFormMapping:attributeMapping];
