@@ -11,6 +11,8 @@
 #import "Project.h"
 #import "Filter.h"
 #import "Assignee.h"
+#import "NBNFilterComponentsCell.h"
+#import "NBNFilterSegmentedCell.h"
 
 NSString *const kKeyAssignedFilter = @"kKeyAssignedFilter";
 NSString *const kKeyMilestoneFilter = @"kKeyMilestoneFilter";
@@ -20,48 +22,21 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 
 @interface NBNIssueFilterViewController ()
 
-@property (nonatomic, retain) IBOutlet UILabel *assignedLabel;
-@property (nonatomic, retain) IBOutlet UILabel *assignedDescriptionLabel;
-@property (nonatomic, retain) IBOutlet UILabel *milestoneLabel;
-@property (nonatomic, retain) IBOutlet UILabel *milestoneDescriptionLabel;
-@property (nonatomic, retain) IBOutlet UILabel *labelsLabel;
-@property (nonatomic, retain) IBOutlet UILabel *labelDescriptionLabel;
-@property (nonatomic, retain) IBOutlet UILabel *issueStatusHeaderLabel;
-@property (nonatomic, retain) IBOutlet UISegmentedControl *statusSegementedControl;
-@property (nonatomic, retain) IBOutlet UILabel *issueSortHeaderLabel;
-@property (nonatomic, retain) IBOutlet UISegmentedControl *sortSegementedControl;
-@property (retain, nonatomic) IBOutlet UIButton *addAssignedButton;
-@property (retain, nonatomic) IBOutlet UIButton *addMilestoneButton;
-@property (retain, nonatomic) IBOutlet UIButton *addLabelButton;
-@property (nonatomic, retain) NSMutableDictionary *filterDict;
 @property (nonatomic, retain) Filter *filter;
 
 
 @end
 
 @implementation NBNIssueFilterViewController
-@synthesize assignedLabel;
-@synthesize assignedDescriptionLabel;
-@synthesize milestoneLabel;
-@synthesize milestoneDescriptionLabel;
-@synthesize labelsLabel;
-@synthesize labelDescriptionLabel;
-@synthesize issueStatusHeaderLabel;
-@synthesize statusSegementedControl;
-@synthesize issueSortHeaderLabel;
-@synthesize sortSegementedControl;
-@synthesize addAssignedButton;
-@synthesize addMilestoneButton;
-@synthesize addLabelButton;
+
 @synthesize delegate;
-@synthesize filterDict;
 @synthesize project;
 @synthesize filter;
 
 +(NBNIssueFilterViewController *)loadViewControllerWithFilter:(Filter *)_filter{
-    NBNIssueFilterViewController *filterController = [[[NBNIssueFilterViewController alloc] initWithNibName:@"NBNIssueFilterViewController" bundle:nil] autorelease];
+    NBNIssueFilterViewController *filterController = [[[NBNIssueFilterViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
     filterController.filter = _filter;
-    [filterController configureView];
+    //[filterController configureView];
     
     return filterController;
 }
@@ -85,42 +60,79 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     
 }
 
--(void)configureView{
-    if (self.filter.assigned) {
-        self.assignedDescriptionLabel.text = self.filter.assigned.name;
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 3;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    switch (section) {
+        case 0:
+            return 2; // labels are not yet supported
+            break;
+            
+        default:
+            return 1;
+            break;
     }
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (self.filter.milestone) {
-        self.milestoneDescriptionLabel.text = self.filter.milestone.title;
-    }
     
-    
-    NSMutableString *labelString = [[NSMutableString alloc] init];
-    
-    for (NSString *label in self.filter.labels) {
-        if ([label isEqual:[((NSArray *)self.filter.labels) objectAtIndex:0]]) { // firstObject
-            [labelString appendFormat:@", %@", label];
-        } else{
-            [labelString appendString:label];
+    if (indexPath.section == 0) {// 
+        static NSString  *CellIdentifier = @"ComponentsCellIdentifier";
+        
+        NBNFilterComponentsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (!cell) {
+            cell = [NBNFilterComponentsCell loadCellFromNib];
         }
         
+        switch (indexPath.row) {
+            case 0: // Assignee
+                [cell configureCellWithAssignee:self.filter.assigned];
+                break;
+
+            case 1: // Milestone
+                [cell configureCellWithMilestone:self.filter.milestone];
+                break;
+                
+            case 2: // Labels
+                [cell configureCellWithLabels:self.filter.labels];
+                break;
+                
+            default:
+                break;
+        }
+        
+        return cell;
+        
+    } else if (indexPath.section == 1){ // open/closed Issues
+        static NSString  *CellIdentifier = @"SegmentedCellIdentifier";
+        
+        NBNFilterSegmentedCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (!cell) {
+            cell = [NBNFilterSegmentedCell loadCellFromNib];
+        }
+        
+        [cell configureCellIsClosedCell:YES];
+        return cell;
+        
+        
+    } else{ // sort created or updated
+        static NSString  *CellIdentifier = @"SegmentedCellIdentifier";
+        
+        NBNFilterSegmentedCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (!cell) {
+            cell = [NBNFilterSegmentedCell loadCellFromNib];
+        }
+        
+        [cell configureCellIsClosedCell:NO];
+        
+        return cell;
     }
-    
-    self.labelDescriptionLabel.text = labelString;
-    [labelString release];
-    
-    if ([self.filter.closed boolValue] == YES) {
-        self.statusSegementedControl.selectedSegmentIndex = 1;
-    } else{
-        self.statusSegementedControl.selectedSegmentIndex = 0;
-    }
-    
-    if ([self.filter.sortCreated boolValue] == YES) { // Sort created
-        self.statusSegementedControl.selectedSegmentIndex = 0;
-    } else{                                            // Sort Updated
-        self.statusSegementedControl.selectedSegmentIndex = 1;
-    }
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -132,19 +144,19 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 
 #pragma mark - IBActions
 
--(IBAction)statusValueChanged:(id)sender{
+-(void)statusValueChanged:(id)sender{
 
 }
 
--(IBAction)sortIssuesValueChanged:(id)sender{
+-(void)sortIssuesValueChanged:(id)sender{
     
 }
 
-- (IBAction)addAssignedUsers:(UIButton *)sender {
+- (void)addAssignedUsers:(UIButton *)sender {
 
 }
 
-- (IBAction)addMilestones:(UIButton *)sender {
+- (void)addMilestones:(UIButton *)sender {
     NBNMilestonesListViewController *listController = [NBNMilestonesListViewController loadControllerWithProjectID:[self.project.identifier integerValue]];
     listController.delegate = self;
     
@@ -152,62 +164,36 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     [listController release];
 }
 
-- (IBAction)addLabels:(UIButton *)sender {
+- (void)addLabels:(UIButton *)sender {
 
 }
 
 -(void)cancel:(id)sender{
-    if (self.navigationController) {
-        [self.navigationController popViewControllerAnimated:YES];
-    } else{
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
+    [self dismiss];
 }
 
 -(void)apply:(id)sender{
     if ([self.delegate respondsToSelector:@selector(applyFilter:)]) {
-        [self.delegate applyFilter:self.filterDict];
+        [self.delegate applyFilter:self.filter];
     }
     
-    if (self.navigationController) {
-        [self.navigationController popViewControllerAnimated:YES];
-    } else{
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
+    [self dismiss];
+}
 
+-(void)dismiss{
+    if (self.navigationController.viewControllers.count == 1) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)dealloc {
-    self.assignedLabel = nil;
-    self.assignedDescriptionLabel = nil;
-    self.milestoneLabel = nil;
-    self.milestoneDescriptionLabel = nil;
-    self.labelsLabel = nil;
-    self.labelDescriptionLabel = nil;
-    self.issueStatusHeaderLabel = nil;
-    self.statusSegementedControl = nil;
-    self.issueSortHeaderLabel = nil;
-    self.sortSegementedControl = nil;
-    self.addAssignedButton = nil;
-    self.addMilestoneButton = nil;
-    self.addLabelButton = nil;
-    self.filterDict = nil;
     self.filter = nil;
+    self.project = nil;
     
-    [assignedLabel release];
-    [assignedDescriptionLabel release];
-    [milestoneLabel release];
-    [labelsLabel release];
-    [labelDescriptionLabel release];
-    [issueStatusHeaderLabel release];
-    [statusSegementedControl release];
-    [issueSortHeaderLabel release];
-    [sortSegementedControl release];
-    [addAssignedButton release];
-    [addMilestoneButton release];
-    [addLabelButton release];
-    [filterDict release];
     [filter release];
+    [project release];
     
     [super dealloc];
 }

@@ -82,22 +82,29 @@
     [navController release];
 }
 
+-(void)refreshIssues{
+    [NBNIssuesConnection loadIssuesForProject:self.project onSuccess:^{
+        [self refreshDataSource];
+    }];
+}
+
 -(void)refreshDataSource{
     self.issues = [[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] where:@"closed == 0"] orderBy:@"identifier"] toArray];
     [self.tableView reloadData];
 }
 
 -(void)filter{
+    
     NBNIssueFilterViewController *issueFilterViewController = [NBNIssueFilterViewController loadViewControllerWithFilter:self.project.filter];
     issueFilterViewController.delegate = self;
     issueFilterViewController.project = self.project;
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:issueFilterViewController];
-    [issueFilterViewController release];
-    
-    navController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//    [issueFilterViewController release];
+//
+//    navController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:navController animated:YES completion:nil];
-    
-    [navController release];
+//
+//    [navController release];
 }
 
 - (void)viewDidLoad
@@ -132,8 +139,6 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
-    [[NSManagedObjectContext MR_defaultContext] MR_saveNestedContexts];
     self.navigationController.toolbarHidden = YES;
 }
 
