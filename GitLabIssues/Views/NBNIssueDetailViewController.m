@@ -25,6 +25,8 @@
 #import "NBNIssueDescriptionCell.h"
 #import "NBNIssueCommentCell.h"
 
+#import "NBNMilestonesListViewController.h"
+
 
 @interface NBNIssueDetailViewController ()
 
@@ -52,12 +54,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupKeyboard];
-    self.navigationController.toolbarHidden = YES;
     self.title = [NSString stringWithFormat:@"Issue #%@", self.issue.identifier];
-
+    [self setupKeyboard];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editIssue)];
     [self refreshData];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+
 }
 
 -(void)refreshData{
@@ -276,10 +282,13 @@
 - (void)updateBodyUsingContentsOfTextField:(id)sender {
     
     self.commentString = ((UITextField *)sender).text;
-    PBLog(@"updateBodyUsingContentsOfTextField: %@", self.commentString);
 }
 
 -(void)sendPressed:(id)sender{
+    if ([self.commentString isEqualToString:@""]) { // abort crash with empty string
+        return;
+    }
+    
     [NBNIssuesConnection sendNoteForIssue:self.issue andBody:self.commentString onSuccess:^{
         self.textField.text = @"";
         [self.view hideKeyboard];
@@ -313,11 +322,8 @@
         
     } else if ([label isEqualToString:@"Milestone:"]){
         
-        NSMutableArray *milestoneNameArray = [[NSMutableArray alloc] init];
-        
-        for (Milestone *milestone in [NBNMilestoneConnection loadMilestonesWithProjectID:[self.issue.project_id integerValue]]) {
-            [milestoneNameArray addObject:milestone.title];
-        }
+        NBNMilestonesListViewController *list = [NBNMilestonesListViewController loadControllerWithProjectID:[self.issue.project_id integerValue]];
+        [self.navigationController pushViewController:list animated:YES];
         
     } else if ([label isEqualToString:@"Labels:"]){
         
