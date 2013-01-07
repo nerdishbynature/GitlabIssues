@@ -16,15 +16,10 @@
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="author" inverseEntity="Comment" syncable="YES"/>
         <relationship name="issues" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Issue" inverseName="author" inverseEntity="Issue" syncable="YES"/>
         <relationship name="mergeRequests" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="MergeRequest" inverseName="author" inverseEntity="MergeRequest" syncable="YES"/>
-        <relationship name="notes" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="author" inverseEntity="Note" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="author" inverseEntity="Note" syncable="YES"/>
         <relationship name="snippets" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Snippet" inverseName="author" inverseEntity="Snippet" syncable="YES"/>
-    </entity>
-    <entity name="Comment" representedClassName="Comment" syncable="YES">
-        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Author" inverseName="comments" inverseEntity="Author" syncable="YES"/>
     </entity>
     <entity name="Domain" representedClassName="Domain" syncable="YES">
         <attribute name="access_granted" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -147,9 +142,9 @@
     </entity>
     <elements>
         <element name="Assignee" positionX="106" positionY="42" width="128" height="163"/>
-        <element name="Author" positionX="304" positionY="360" width="128" height="195"/>
-        <element name="Comment" positionX="439" positionY="252" width="128" height="75"/>
+        <element name="Author" positionX="304" positionY="360" width="128" height="180"/>
         <element name="Domain" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Filter" positionX="-90" positionY="306" width="128" height="133"/>
         <element name="Issue" positionX="-270" positionY="-18" width="128" height="223"/>
         <element name="MergeRequest" positionX="394" positionY="0" width="128" height="180"/>
         <element name="Milestone" positionX="-36" positionY="-24" width="128" height="178"/>
@@ -160,6 +155,5 @@
         <element name="Snippet" positionX="-407" positionY="207" width="128" height="150"/>
         <element name="SSH_key" positionX="-414" positionY="27" width="128" height="90"/>
         <element name="User" positionX="-621" positionY="36" width="128" height="210"/>
-        <element name="Filter" positionX="-90" positionY="306" width="128" height="133"/>
     </elements>
 </model>
