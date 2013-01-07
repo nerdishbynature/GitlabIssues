@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 nerdishbynature. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "NBNIssueCommentCell.h"
 #import "Author.h"
 #import "ASIHTTPRequest.h"
@@ -60,6 +61,16 @@
     
     [self.descriptionLabel setEmojiText:self.note.body];
     
+    if ([self.descriptionLabel.text isEqualToString:@"_Status changed to closed_"]) {
+        self.descriptionLabel.text = @"Closed";
+        self.descriptionLabel.textColor = [UIColor redColor];
+        self.headlineLabel.text = [NSString stringWithFormat:@"%@ changed issue status to", self.note.author.name];
+    } else if ([self.descriptionLabel.text isEqualToString:@"_Status changed to reopened_"]){
+        self.descriptionLabel.text = @"Reopened";
+        self.descriptionLabel.textColor = [UIColor greenColor];
+        self.headlineLabel.text = [NSString stringWithFormat:@"%@ changed issue status to", self.note.author.name];
+    }
+    
     CGSize expectedSize = [self.descriptionLabel.text sizeWithFont:self.descriptionLabel.font constrainedToSize:CGSizeMake(self.descriptionLabel.frame.size.width, MAXFLOAT)];
     self.descriptionLabel.frame = CGRectMake(self.descriptionLabel.frame.origin.x, self.descriptionLabel.frame.origin.y, self.descriptionLabel.frame.size.width, expectedSize.height);
     
@@ -106,6 +117,9 @@
     
     [request setCompletionBlock:^{
         self.authorImageView.image = [UIImage imageWithData:request.responseData];
+        CALayer * l = [self.authorImageView layer];
+        [l setMasksToBounds:YES];
+        [l setCornerRadius:5.0];
     }];
     
     [request setFailedBlock:^{
