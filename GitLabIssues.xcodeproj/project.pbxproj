@@ -849,8 +849,6 @@
 			children = (
 				973285FD167E517800CFACC2 /* NBNProjectsViewController.h */,
 				973285FE167E517800CFACC2 /* NBNProjectsViewController.m */,
-				97328600167E525300CFACC2 /* NBNProjectConnection.h */,
-				97328601167E525300CFACC2 /* NBNProjectConnection.m */,
 			);
 			name = Projects;
 			sourceTree = "<group>";
@@ -867,8 +865,6 @@
 				979C64EC167F187A00B3E2D5 /* NBNIssueFilterViewController.h */,
 				979C64ED167F187A00B3E2D5 /* NBNIssueFilterViewController.m */,
 				974B8ADF169B546200ED15C5 /* FilterCells */,
-				97328609167E5F1D00CFACC2 /* NBNIssuesConnection.h */,
-				9732860A167E5F1D00CFACC2 /* NBNIssuesConnection.m */,
 				979C65861680678400B3E2D5 /* NBNIssueEditViewController.h */,
 				979C65871680678400B3E2D5 /* NBNIssueEditViewController.m */,
 			);
@@ -951,6 +947,10 @@
 				979C64FE167F52F000B3E2D5 /* NBNLabelsConnection.m */,
 				979C658A16806A0700B3E2D5 /* NBNUsersConnection.h */,
 				979C658B16806A0700B3E2D5 /* NBNUsersConnection.m */,
+				97328609167E5F1D00CFACC2 /* NBNIssuesConnection.h */,
+				9732860A167E5F1D00CFACC2 /* NBNIssuesConnection.m */,
+				97328600167E525300CFACC2 /* NBNProjectConnection.h */,
+				97328601167E525300CFACC2 /* NBNProjectConnection.m */,
 			);
 			name = Connections;
 			sourceTree = "<group>";
