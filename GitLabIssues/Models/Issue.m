@@ -144,7 +144,13 @@
     }
     
     if ([dict objectForKey:@"author"]) {
-        self.author = [Author createAndParseJSON:[dict objectForKey:@"author"]];
+        NSArray *authorArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Author"] where:@"identifier == %@", [[dict objectForKey:@"author"] objectForKey:@"id"] ] toArray];
+        
+        if (authorArray.count > 0) {
+            self.author = [authorArray objectAtIndex:0];
+        } else{
+            self.author = [Author createAndParseJSON:[dict objectForKey:@"author"]];
+        }
     }
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
