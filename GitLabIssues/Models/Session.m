@@ -64,7 +64,7 @@
 }
 
 
-+(void)generateSessionWithCompletion:(void (^)(Session *session))block{
++(void)generateSessionWithCompletion:(void (^)(Session *session))block onError:(void (^)(NSError *error))errorBlock{
     __block Session *session = [Session createEntity];
     
     Domain *domain = [[Domain findAll] objectAtIndex:0];
@@ -101,6 +101,7 @@
     }];
     
     [request setFailedBlock:^{
+        errorBlock(request.error);
         PBLog(@"err %@",request.error);
     }];
     

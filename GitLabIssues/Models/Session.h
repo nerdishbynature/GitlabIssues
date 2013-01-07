@@ -26,6 +26,6 @@
  */
 +(Session *)generateSession;
 
-+(void)generateSessionWithCompletion:(void (^)(Session *session))block;
++(void)generateSessionWithCompletion:(void (^)(Session *session))block onError:(void (^)(NSError *error))errorBlock;
 
 @end
