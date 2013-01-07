@@ -7,6 +7,7 @@
 //
 
 #import "NBNIssueCell.h"
+#import <QuartzCore/QuartzCore.h>
 #import "Author.h"
 #import "ASIHTTPRequest.h"
 #import "ASIDownloadCache.h"
@@ -91,6 +92,9 @@
 
     [request setCompletionBlock:^{
         self.developerProfilePicture.image = [UIImage imageWithData:request.responseData];
+        CALayer * l = [self.developerProfilePicture layer];
+        [l setMasksToBounds:YES];
+        [l setCornerRadius:5.0];
     }];
     
     [request setFailedBlock:^{

@@ -7,6 +7,7 @@
 //
 
 #import "NBNIssueDescriptionCell.h"
+#import <QuartzCore/QuartzCore.h>
 #import "ASIHTTPRequest.h"
 #import "Author.h"
 #import "NSString+NSHash.h"
@@ -75,6 +76,9 @@
     
     [request setCompletionBlock:^{
         self.authorImage.image = [UIImage imageWithData:request.responseData];
+        CALayer * l = [self.authorImage layer];
+        [l setMasksToBounds:YES];
+        [l setCornerRadius:5.0];
     }];
     
     [request setFailedBlock:^{
