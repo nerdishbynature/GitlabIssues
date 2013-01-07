@@ -68,6 +68,8 @@
             }];
             
             [request startAsynchronous];
+        } onError:^(NSError *error) {
+            
         }];
     }
 }
