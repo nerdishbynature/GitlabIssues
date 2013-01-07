@@ -32,6 +32,12 @@
 +(Project *)createAndParseJSON:(NSDictionary *)dict{
     Project *project = [Project createEntity];
     
+    [project parseServerResponseWithDict:dict];
+    
+    return project;
+}
+
+-(void)parseServerResponseWithDict:(NSDictionary *)dict{
     /*{
      "id": 5,
      "code": "gitlab",
@@ -54,30 +60,28 @@
      "created_at": "2012-05-30T12:49:20Z"
      }*/
     
-    project.identifier = [NSNumber numberWithInt:[[dict objectForKey:@"id"] integerValue]];
-    project.code = [dict objectForKey:@"code"];
-    project.name = [dict objectForKey:@"name"];
-    project.isFavorite = [NSNumber numberWithBool:NO];
+    self.identifier = [NSNumber numberWithInt:[[dict objectForKey:@"id"] integerValue]];
+    self.code = [dict objectForKey:@"code"];
+    self.name = [dict objectForKey:@"name"];
+    self.isFavorite = [NSNumber numberWithBool:NO];
     
     if (![dict objectForKey:@"description"]) {
-        project.descriptionString = [dict objectForKey:@"description"];
+        self.descriptionString = [dict objectForKey:@"description"];
     }
     
     if (![dict objectForKey:@"default_branch"]) {
-        project.default_branch = [dict objectForKey:@"default_branch"];
+        self.default_branch = [dict objectForKey:@"default_branch"];
     }
     
-    project.path = [dict objectForKey:@"path"];
+    self.path = [dict objectForKey:@"path"];
     
     
-    project.private = [NSNumber numberWithBool:[[dict objectForKey:@"private"] boolValue]];
-    project.issues_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"issures_enabled"] boolValue]];
-    project.merge_requests_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"merge_requests_enabled"] boolValue]];
-    project.wall_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"wall_enabled"] boolValue]];
-    project.wiki_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"wiki_enabled"] boolValue]];
-    project.filter = [Filter loadDefaultFilter];
-    
-    return project;
+    self.private = [NSNumber numberWithBool:[[dict objectForKey:@"private"] boolValue]];
+    self.issues_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"issures_enabled"] boolValue]];
+    self.merge_requests_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"merge_requests_enabled"] boolValue]];
+    self.wall_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"wall_enabled"] boolValue]];
+    self.wiki_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"wiki_enabled"] boolValue]];
+    self.filter = [Filter loadDefaultFilter];
 }
 
 @end

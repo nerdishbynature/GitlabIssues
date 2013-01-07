@@ -27,8 +27,11 @@
                 
                 NSPredicate *projectFinder = [NSPredicate predicateWithFormat:@"identifier = %i", [[dict objectForKey:@"id"] integerValue]]; // 1 domain means no conflicts
                 
-                if ([[Project MR_findAllWithPredicate:projectFinder] count] == 0) {
+                if ([[Project MR_findAllWithPredicate:projectFinder] count] == 0) { // new Project
                     [Project createAndParseJSON:dict];
+                } else if ([[Project MR_findAllWithPredicate:projectFinder] count] == 1){ // update Project
+                    Project *project = [[[[[NSManagedObjectContext defaultContext] ofType:@"Project"] where:@"identifier == %i", [[dict objectForKey:@"id"] integerValue]] toArray] objectAtIndex:0];
+                    [project parseServerResponseWithDict:dict];
                 }
             }
             

@@ -36,4 +36,11 @@
  */
 +(Project *)createAndParseJSON:(NSDictionary *)json;
 
+/**
+ @abstract Parses the specified dictionary and updates the model
+ @param dict The JSON dictionary
+ */
+-(void)parseServerResponseWithDict:(NSDictionary *)dict;
+
+
 @end
