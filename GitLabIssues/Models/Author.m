@@ -7,7 +7,6 @@
 //
 
 #import "Author.h"
-#import "Comment.h"
 #import "Issue.h"
 #import "MergeRequest.h"
 #import "Note.h"
@@ -21,7 +20,6 @@
 @dynamic email;
 @dynamic identifier;
 @dynamic name;
-@dynamic comments;
 @dynamic issues;
 @dynamic mergeRequests;
 @dynamic notes;
