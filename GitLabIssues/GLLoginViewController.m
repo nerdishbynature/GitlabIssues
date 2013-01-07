@@ -81,13 +81,11 @@
             PBLog(@"Domain: %@", self.domain);
             
             [Session generateSessionWithCompletion:^(Session *session) {
-                if (session.private_token) {
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                    [[NSManagedObjectContext MR_defaultContext] MR_save];
-                } else{
-                    UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Something went wrong, please check your input." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-                    [view show];
-                }
+                [self dismissViewControllerAnimated:YES completion:nil];
+                [[NSManagedObjectContext MR_defaultContext] MR_saveNestedContexts];
+            } onError:^(NSError *error) {
+                UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Something went wrong, please check your input." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+                [view show];
             }];
             
             
