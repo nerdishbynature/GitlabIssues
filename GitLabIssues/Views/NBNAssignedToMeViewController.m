@@ -10,17 +10,22 @@
 #import "Issue.h"
 #import "Session.h"
 #import "Project.h"
+#import "NBNProjectConnection.h"
 #import "NBNIssueCell.h"
 #import "NBNIssueDetailViewController.h"
+#import "NBNIssuesConnection.h"
+#import "MBProgressHUD.h"
 
 @interface NBNAssignedToMeViewController ()
 
 @property (nonatomic, retain) NSMutableArray *projects;
+@property (nonatomic, retain) MBProgressHUD *HUD;
 
 @end
 
 @implementation NBNAssignedToMeViewController
 @synthesize projects;
+@synthesize HUD;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -53,10 +58,55 @@
     self.tabBarController.title = @"Assigned To Me";
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+	
+	// Regiser for HUD callbacks so we can remove it from the window at the right time
+	HUD.delegate = self;
+	
+	// Show the HUD while the provided method executes in a new thread
+	[HUD show:YES];
+    [self loadAllIssues];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)loadAllIssues{
+    
+    [NBNProjectConnection loadProjectsForDomain:[[Domain findAll] lastObject] onSuccess:^{
+        [NBNIssuesConnection loadAllIssuesOnSuccess:^{
+            [self reloadResults];
+            [self.HUD hide:YES];
+        }];
+    }];
+    
+    
+}
+
+-(void)reloadResults{
+    Session *session = [[Session findAll] lastObject];
+    
+    NSArray *projectArray = [[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] toArray];
+    
+    self.projects = [[NSMutableArray alloc] init];
+    
+    for (Project *project in projectArray) {
+        NSArray *issues = [[[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"assignee.identifier == %@", session.identifier] where:@"closed == 0"] where:@"project_id == %@", project.identifier] orderBy:@"identifier"] toArray];
+        NSDictionary *dict = @{@"name" : project.name, @"issues": issues};
+        
+        if (issues.count > 0) {
+            [self.projects addObject:dict];
+        }
+    }
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -131,8 +181,10 @@
 - (void)dealloc
 {
     self.projects = nil;
+    self.HUD = nil;
     
     [projects release];
+    [HUD release];
     [super dealloc];
 }
 
