@@ -113,8 +113,8 @@
     self.descriptionLabel.numberOfLines = [self getLinesForLabel:self.descriptionLabel];
     
     CGSize developerTitleLabelSize =  [self.developerTitleLabel.text sizeWithFont:self.developerTitleLabel.font
-                                                    constrainedToSize:self.developerTitleLabel.frame.size
-                                                        lineBreakMode:NSLineBreakByWordWrapping];
+                                                                constrainedToSize:CGSizeMake(MAXFLOAT, MAXFLOAT)
+                                                                    lineBreakMode:NSLineBreakByWordWrapping];
     
     self.developerTitleLabel.frame = CGRectMake(self.developerTitleLabel.frame.origin.x, self.descriptionLabel.frame.origin.y+self.descriptionLabel.frame.size.height+3, developerTitleLabelSize.width, self.developerTitleLabel.frame.size.height);
     
