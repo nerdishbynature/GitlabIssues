@@ -134,6 +134,8 @@
 
 -(void)saveIssue{
     PBLog(@"Issue: %@", self.issue);
+    [self.formModel save];
+    
     if (self.editMode) {
         [self.issue saveChanges];
     } else{

@@ -57,16 +57,18 @@
     self.title = [NSString stringWithFormat:@"Issue #%@", self.issue.identifier];
     [self setupKeyboard];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editIssue)];
-    [self refreshData];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    
-
+    [self refreshData];
 }
 
 -(void)refreshData{
+    [NBNIssuesConnection reloadIssue:self.issue onSuccess:^{
+        [self.tableView reloadData];
+    }];
+    
     [NBNIssuesConnection loadNotesForIssue:self.issue onSuccess:^(NSArray *notesArray) {
         self.issue.notes = [NSSet setWithArray:notesArray];
         [self.tableView reloadData];
