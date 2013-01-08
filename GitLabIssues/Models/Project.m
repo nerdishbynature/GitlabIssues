@@ -33,6 +33,8 @@
     Project *project = [Project createEntity];
     
     [project parseServerResponseWithDict:dict];
+    project.isFavorite = [NSNumber numberWithBool:NO];
+    project.filter = [Filter loadDefaultFilter];
     
     return project;
 }
@@ -63,7 +65,6 @@
     self.identifier = [NSNumber numberWithInt:[[dict objectForKey:@"id"] integerValue]];
     self.code = [dict objectForKey:@"code"];
     self.name = [dict objectForKey:@"name"];
-    self.isFavorite = [NSNumber numberWithBool:NO];
     
     if (![dict objectForKey:@"description"]) {
         self.descriptionString = [dict objectForKey:@"description"];
@@ -81,7 +82,7 @@
     self.merge_requests_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"merge_requests_enabled"] boolValue]];
     self.wall_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"wall_enabled"] boolValue]];
     self.wiki_enabled = [NSNumber numberWithBool:[[dict objectForKey:@"wiki_enabled"] boolValue]];
-    self.filter = [Filter loadDefaultFilter];
+    
 }
 
 @end
