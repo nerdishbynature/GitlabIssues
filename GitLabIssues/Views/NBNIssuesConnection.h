@@ -20,6 +20,12 @@
  */
 +(void)loadIssuesForProject:(Project *)project onSuccess:(void (^)(void))block;
 
+
+/**
+ 
+ */
++(void)reloadIssue:(Issue *)issue onSuccess:(void(^)(void))block;
+
 /**
  @brief Loads all notes for the specified issue.
  @param issue The issue object
