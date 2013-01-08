@@ -80,7 +80,7 @@
 
 -(void)saveChanges{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
-    Session *session = [[Session findAll] objectAtIndex:0];
+    Session *session = [[Session findAll] lastObject];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.identifier, session.private_token]];
     PBLog(@"url %@", url);
@@ -101,7 +101,7 @@
 -(void)createANewOnServer{
     
     Domain *domain = [[Domain findAll] objectAtIndex:0];
-    Session *session = [[Session findAll] objectAtIndex:0];
+    Session *session = [[Session findAll] lastObject];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@",domain.protocol, domain.domain, self.project_id, session.private_token]];
     PBLog(@"url %@", url);
@@ -206,7 +206,7 @@
 
 -(void)saveMilestone{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
-    Session *session = [[Session findAll] objectAtIndex:0];
+    Session *session = [[Session findAll] lastObject];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/milestones/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.milestone.identifier, session.private_token]];
     PBLog(@"url %@", url);

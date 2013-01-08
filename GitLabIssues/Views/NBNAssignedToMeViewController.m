@@ -34,7 +34,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    Session *session = [[Session findAll] objectAtIndex:0];
+    Session *session = [[Session findAll] lastObject];
     self.projects = [[NSMutableArray alloc] init];
     
     NSArray *projectArray = [[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] toArray];

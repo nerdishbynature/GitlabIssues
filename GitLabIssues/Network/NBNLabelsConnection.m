@@ -20,7 +20,7 @@
     Session *session;
     
     if ([Session findAll].count > 0) {
-        session = [[Session findAll] objectAtIndex:0]; //there can only be one
+        session = [[Session findAll] lastObject]; //there can only be one
     } else{
         session = [Session generateSession];
     }

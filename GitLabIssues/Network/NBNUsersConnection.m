@@ -16,7 +16,7 @@
 
 +(NSArray *)loadMembersWithProjectID:(NSUInteger)project_id{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
-    Session *firstSession = [[Session findAll] objectAtIndex:0];
+    Session *firstSession = [[Session findAll] lastObject];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/members?private_token=%@", domain.protocol, domain.domain, project_id, firstSession.private_token]];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];

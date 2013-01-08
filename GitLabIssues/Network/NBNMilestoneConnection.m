@@ -20,7 +20,7 @@
     Session *session;
     
     if ([Session findAll].count > 0) {
-        session = [[Session findAll] objectAtIndex:0]; //there can only be one
+        session = [[Session findAll] lastObject]; //there can only be one
     } else{
         session = [Session generateSession];
     }
@@ -56,7 +56,7 @@
 
 +(NSArray *)loadMilestonesWithProjectID:(NSUInteger)projectID{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
-    Session *firstSession = [[Session findAll] objectAtIndex:0];
+    Session *firstSession = [[Session findAll] lastObject];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, firstSession.private_token]];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];

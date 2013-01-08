@@ -23,7 +23,7 @@
     Session *session;
     
     if ([Session findAll].count > 0) {
-        session = [[Session findAll] objectAtIndex:0]; //there can only be one
+        session = [[Session findAll] lastObject]; //there can only be one
         
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token]];
         __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
@@ -101,7 +101,7 @@
     Session *session;
     
     if ([Session findAll].count > 0) {
-        session = [[Session findAll] objectAtIndex:0]; //there can only be one
+        session = [[Session findAll] lastObject]; //there can only be one
     } else{
         session = [Session generateSession];
     }
@@ -147,7 +147,7 @@
     Session *session;
     
     if ([Session findAll].count > 0) {
-        session = [[Session findAll] objectAtIndex:0]; //there can only be one
+        session = [[Session findAll] lastObject]; //there can only be one
     } else{
         session = [Session generateSession];
     }

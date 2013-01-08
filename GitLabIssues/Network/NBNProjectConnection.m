@@ -15,9 +15,11 @@
 +(void)loadProjectsForDomain:(Domain *)domain onSuccess:(void (^)(void))block{
     
     if ([Session findAll].count > 0) {
-        Session *session = [[Session findAll] objectAtIndex:0];
+        Session *session = [[Session findAll] lastObject];
         
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects?private_token=%@", domain.protocol, domain.domain, session.private_token]];
+        
+        PBLog(@"%@", url);
         __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
         
         [request setCompletionBlock:^{
@@ -39,7 +41,9 @@
         }];
         
         [request setFailedBlock:^{
-            PBLog(@"err %@", [request error]);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:request.error.localizedFailureReason message:request.error.localizedDescription delegate:nil cancelButtonTitle:@"Dimiss" otherButtonTitles:nil];
+            [alert show];
+            PBLog(@"err %i", [request responseStatusCode]);
         }];
         
         [request startAsynchronous];
@@ -64,6 +68,8 @@
             }];
             
             [request setFailedBlock:^{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:request.error.localizedFailureReason message:request.error.localizedDescription delegate:nil cancelButtonTitle:@"Dimiss" otherButtonTitles:nil];
+                [alert show];
                 PBLog(@"err %@", [request error]);
             }];
             
