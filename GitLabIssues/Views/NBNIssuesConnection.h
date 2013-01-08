@@ -43,4 +43,12 @@
  */
 +(void)sendNoteForIssue:(Issue *)issue andBody:(NSString *)body onSuccess:(void (^)(void))block;
 
+
+/**
+ @abstract Loads all issues for the current domain
+ @param block The completion block, which is called on success
+ @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#list-issues
+ */
++(void)loadAllIssuesOnSuccess:(void(^)(void))block;
+
 @end
