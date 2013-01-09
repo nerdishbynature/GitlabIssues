@@ -147,7 +147,7 @@
         <element name="Filter" positionX="-90" positionY="306" width="128" height="133"/>
         <element name="Issue" positionX="-270" positionY="-18" width="128" height="223"/>
         <element name="MergeRequest" positionX="394" positionY="0" width="128" height="180"/>
-        <element name="Milestone" positionX="-36" positionY="-24" width="128" height="178"/>
+        <element name="Milestone" positionX="-56" positionY="56" width="128" height="178"/>
         <element name="Note" positionX="-198" positionY="387" width="128" height="118"/>
         <element name="Owner" positionX="124" positionY="519" width="128" height="135"/>
         <element name="Project" positionX="-371" positionY="405" width="128" height="268"/>

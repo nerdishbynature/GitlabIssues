@@ -25,7 +25,7 @@
 @property (nonatomic, retain) NSString * twitter;
 
 /**
- @brief This method is used for parsing the returned JSON from the API
+  This method is used for parsing the returned JSON from the API
  @param dict The JSON dictionary
  @return Initialized User object
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/users.md#single-user

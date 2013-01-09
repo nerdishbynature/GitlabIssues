@@ -13,7 +13,7 @@
 @interface NBNIssuesConnection : NSObject
 
 /**
- @brief Loads all issues for the specified project.
+  Loads all issues for the specified project.
  @param project The project object
  @param block The completion Block which is called on success
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#list-project-issues
@@ -27,7 +27,7 @@
 +(void)reloadIssue:(Issue *)issue onSuccess:(void(^)(void))block;
 
 /**
- @brief Loads all notes for the specified issue.
+  Loads all notes for the specified issue.
  @param issue The issue object
  @param block The completion Block which is called on success
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/notes.md#list-issue-notes
@@ -35,7 +35,7 @@
 +(void)loadNotesForIssue:(Issue *)issue onSuccess:(void (^)(NSArray *))block;
 
 /**
- @brief Send a new Note to the server
+  Send a new Note to the server
  @param issue The issue object
  @param body The Note body
  @param block The completion block which is called on success
@@ -45,7 +45,7 @@
 
 
 /**
- @abstract Loads all issues for the current domain
+  Loads all issues for the current domain
  @param block The completion block, which is called on success
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#list-issues
  */

@@ -18,8 +18,7 @@
         Session *session = [[Session findAll] lastObject];
         
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects?private_token=%@", domain.protocol, domain.domain, session.private_token]];
-        
-        PBLog(@"%@", url);
+    
         __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
         
         [request setCompletionBlock:^{

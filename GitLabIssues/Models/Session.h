@@ -20,7 +20,7 @@
 @property (nonatomic, retain) NSString * private_token;
 
 /**
- @brief Generates a new session using the API
+  Generates a new session using the API
  @return Initialized Session object
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/session.md
  */
