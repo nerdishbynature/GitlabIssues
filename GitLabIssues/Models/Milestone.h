@@ -24,15 +24,21 @@
 @property (nonatomic, retain) Filter *filter;
 
 /**
- @brief This method is used for parsing the returned JSON from the API
+  This method is used for parsing the returned JSON from the API
  @param dict The JSON dictionary
  @param projectID The associated gitlab project identifier. 
  This is used for creating the fetch request and only load the related milestones for a project. This parameter is not returned via the API, sadly.
  @return Initialized User object
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/milestones.md#single-milestone
- @discussion Maybe someone should do a Issue on the GitlabHQ project
  */
 +(Milestone *)createAndParseJSON:(NSDictionary *)dict andProjectID:(NSUInteger)projectID;
+
+/**
+  This method parses the Server response.
+ @param dict The JSON Dictionary containing the server response
+ @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/milestones.md#single-milestone
+ */
+-(void)parseServerResponseWithDict:(NSDictionary *)dict;
 
 @end
 

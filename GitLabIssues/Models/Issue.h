@@ -27,7 +27,7 @@
 @property (nonatomic, retain) NSSet *notes;
 
 /**
- @brief This method is used for parsing the returned JSON from the API
+  This method is used for parsing the returned JSON from the API
  @param dict The JSON dictionary
  @return Initialized User object
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#single-issue
@@ -35,24 +35,24 @@
 +(Issue *)createAndParseJSON:(NSDictionary *)dict;
 
 /**
- @brief Only used for FormKit
+  Only used for FormKit
  */
 -(void)save;
 
 /**
- @brief Saves object in local database and PUTs the new data on the Server using the GitLab API
+  Saves object in local database and PUTs the new data on the Server using the GitLab API
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#edit-issue
  */
 -(void)saveChanges;
 
 /**
- @brief Saves object in local database and POSTs the new data on the Server using the GitLab API
+  Saves object in local database and POSTs the new data on the Server using the GitLab API
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#new-issue
  */
 -(void)createANewOnServer;
 
 /**
- @brief Catches the object and updates the data
+  Catches the object and updates the data
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#single-issue
  */
 -(void)parseServerResponse:(NSDictionary *)dict;

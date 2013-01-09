@@ -11,7 +11,7 @@
 @interface NBNMilestoneConnection : NSObject
 
 /**
- @brief Loads all Milestones for the specified project.
+  Loads all Milestones for the specified project.
  @param projectID The gitlab project identifier
  @param block The completion Block which is called on success
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/milestones.md#list-project-milestones
@@ -19,7 +19,7 @@
 +(void)loadAllMilestonesForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block;
 
 /**
- @brief Loads all Milestones for the specified project.
+  Loads all Milestones for the specified project.
  @param projectID The gitlab project identifier
  @return Returns an array containing all parsed milestones.
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/milestones.md#list-project-milestones

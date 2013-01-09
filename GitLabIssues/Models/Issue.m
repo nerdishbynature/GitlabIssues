@@ -135,15 +135,27 @@
         self.descriptionString = [dict objectForKey:@"description"];
     }
     
-    if ([dict objectForKey:@"assignee"]) {
-        self.assignee = [Assignee createAndParseJSON:[dict objectForKey:@"assignee"]];
+    if (![[dict objectForKey:@"assignee"] isMemberOfClass:[NSNull class]]) {
+        NSArray *assigneeArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Assignee"] where:@"identifier == %@", [[dict objectForKey:@"assignee"] objectForKey:@"id"] ] toArray];
+        
+        if (assigneeArray.count > 0) {
+            self.assignee = [assigneeArray objectAtIndex:0];
+        } else{
+            self.assignee = [Assignee createAndParseJSON:[dict objectForKey:@"assignee"]];
+        }
     }
     
-    if ([dict objectForKey:@"milestone"]) {
-        self.milestone = [Milestone createAndParseJSON:[dict objectForKey:@"milestone"] andProjectID:[self.project_id integerValue]];
+    if (![[dict objectForKey:@"milestone"] isMemberOfClass:[NSNull class]]) {
+        NSArray *milestoneArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Milestone"] where:@"identifier == %@", [[dict objectForKey:@"milestone"] objectForKey:@"id"] ] toArray];
+        
+        if (milestoneArray.count > 0) {
+            self.milestone = [milestoneArray objectAtIndex:0];
+        } else{
+            self.milestone = [Milestone createAndParseJSON:[dict objectForKey:@"milestone"] andProjectID:[self.project_id integerValue]];
+        }
     }
     
-    if ([dict objectForKey:@"author"]) {
+    if (![[dict objectForKey:@"author"] isMemberOfClass:[NSNull class]]) {
         NSArray *authorArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Author"] where:@"identifier == %@", [[dict objectForKey:@"author"] objectForKey:@"id"] ] toArray];
         
         if (authorArray.count > 0) {

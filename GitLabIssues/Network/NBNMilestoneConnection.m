@@ -35,11 +35,13 @@
         
         for (NSDictionary *dict in array) {
             
-            NSPredicate *issueFinder = [NSPredicate predicateWithFormat:@"identifier = %i AND project_id = %i", [[dict objectForKey:@"id"] integerValue], projectID];
+            NSPredicate *milestoneFinder = [NSPredicate predicateWithFormat:@"identifier = %i AND project_id = %i", [[dict objectForKey:@"id"] integerValue], projectID];
             
-            if ([[Milestone MR_findAllWithPredicate:issueFinder] count] == 0) {
+            if ([[Milestone MR_findAllWithPredicate:milestoneFinder] count] == 0) {
                 
                 [Milestone createAndParseJSON:dict andProjectID:projectID];
+            } else if ([[Milestone MR_findAllWithPredicate:milestoneFinder] count] == 1){
+                
             }
         }
         block();
