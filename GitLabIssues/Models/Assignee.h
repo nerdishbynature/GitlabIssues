@@ -23,7 +23,7 @@
 @property (nonatomic, retain) Filter *filter;
 
 /**
- @brief This method is used for parsing the returned JSON from the API
+  This method is used for parsing the returned JSON from the API
  @param dict The JSON dictionary
  @return Initialized User object
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md

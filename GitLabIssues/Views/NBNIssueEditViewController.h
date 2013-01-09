@@ -12,13 +12,13 @@
 @interface NBNIssueEditViewController : UITableViewController <UIAlertViewDelegate>
 
 /**
- @brief Creates ViewController with associated issue and returns it
+  Creates ViewController with associated issue and returns it
  @return NBNIssueEditViewController instance
  */
 +(NBNIssueEditViewController *)loadViewControllerWithIssue:(Issue *)_issue;
 
 /**
- @brief editMode specifies if the associated issue is a new one (editMode == NO) or
+  editMode specifies if the associated issue is a new one (editMode == NO) or
  if the issue needs to be created on the server (POST method) or updated (PUT method)
  */
 @property (nonatomic, assign) BOOL editMode;

@@ -11,7 +11,7 @@
 @interface NBNUsersConnection : NSObject
 
 /**
- @brief Loads all member for the specified project.
+  Loads all member for the specified project.
  @param projectID The gitlab project identifier
  @return Returns an array containing all parsed users.
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/users.md#list-users

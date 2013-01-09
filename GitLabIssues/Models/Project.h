@@ -30,14 +30,14 @@
 @property (nonatomic, retain) Filter *filter;
 
 /**
- @brief This method is used for parsing the returned JSON from the API
+  This method is used for parsing the returned JSON from the API
  @param dict The JSON dictionary
  @return Initialized Project object
  */
 +(Project *)createAndParseJSON:(NSDictionary *)json;
 
 /**
- @abstract Parses the specified dictionary and updates the model
+  Parses the specified dictionary and updates the model
  @param dict The JSON dictionary
  */
 -(void)parseServerResponseWithDict:(NSDictionary *)dict;
