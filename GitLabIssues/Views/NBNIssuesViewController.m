@@ -54,17 +54,48 @@
 
 -(void)createToolBar{
     if (self.tableView && self.toolbarItems.count == 0) {
-        UIBarButtonItem *createButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(addNewIssue)];
-        UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshIssues)];
-        UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(filter)];
+        
+        UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *addButtonImage = [UIImage imageNamed:@"BarButton_Add.png"];
+        
+        [addButton setFrame:CGRectMake(0.0, 0.0, addButtonImage.size.width, addButtonImage.size.height)];
+        [addButton setBackgroundImage:addButtonImage forState:UIControlStateNormal];
+        [addButton addTarget:self action:@selector(addNewIssue) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *createButton = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+    
+        [addButton release];
+        [addButtonImage release];
+        
+        UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *refreshButtonImage = [UIImage imageNamed:@"BarButton_Refresh.png"];
+        
+        [refreshButton setFrame:CGRectMake(0.0, 0.0, refreshButtonImage.size.width, refreshButtonImage.size.height)];
+        [refreshButton setBackgroundImage:refreshButtonImage forState:UIControlStateNormal];
+        [refreshButton addTarget:self action:@selector(refreshIssues) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
+
+        [refreshButton release];
+        [refreshButtonImage release];
+        
+        UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *filterButtonImage = [UIImage imageNamed:@"BarButton_Filter.png"];
+        
+        [filterButton setFrame:CGRectMake(0.0, 0.0, filterButtonImage.size.width, filterButtonImage.size.height)];
+        [filterButton setBackgroundImage:filterButtonImage forState:UIControlStateNormal];
+        [filterButton addTarget:self action:@selector(filter) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *filterBarButton = [[UIBarButtonItem alloc] initWithCustomView:filterButton];
+        
+        [filterButton release];
+        [filterButtonImage release];
+        
         UIBarButtonItem	*flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         
-        [self setToolbarItems:@[createButton, refreshButton, flex, filterButton] animated:YES];
+        [self setToolbarItems:@[createButton, refreshBarButton, flex, filterBarButton] animated:YES];
         self.navigationController.toolbarHidden = NO;
         
         [createButton release];
-        [refreshButton release];
-        [filterButton release];
+        [refreshBarButton release];
+        [filterBarButton release];
         [flex release];
     }
 }

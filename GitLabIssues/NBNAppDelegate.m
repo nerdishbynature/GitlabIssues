@@ -28,6 +28,16 @@
     NBNHomeScreenViewController *homeScreen = [[NBNHomeScreenViewController alloc] initWithStyle:UITableViewStyleGrouped];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homeScreen];
+    UIImage *image = [UIImage imageNamed:@"navBar.png"];
+    [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
+    [[UIToolbar appearance] setBackgroundImage:image forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    
+    [[UITableView appearance] setBackgroundView:nil];
+    //[[UITableView appearance] setBackgroundColor:[UIColor colorWithRed:191.f/255.f green:191.f/255.f blue:191.f/255.f alpha:1.0f]];
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:64.f/255.f green:64.f/255.f blue:64.f/255.f alpha:1.0f]];
+    [[UISearchBar appearance] setBackgroundImage:image];
     
     self.window.rootViewController = navController;
     
