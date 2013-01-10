@@ -45,17 +45,21 @@
     [item release];
     
     self.domainArray = [Domain findAll];
-    
-    if ([self.domainArray count] == 0) {
-
-        [self logout:nil];
-    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.domainArray = [Domain findAll];
     [self.tableView reloadData];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    if ([self.domainArray count] == 0) { // show login screen
+        
+        [self logout:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning
