@@ -80,20 +80,21 @@
 
 -(void)saveChanges{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
-    Session *session = [[Session findAll] lastObject];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.identifier, session.private_token]];
-    PBLog(@"url %@", url);
-    
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setRequestMethod:@"PUT"];
-    
-    [request appendPostData:[self toJSON]];
-    [request startSynchronous];
-    
-    if (request.error) {
-        PBLog(@"%@", request.error);
-    }
+    [Session getCurrentSessionWithCompletion:^(Session *session) {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.identifier, session.private_token]];
+        PBLog(@"url %@", url);
+        
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        [request setRequestMethod:@"PUT"];
+        
+        [request appendPostData:[self toJSON]];
+        [request startSynchronous];
+        
+        if (request.error) {
+            PBLog(@"%@", request.error);
+        }
+    }];
 }
 
 //@see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#new-issue
@@ -101,26 +102,27 @@
 -(void)createANewOnServer{
     
     Domain *domain = [[Domain findAll] objectAtIndex:0];
-    Session *session = [[Session findAll] lastObject];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@",domain.protocol, domain.domain, self.project_id, session.private_token]];
-    PBLog(@"url %@", url);
-    
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setRequestMethod:@"POST"];
-    
-    [request appendPostData:[self toCreateJSON]];
-    [request startSynchronous];
-    
-    if (request.error) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:request.responseStatusMessage message:request.error.localizedFailureReason delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-        [alert show];
-        [alert release];
-        PBLog(@"%@", request.error);
-    }
-    NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
-    
-    [self parseServerResponse:responseDict];
+    [Session getCurrentSessionWithCompletion:^(Session *session) {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@",domain.protocol, domain.domain, self.project_id, session.private_token]];
+        PBLog(@"url %@", url);
+        
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        [request setRequestMethod:@"POST"];
+        
+        [request appendPostData:[self toCreateJSON]];
+        [request startSynchronous];
+        
+        if (request.error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:request.responseStatusMessage message:request.error.localizedFailureReason delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+            PBLog(@"%@", request.error);
+        }
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
+        
+        [self parseServerResponse:responseDict];
+    }];
 }
 
 -(void)parseServerResponse:(NSDictionary *)dict{
@@ -206,19 +208,20 @@
 
 -(void)saveMilestone{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
-    Session *session = [[Session findAll] lastObject];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/milestones/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.milestone.identifier, session.private_token]];
-    PBLog(@"url %@", url);
-    
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setRequestMethod:@"PUT"];
-    
-    [request appendPostData:[self milestoneToJSON]];
-    [request startSynchronous];
-    
-    PBLog(@"%@", request.error);
-    PBLog(@"%@", request.responseString);
+    [Session getCurrentSessionWithCompletion:^(Session *session) {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/milestones/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.milestone.identifier, session.private_token]];
+        PBLog(@"url %@", url);
+        
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        [request setRequestMethod:@"PUT"];
+        
+        [request appendPostData:[self milestoneToJSON]];
+        [request startSynchronous];
+        
+        PBLog(@"%@", request.error);
+        PBLog(@"%@", request.responseString);
+    }];
 }
 
 -(NSData *)milestoneToJSON{

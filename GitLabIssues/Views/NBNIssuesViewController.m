@@ -114,7 +114,7 @@
 }
 
 -(void)refreshIssues{
-    [NBNIssuesConnection loadIssuesForProject:self.project onSuccess:^{
+    [[NBNIssuesConnection sharedConnection] loadIssuesForProject:self.project onSuccess:^{
         [self refreshDataSource];
     }];
 }
@@ -161,7 +161,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [NBNIssuesConnection loadIssuesForProject:self.project onSuccess:^{
+    [[NBNIssuesConnection sharedConnection] loadIssuesForProject:self.project onSuccess:^{
         [self refreshDataSource];
     }];
     

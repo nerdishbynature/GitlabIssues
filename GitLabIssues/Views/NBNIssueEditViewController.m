@@ -62,7 +62,7 @@
                 *selectedValueIndex = 0;
                 
                 NSMutableArray *assigneNameArray = [[NSMutableArray alloc] init];
-                for (Assignee *assignee in [NBNUsersConnection loadMembersWithProjectID:[self.issue.project_id integerValue]]) {
+                for (Assignee *assignee in [[NBNUsersConnection sharedConnection] loadMembersWithProjectID:[self.issue.project_id integerValue]]) {
                     [assigneNameArray addObject:assignee.name];
                 }
                 return assigneNameArray;

@@ -38,11 +38,7 @@ static NBNMilestoneConnection *sharedConnection = nil;
 -(void)loadAllMilestonesForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
-    Session *session;
-    
-    if ([Session findAll].count > 0) {
-        session = [[Session findAll] lastObject]; //there can only be one
-        
+    [Session getCurrentSessionWithCompletion:^(Session *session) {
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token]];
         PBLog(@"%@", url);
         self.milestonesForProjectRequest = [ASIHTTPRequest requestWithURL:url];
@@ -67,40 +63,7 @@ static NBNMilestoneConnection *sharedConnection = nil;
         }];
         
         [self.milestonesForProjectRequest startAsynchronous];
-        
-    } else{
-        [Session generateSessionWithCompletion:^(Session *session) {
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token]];
-            PBLog(@"%@", url);
-            self.milestonesForProjectRequest = [ASIHTTPRequest requestWithURL:url];
-            
-            [self.milestonesForProjectRequest setCompletionBlock:^{
-                NSArray *array = [NSJSONSerialization JSONObjectWithData:[self.milestonesForProjectRequest responseData] options:kNilOptions error:nil];
-                
-                for (NSDictionary *dict in array) {
-                    
-                    NSPredicate *issueFinder = [NSPredicate predicateWithFormat:@"identifier = %i AND project_id = %i", [[dict objectForKey:@"id"] integerValue], projectID];
-                    
-                    if ([[Milestone MR_findAllWithPredicate:issueFinder] count] == 0) {
-                        
-                        [Milestone createAndParseJSON:dict andProjectID:projectID];
-                    }
-                }
-                block();
-            }];
-            
-            [self.milestonesForProjectRequest setFailedBlock:^{
-                PBLog(@"err %@", [self.milestonesForProjectRequest error]);
-            }];
-            
-            [self.milestonesForProjectRequest startAsynchronous];
-        } onError:^(NSError *error) {
-            PBLog(@"%@", error);
-        }];
-    }
-    
-    
-    
+    }];
 }
 
 - (void) cancelMilestonesForProjectRequest

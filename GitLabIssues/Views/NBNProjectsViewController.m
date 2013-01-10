@@ -35,7 +35,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    [NBNProjectConnection loadProjectsForDomain:[[Domain findAll] objectAtIndex:0] onSuccess:^{
+    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain findAll] objectAtIndex:0] onSuccess:^{
         [self refreshDataSource];
     }];
 }

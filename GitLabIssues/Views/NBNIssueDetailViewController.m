@@ -67,11 +67,11 @@
 }
 
 -(void)refreshData{
-    [NBNIssuesConnection reloadIssue:self.issue onSuccess:^{
+    [[NBNIssuesConnection sharedConnection] reloadIssue:self.issue onSuccess:^{
         [self.tableView reloadData];
     }];
     
-    [NBNIssuesConnection loadNotesForIssue:self.issue onSuccess:^(NSArray *notesArray) {
+    [[NBNIssuesConnection sharedConnection] loadNotesForIssue:self.issue onSuccess:^(NSArray *notesArray) {
         self.issue.notes = [NSSet setWithArray:notesArray];
         [self.tableView reloadData];
     }];
@@ -293,7 +293,7 @@
         return;
     }
     
-    [NBNIssuesConnection sendNoteForIssue:self.issue andBody:self.commentString onSuccess:^{
+    [[NBNIssuesConnection sharedConnection] sendNoteForIssue:self.issue andBody:self.commentString onSuccess:^{
         self.textField.text = @"";
         [self.view hideKeyboard];
         [self refreshData];
@@ -308,7 +308,7 @@
         
         NSMutableArray *assigneNameArray = [[NSMutableArray alloc] init];
         
-        for (Assignee *assignee in [NBNUsersConnection loadMembersWithProjectID:[self.issue.project_id integerValue]]) {
+        for (Assignee *assignee in [[NBNUsersConnection sharedConnection] loadMembersWithProjectID:[self.issue.project_id integerValue]]) {
             [assigneNameArray addObject:assignee.name];
         }
         

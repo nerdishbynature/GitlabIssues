@@ -54,7 +54,7 @@
 {
     [super viewDidLoad];
     
-    [NBNProjectConnection loadProjectsForDomain:[[Domain findAll] objectAtIndex:0] onSuccess:^{
+    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain findAll] objectAtIndex:0] onSuccess:^{
         self.projectsArray = [Project findAllSortedBy:@"identifier" ascending:YES];
         [self.tableView reloadData];
     }];

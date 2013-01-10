@@ -12,19 +12,24 @@
 
 @interface NBNIssuesConnection : NSObject
 
++ (NBNIssuesConnection *) sharedConnection;
+
 /**
   Loads all issues for the specified project.
  @param project The project object
  @param block The completion Block which is called on success
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#list-project-issues
  */
-+(void)loadIssuesForProject:(Project *)project onSuccess:(void (^)(void))block;
+-(void)loadIssuesForProject:(Project *)project onSuccess:(void (^)(void))block;
 
+-(void)cancelIssuesConnection;
 
 /**
  
  */
-+(void)reloadIssue:(Issue *)issue onSuccess:(void(^)(void))block;
+-(void)reloadIssue:(Issue *)issue onSuccess:(void(^)(void))block;
+
+-(void)cancelReloadConnection;
 
 /**
   Loads all notes for the specified issue.
@@ -32,7 +37,9 @@
  @param block The completion Block which is called on success
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/notes.md#list-issue-notes
  */
-+(void)loadNotesForIssue:(Issue *)issue onSuccess:(void (^)(NSArray *))block;
+-(void)loadNotesForIssue:(Issue *)issue onSuccess:(void (^)(NSArray *))block;
+
+-(void)cancelNotesConnection;
 
 /**
   Send a new Note to the server
@@ -41,14 +48,17 @@
  @param block The completion block which is called on success
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/notes.md#new-issue-note
  */
-+(void)sendNoteForIssue:(Issue *)issue andBody:(NSString *)body onSuccess:(void (^)(void))block;
+-(void)sendNoteForIssue:(Issue *)issue andBody:(NSString *)body onSuccess:(void (^)(void))block;
 
+-(void)cancelSendNotesConnection;
 
 /**
   Loads all issues for the current domain
  @param block The completion block, which is called on success
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#list-issues
  */
-+(void)loadAllIssuesOnSuccess:(void(^)(void))block;
+-(void)loadAllIssuesOnSuccess:(void(^)(void))block;
+
+-(void)cancelAllIssuesConnection;
 
 @end

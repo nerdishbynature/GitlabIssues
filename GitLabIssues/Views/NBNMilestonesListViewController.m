@@ -41,10 +41,15 @@
 {
     [super viewDidLoad];
 
-    [NBNMilestoneConnection loadAllMilestonesForProjectID:self.projectID onSuccess:^{
+    [[NBNMilestoneConnection sharedConnection] loadAllMilestonesForProjectID:self.projectID onSuccess:^{
         self.milestonesArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Milestone"] where:@"project_id == %i", projectID] toArray];
         [self.tableView reloadData];
     }];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NBNMilestoneConnection sharedConnection] cancelMilestonesForProjectRequest];
 }
 
 - (void)createSearchBar {

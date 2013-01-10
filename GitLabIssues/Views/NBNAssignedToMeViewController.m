@@ -39,21 +39,22 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    Session *session = [[Session findAll] lastObject];
-    self.projects = [[NSMutableArray alloc] init];
-    
-    NSArray *projectArray = [[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] toArray];
-    
-    for (Project *project in projectArray) {
-        NSArray *issues = [[[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"assignee.identifier == %@", session.identifier] where:@"closed == 0"] where:@"project_id == %@", project.identifier] orderBy:@"identifier"] toArray];
-        NSDictionary *dict = @{@"name" : project.name, @"issues": issues};
+    [Session getCurrentSessionWithCompletion:^(Session *session) {
+        self.projects = [[NSMutableArray alloc] init];
         
-        if (issues.count > 0) {
-            [self.projects addObject:dict];
+        NSArray *projectArray = [[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] toArray];
+        
+        for (Project *project in projectArray) {
+            NSArray *issues = [[[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"assignee.identifier == %@", session.identifier] where:@"closed == 0"] where:@"project_id == %@", project.identifier] orderBy:@"identifier"] toArray];
+            NSDictionary *dict = @{@"name" : project.name, @"issues": issues};
+            
+            if (issues.count > 0) {
+                [self.projects addObject:dict];
+            }
         }
-    }
-    
-    [self.tableView reloadData];
+        
+        [self.tableView reloadData];
+    }];
     
     self.tabBarController.title = @"Assigned To Me";
 }
@@ -80,8 +81,8 @@
 
 -(void)loadAllIssues{
     
-    [NBNProjectConnection loadProjectsForDomain:[[Domain findAll] lastObject] onSuccess:^{
-        [NBNIssuesConnection loadAllIssuesOnSuccess:^{
+    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain findAll] lastObject] onSuccess:^{
+        [[NBNIssuesConnection sharedConnection] loadAllIssuesOnSuccess:^{
             [self reloadResults];
             [self.HUD hide:YES];
         }];
@@ -91,22 +92,22 @@
 }
 
 -(void)reloadResults{
-    Session *session = [[Session findAll] lastObject];
-    
-    NSArray *projectArray = [[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] toArray];
-    
-    self.projects = [[NSMutableArray alloc] init];
-    
-    for (Project *project in projectArray) {
-        NSArray *issues = [[[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"assignee.identifier == %@", session.identifier] where:@"closed == 0"] where:@"project_id == %@", project.identifier] orderBy:@"identifier"] toArray];
-        NSDictionary *dict = @{@"name" : project.name, @"issues": issues};
+    [Session getCurrentSessionWithCompletion:^(Session *session) {
+        NSArray *projectArray = [[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] toArray];
         
-        if (issues.count > 0) {
-            [self.projects addObject:dict];
+        self.projects = [[NSMutableArray alloc] init];
+        
+        for (Project *project in projectArray) {
+            NSArray *issues = [[[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"assignee.identifier == %@", session.identifier] where:@"closed == 0"] where:@"project_id == %@", project.identifier] orderBy:@"identifier"] toArray];
+            NSDictionary *dict = @{@"name" : project.name, @"issues": issues};
+            
+            if (issues.count > 0) {
+                [self.projects addObject:dict];
+            }
         }
-    }
-    
-    [self.tableView reloadData];
+        
+        [self.tableView reloadData];
+    }];
 }
 
 #pragma mark - Table view data source
