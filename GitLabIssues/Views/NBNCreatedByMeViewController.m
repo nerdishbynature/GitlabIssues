@@ -49,6 +49,12 @@
     [self loadAllIssues];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NBNProjectConnection sharedConnection] cancelProjectsConnection];
+    [[NBNIssuesConnection sharedConnection] cancelAllIssuesConnection];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
