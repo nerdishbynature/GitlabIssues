@@ -171,6 +171,7 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.navigationController.toolbarHidden = YES;
+    [[NBNIssuesConnection sharedConnection] cancelIssuesConnection];
 }
 
 - (void)didReceiveMemoryWarning

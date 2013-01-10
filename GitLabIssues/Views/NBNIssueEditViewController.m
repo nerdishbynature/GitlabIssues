@@ -33,6 +33,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    [[NBNUsersConnection sharedConnection] cancelMembersRequest];
+    [[NBNMilestoneConnection sharedConnection] cancelMilestonesForProjectRequest];
 }
 
 - (void)viewDidLoad
