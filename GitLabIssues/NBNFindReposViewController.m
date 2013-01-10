@@ -60,6 +60,11 @@
     }];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NBNProjectConnection sharedConnection] cancelProjectsConnection];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

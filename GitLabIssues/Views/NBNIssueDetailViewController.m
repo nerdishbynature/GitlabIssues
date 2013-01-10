@@ -66,6 +66,12 @@
     [self refreshData];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NBNIssuesConnection sharedConnection] cancelReloadConnection];
+    [[NBNIssuesConnection sharedConnection] cancelNotesConnection];
+}
+
 -(void)refreshData{
     [[NBNIssuesConnection sharedConnection] reloadIssue:self.issue onSuccess:^{
         [self.tableView reloadData];
