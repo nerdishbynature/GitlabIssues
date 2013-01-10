@@ -155,7 +155,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.toolbarHidden = NO;
+    [self.navigationController setToolbarHidden:YES animated:YES];
     [self refreshDataSource];
 }
 
