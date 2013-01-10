@@ -42,10 +42,6 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
-    for (Project *project in self.projectsArray) {
-        PBLog(@"%@ isFavorite %@",project.name, project.isFavorite);
-    }
 }
 
 - (void)didReceiveMemoryWarning
