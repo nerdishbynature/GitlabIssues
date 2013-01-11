@@ -222,8 +222,8 @@
         if (!cell) {
             cell = [NBNIssueDetailCell loadCellFromNib];
         }
-        
-        [cell configureCellWithHeadline:@"Labels:" andDescription:@"need to implement"];
+                
+        [cell configureCellWithHeadline:@"Labels:" andDescription:self.issue.labels];
         
         return cell;
         
@@ -331,7 +331,7 @@
         for (Assignee *assignee in [[NBNUsersConnection sharedConnection] loadMembersWithProjectID:[self.issue.project_id integerValue]]) {
             [assigneNameArray addObject:assignee.name];
         }
-        
+                
     } else if ([label isEqualToString:@"Status:"]){
         
         if ([self.issue.closed boolValue] == YES) {
@@ -347,11 +347,18 @@
     } else if ([label isEqualToString:@"Milestone:"]){
         
         NBNMilestonesListViewController *list = [NBNMilestonesListViewController loadControllerWithProjectID:[self.issue.project_id integerValue]];
+        list.delegate = self;
         [self.navigationController pushViewController:list animated:YES];
         
     } else if ([label isEqualToString:@"Labels:"]){
         
     }
+}
+
+-(void)didSelectMilestone:(Milestone *)selectedMilestone{
+    self.issue.milestone = selectedMilestone;
+    [self.issue saveChanges];
+    [self refreshData];
 }
 
 - (void)didReceiveMemoryWarning
