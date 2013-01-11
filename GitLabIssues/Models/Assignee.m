@@ -44,4 +44,10 @@
     return assignee;
 }
 
+-(void)parseServerResponseWithDict:(NSDictionary *)dict{
+    self.email = [dict objectForKey:@"email"];
+    self.name = [dict objectForKey:@"name"];
+    self.blocked = [NSNumber numberWithBool:[[dict objectForKey:@"blocked"] boolValue]];
+}
+
 @end
