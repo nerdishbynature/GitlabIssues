@@ -56,6 +56,8 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
+    [[NSManagedObjectContext MR_contextForCurrentThread] saveNestedContexts];
+    
     if ([self.domainArray count] == 0) { // show login screen
         
         [self logout:nil];
