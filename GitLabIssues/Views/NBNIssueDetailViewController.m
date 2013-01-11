@@ -92,7 +92,6 @@
     }];
     
     [[NBNIssuesConnection sharedConnection] loadNotesForIssue:self.issue onSuccess:^(NSArray *notesArray) {
-        self.issue.notes = [NSSet setWithArray:notesArray];
         [self.tableView reloadData];
         [self.HUD setHidden:YES];
     }];

@@ -63,6 +63,7 @@ static NBNMilestoneConnection *sharedConnection = nil;
             block();
         } errorHandler:^(NSError *error) {
             PBLog(@"err %@", error);
+            block();
         }];
     }];
 }

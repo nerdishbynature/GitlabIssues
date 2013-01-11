@@ -78,6 +78,7 @@ static NBNIssuesConnection *sharedConnection = nil;
             }
             block();
         } errorHandler:^(NSError *error) {
+            block();
             PBLog(@"err %@", error);
         }];
     }];
@@ -106,6 +107,7 @@ static NBNIssuesConnection *sharedConnection = nil;
             
             block();
         } errorHandler:^(NSError *error) {
+            block();
             PBLog(@"err %@", error);
         }];
     }];
@@ -151,6 +153,7 @@ static NBNIssuesConnection *sharedConnection = nil;
             }
             block(returnArray);
         } errorHandler:^(NSError *error) {
+            block(@[]);
             PBLog(@"err %@", error);
         }];
     }];
@@ -233,6 +236,7 @@ static NBNIssuesConnection *sharedConnection = nil;
             
             block();
         } errorHandler:^(NSError *error) {
+            block();
             PBLog(@"err %@", error);
         }];
     }];

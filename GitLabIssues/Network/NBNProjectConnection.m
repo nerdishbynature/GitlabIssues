@@ -63,8 +63,7 @@ static NBNProjectConnection* sharedConnection = nil;
             
             block();
         } errorHandler:^(NSError *error) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedFailureReason message:error.localizedDescription delegate:nil cancelButtonTitle:@"Dimiss" otherButtonTitles:nil];
-            [alert show];
+            block();
         }];
     }];
 }
@@ -98,6 +97,7 @@ static NBNProjectConnection* sharedConnection = nil;
             
             block();
         } errorHandler:^(NSError *error) {
+            block();
             PBLog(@"err %@", error);
         }];
     }];
