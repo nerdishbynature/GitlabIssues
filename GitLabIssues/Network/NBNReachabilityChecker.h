@@ -10,6 +10,8 @@
 
 @interface NBNReachabilityChecker : NSObject
 
-+(BOOL)isReachable;
+-(BOOL)isReachable;
+
++ (NBNReachabilityChecker *) sharedChecker;
 
 @end
