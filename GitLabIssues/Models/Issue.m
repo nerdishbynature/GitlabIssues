@@ -137,19 +137,34 @@
         self.descriptionString = [dict objectForKey:@"description"];
     }
     
-    if ([dict objectForKey:@"assignee"]) {
-        self.assignee = [Assignee createAndParseJSON:[dict objectForKey:@"assignee"]];
+    if (![[dict objectForKey:@"assignee"] isMemberOfClass:[NSNull class]]) {
+        NSArray *assigneeArray = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Assignee"] where:@"identifier == %@", [[dict objectForKey:@"assignee"] objectForKey:@"id"]] toArray];
+        if (assigneeArray.count == 0) {
+            self.assignee = [Assignee createAndParseJSON:[dict objectForKey:@"assignee"]];
+        } else if (assigneeArray.count == 1){
+            self.assignee = [assigneeArray objectAtIndex:0];
+            [self.assignee parseServerResponseWithDict:[dict objectForKey:@"assignee"]];
+        }
+        
     }
     
-    if ([dict objectForKey:@"milestone"]) {
-        self.milestone = [Milestone createAndParseJSON:[dict objectForKey:@"milestone"] andProjectID:[self.project_id integerValue]];
+    if (![[dict objectForKey:@"milestone"] isMemberOfClass:[NSNull class]]) {
+        NSArray *milestoneArray = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Milestone"] where:@"identifier == %@", [[dict objectForKey:@"milestone"] objectForKey:@"id"], self.project_id] toArray];
+        
+        if (milestoneArray.count == 0) {
+            self.milestone = [Milestone createAndParseJSON:[dict objectForKey:@"milestone"] andProjectID:[self.project_id integerValue]];
+        } else if (milestoneArray.count == 1){
+            self.milestone = [milestoneArray objectAtIndex:0];
+            [self.milestone parseServerResponseWithDict:[dict objectForKey:@"milestone"]];
+        }
     }
     
-    if ([dict objectForKey:@"author"]) {
+    if (![[dict objectForKey:@"author"] isMemberOfClass:[NSNull class]]) {
         NSArray *authorArray = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Author"] where:@"identifier == %@", [[dict objectForKey:@"author"] objectForKey:@"id"] ] toArray];
         
-        if (authorArray.count > 0) {
+        if (authorArray.count == 1) {
             self.author = [authorArray objectAtIndex:0];
+            [self.author parseServerResonse:[dict objectForKey:@"author"]];
         } else{
             self.author = [Author createAndParseJSON:[dict objectForKey:@"author"]];
         }
