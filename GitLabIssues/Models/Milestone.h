@@ -34,6 +34,8 @@
  */
 +(Milestone *)createAndParseJSON:(NSDictionary *)dict andProjectID:(NSUInteger)projectID;
 
+-(void)parseServerResponseWithDict:(NSDictionary *)dict;
+
 @end
 
 @interface Milestone (CoreDataGeneratedAccessors)
