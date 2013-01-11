@@ -31,6 +31,8 @@
  */
 +(Author *)createAndParseJSON:(NSDictionary *)dict;
 
+-(void)parseServerResonse:(NSDictionary *)dict;
+
 @end
 
 @interface Author (CoreDataGeneratedAccessors)

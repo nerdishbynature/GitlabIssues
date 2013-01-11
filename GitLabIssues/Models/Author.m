@@ -40,11 +40,15 @@
         return author;
     }
     author.identifier = [NSNumber numberWithInt:[[dict objectForKey:@"id"] integerValue]];
-    author.email = [dict objectForKey:@"email"];
-    author.name = [dict objectForKey:@"name"];
+    
     //self.blocked = [NSNumber numberWithInt:[[dict valueForKey:@"blocked"] integerValue]];
     
     return author;
+}
+
+-(void)parseServerResonse:(NSDictionary *)dict{
+    self.email = [dict objectForKey:@"email"];
+    self.name = [dict objectForKey:@"name"];
 }
 
 @end
