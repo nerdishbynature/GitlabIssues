@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97049FB716A0B34E004BC6E3 /* NBNReachabilityChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 97049FB616A0B34E004BC6E3 /* NBNReachabilityChecker.m */; };
 		9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5A8167E2C4500F26DE2 /* UIKit.framework */; };
 		9710B5AB167E2C4500F26DE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5AA167E2C4500F26DE2 /* Foundation.framework */; };
 		9710B5AD167E2C4500F26DE2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5AC167E2C4500F26DE2 /* CoreGraphics.framework */; };
@@ -200,6 +201,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		97049FB516A0B34E004BC6E3 /* NBNReachabilityChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNReachabilityChecker.h; path = Network/NBNReachabilityChecker.h; sourceTree = "<group>"; };
+		97049FB616A0B34E004BC6E3 /* NBNReachabilityChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNReachabilityChecker.m; path = Network/NBNReachabilityChecker.m; sourceTree = "<group>"; };
 		9710B5A4167E2C4500F26DE2 /* GitLabIssues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitLabIssues.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9710B5A8167E2C4500F26DE2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9710B5AA167E2C4500F26DE2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1078,6 +1081,8 @@
 				9732860A167E5F1D00CFACC2 /* NBNIssuesConnection.m */,
 				97328600167E525300CFACC2 /* NBNProjectConnection.h */,
 				97328601167E525300CFACC2 /* NBNProjectConnection.m */,
+				97049FB516A0B34E004BC6E3 /* NBNReachabilityChecker.h */,
+				97049FB616A0B34E004BC6E3 /* NBNReachabilityChecker.m */,
 			);
 			name = Connections;
 			sourceTree = "<group>";
@@ -1478,6 +1483,7 @@
 				978F7094169F590E004A0B67 /* MKNetworkOperation.m in Sources */,
 				978F7095169F590E004A0B67 /* Reachability.m in Sources */,
 				978F7098169F593F004A0B67 /* NBNGitlabEngine.m in Sources */,
+				97049FB716A0B34E004BC6E3 /* NBNReachabilityChecker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
