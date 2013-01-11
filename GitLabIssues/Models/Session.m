@@ -79,7 +79,6 @@
     
     [request setCompletionBlock:^{
         
-        PBLog(@"jsonString %@",[request responseString]);
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
         
         
