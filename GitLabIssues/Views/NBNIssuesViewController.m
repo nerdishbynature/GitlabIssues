@@ -153,6 +153,7 @@
     [super viewWillAppear:animated];
     [self refreshIssues];
     [self createToolBar];
+    [self.navigationController setToolbarHidden:NO animated:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
