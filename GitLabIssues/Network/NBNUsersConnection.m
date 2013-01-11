@@ -11,6 +11,7 @@
 #import "Domain.h"
 #import "Session.h"
 #import "Assignee.h"
+#import "NBNReachabilityChecker.h"
 
 @interface NBNUsersConnection ()
 
@@ -35,6 +36,9 @@ static NBNUsersConnection *sharedConnection = nil;
 }
 
 -(NSArray *)loadMembersWithProjectID:(NSUInteger)project_id{
+    
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]) return @[];
+    
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     Session *firstSession = [[Session findAll] lastObject];
     

@@ -14,6 +14,7 @@
 #import "Note.h"
 #import "NBNGitlabEngine.h"
 #import "ASIHTTPRequest.h"
+#import "NBNReachabilityChecker.h"
 
 @interface NBNIssuesConnection ()
 
@@ -47,6 +48,11 @@ static NBNIssuesConnection *sharedConnection = nil;
 }
 
 -(void)loadIssuesForProject:(Project *)project onSuccess:(void (^)(void))block{
+    
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]){
+        block();
+        return;
+    }
     
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
@@ -82,6 +88,12 @@ static NBNIssuesConnection *sharedConnection = nil;
 }
 
 -(void)reloadIssue:(Issue *)issue onSuccess:(void(^)(void))block{
+    
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]){
+        block();
+        return;
+    }
+    
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
@@ -104,7 +116,11 @@ static NBNIssuesConnection *sharedConnection = nil;
 }
 
 -(void)loadNotesForIssue:(Issue *)issue onSuccess:(void (^)(NSArray *))block{
-    
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]){
+        block(@[]);
+        return;
+    }
+
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
@@ -145,6 +161,12 @@ static NBNIssuesConnection *sharedConnection = nil;
 }
 
 -(void)sendNoteForIssue:(Issue *)issue andBody:(NSString *)body onSuccess:(void (^)(void))block{
+
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]){
+        block();
+        return;
+    }
+    
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
@@ -179,6 +201,11 @@ static NBNIssuesConnection *sharedConnection = nil;
 }
 
 -(void)loadAllIssuesOnSuccess:(void(^)(void))block{
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]){
+        block();
+        return;
+    }
+    
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {

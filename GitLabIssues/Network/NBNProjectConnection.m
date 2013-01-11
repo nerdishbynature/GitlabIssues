@@ -9,6 +9,7 @@
 #import "NBNProjectConnection.h"
 #import "User.h"
 #import "NBNGitlabEngine.h"
+#import "NBNReachabilityChecker.h"
 
 @interface NBNProjectConnection ()
 
@@ -36,6 +37,11 @@ static NBNProjectConnection* sharedConnection = nil;
 }
 
 -(void)loadProjectsForDomain:(Domain *)domain onSuccess:(void (^)(void))block{
+    
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]){
+        block();
+        return;
+    }
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {        
         
@@ -68,6 +74,11 @@ static NBNProjectConnection* sharedConnection = nil;
 }
 
 -(void)loadMembersForProject:(Project *)project onSuccess:(void (^)(void))block{
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]){
+        block();
+        return;
+    }
+    
     Domain *domain = [[Domain findAll] objectAtIndex:0];
 
     [Session getCurrentSessionWithCompletion:^(Session *session) {

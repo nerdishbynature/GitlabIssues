@@ -10,6 +10,7 @@
 #import "ASIHTTPRequest.h"
 #import "Domain.h"
 #import "Session.h"
+#import "NBNReachabilityChecker.h"
 
 @interface NBNLabelsConnection ()
 
@@ -36,6 +37,11 @@ static NBNLabelsConnection *sharedConnection = nil;
 
 -(void)loadAllLabelsForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
+
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]){
+        block();
+        return;
+    }
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/labels?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token]];

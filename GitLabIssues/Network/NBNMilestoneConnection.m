@@ -12,6 +12,7 @@
 #import "Milestone.h"
 #import "NBNGitlabEngine.h"
 #import "ASIHTTPRequest.h"
+#import "NBNReachabilityChecker.h"
 
 @interface NBNMilestoneConnection ()
 
@@ -38,6 +39,11 @@ static NBNMilestoneConnection *sharedConnection = nil;
 
 -(void)loadAllMilestonesForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
+    
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]){
+        block();
+        return;
+    }
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         self.milestonesForProjectRequest = [[NBNGitlabEngine alloc] init];
@@ -67,6 +73,9 @@ static NBNMilestoneConnection *sharedConnection = nil;
 }
 
 +(NSArray *)loadMilestonesWithProjectID:(NSUInteger)projectID{
+    
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]) return @[];
+    
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     Session *firstSession = [[Session findAll] lastObject];
     
