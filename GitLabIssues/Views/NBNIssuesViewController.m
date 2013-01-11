@@ -153,13 +153,13 @@
     [super viewWillAppear:animated];
     [self refreshIssues];
     [self createToolBar];
-    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.navigationController.toolbarHidden = YES;
     [[NBNIssuesConnection sharedConnection] cancelIssuesConnection];
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
