@@ -195,6 +195,7 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     [filter release];
     [project release];
     
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

@@ -8,11 +8,12 @@
 
 #import "NBNProjectConnection.h"
 #import "User.h"
+#import "NBNGitlabEngine.h"
 
 @interface NBNProjectConnection ()
 
-@property (nonatomic, retain) ASIHTTPRequest *projectConnection;
-@property (nonatomic, retain) ASIHTTPRequest *membersConnection;
+@property (nonatomic, retain) NBNGitlabEngine *projectConnection;
+@property (nonatomic, retain) NBNGitlabEngine *membersConnection;
 
 @end
 
@@ -37,12 +38,10 @@ static NBNProjectConnection* sharedConnection = nil;
 -(void)loadProjectsForDomain:(Domain *)domain onSuccess:(void (^)(void))block{
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {        
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects?private_token=%@", domain.protocol, domain.domain, session.private_token]];
         
-        self.projectConnection = [ASIHTTPRequest requestWithURL:url];
-        
-        [self.projectConnection setCompletionBlock:^{
-            NSArray *array = [NSJSONSerialization JSONObjectWithData:[self.projectConnection responseData] options:kNilOptions error:nil];
+        self.projectConnection = [[NBNGitlabEngine alloc] init];
+        [self.projectConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects?private_token=%@", domain.protocol, domain.domain, session.private_token] completionHandler:^(MKNetworkOperation *request) {
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             
             for (NSDictionary *dict in array) {
                 
@@ -57,35 +56,25 @@ static NBNProjectConnection* sharedConnection = nil;
             }
             
             block();
-        }];
-        
-        [self.projectConnection setFailedBlock:^{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.projectConnection.error.localizedFailureReason message:self.projectConnection.error.localizedDescription delegate:nil cancelButtonTitle:@"Dimiss" otherButtonTitles:nil];
+        } errorHandler:^(NSError *error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedFailureReason message:error.localizedDescription delegate:nil cancelButtonTitle:@"Dimiss" otherButtonTitles:nil];
             [alert show];
-            PBLog(@"err %i", [self.projectConnection responseStatusCode]);
         }];
-        
-        [self.projectConnection startAsynchronous];
     }];
 }
 
 -(void)cancelProjectsConnection{
-    if ([self.projectConnection isExecuting]){
-        [self.projectConnection clearDelegatesAndCancel];
-        self.projectConnection = nil;
-        PBLog(@"cancel projectConnection!");
-    }
+    [self.projectConnection cancel];
 }
 
 -(void)loadMembersForProject:(Project *)project onSuccess:(void (^)(void))block{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
 
     [Session getCurrentSessionWithCompletion:^(Session *session) {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/members?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token]];
-        self.membersConnection = [ASIHTTPRequest requestWithURL:url];
         
-        [self.membersConnection setCompletionBlock:^{
-            NSArray *array = [NSJSONSerialization JSONObjectWithData:[self.membersConnection responseData] options:kNilOptions error:nil];
+        self.membersConnection = [[NBNGitlabEngine alloc] init];
+        [self.membersConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/members?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token] completionHandler:^(MKNetworkOperation *request) {
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             
             for (NSDictionary *dict in array) {
                 
@@ -97,22 +86,14 @@ static NBNProjectConnection* sharedConnection = nil;
             }
             
             block();
+        } errorHandler:^(NSError *error) {
+            PBLog(@"err %@", error);
         }];
-        
-        [self.membersConnection setFailedBlock:^{
-            PBLog(@"err %@", [self.membersConnection error]);
-        }];
-        
-        [self.membersConnection startAsynchronous];
     }];
 }
 
 -(void)cancelMembersConnection{
-    if ([self.membersConnection isExecuting]){
-        [self.membersConnection clearDelegatesAndCancel];
-        self.membersConnection = nil;
-        PBLog(@"cancel membersConnection!");
-    }
+    [self.membersConnection cancel];
 }
 
 @end

@@ -50,7 +50,7 @@ static NBNUsersConnection *sharedConnection = nil;
         [memberArray addObject:[Assignee createAndParseJSON:dict]];
     }
     
-    [[NSManagedObjectContext MR_defaultContext] MR_save];
+    [[NSManagedObjectContext MR_contextForCurrentThread] MR_save];
     
     return memberArray;
 }

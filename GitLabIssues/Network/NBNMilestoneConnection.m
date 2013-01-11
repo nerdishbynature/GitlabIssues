@@ -10,11 +10,12 @@
 #import "Domain.h"
 #import "Session.h"
 #import "Milestone.h"
+#import "NBNGitlabEngine.h"
 #import "ASIHTTPRequest.h"
 
 @interface NBNMilestoneConnection ()
 
-@property (nonatomic, retain) ASIHTTPRequest *milestonesForProjectRequest;
+@property (nonatomic, retain) NBNGitlabEngine *milestonesForProjectRequest;
 
 @end
 
@@ -39,12 +40,10 @@ static NBNMilestoneConnection *sharedConnection = nil;
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token]];
-        PBLog(@"%@", url);
-        self.milestonesForProjectRequest = [ASIHTTPRequest requestWithURL:url];
+        self.milestonesForProjectRequest = [[NBNGitlabEngine alloc] init];
         
-        [self.milestonesForProjectRequest setCompletionBlock:^{
-            NSArray *array = [NSJSONSerialization JSONObjectWithData:[self.milestonesForProjectRequest responseData] options:kNilOptions error:nil];
+        [self.milestonesForProjectRequest requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token] completionHandler:^(MKNetworkOperation *request) {
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             
             for (NSDictionary *dict in array) {
                 
@@ -56,23 +55,15 @@ static NBNMilestoneConnection *sharedConnection = nil;
                 }
             }
             block();
+        } errorHandler:^(NSError *error) {
+            PBLog(@"err %@", error);
         }];
-        
-        [self.milestonesForProjectRequest setFailedBlock:^{
-            PBLog(@"err %@", [self.milestonesForProjectRequest error]);
-        }];
-        
-        [self.milestonesForProjectRequest startAsynchronous];
     }];
 }
 
 - (void) cancelMilestonesForProjectRequest
 {
-    if ([self.milestonesForProjectRequest isExecuting]){
-          [self.milestonesForProjectRequest clearDelegatesAndCancel];
-           self.milestonesForProjectRequest = nil;
-           PBLog(@"cancel milestonesForProjectRequest!");
-      }
+    [self.milestonesForProjectRequest cancel];
 }
 
 +(NSArray *)loadMilestonesWithProjectID:(NSUInteger)projectID{
@@ -91,7 +82,7 @@ static NBNMilestoneConnection *sharedConnection = nil;
         [milestoneArray addObject:milestone];
     }
     
-    [[NSManagedObjectContext MR_defaultContext] MR_save];
+    [[NSManagedObjectContext MR_contextForCurrentThread] MR_save];
     
     return milestoneArray;
 }

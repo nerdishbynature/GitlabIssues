@@ -53,6 +53,7 @@
     self.segmentedControl = nil;
 
     [segmentedControl release];
+
     [super dealloc];
 }
 

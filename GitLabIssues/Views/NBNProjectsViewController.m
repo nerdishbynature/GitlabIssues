@@ -35,6 +35,17 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+	
+	// Regiser for HUD callbacks so we can remove it from the window at the right time
+	HUD.delegate = self;
+	
+	// Show the HUD while the provided method executes in a new thread
+	[HUD show:YES];
+    
     [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain findAll] objectAtIndex:0] onSuccess:^{
         [self refreshDataSource];
     }];
@@ -101,8 +112,9 @@
 }
 
 -(void)refreshDataSource{
-    self.projectsArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
+    self.projectsArray = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
     [self.tableView reloadData];
+    [self.HUD setHidden:YES];
 }
 
 -(void)dealloc{
@@ -111,6 +123,8 @@
     
     [projectsArray release];
     [HUD release];
+    
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

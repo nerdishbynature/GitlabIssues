@@ -26,6 +26,7 @@
 #import "NBNIssueCommentCell.h"
 
 #import "NBNMilestonesListViewController.h"
+#import "MBProgressHUD.h"
 
 
 @interface NBNIssueDetailViewController ()
@@ -34,6 +35,7 @@
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) NSString *commentString;
 @property (nonatomic, retain) UITextField *textField;
+@property (nonatomic, retain) MBProgressHUD *HUD;
 
 @end
 
@@ -43,6 +45,7 @@
 @synthesize tableView;
 @synthesize commentString;
 @synthesize textField;
+@synthesize HUD;
 
 +(NBNIssueDetailViewController *)loadViewControllerWithIssue:(Issue *)_issue{
     NBNIssueDetailViewController *issueController = [[[NBNIssueDetailViewController alloc] init] autorelease];
@@ -73,13 +76,21 @@
 }
 
 -(void)refreshData{
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+    
+	// Show the HUD while the provided method executes in a new thread
+	[HUD show:YES];
+    
     [[NBNIssuesConnection sharedConnection] reloadIssue:self.issue onSuccess:^{
         [self.tableView reloadData];
+        [self.HUD setHidden:YES];
     }];
     
     [[NBNIssuesConnection sharedConnection] loadNotesForIssue:self.issue onSuccess:^(NSArray *notesArray) {
         self.issue.notes = [NSSet setWithArray:notesArray];
         [self.tableView reloadData];
+        [self.HUD setHidden:YES];
     }];
 }
 
@@ -351,12 +362,15 @@
     self.tableView = nil;
     self.commentString = nil;
     self.textField = nil;
+    self.HUD = nil;
     
     [issue release];
     [tableView release];
     [commentString release];
     [textField release];
+    [HUD release];
     
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

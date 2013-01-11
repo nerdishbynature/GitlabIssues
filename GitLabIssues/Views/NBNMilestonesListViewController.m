@@ -42,7 +42,7 @@
     [super viewDidLoad];
 
     [[NBNMilestoneConnection sharedConnection] loadAllMilestonesForProjectID:self.projectID onSuccess:^{
-        self.milestonesArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Milestone"] where:@"project_id == %i", projectID] toArray];
+        self.milestonesArray = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Milestone"] where:@"project_id == %i", projectID] toArray];
         [self.tableView reloadData];
     }];
 }
@@ -117,7 +117,7 @@
 #pragma mark - Search
 
 -(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope{
-    self.milestonesSearchArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Milestone"] where:@"title contains[cd] %@", searchText] toArray];
+    self.milestonesSearchArray = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Milestone"] where:@"title contains[cd] %@", searchText] toArray];
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
@@ -161,7 +161,9 @@
     
     [milestonesArray release];
     [milestonesSearchArray release];
-    [searchDisplayController release];    
+    [searchDisplayController release];
+    
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

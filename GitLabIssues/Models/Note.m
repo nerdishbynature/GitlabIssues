@@ -33,7 +33,7 @@
     }
     
     if ([dict objectForKey:@"author"]) {
-        NSArray *authorArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Author"] where:@"identifier == %@", [[dict objectForKey:@"author"] objectForKey:@"id"] ] toArray];
+        NSArray *authorArray = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Author"] where:@"identifier == %@", [[dict objectForKey:@"author"] objectForKey:@"id"] ] toArray];
         
         if (authorArray.count > 0) {
             self.author = [authorArray objectAtIndex:0];

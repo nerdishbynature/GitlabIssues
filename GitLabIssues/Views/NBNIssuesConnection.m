@@ -12,15 +12,16 @@
 #import "Domain.h"
 #import "Issue.h"
 #import "Note.h"
+#import "NBNGitlabEngine.h"
 #import "ASIHTTPRequest.h"
 
 @interface NBNIssuesConnection ()
 
-@property (nonatomic, retain) ASIHTTPRequest *issuesConnection;
-@property (nonatomic, retain) ASIHTTPRequest *reloadConnection;
-@property (nonatomic, retain) ASIHTTPRequest *notesConnection;
+@property (nonatomic, retain) NBNGitlabEngine *issuesConnection;
+@property (nonatomic, retain) NBNGitlabEngine *reloadConnection;
+@property (nonatomic, retain) NBNGitlabEngine *notesConnection;
 @property (nonatomic, retain) ASIHTTPRequest *sendNotesConnection;
-@property (nonatomic, retain) ASIHTTPRequest *allIssuesConnection;
+@property (nonatomic, retain) NBNGitlabEngine *allIssuesConnection;
 
 @end
 
@@ -50,11 +51,10 @@ static NBNIssuesConnection *sharedConnection = nil;
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token]];
-        self.issuesConnection = [ASIHTTPRequest requestWithURL:url];
-        
-        [self.issuesConnection setCompletionBlock:^{
-            NSArray *array = [NSJSONSerialization JSONObjectWithData:[self.issuesConnection responseData] options:kNilOptions error:nil];
+    
+        self.issuesConnection = [[NBNGitlabEngine alloc] init];
+        [self.issuesConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token] completionHandler:^(MKNetworkOperation *request) {
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             
             for (NSDictionary *dict in array) {
                 
@@ -71,54 +71,36 @@ static NBNIssuesConnection *sharedConnection = nil;
                 }
             }
             block();
+        } errorHandler:^(NSError *error) {
+            PBLog(@"err %@", error);
         }];
-        
-        [self.issuesConnection setFailedBlock:^{
-            PBLog(@"err %@", [self.issuesConnection error]);
-        }];
-        
-        [self.issuesConnection startAsynchronous];
     }];
 }
 
 -(void)cancelIssuesConnection{
-    if ([self.issuesConnection isExecuting]){
-        [self.issuesConnection clearDelegatesAndCancel];
-        self.issuesConnection = nil;
-        PBLog(@"cancel issuesConnection!");
-    }
+    [self.issuesConnection cancel];
 }
 
 -(void)reloadIssue:(Issue *)issue onSuccess:(void(^)(void))block{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
-        //GET /projects/:id/issues/:issue_id
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@?private_token=%@", domain.protocol, domain.domain, issue.project_id, issue.identifier, session.private_token]];
-        self.reloadConnection = [ASIHTTPRequest requestWithURL:url];
-        
-        [self.reloadConnection setCompletionBlock:^{
-            NSDictionary *returnDict = [NSJSONSerialization JSONObjectWithData:[self.reloadConnection responseData] options:kNilOptions error:nil];
+        //GET /projects/:id/issues/:issue_id        
+        self.reloadConnection = [[NBNGitlabEngine alloc] init];
+        [self.reloadConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@?private_token=%@", domain.protocol, domain.domain, issue.project_id, issue.identifier, session.private_token] completionHandler:^(MKNetworkOperation *request) {
+            NSDictionary *returnDict = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             
             [issue parseServerResponse:returnDict];
             
             block();
+        } errorHandler:^(NSError *error) {
+            PBLog(@"err %@", error);
         }];
-        
-        [self.reloadConnection setFailedBlock:^{
-            PBLog(@"err %@", [self.reloadConnection error]);
-        }];
-        
-        [self.reloadConnection startAsynchronous];
     }];
 }
 
 -(void)cancelReloadConnection{
-    if ([self.reloadConnection isExecuting]){
-        [self.reloadConnection clearDelegatesAndCancel];
-        self.reloadConnection = nil;
-        PBLog(@"cancel reloadConnection!");
-    }
+    [self.reloadConnection cancel];
 }
 
 -(void)loadNotesForIssue:(Issue *)issue onSuccess:(void (^)(NSArray *))block{
@@ -127,11 +109,11 @@ static NBNIssuesConnection *sharedConnection = nil;
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         //GET /projects/:id/issues/:issue_id/notes
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@/notes?private_token=%@", domain.protocol, domain.domain, issue.project_id, issue.identifier, session.private_token]];
-        self.notesConnection = [ASIHTTPRequest requestWithURL:url];
         
-        [self.notesConnection setCompletionBlock:^{
-            NSArray *array = [NSJSONSerialization JSONObjectWithData:[self.notesConnection responseData] options:kNilOptions error:nil];
+        self.notesConnection = [[NBNGitlabEngine alloc] init];
+        [self.notesConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@/notes?private_token=%@", domain.protocol,
+                                              domain.domain, issue.project_id, issue.identifier, session.private_token] completionHandler:^(MKNetworkOperation *request) {
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             NSMutableArray *returnArray = [[[NSMutableArray alloc] initWithCapacity:array.count] autorelease];
             
             for (NSDictionary *dict in array) {
@@ -152,22 +134,14 @@ static NBNIssuesConnection *sharedConnection = nil;
                 }
             }
             block(returnArray);
+        } errorHandler:^(NSError *error) {
+            PBLog(@"err %@", error);
         }];
-        
-        [self.notesConnection setFailedBlock:^{
-            PBLog(@"err %@", [self.notesConnection error]);
-        }];
-        
-        [self.notesConnection startAsynchronous];
     }];
 }
 
 -(void)cancelNotesConnection{
-    if ([self.notesConnection isExecuting]){
-        [self.notesConnection clearDelegatesAndCancel];
-        self.notesConnection = nil;
-        PBLog(@"cancel notesConnection!");
-    }
+    [self.notesConnection cancel];
 }
 
 -(void)sendNoteForIssue:(Issue *)issue andBody:(NSString *)body onSuccess:(void (^)(void))block{
@@ -208,12 +182,11 @@ static NBNIssuesConnection *sharedConnection = nil;
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
+
         //GET /issues/
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/issues/?private_token=%@", domain.protocol, domain.domain, session.private_token]];
-        self.allIssuesConnection = [ASIHTTPRequest requestWithURL:url];
-        
-        [self.allIssuesConnection setCompletionBlock:^{
-            NSArray *array = [NSJSONSerialization JSONObjectWithData:[self.allIssuesConnection responseData] options:kNilOptions error:nil];
+        self.allIssuesConnection = [[NBNGitlabEngine alloc] init];
+        [self.allIssuesConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/issues/?private_token=%@", domain.protocol, domain.domain, session.private_token] completionHandler:^(MKNetworkOperation *request) {
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             
             for (NSDictionary *dict in array) {
                 
@@ -232,23 +205,14 @@ static NBNIssuesConnection *sharedConnection = nil;
             }
             
             block();
-            
+        } errorHandler:^(NSError *error) {
+            PBLog(@"err %@", error);
         }];
-        
-        [self.allIssuesConnection setFailedBlock:^{
-            PBLog(@"err %@", [self.allIssuesConnection error]);
-        }];
-        
-        [self.allIssuesConnection startAsynchronous];
     }];
 }
 
 -(void)cancelAllIssuesConnection{
-    if ([self.allIssuesConnection isExecuting]){
-        [self.allIssuesConnection clearDelegatesAndCancel];
-        self.allIssuesConnection = nil;
-        PBLog(@"cancel allIssuesConnection!");
-    }
+    [self.allIssuesConnection cancel];
 }
 
 @end

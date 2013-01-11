@@ -173,6 +173,7 @@
     
     [menuArray release];
     [domainArray release];
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

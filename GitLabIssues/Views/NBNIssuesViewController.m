@@ -14,6 +14,7 @@
 #import "NBNIssueFilterViewController.h"
 #import "NBNIssueEditViewController.h"
 #import "NBNIssueCell.h"
+#import "MBProgressHUD.h"
 
 @interface NBNIssuesViewController ()
 
@@ -22,6 +23,7 @@
 @property (nonatomic, retain) UISearchDisplayController *searchDisplayController;
 @property (nonatomic, retain) UISearchBar *searchBar;
 @property (nonatomic, retain) NSArray *issuesSearchResults;
+@property (nonatomic, retain) MBProgressHUD *HUD;
 
 @end
 
@@ -31,6 +33,7 @@
 @synthesize searchDisplayController;
 @synthesize searchBar;
 @synthesize issuesSearchResults;
+@synthesize HUD;
 
 +(NBNIssuesViewController *)loadWithProject:(Project *)_project{
     NBNIssuesViewController *issueViewController = [[[NBNIssuesViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
@@ -42,7 +45,7 @@
 - (void)createSearchBar {
 
     if (self.tableView && !self.tableView.tableHeaderView) {
-        self.searchBar = [[[UISearchBar alloc] init] autorelease];
+        self.searchBar = [[UISearchBar alloc] init];
         self.searchDisplayController = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
@@ -114,13 +117,20 @@
 }
 
 -(void)refreshIssues{
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:self.HUD];
+    
+	// Show the HUD while the provided method executes in a new thread
+	[self.HUD show:YES];
+    
     [[NBNIssuesConnection sharedConnection] loadIssuesForProject:self.project onSuccess:^{
         [self refreshDataSource];
+        [self.HUD setHidden:YES];
     }];
 }
 
--(void)refreshDataSource{
-    self.issues = [[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] where:@"closed == 0"] orderBy:@"identifier"] toArray];
+-(void)refreshDataSource{    
+    self.issues = [[[[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] where:@"closed == 0"] orderBy:@"identifier"] toArray];
     [self.tableView reloadData];
 }
 
@@ -130,12 +140,8 @@
     issueFilterViewController.delegate = self;
     issueFilterViewController.project = self.project;
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:issueFilterViewController];
-//    [issueFilterViewController release];
-//
-//    navController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+
     [self presentViewController:navController animated:YES completion:nil];
-//
-//    [navController release];
 }
 
 - (void)viewDidLoad
@@ -156,15 +162,11 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setToolbarHidden:YES animated:YES];
-    [self refreshDataSource];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [[NBNIssuesConnection sharedConnection] loadIssuesForProject:self.project onSuccess:^{
-        [self refreshDataSource];
-    }];
-    
+    [self refreshIssues];
     [self createToolBar];
 }
 
@@ -255,7 +257,7 @@
 #pragma mark - Search
 
 -(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope{
-    self.issuesSearchResults = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"title contains[cd] %@",searchText] toArray];
+    self.issuesSearchResults = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Issue"] where:@"title contains[cd] %@",searchText] toArray];
     PBLog(@"searching %@ found %i results", searchText, self.issuesSearchResults.count);
 }
 
@@ -293,12 +295,16 @@
     self.searchDisplayController = nil;
     self.searchBar = nil;
     self.issuesSearchResults = nil;
+    self.HUD = nil;
     
     [project release];
     [issues release];
     [searchDisplayController release];
     [searchBar release];
     [issuesSearchResults release];
+    [HUD release];
+    
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

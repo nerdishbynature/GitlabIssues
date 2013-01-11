@@ -75,7 +75,7 @@
                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", value];
                 self.issue.assignee = [[Assignee findAllWithPredicate:predicate] objectAtIndex:0];
                 
-                [[NSManagedObjectContext MR_defaultContext] MR_save];
+                [[NSManagedObjectContext MR_contextForCurrentThread] MR_save];
                 
                 return self.issue.assignee;
             } labelValueBlock:^id(id value, id object) {
@@ -105,7 +105,7 @@
                     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@", value];
                     self.issue.milestone = [[Milestone findAllWithPredicate:predicate] objectAtIndex:0];
                     
-                    [[NSManagedObjectContext MR_defaultContext] MR_save];
+                    [[NSManagedObjectContext MR_contextForCurrentThread] MR_save];
                     
                     return self.issue.milestone;
                 } labelValueBlock:^id(id value, id object) {
@@ -146,7 +146,7 @@
     
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    [[NSManagedObjectContext MR_defaultContext] MR_save];
+    [[NSManagedObjectContext MR_contextForCurrentThread] MR_save];
 }
 
 #pragma mark - UIAlertView
@@ -174,7 +174,8 @@
     
     [formModel release];
     [issue release];
-    
+
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

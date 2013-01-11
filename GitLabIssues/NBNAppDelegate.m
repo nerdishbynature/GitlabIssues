@@ -9,6 +9,7 @@
 #import "NBNAppDelegate.h"
 #import "NBNHomeScreenViewController.h"
 #import "Domain.h"
+#import "Session.h"
 
 @implementation NBNAppDelegate
 
@@ -38,6 +39,15 @@
     
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:64.f/255.f green:64.f/255.f blue:64.f/255.f alpha:1.0f]];
     [[UISearchBar appearance] setBackgroundImage:image];
+    
+    NSArray *sessionArray = [Session findAll];
+    
+    for (Session *session in sessionArray) {
+        PBLog(@"deleting %@", session.private_token);
+        [[NSManagedObjectContext MR_contextForCurrentThread] deleteObject:session];
+    }
+    
+    PBLog(@"sessions %@", [Session findAll]);
     
     self.window.rootViewController = navController;
     
