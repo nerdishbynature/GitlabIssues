@@ -50,6 +50,11 @@
 +(NBNIssueDetailViewController *)loadViewControllerWithIssue:(Issue *)_issue{
     NBNIssueDetailViewController *issueController = [[[NBNIssueDetailViewController alloc] init] autorelease];
     issueController.issue = _issue;
+    issueController.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, issueController.view.frame.size.width, issueController.view.frame.size.height-42.f) style:UITableViewStylePlain]; //42.f is navbar image height
+    issueController.tableView.delegate = issueController;
+    issueController.tableView.dataSource = issueController;
+    issueController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [issueController.view addSubview:issueController.tableView];
     
     return issueController;
 }
@@ -57,16 +62,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.separatorColor = [UIColor clearColor];
+    
     self.title = [NSString stringWithFormat:@"Issue #%@", self.issue.identifier];
     [self setupKeyboard];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editIssue)];
-    [self refreshData];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    [self refreshData];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
