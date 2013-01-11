@@ -62,11 +62,11 @@
     self.title = [NSString stringWithFormat:@"Issue #%@", self.issue.identifier];
     [self setupKeyboard];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editIssue)];
+    [self refreshData];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self refreshData];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

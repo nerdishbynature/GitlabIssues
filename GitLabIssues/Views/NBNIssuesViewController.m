@@ -46,7 +46,7 @@
 
     if (self.tableView && !self.tableView.tableHeaderView) {
         self.searchBar = [[UISearchBar alloc] init];
-        self.searchDisplayController = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
+        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
         self.searchDisplayController.delegate = self;
@@ -65,9 +65,6 @@
         [addButton setBackgroundImage:addButtonImage forState:UIControlStateNormal];
         [addButton addTarget:self action:@selector(addNewIssue) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *createButton = [[UIBarButtonItem alloc] initWithCustomView:addButton];
-    
-        [addButton release];
-        [addButtonImage release];
         
         UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage *refreshButtonImage = [UIImage imageNamed:@"BarButton_Refresh.png"];
@@ -76,9 +73,6 @@
         [refreshButton setBackgroundImage:refreshButtonImage forState:UIControlStateNormal];
         [refreshButton addTarget:self action:@selector(refreshIssues) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
-
-        [refreshButton release];
-        [refreshButtonImage release];
         
         UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage *filterButtonImage = [UIImage imageNamed:@"BarButton_Filter.png"];
@@ -87,9 +81,6 @@
         [filterButton setBackgroundImage:filterButtonImage forState:UIControlStateNormal];
         [filterButton addTarget:self action:@selector(filter) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *filterBarButton = [[UIBarButtonItem alloc] initWithCustomView:filterButton];
-        
-        [filterButton release];
-        [filterButtonImage release];
         
         UIBarButtonItem	*flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         
@@ -156,18 +147,13 @@
     } else{
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
     }
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.navigationController setToolbarHidden:YES animated:YES];
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
     [self refreshIssues];
     [self createToolBar];
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
