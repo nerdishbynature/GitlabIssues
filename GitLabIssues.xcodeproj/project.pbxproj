@@ -906,6 +906,17 @@
 		97328608167E5D6200CFACC2 /* Issues */ = {
 			isa = PBXGroup;
 			children = (
+				97860A4C16903C6B003D2092 /* Cells */,
+				97328605167E5D5D00CFACC2 /* NBNIssuesViewController.h */,
+				97328606167E5D5D00CFACC2 /* NBNIssuesViewController.m */,
+				979C64DB167F0B9B00B3E2D5 /* NBNIssueDetailViewController.h */,
+				979C64DC167F0B9B00B3E2D5 /* NBNIssueDetailViewController.m */,
+				972304CB1691B046005866EF /* DetailCells */,
+				979C64EC167F187A00B3E2D5 /* NBNIssueFilterViewController.h */,
+				979C64ED167F187A00B3E2D5 /* NBNIssueFilterViewController.m */,
+				974B8ADF169B546200ED15C5 /* FilterCells */,
+				979C65861680678400B3E2D5 /* NBNIssueEditViewController.h */,
+				979C65871680678400B3E2D5 /* NBNIssueEditViewController.m */,
 			);
 			name = Issues;
 			sourceTree = "<group>";
@@ -985,17 +996,6 @@
 				979C64F9167F520700B3E2D5 /* FilterComponents */,
 				9713925B167E8E0500AB2E39 /* FindRepos */,
 				97328608167E5D6200CFACC2 /* Issues */,
-				97860A4C16903C6B003D2092 /* Cells */,
-				97328605167E5D5D00CFACC2 /* NBNIssuesViewController.h */,
-				97328606167E5D5D00CFACC2 /* NBNIssuesViewController.m */,
-				979C64DB167F0B9B00B3E2D5 /* NBNIssueDetailViewController.h */,
-				979C64DC167F0B9B00B3E2D5 /* NBNIssueDetailViewController.m */,
-				972304CB1691B046005866EF /* DetailCells */,
-				979C64EC167F187A00B3E2D5 /* NBNIssueFilterViewController.h */,
-				979C64ED167F187A00B3E2D5 /* NBNIssueFilterViewController.m */,
-				974B8ADF169B546200ED15C5 /* FilterCells */,
-				979C65861680678400B3E2D5 /* NBNIssueEditViewController.h */,
-				979C65871680678400B3E2D5 /* NBNIssueEditViewController.m */,
 				973285FB167E514500CFACC2 /* Projects */,
 				973285F2167E4AEE00CFACC2 /* Favorite */,
 				9710B60D167E30D300F26DE2 /* HomeScreen */,
