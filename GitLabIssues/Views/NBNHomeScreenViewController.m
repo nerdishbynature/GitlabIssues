@@ -40,9 +40,14 @@
 {
     [super viewDidLoad];
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(logout:)];
-    self.navigationItem.rightBarButtonItem = item;
-    [item release];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+	[button setTitle:@"Logout" forState:UIControlStateNormal];
+	[button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+    [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+    [button addTarget:self action:@selector(logout:) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
     self.domainArray = [Domain findAll];
 }
@@ -56,7 +61,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    [[NSManagedObjectContext MR_contextForCurrentThread] saveNestedContexts];
+    [[NSManagedObjectContext MR_defaultContext] saveNestedContexts];
     
     if ([self.domainArray count] == 0) { // show login screen
         

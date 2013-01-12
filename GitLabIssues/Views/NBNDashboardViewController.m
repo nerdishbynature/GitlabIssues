@@ -25,7 +25,7 @@
         assignedViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Assigned" image:nil tag:0];
         
         NBNCreatedByMeViewController *createdViewController = [[NBNCreatedByMeViewController alloc] initWithStyle:UITableViewStylePlain];
-        createdViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Created" image:nil tag:1];
+        createdViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Created" image:[UIImage imageNamed:@"BarButton_Add.png"] tag:1];
         
         self.viewControllers = @[createdViewController, assignedViewController];
         
