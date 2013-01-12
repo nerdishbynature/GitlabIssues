@@ -57,6 +57,9 @@ static NBNMilestoneConnection *sharedConnection = nil;
                 if ([[Milestone MR_findAllWithPredicate:issueFinder] count] == 0) {
                     
                     [Milestone createAndParseJSON:dict andProjectID:projectID];
+                } else{
+                    Milestone *milestone = [[Milestone MR_findAllWithPredicate:issueFinder] objectAtIndex:0];
+                    [milestone parseServerResponseWithDict:dict];
                 }
             }
             block();

@@ -57,8 +57,8 @@
 - (void)createSearchBar {
     
     if (self.tableView && !self.tableView.tableHeaderView) {
-        self.searchBar = [[[UISearchBar alloc] init] autorelease];
-        self.searchDisplayController = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
+        self.searchBar = [[UISearchBar alloc] init];
+        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
         self.searchDisplayController.delegate = self;

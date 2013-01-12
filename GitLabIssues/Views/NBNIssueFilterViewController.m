@@ -12,7 +12,8 @@
 #import "Filter.h"
 #import "Assignee.h"
 #import "NBNFilterComponentsCell.h"
-#import "NBNFilterSegmentedCell.h"
+#import "NBNFilterSortCell.h"
+#import "NBNFilterStatusCell.h"
 
 NSString *const kKeyAssignedFilter = @"kKeyAssignedFilter";
 NSString *const kKeyMilestoneFilter = @"kKeyMilestoneFilter";
@@ -69,7 +70,7 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 	[applybutton.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
 	[applybutton setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
     [applybutton setFrame:CGRectMake(0, 0, 58.f, 27.f)];
-    [applybutton addTarget:self action:@selector(saveIssue) forControlEvents:UIControlEventTouchUpInside];
+    [applybutton addTarget:self action:@selector(apply:) forControlEvents:UIControlEventTouchUpInside];
     [applybutton setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:applybutton] autorelease];
@@ -107,15 +108,15 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
         
         switch (indexPath.row) {
             case 0: // Assignee
+                PBLog(@"Assigned %@", self.filter.assigned);
                 [cell configureCellWithAssignee:self.filter.assigned];
+                cell.delegate = self;
                 break;
 
             case 1: // Milestone
+                PBLog(@"Milestone %@", self.filter.milestone);
                 [cell configureCellWithMilestone:self.filter.milestone];
-                break;
-                
-            case 2: // Labels
-                [cell configureCellWithLabels:self.filter.labels];
+                cell.delegate = self;
                 break;
                 
             default:
@@ -125,30 +126,60 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
         return cell;
         
     } else if (indexPath.section == 1){ // open/closed Issues
-        static NSString  *CellIdentifier = @"SegmentedCellIdentifier";
+        static NSString  *CellIdentifier = @"SegmentedStatusCellIdentifier";
         
-        NBNFilterSegmentedCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        NBNFilterStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         if (!cell) {
-            cell = [NBNFilterSegmentedCell loadCellFromNib];
+            cell = [[NBNFilterStatusCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         
-        [cell configureCellIsClosedCell:YES];
+        cell.delegate = self;
+        cell.closed = [self.filter.closed boolValue];
+        [cell configureView];
+        
         return cell;
         
         
     } else{ // sort created or updated
-        static NSString  *CellIdentifier = @"SegmentedCellIdentifier";
+        static NSString  *CellIdentifier = @"SegmentedSortCellIdentifier";
         
-        NBNFilterSegmentedCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        NBNFilterSortCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         if (!cell) {
-            cell = [NBNFilterSegmentedCell loadCellFromNib];
+            cell = [[NBNFilterSortCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         
-        [cell configureCellIsClosedCell:NO];
+        cell.delegate = self;
+        cell.created = [self.filter.sortCreated boolValue];
+        [cell configureView];
         
         return cell;
+    }
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return @"";
+    } else if (section == 1){
+        return @"Issue Status";
+    } else{
+        return @"Sort Issues";
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0: // Assignee
+                [self addAssignee:nil];
+                break;
+            case 1:
+                [self addMilestones:nil];
+                break;
+            default:
+                break;
+        }
     }
 }
 
@@ -156,21 +187,6 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-#pragma mark - IBActions
-
--(void)statusValueChanged:(id)sender{
-
-}
-
--(void)sortIssuesValueChanged:(id)sender{
-    
-}
-
-- (void)addAssignedUsers:(UIButton *)sender {
-
 }
 
 - (void)addMilestones:(UIButton *)sender {
@@ -181,8 +197,12 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     [listController release];
 }
 
-- (void)addLabels:(UIButton *)sender {
-
+- (void)addAssignee:(UIButton *)sender {
+    NBNAssigneeListViewController *listController = [NBNAssigneeListViewController loadControllerWithProjectID:[self.project.identifier integerValue]];
+    listController.delegate = self;
+    
+    [self.navigationController pushViewController:listController animated:YES];
+    [listController release];
 }
 
 -(void)cancel:(id)sender{
@@ -216,11 +236,34 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     [super dealloc];
 }
 
-
 #pragma mark - Delegates
 
+-(void)didSelectAssignee:(Assignee *)selectedAssignee{
+    self.filter.assigned = selectedAssignee;
+    [self.tableView reloadData];
+}
+
 -(void)didSelectMilestone:(Milestone *)selectedMilestone{
-    
+    self.filter.milestone = selectedMilestone;
+    [self.tableView reloadData];
+}
+
+-(void)didChangeStatusTo:(BOOL)closed{
+    self.filter.closed = [NSNumber numberWithBool:closed];
+}
+
+-(void)didChangeSortingTo:(BOOL)created{
+    self.filter.sortCreated = [NSNumber numberWithBool:created];
+}
+
+-(void)clearAssignee{
+    self.filter.assigned = nil;
+    [self.tableView reloadData];
+}
+
+-(void)clearMilestone{
+    self.filter.milestone = nil;
+    [self.tableView reloadData];
 }
 
 @end
