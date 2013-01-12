@@ -80,6 +80,8 @@
 		9710B696167E355800F26DE2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B695167E355700F26DE2 /* CoreData.framework */; };
 		9710B69B167E385800F26DE2 /* NSManagedObjectContext+Queryable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B69A167E385800F26DE2 /* NSManagedObjectContext+Queryable.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9713925F167E8E1C00AB2E39 /* NBNFindReposViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9713925E167E8E1C00AB2E39 /* NBNFindReposViewController.m */; };
+		971F676D16A164CC00638E90 /* BarButtonPlain.png in Resources */ = {isa = PBXBuildFile; fileRef = 971F676B16A164CC00638E90 /* BarButtonPlain.png */; };
+		971F676E16A164CC00638E90 /* BarButtonPlain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 971F676C16A164CC00638E90 /* BarButtonPlain@2x.png */; };
 		972304D21691B092005866EF /* NBNIssueDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 972304D11691B092005866EF /* NBNIssueDetailCell.m */; };
 		972304D51691B0A0005866EF /* NBNIssueDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 972304D41691B0A0005866EF /* NBNIssueDescriptionCell.m */; };
 		972304D81691B0B0005866EF /* NBNIssueCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 972304D71691B0AF005866EF /* NBNIssueCommentCell.m */; };
@@ -338,6 +340,8 @@
 		9710B69A167E385800F26DE2 /* NSManagedObjectContext+Queryable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Queryable.m"; sourceTree = "<group>"; };
 		9713925D167E8E1C00AB2E39 /* NBNFindReposViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNFindReposViewController.h; sourceTree = "<group>"; };
 		9713925E167E8E1C00AB2E39 /* NBNFindReposViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBNFindReposViewController.m; sourceTree = "<group>"; };
+		971F676B16A164CC00638E90 /* BarButtonPlain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BarButtonPlain.png; sourceTree = "<group>"; };
+		971F676C16A164CC00638E90 /* BarButtonPlain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BarButtonPlain@2x.png"; sourceTree = "<group>"; };
 		972304D01691B092005866EF /* NBNIssueDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssueDetailCell.h; path = Views/NBNIssueDetailCell.h; sourceTree = "<group>"; };
 		972304D11691B092005866EF /* NBNIssueDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssueDetailCell.m; path = Views/NBNIssueDetailCell.m; sourceTree = "<group>"; };
 		972304D31691B0A0005866EF /* NBNIssueDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNIssueDescriptionCell.h; sourceTree = "<group>"; };
@@ -937,6 +941,8 @@
 		97714A17169E05CC00308536 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				971F676B16A164CC00638E90 /* BarButtonPlain.png */,
+				971F676C16A164CC00638E90 /* BarButtonPlain@2x.png */,
 				97714A2D169E1B6700308536 /* Background.png */,
 				97714A2E169E1B6800308536 /* Background@2x.png */,
 				97714A21169E153800308536 /* BarButton_Add.png */,
@@ -1321,6 +1327,8 @@
 				97714A2C169E153800308536 /* BarButton_Refresh@2x.png in Resources */,
 				97714A2F169E1B6800308536 /* Background.png in Resources */,
 				97714A30169E1B6800308536 /* Background@2x.png in Resources */,
+				971F676D16A164CC00638E90 /* BarButtonPlain.png in Resources */,
+				971F676E16A164CC00638E90 /* BarButtonPlain@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
