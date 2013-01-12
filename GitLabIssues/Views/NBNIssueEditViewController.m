@@ -124,8 +124,25 @@
 }
 
 -(void)setupBarButtons{
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Discard" style:UIBarButtonItemStyleBordered target:self action:@selector(discard)] autorelease];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(saveIssue)] autorelease];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+	[button setTitle:@"Discard" forState:UIControlStateNormal];
+	[button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+	[button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+    [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+    [button addTarget:self action:@selector(discard) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+    
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+    
+	UIButton *applybutton = [UIButton buttonWithType:UIButtonTypeCustom];
+	[applybutton setTitle:@"Apply" forState:UIControlStateNormal];
+	[applybutton.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+	[applybutton setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+    [applybutton setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+    [applybutton addTarget:self action:@selector(saveIssue) forControlEvents:UIControlEventTouchUpInside];
+    [applybutton setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+    
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:applybutton] autorelease];
 }
 
 -(void)discard{

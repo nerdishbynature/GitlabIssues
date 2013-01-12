@@ -65,7 +65,16 @@
     
     self.title = [NSString stringWithFormat:@"Issue #%@", self.issue.identifier];
     [self setupKeyboard];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editIssue)];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+	[button setTitle:@"Edit" forState:UIControlStateNormal];
+	[button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+	[button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+    [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+    [button addTarget:self action:@selector(editIssue) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
 -(void)viewDidAppear:(BOOL)animated{

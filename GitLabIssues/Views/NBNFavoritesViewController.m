@@ -11,6 +11,7 @@
 #import "Project.h"
 #import "NBNIssueFilterViewController.h"
 #import "MBProgressHUD.h"
+#import "NBNBackButtonHelper.h"
 
 @interface NBNFavoritesViewController ()
 
@@ -37,6 +38,7 @@
 {
     [super viewDidLoad];
     [self createEditButton];
+    [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -157,6 +159,7 @@
 -(void)createEditButton{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setTitle:@"Edit" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
     [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
     [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
     [button addTarget:self action:@selector(enterEditMode:) forControlEvents:UIControlEventTouchUpInside];
@@ -168,6 +171,7 @@
 -(void)createDoneButton{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"Done" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
     [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
     [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
     [button addTarget:self action:@selector(enterEditMode:) forControlEvents:UIControlEventTouchUpInside];
@@ -180,6 +184,10 @@
 
 -(void)applyFilter:(NSDictionary *)filterDictionary{
     PBLog(@"WARNING - Filter is getting ignored");
+}
+
+- (void)pushBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

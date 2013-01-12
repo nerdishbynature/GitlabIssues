@@ -42,6 +42,7 @@
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 	[button setTitle:@"Logout" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
 	[button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
     [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
     [button addTarget:self action:@selector(logout:) forControlEvents:UIControlEventTouchUpInside];
