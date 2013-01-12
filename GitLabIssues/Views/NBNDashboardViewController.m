@@ -9,6 +9,7 @@
 #import "NBNDashboardViewController.h"
 #import "NBNCreatedByMeViewController.h"
 #import "NBNAssignedToMeViewController.h"
+#import "NBNBackButtonHelper.h"
 
 @interface NBNDashboardViewController ()
 
@@ -38,7 +39,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
+}
+
+- (void)pushBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

@@ -82,6 +82,7 @@
 		9713925F167E8E1C00AB2E39 /* NBNFindReposViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9713925E167E8E1C00AB2E39 /* NBNFindReposViewController.m */; };
 		971F676D16A164CC00638E90 /* BarButtonPlain.png in Resources */ = {isa = PBXBuildFile; fileRef = 971F676B16A164CC00638E90 /* BarButtonPlain.png */; };
 		971F676E16A164CC00638E90 /* BarButtonPlain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 971F676C16A164CC00638E90 /* BarButtonPlain@2x.png */; };
+		971F677216A16D8200638E90 /* NBNBackButtonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 971F677116A16D8100638E90 /* NBNBackButtonHelper.m */; };
 		972304D21691B092005866EF /* NBNIssueDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 972304D11691B092005866EF /* NBNIssueDetailCell.m */; };
 		972304D51691B0A0005866EF /* NBNIssueDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 972304D41691B0A0005866EF /* NBNIssueDescriptionCell.m */; };
 		972304D81691B0B0005866EF /* NBNIssueCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 972304D71691B0AF005866EF /* NBNIssueCommentCell.m */; };
@@ -342,6 +343,8 @@
 		9713925E167E8E1C00AB2E39 /* NBNFindReposViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBNFindReposViewController.m; sourceTree = "<group>"; };
 		971F676B16A164CC00638E90 /* BarButtonPlain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BarButtonPlain.png; sourceTree = "<group>"; };
 		971F676C16A164CC00638E90 /* BarButtonPlain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BarButtonPlain@2x.png"; sourceTree = "<group>"; };
+		971F677016A16D8000638E90 /* NBNBackButtonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNBackButtonHelper.h; sourceTree = "<group>"; };
+		971F677116A16D8100638E90 /* NBNBackButtonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBNBackButtonHelper.m; sourceTree = "<group>"; };
 		972304D01691B092005866EF /* NBNIssueDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssueDetailCell.h; path = Views/NBNIssueDetailCell.h; sourceTree = "<group>"; };
 		972304D11691B092005866EF /* NBNIssueDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssueDetailCell.m; path = Views/NBNIssueDetailCell.m; sourceTree = "<group>"; };
 		972304D31691B0A0005866EF /* NBNIssueDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNIssueDescriptionCell.h; sourceTree = "<group>"; };
@@ -1006,6 +1009,8 @@
 				973285F2167E4AEE00CFACC2 /* Favorite */,
 				9710B60D167E30D300F26DE2 /* HomeScreen */,
 				9710B611167E343000F26DE2 /* Models */,
+				971F677016A16D8000638E90 /* NBNBackButtonHelper.h */,
+				971F677116A16D8100638E90 /* NBNBackButtonHelper.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1492,6 +1497,7 @@
 				978F7095169F590E004A0B67 /* Reachability.m in Sources */,
 				978F7098169F593F004A0B67 /* NBNGitlabEngine.m in Sources */,
 				97049FB716A0B34E004BC6E3 /* NBNReachabilityChecker.m in Sources */,
+				971F677216A16D8200638E90 /* NBNBackButtonHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

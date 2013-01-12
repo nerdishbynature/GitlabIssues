@@ -141,9 +141,26 @@
     self.title = self.project.name;
     
     if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Unstar" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:@"Unstar" forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+        [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+        [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+        [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+        
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     } else{
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:@"Star" forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+        [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+        [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+        [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+        
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     }
 }
 
@@ -261,10 +278,31 @@
 -(void)starThisProject{
     if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
         self.project.isFavorite = [NSNumber numberWithBool:NO];
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
     } else{
         self.project.isFavorite = [NSNumber numberWithBool:YES];
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Unstar" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
+    }
+    
+    if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:@"Unstar" forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+        [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+        [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+        [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+        
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+    } else{
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:@"Star" forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+        [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+        [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+        [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+        
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     }
 }
 
