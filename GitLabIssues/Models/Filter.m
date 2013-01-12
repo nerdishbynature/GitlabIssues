@@ -25,6 +25,8 @@
     filter.closed = [NSNumber numberWithBool:NO];
     filter.sortCreated = [NSNumber numberWithBool:YES];
     filter.labels = @[];
+    filter.assigned = nil;
+    filter.milestone = nil;
     
     return filter;
 }

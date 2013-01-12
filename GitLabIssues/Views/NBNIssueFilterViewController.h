@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "NBNMilestonesListViewController.h"
+#import "NBNFilterComponentsCell.h"
+#import "NBNFilterStatusCell.h"
+#import "NBNFilterSortCell.h"
 #import "Project.h"
 #import "Filter.h"
+#import "NBNMilestonesListViewController.h"
+#import "NBNAssigneeListViewController.h"
 
 extern NSString *const kKeyAssignedFilter;
 extern NSString *const kKeyMilestoneFilter;
@@ -27,7 +32,7 @@ extern NSString *const kKeySortIssuesFilter;
 
 @end
 
-@interface NBNIssueFilterViewController : UITableViewController <NBNMilestoneListDelegate>
+@interface NBNIssueFilterViewController : UITableViewController <NBNMilestoneListDelegate, NBNFilterStatusCellDelegate, NBNFilterSortCellDelegate, NBNMilestoneListDelegate, NBNAssigneeListDelegate, NBNFilterComponentsCellDelegate>
 
 /**
   Used to tell the associated view controller which filter to apply

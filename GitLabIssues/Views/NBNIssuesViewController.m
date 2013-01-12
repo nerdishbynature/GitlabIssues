@@ -121,9 +121,13 @@
     }];
 }
 
--(void)refreshDataSource{    
-    self.issues = [[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] where:@"closed == 0"] orderBy:@"identifier"] toArray];
-    [self.tableView reloadData];
+-(void)refreshDataSource{
+    if (self.project.filter) {
+        [self reloadUsingFilter];
+    } else{
+        self.issues = [[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] where:@"closed == 0"] orderBy:@"identifier"] toArray];
+        [self.tableView reloadData];
+    }
 }
 
 -(void)filter{
@@ -309,8 +313,41 @@
 }
 
 
--(void)applyFilter:(NSDictionary *)filterDictionary{
+-(void)applyFilter:(Filter *)filter{
+    self.project.filter = filter;
+    [[NSManagedObjectContext MR_defaultContext] save];
+}
+
+-(void)reloadUsingFilter{
+    NSString *predicateString = @"";
     
+    predicateString = [predicateString stringByAppendingFormat:@"(project_id == %@) AND (closed == %@) ", self.project.identifier, self.project.filter.closed];
+    
+    if (self.project.filter.assigned) {
+        predicateString = [predicateString stringByAppendingFormat:@"AND (assignee.identifier == %@) ", self.project.filter.assigned.identifier];
+    }
+    
+    if (self.project.filter.milestone) {
+        predicateString = [predicateString stringByAppendingFormat:@"AND (milestone.identifier == %@) ", self.project.filter.milestone.identifier];
+    }
+    
+    if ([[predicateString substringFromIndex:predicateString.length-1] isEqualToString:@" "]) {
+        predicateString = [predicateString substringToIndex:predicateString.length-1];
+    }
+    
+    NSSortDescriptor *sortDescriptor;
+    if (self.project.filter.sortCreated) {
+        sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"created_at" ascending:NO];
+    } else{
+        sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"updated_at" ascending:NO];
+    }
+    
+    PBLog(@"filter %@", predicateString);
+    
+    self.issues = [Issue MR_findAllWithPredicate:[NSPredicate predicateWithFormat:predicateString]];
+    self.issues = [self.issues sortedArrayUsingDescriptors:@[sortDescriptor]];
+    
+    [self.tableView reloadData];
 }
 
 - (void)pushBackButton:(id)sender {

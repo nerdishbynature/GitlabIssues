@@ -16,8 +16,8 @@
 @property (retain, nonatomic) IBOutlet UILabel *headlineLabel;
 @property (retain, nonatomic) IBOutlet UIView *bubbleContainer;
 @property (retain, nonatomic) IBOutlet UILabel *placeholderLabel;
-@property (retain, nonatomic) IBOutlet UIButton *addButton;
 @property (nonatomic, retain) HEBubbleView *bubbleView;
+@property (nonatomic, retain) IBOutlet UIButton *clearButton;
 
 @end
 
@@ -26,6 +26,8 @@
 @synthesize milestone;
 @synthesize labels;
 @synthesize bubbleView;
+@synthesize clearButton;
+@synthesize delegate;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -52,8 +54,6 @@
     self.headlineLabel.text = @"Assigned:";
     self.placeholderLabel.text = @"Anyone";
     
-    [self.addButton addTarget:self action:@selector(moveToAssigneeView:) forControlEvents:UIControlEventTouchUpInside];
-    
     CGSize headlineLabelSize =  [self.headlineLabel.text sizeWithFont:self.headlineLabel.font
                                                     constrainedToSize:CGSizeMake(MAXFLOAT, self.headlineLabel.frame.size.height)
                                                         lineBreakMode:NSLineBreakByWordWrapping];
@@ -62,7 +62,8 @@
     self.bubbleView = [[HEBubbleView alloc] initWithFrame:CGRectMake(self.headlineLabel.frame.origin.x+self.headlineLabel.frame.size.width+5, self.bubbleContainer.frame.origin.y, self.bubbleContainer.frame.size.width, self.bubbleContainer.frame.size.height)];
     
     if (self.assignee) {
-        self.addButton.hidden = YES;
+        self.placeholderLabel.hidden = YES;
+        self.clearButton.hidden = NO;
         
         self.bubbleView.alwaysBounceVertical = NO;
         self.bubbleView.alwaysBounceHorizontal = NO;
@@ -74,6 +75,9 @@
         [self addSubview:self.bubbleView];
         
         [self.bubbleView addItemAnimated:YES];
+    } else{
+        self.placeholderLabel.hidden = NO;
+        self.clearButton.hidden = YES;
     }
     
 }
@@ -82,7 +86,6 @@
     self.milestone = _milestone;
     self.headlineLabel.text = @"Milestone:";
     self.placeholderLabel.text = @"None";
-    [self.addButton addTarget:self action:@selector(moveToMilestoneView:) forControlEvents:UIControlEventTouchUpInside];
     
     CGSize headlineLabelSize =  [self.headlineLabel.text sizeWithFont:self.headlineLabel.font
                                                     constrainedToSize:CGSizeMake(MAXFLOAT, self.headlineLabel.frame.size.height)
@@ -92,7 +95,8 @@
     self.bubbleView = [[HEBubbleView alloc] initWithFrame:CGRectMake(self.headlineLabel.frame.origin.x+self.headlineLabel.frame.size.width+5, self.bubbleContainer.frame.origin.y, self.bubbleContainer.frame.size.width, self.bubbleContainer.frame.size.height)];
     
     if (self.milestone) {
-        self.addButton.hidden = YES;
+        self.placeholderLabel.hidden = YES;
+        self.clearButton.hidden = NO;
         
         self.bubbleView.alwaysBounceVertical = NO;
         self.bubbleView.alwaysBounceHorizontal = NO;
@@ -104,6 +108,9 @@
         [self addSubview:self.bubbleView];
         
         [self.bubbleView addItemAnimated:YES];
+    } else{
+        self.clearButton.hidden = YES;
+        self.placeholderLabel.hidden = NO;
     }
 }
 
@@ -111,12 +118,14 @@
     self.labels = _labels;
 }
 
--(void)moveToAssigneeView:(id)sender{
-
-}
-
--(void)moveToMilestoneView:(id)sender{
+-(IBAction)clearButtonPushed:(id)sender{
+    if (self.milestone) {
+        [self.delegate clearMilestone];
+    }
     
+    if (self.assignee){
+        [self.delegate clearAssignee];
+    }
 }
 
 #pragma mark - HEBubbleViewStuff
@@ -152,12 +161,6 @@
 
 -(void)bubbleView:(HEBubbleView *)bubbleView didSelectBubbleItemAtIndex:(NSInteger)index
 {
-    if (self.assignee) {
-        [self moveToAssigneeView:nil];
-    } else if (self.milestone){
-        [self moveToMilestoneView:nil];
-    }
-
 }
 
 // returns wheter to show a menu callout or not for a given index
@@ -199,7 +202,6 @@
     [_headlineLabel release];
     [_bubbleContainer release];
     [_placeholderLabel release];
-    [_addButton release];
 
     [super dealloc];
 }

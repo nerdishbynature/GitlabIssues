@@ -17,12 +17,14 @@
 
 @property (nonatomic, retain) NSArray *favoriteArray;
 @property (nonatomic, retain) MBProgressHUD *HUD;
+@property (nonatomic, retain) NSIndexPath *tappedIndexPath;
 
 @end
 
 @implementation NBNFavoritesViewController
 @synthesize favoriteArray;
 @synthesize HUD;
+@synthesize tappedIndexPath;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -95,9 +97,11 @@
 }
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-    NBNIssueFilterViewController *issueFilterViewController = [[NBNIssueFilterViewController alloc] initWithNibName:@"NBNIssueFilterViewController" bundle:nil];
+    self.tappedIndexPath = indexPath;
+    Project *project = [self.favoriteArray objectAtIndex:indexPath.row];
+    
+    NBNIssueFilterViewController *issueFilterViewController = [NBNIssueFilterViewController loadViewControllerWithFilter:project.filter];
     issueFilterViewController.delegate = self;
-    issueFilterViewController.project = [self.favoriteArray objectAtIndex:indexPath.row];
     
     [self.navigationController pushViewController:issueFilterViewController animated:YES];
 }
@@ -133,7 +137,9 @@
 -(void)dealloc{
     self.favoriteArray = nil;
     self.HUD = nil;
+    self.tappedIndexPath = nil;
     
+    [tappedIndexPath release];
     [favoriteArray release];
     [HUD release];
     PBLog(@"deallocing %@", [self class]);
@@ -182,8 +188,13 @@
 
 #pragma mark - FilterDelegate
 
--(void)applyFilter:(NSDictionary *)filterDictionary{
-    PBLog(@"WARNING - Filter is getting ignored");
+-(void)applyFilter:(Filter *)_filter{
+    Project *project = [self.favoriteArray objectAtIndex:self.tappedIndexPath.row];
+    project.filter = _filter;
+
+    self.tappedIndexPath = nil;
+    
+    [[NSManagedObjectContext MR_defaultContext] save];
 }
 
 - (void)pushBackButton:(id)sender {
