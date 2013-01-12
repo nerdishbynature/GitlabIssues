@@ -75,6 +75,7 @@
     self.textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.textView.returnKeyType = UIReturnKeyDefault;
     self.textView.text = self.text;
+    self.textView.font = [UIFont fontWithName:@"Helvetica" size:17.f];
     [self.textView becomeFirstResponder];
     [self.view addSubview:self.textView];
 }
