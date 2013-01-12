@@ -39,22 +39,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(logout:)];
-    self.navigationItem.rightBarButtonItem = item;
-    [item release];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+	[button setTitle:@"Logout" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+	[button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+    [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+    [button addTarget:self action:@selector(logout:) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
     self.domainArray = [Domain findAll];
-    
-    if ([self.domainArray count] == 0) {
-
-        [self logout:nil];
-    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.domainArray = [Domain findAll];
     [self.tableView reloadData];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [[NSManagedObjectContext MR_defaultContext] saveNestedContexts];
+    
+    if ([self.domainArray count] == 0) { // show login screen
+        
+        [self logout:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,6 +111,7 @@
     if (!cell) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
     
     if (indexPath.section == 0) {
@@ -133,7 +147,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
+    
     if (indexPath.section == 0) { //static
         
         if (indexPath.row == 0) { //favorites
@@ -167,6 +182,7 @@
     
     [menuArray release];
     [domainArray release];
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

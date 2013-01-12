@@ -10,15 +10,19 @@
 #import "NBNIssuesViewController.h"
 #import "Project.h"
 #import "NBNIssueFilterViewController.h"
+#import "MBProgressHUD.h"
+#import "NBNBackButtonHelper.h"
 
 @interface NBNFavoritesViewController ()
 
 @property (nonatomic, retain) NSArray *favoriteArray;
+@property (nonatomic, retain) MBProgressHUD *HUD;
 
 @end
 
 @implementation NBNFavoritesViewController
 @synthesize favoriteArray;
+@synthesize HUD;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,11 +37,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    
-    
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self.editButtonItem setAction:@selector(enterEditMode:)];
+    [self createEditButton];
+    [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -46,8 +47,14 @@
 }
 
 -(void)refreshFavorites{
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+    
+	// Show the HUD while the provided method executes in a new thread
+	[HUD show:YES];
     self.favoriteArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"isFavorite == 1"] toArray];
     [self.tableView reloadData];
+    [HUD setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -125,8 +132,11 @@
 
 -(void)dealloc{
     self.favoriteArray = nil;
+    self.HUD = nil;
     
     [favoriteArray release];
+    [HUD release];
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 
@@ -137,19 +147,47 @@
     if ([self.tableView isEditing]) {
         //Turn off edit mode
         [self.tableView setEditing:NO animated:YES];
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enterEditMode:)] autorelease];
+        [self createDoneButton];
     }
     else {
         // Turn on edit mode
         [self.tableView setEditing:YES animated:YES];
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(enterEditMode:)] autorelease];
+        [self createEditButton];
     }
+}
+
+-(void)createEditButton{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setTitle:@"Edit" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+    [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+    [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+    [button addTarget:self action:@selector(enterEditMode:) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+    
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+}
+
+-(void)createDoneButton{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"Done" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+    [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+    [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+    [button addTarget:self action:@selector(enterEditMode:) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+    
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
 }
 
 #pragma mark - FilterDelegate
 
 -(void)applyFilter:(NSDictionary *)filterDictionary{
     PBLog(@"WARNING - Filter is getting ignored");
+}
+
+- (void)pushBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

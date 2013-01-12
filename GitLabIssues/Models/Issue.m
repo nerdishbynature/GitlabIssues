@@ -80,20 +80,21 @@
 
 -(void)saveChanges{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
-    Session *session = [[Session findAll] lastObject];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.identifier, session.private_token]];
-    PBLog(@"url %@", url);
-    
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setRequestMethod:@"PUT"];
-    
-    [request appendPostData:[self toJSON]];
-    [request startSynchronous];
-    
-    if (request.error) {
-        PBLog(@"%@", request.error);
-    }
+    [Session getCurrentSessionWithCompletion:^(Session *session) {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.identifier, session.private_token]];
+        PBLog(@"url %@", url);
+        
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        [request setRequestMethod:@"PUT"];
+        
+        [request appendPostData:[self toJSON]];
+        [request startSynchronous];
+        
+        if (request.error) {
+            PBLog(@"%@", request.error);
+        }
+    }];
 }
 
 //@see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#new-issue
@@ -101,26 +102,27 @@
 -(void)createANewOnServer{
     
     Domain *domain = [[Domain findAll] objectAtIndex:0];
-    Session *session = [[Session findAll] lastObject];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@",domain.protocol, domain.domain, self.project_id, session.private_token]];
-    PBLog(@"url %@", url);
-    
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setRequestMethod:@"POST"];
-    
-    [request appendPostData:[self toCreateJSON]];
-    [request startSynchronous];
-    
-    if (request.error) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:request.responseStatusMessage message:request.error.localizedFailureReason delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-        [alert show];
-        [alert release];
-        PBLog(@"%@", request.error);
-    }
-    NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
-    
-    [self parseServerResponse:responseDict];
+    [Session getCurrentSessionWithCompletion:^(Session *session) {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@",domain.protocol, domain.domain, self.project_id, session.private_token]];
+        PBLog(@"url %@", url);
+        
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        [request setRequestMethod:@"POST"];
+        
+        [request appendPostData:[self toCreateJSON]];
+        [request startSynchronous];
+        
+        if (request.error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:request.responseStatusMessage message:request.error.localizedFailureReason delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+            PBLog(@"%@", request.error);
+        }
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
+        
+        [self parseServerResponse:responseDict];
+    }];
 }
 
 -(void)parseServerResponse:(NSDictionary *)dict{
@@ -136,6 +138,7 @@
     }
     
     if (![[dict objectForKey:@"assignee"] isMemberOfClass:[NSNull class]]) {
+<<<<<<< HEAD
         NSArray *assigneeArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Assignee"] where:@"identifier == %@", [[dict objectForKey:@"assignee"] objectForKey:@"id"] ] toArray];
         
         if (assigneeArray.count > 0) {
@@ -152,14 +155,35 @@
             self.milestone = [milestoneArray objectAtIndex:0];
         } else{
             self.milestone = [Milestone createAndParseJSON:[dict objectForKey:@"milestone"] andProjectID:[self.project_id integerValue]];
+=======
+        NSArray *assigneeArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Assignee"] where:@"identifier == %@", [[dict objectForKey:@"assignee"] objectForKey:@"id"]] toArray];
+        if (assigneeArray.count == 0) {
+            self.assignee = [Assignee createAndParseJSON:[dict objectForKey:@"assignee"]];
+        } else if (assigneeArray.count == 1){
+            self.assignee = [assigneeArray objectAtIndex:0];
+            [self.assignee parseServerResponseWithDict:[dict objectForKey:@"assignee"]];
+        }
+        
+    }
+    
+    if (![[dict objectForKey:@"milestone"] isMemberOfClass:[NSNull class]]) {
+        NSArray *milestoneArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Milestone"] where:@"identifier == %@", [[dict objectForKey:@"milestone"] objectForKey:@"id"], self.project_id] toArray];
+        
+        if (milestoneArray.count == 0) {
+            self.milestone = [Milestone createAndParseJSON:[dict objectForKey:@"milestone"] andProjectID:[self.project_id integerValue]];
+        } else if (milestoneArray.count == 1){
+            self.milestone = [milestoneArray objectAtIndex:0];
+            [self.milestone parseServerResponseWithDict:[dict objectForKey:@"milestone"]];
+>>>>>>> develop
         }
     }
     
     if (![[dict objectForKey:@"author"] isMemberOfClass:[NSNull class]]) {
         NSArray *authorArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Author"] where:@"identifier == %@", [[dict objectForKey:@"author"] objectForKey:@"id"] ] toArray];
         
-        if (authorArray.count > 0) {
+        if (authorArray.count == 1) {
             self.author = [authorArray objectAtIndex:0];
+            [self.author parseServerResonse:[dict objectForKey:@"author"]];
         } else{
             self.author = [Author createAndParseJSON:[dict objectForKey:@"author"]];
         }
@@ -173,6 +197,8 @@
     
     [formatter release];
 }
+
+#pragma mark - toJSON
 
 -(NSData *)toCreateJSON{
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -218,19 +244,20 @@
 
 -(void)saveMilestone{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
-    Session *session = [[Session findAll] lastObject];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/milestones/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.milestone.identifier, session.private_token]];
-    PBLog(@"url %@", url);
-    
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setRequestMethod:@"PUT"];
-    
-    [request appendPostData:[self milestoneToJSON]];
-    [request startSynchronous];
-    
-    PBLog(@"%@", request.error);
-    PBLog(@"%@", request.responseString);
+    [Session getCurrentSessionWithCompletion:^(Session *session) {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/milestones/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.milestone.identifier, session.private_token]];
+        PBLog(@"url %@", url);
+        
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        [request setRequestMethod:@"PUT"];
+        
+        [request appendPostData:[self milestoneToJSON]];
+        [request startSynchronous];
+        
+        PBLog(@"%@", request.error);
+        PBLog(@"%@", request.responseString);
+    }];
 }
 
 -(NSData *)milestoneToJSON{

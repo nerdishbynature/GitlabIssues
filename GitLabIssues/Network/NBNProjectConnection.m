@@ -8,20 +8,45 @@
 
 #import "NBNProjectConnection.h"
 #import "User.h"
+#import "NBNGitlabEngine.h"
+#import "NBNReachabilityChecker.h"
 
+@interface NBNProjectConnection ()
+
+@property (nonatomic, retain) NBNGitlabEngine *projectConnection;
+@property (nonatomic, retain) NBNGitlabEngine *membersConnection;
+
+@end
+
+static NBNProjectConnection* sharedConnection = nil;
 
 @implementation NBNProjectConnection
+@synthesize projectConnection;
+@synthesize membersConnection;
 
-+(void)loadProjectsForDomain:(Domain *)domain onSuccess:(void (^)(void))block{
++ (NBNProjectConnection *) sharedConnection {
     
-    if ([Session findAll].count > 0) {
-        Session *session = [[Session findAll] lastObject];
+    @synchronized(self){
         
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects?private_token=%@", domain.protocol, domain.domain, session.private_token]];
+        if (sharedConnection == nil){
+            sharedConnection = [[self alloc] init];
+        }
+    }
     
-        __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    return sharedConnection;
+}
+
+-(void)loadProjectsForDomain:(Domain *)domain onSuccess:(void (^)(void))block{
+    
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]){
+        block();
+        return;
+    }
+    
+    [Session getCurrentSessionWithCompletion:^(Session *session) {        
         
-        [request setCompletionBlock:^{
+        self.projectConnection = [[NBNGitlabEngine alloc] init];
+        [self.projectConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects?private_token=%@", domain.protocol, domain.domain, session.private_token] completionHandler:^(MKNetworkOperation *request) {
             NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             
             for (NSDictionary *dict in array) {
@@ -37,75 +62,49 @@
             }
             
             block();
+        } errorHandler:^(NSError *error) {
+            block();
         }];
-        
-        [request setFailedBlock:^{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:request.error.localizedFailureReason message:request.error.localizedDescription delegate:nil cancelButtonTitle:@"Dimiss" otherButtonTitles:nil];
-            [alert show];
-            PBLog(@"err %i", [request responseStatusCode]);
-        }];
-        
-        [request startAsynchronous];
-    } else{
-        [Session generateSessionWithCompletion:^(Session *session) {
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects?private_token=%@", domain.protocol, domain.domain, session.private_token]];
-            __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-            
-            [request setCompletionBlock:^{
-                NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
-                
-                for (NSDictionary *dict in array) {
-                    
-                    NSPredicate *projectFinder = [NSPredicate predicateWithFormat:@"identifier = %i", [[dict objectForKey:@"id"] integerValue]]; // 1 domain means no conflicts
-                    
-                    if ([[Project MR_findAllWithPredicate:projectFinder] count] == 0) {
-                        [Project createAndParseJSON:dict];
-                    }
-                }
-                
-                block();
-            }];
-            
-            [request setFailedBlock:^{
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:request.error.localizedFailureReason message:request.error.localizedDescription delegate:nil cancelButtonTitle:@"Dimiss" otherButtonTitles:nil];
-                [alert show];
-                PBLog(@"err %@", [request error]);
-            }];
-            
-            [request startAsynchronous];
-        } onError:^(NSError *error) {
-            
-        }];
-    }
+    }];
 }
 
-+(void)loadMembersForProject:(Project *)project onSuccess:(void (^)(void))block{
-    Session *session = [[Session findAll] objectAtIndex:0];
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/members?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token]];
-    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    
-    [request setCompletionBlock:^{
-        NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
-        
-        for (NSDictionary *dict in array) {
-            
-            NSPredicate *userFinder = [NSPredicate predicateWithFormat:@"identifier = %i", [[dict objectForKey:@"id"] integerValue]]; // 1 domain means no conflicts
-            
-            if ([[User MR_findAllWithPredicate:userFinder] count] == 0) {
-                [User createAndParseJSON:dict];
-            }
-        }
-        
+-(void)cancelProjectsConnection{
+    [self.projectConnection cancel];
+}
+
+-(void)loadMembersForProject:(Project *)project onSuccess:(void (^)(void))block{
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]){
         block();
-    }];
+        return;
+    }
     
-    [request setFailedBlock:^{
-        PBLog(@"err %@", [request error]);
+    Domain *domain = [[Domain findAll] objectAtIndex:0];
+
+    [Session getCurrentSessionWithCompletion:^(Session *session) {
+        
+        self.membersConnection = [[NBNGitlabEngine alloc] init];
+        [self.membersConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/members?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token] completionHandler:^(MKNetworkOperation *request) {
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+            
+            for (NSDictionary *dict in array) {
+                
+                NSPredicate *userFinder = [NSPredicate predicateWithFormat:@"identifier = %i", [[dict objectForKey:@"id"] integerValue]]; // 1 domain means no conflicts
+                
+                if ([[User MR_findAllWithPredicate:userFinder] count] == 0) {
+                    [User createAndParseJSON:dict];
+                }
+            }
+            
+            block();
+        } errorHandler:^(NSError *error) {
+            block();
+            PBLog(@"err %@", error);
+        }];
     }];
-    
-    [request startAsynchronous];
+}
+
+-(void)cancelMembersConnection{
+    [self.membersConnection cancel];
 }
 
 @end

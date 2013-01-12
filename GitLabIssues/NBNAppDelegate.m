@@ -9,6 +9,7 @@
 #import "NBNAppDelegate.h"
 #import "NBNHomeScreenViewController.h"
 #import "Domain.h"
+#import "Session.h"
 
 @implementation NBNAppDelegate
 
@@ -28,6 +29,25 @@
     NBNHomeScreenViewController *homeScreen = [[NBNHomeScreenViewController alloc] initWithStyle:UITableViewStyleGrouped];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homeScreen];
+    UIImage *image = [UIImage imageNamed:@"navBar.png"];
+    [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
+    [[UIToolbar appearance] setBackgroundImage:image forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    
+    [[UITableView appearance] setBackgroundView:nil];
+    //[[UITableView appearance] setBackgroundColor:[UIColor colorWithRed:191.f/255.f green:191.f/255.f blue:191.f/255.f alpha:1.0f]];
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:64.f/255.f green:64.f/255.f blue:64.f/255.f alpha:1.0f]];
+    [[UISearchBar appearance] setBackgroundImage:image];
+    
+    NSArray *sessionArray = [Session findAll];
+    
+    for (Session *session in sessionArray) {
+        PBLog(@"deleting %@", session.private_token);
+        [[NSManagedObjectContext MR_contextForCurrentThread] deleteObject:session];
+    }
+    
+    PBLog(@"sessions %@", [Session findAll]);
     
     self.window.rootViewController = navController;
     
@@ -43,6 +63,7 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [[NSManagedObjectContext MR_contextForCurrentThread] saveNestedContexts];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -54,6 +75,14 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    NSArray *sessionArray = [Session findAll];
+    
+    for (Session *session in sessionArray) {
+        PBLog(@"deleting %@", session.private_token);
+        [[NSManagedObjectContext MR_contextForCurrentThread] deleteObject:session];
+    }
+    
+    PBLog(@"sessions %@", [Session findAll]);
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

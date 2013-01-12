@@ -10,29 +10,45 @@
 #import "Domain.h"
 #import "Session.h"
 #import "Milestone.h"
+#import "NBNGitlabEngine.h"
 #import "ASIHTTPRequest.h"
+#import "NBNReachabilityChecker.h"
+
+@interface NBNMilestoneConnection ()
+
+@property (nonatomic, retain) NBNGitlabEngine *milestonesForProjectRequest;
+
+@end
+
+static NBNMilestoneConnection *sharedConnection = nil;
 
 @implementation NBNMilestoneConnection
+@synthesize milestonesForProjectRequest;
 
-+(void)loadAllMilestonesForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block{
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
++ (NBNMilestoneConnection *) sharedConnection {
     
-    Session *session;
-    
-    if ([Session findAll].count > 0) {
-        session = [[Session findAll] lastObject]; //there can only be one
-    } else{
-        session = [Session generateSession];
+    @synchronized(self){
+        
+        if (sharedConnection == nil){
+            sharedConnection = [[self alloc] init];
+        }
     }
     
+    return sharedConnection;
+}
+
+-(void)loadAllMilestonesForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block{
+    Domain *domain = [[Domain findAll] objectAtIndex:0];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token]];
-    PBLog(@"%@", url);
-    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]){
+        block();
+        return;
+    }
     
-    [request setCompletionBlock:^{
-        NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+    [Session getCurrentSessionWithCompletion:^(Session *session) {
+        self.milestonesForProjectRequest = [[NBNGitlabEngine alloc] init];
         
+<<<<<<< HEAD
         for (NSDictionary *dict in array) {
             
             NSPredicate *milestoneFinder = [NSPredicate predicateWithFormat:@"identifier = %i AND project_id = %i", [[dict objectForKey:@"id"] integerValue], projectID];
@@ -42,21 +58,37 @@
                 [Milestone createAndParseJSON:dict andProjectID:projectID];
             } else if ([[Milestone MR_findAllWithPredicate:milestoneFinder] count] == 1){
                 
+=======
+        [self.milestonesForProjectRequest requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token] completionHandler:^(MKNetworkOperation *request) {
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+            
+            for (NSDictionary *dict in array) {
+                
+                NSPredicate *issueFinder = [NSPredicate predicateWithFormat:@"identifier = %i AND project_id = %i", [[dict objectForKey:@"id"] integerValue], projectID];
+                
+                if ([[Milestone MR_findAllWithPredicate:issueFinder] count] == 0) {
+                    
+                    [Milestone createAndParseJSON:dict andProjectID:projectID];
+                }
+>>>>>>> develop
             }
-        }
-        block();
+            block();
+        } errorHandler:^(NSError *error) {
+            PBLog(@"err %@", error);
+            block();
+        }];
     }];
-    
-    [request setFailedBlock:^{
-        PBLog(@"err %@", [request error]);
-    }];
-    
-    [request startAsynchronous];
 }
 
-
+- (void) cancelMilestonesForProjectRequest
+{
+    [self.milestonesForProjectRequest cancel];
+}
 
 +(NSArray *)loadMilestonesWithProjectID:(NSUInteger)projectID{
+    
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]) return @[];
+    
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     Session *firstSession = [[Session findAll] lastObject];
     

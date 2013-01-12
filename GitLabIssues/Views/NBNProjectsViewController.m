@@ -11,6 +11,7 @@
 #import "NBNProjectConnection.h"
 #import "NBNIssuesViewController.h"
 #import "MBProgressHUD.h"
+#import "NBNBackButtonHelper.h"
 
 @interface NBNProjectsViewController ()
 
@@ -34,18 +35,31 @@
     return self;
 }
 
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
+}
+
 -(void)viewDidAppear:(BOOL)animated{
-    [NBNProjectConnection loadProjectsForDomain:[[Domain findAll] objectAtIndex:0] onSuccess:^{
+    [super viewDidAppear:animated];
+    
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+	
+	// Regiser for HUD callbacks so we can remove it from the window at the right time
+	HUD.delegate = self;
+	
+	// Show the HUD while the provided method executes in a new thread
+	[HUD show:YES];
+    
+    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain findAll] objectAtIndex:0] onSuccess:^{
         [self refreshDataSource];
     }];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
-    for (Project *project in self.projectsArray) {
-        PBLog(@"%@ isFavorite %@",project.name, project.isFavorite);
-    }
+    [[NBNProjectConnection sharedConnection] cancelProjectsConnection];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,6 +90,7 @@
     if (!cell) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
     
     Project *project = [self.projectsArray objectAtIndex:indexPath.row];
@@ -106,6 +121,11 @@
 -(void)refreshDataSource{
     self.projectsArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
     [self.tableView reloadData];
+    [self.HUD setHidden:YES];
+}
+
+- (void)pushBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)dealloc{
@@ -114,6 +134,8 @@
     
     [projectsArray release];
     [HUD release];
+    
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

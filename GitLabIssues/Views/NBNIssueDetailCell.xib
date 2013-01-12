@@ -89,11 +89,25 @@
 								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
+							<object class="IBUIView" id="1069812737">
+								<reference key="NSNextResponder" ref="486140783"/>
+								<int key="NSvFlags">266</int>
+								<string key="NSFrame">{{0, 42}, {320, 1}}</string>
+								<reference key="NSSuperview" ref="486140783"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="131655180"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<object class="NSColor" key="IBUIBackgroundColor">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
+								</object>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							</object>
 						</array>
 						<string key="NSFrameSize">{320, 43}</string>
 						<reference key="NSSuperview" ref="856057122"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="131655180"/>
+						<reference key="NSNextKeyView" ref="1069812737"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<reference key="IBUIBackgroundColor" ref="424684823"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -157,6 +171,7 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="131655180"/>
 							<reference ref="192949626"/>
+							<reference ref="1069812737"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -170,6 +185,11 @@
 						<reference key="object" ref="192949626"/>
 						<reference key="parent" ref="856057122"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">14</int>
+						<reference key="object" ref="1069812737"/>
+						<reference key="parent" ref="856057122"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -177,6 +197,7 @@
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="14.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="2.CustomClassName">NBNIssueDetailCell</string>
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -186,7 +207,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">12</int>
+			<int key="maxID">14</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

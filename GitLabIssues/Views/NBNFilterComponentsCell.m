@@ -200,6 +200,7 @@
     [_bubbleContainer release];
     [_placeholderLabel release];
     [_addButton release];
+
     [super dealloc];
 }
 

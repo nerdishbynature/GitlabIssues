@@ -28,4 +28,6 @@
 
 +(void)generateSessionWithCompletion:(void (^)(Session *session))block onError:(void (^)(NSError *error))errorBlock;
 
++(void)getCurrentSessionWithCompletion:(void (^)(Session *session))block;
+
 @end

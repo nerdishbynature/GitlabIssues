@@ -14,6 +14,8 @@
 #import "NBNIssueFilterViewController.h"
 #import "NBNIssueEditViewController.h"
 #import "NBNIssueCell.h"
+#import "MBProgressHUD.h"
+#import "NBNBackButtonHelper.h"
 
 @interface NBNIssuesViewController ()
 
@@ -22,6 +24,7 @@
 @property (nonatomic, retain) UISearchDisplayController *searchDisplayController;
 @property (nonatomic, retain) UISearchBar *searchBar;
 @property (nonatomic, retain) NSArray *issuesSearchResults;
+@property (nonatomic, retain) MBProgressHUD *HUD;
 
 @end
 
@@ -31,6 +34,7 @@
 @synthesize searchDisplayController;
 @synthesize searchBar;
 @synthesize issuesSearchResults;
+@synthesize HUD;
 
 +(NBNIssuesViewController *)loadWithProject:(Project *)_project{
     NBNIssuesViewController *issueViewController = [[[NBNIssuesViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
@@ -42,8 +46,8 @@
 - (void)createSearchBar {
 
     if (self.tableView && !self.tableView.tableHeaderView) {
-        self.searchBar = [[[UISearchBar alloc] init] autorelease];
-        self.searchDisplayController = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
+        self.searchBar = [[UISearchBar alloc] init];
+        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
         self.searchDisplayController.delegate = self;
@@ -54,17 +58,39 @@
 
 -(void)createToolBar{
     if (self.tableView && self.toolbarItems.count == 0) {
-        UIBarButtonItem *createButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(addNewIssue)];
-        UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshIssues)];
-        UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(filter)];
+        
+        UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *addButtonImage = [UIImage imageNamed:@"BarButton_Add.png"];
+        
+        [addButton setFrame:CGRectMake(0.0, 0.0, addButtonImage.size.width, addButtonImage.size.height)];
+        [addButton setBackgroundImage:addButtonImage forState:UIControlStateNormal];
+        [addButton addTarget:self action:@selector(addNewIssue) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *createButton = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+        
+        UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *refreshButtonImage = [UIImage imageNamed:@"BarButton_Refresh.png"];
+        
+        [refreshButton setFrame:CGRectMake(0.0, 0.0, refreshButtonImage.size.width, refreshButtonImage.size.height)];
+        [refreshButton setBackgroundImage:refreshButtonImage forState:UIControlStateNormal];
+        [refreshButton addTarget:self action:@selector(refreshIssues) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
+        
+        UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *filterButtonImage = [UIImage imageNamed:@"BarButton_Filter.png"];
+        
+        [filterButton setFrame:CGRectMake(0.0, 0.0, filterButtonImage.size.width, filterButtonImage.size.height)];
+        [filterButton setBackgroundImage:filterButtonImage forState:UIControlStateNormal];
+        [filterButton addTarget:self action:@selector(filter) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *filterBarButton = [[UIBarButtonItem alloc] initWithCustomView:filterButton];
+        
         UIBarButtonItem	*flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         
-        [self setToolbarItems:@[createButton, refreshButton, flex, filterButton] animated:YES];
+        [self setToolbarItems:@[createButton, refreshBarButton, flex, filterBarButton] animated:YES];
         self.navigationController.toolbarHidden = NO;
         
         [createButton release];
-        [refreshButton release];
-        [filterButton release];
+        [refreshBarButton release];
+        [filterBarButton release];
         [flex release];
     }
 }
@@ -83,12 +109,19 @@
 }
 
 -(void)refreshIssues{
-    [NBNIssuesConnection loadIssuesForProject:self.project onSuccess:^{
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:self.HUD];
+    
+	// Show the HUD while the provided method executes in a new thread
+	[self.HUD show:YES];
+    
+    [[NBNIssuesConnection sharedConnection] loadIssuesForProject:self.project onSuccess:^{
         [self refreshDataSource];
+        [self.HUD setHidden:YES];
     }];
 }
 
--(void)refreshDataSource{
+-(void)refreshDataSource{    
     self.issues = [[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] where:@"closed == 0"] orderBy:@"identifier"] toArray];
     [self.tableView reloadData];
 }
@@ -99,47 +132,52 @@
     issueFilterViewController.delegate = self;
     issueFilterViewController.project = self.project;
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:issueFilterViewController];
-//    [issueFilterViewController release];
-//
-//    navController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+
     [self presentViewController:navController animated:YES completion:nil];
-//
-//    [navController release];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.title = self.project.name;
-    
+    [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
     
     if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Unstar" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:@"Unstar" forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+        [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+        [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+        [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+        
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     } else{
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:@"Star" forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+        [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+        [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+        [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+        
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     }
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.toolbarHidden = NO;
-    [self refreshDataSource];
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [NBNIssuesConnection loadIssuesForProject:self.project onSuccess:^{
-        [self refreshDataSource];
-    }];
-    
+    [self refreshIssues];
     [self createToolBar];
+    [self.navigationController setToolbarHidden:NO animated:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.navigationController.toolbarHidden = YES;
+    [[NBNIssuesConnection sharedConnection] cancelIssuesConnection];
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -242,16 +280,41 @@
 -(void)starThisProject{
     if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
         self.project.isFavorite = [NSNumber numberWithBool:NO];
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Star" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
     } else{
         self.project.isFavorite = [NSNumber numberWithBool:YES];
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Unstar" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
+    }
+    
+    if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:@"Unstar" forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+        [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+        [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+        [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+        
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+    } else{
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:@"Star" forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+        [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+        [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+        [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+        
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     }
 }
 
 
 -(void)applyFilter:(NSDictionary *)filterDictionary{
     
+}
+
+- (void)pushBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)dealloc
@@ -261,12 +324,16 @@
     self.searchDisplayController = nil;
     self.searchBar = nil;
     self.issuesSearchResults = nil;
+    self.HUD = nil;
     
     [project release];
     [issues release];
     [searchDisplayController release];
     [searchBar release];
     [issuesSearchResults release];
+    [HUD release];
+    
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

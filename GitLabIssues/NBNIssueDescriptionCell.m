@@ -8,7 +8,7 @@
 
 #import "NBNIssueDescriptionCell.h"
 #import <QuartzCore/QuartzCore.h>
-#import "ASIHTTPRequest.h"
+#import "NBNGitlabEngine.h"
 #import "Author.h"
 #import "NSString+NSHash.h"
 #import "ASIDownloadCache.h"
@@ -20,6 +20,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *issueHeaderLabel;
 @property (nonatomic, retain) IBOutlet UILabel *descriptionLabel;
 @property (nonatomic, retain) Issue *issue;
+@property (nonatomic, retain) NBNGitlabEngine *requestEngine;
 
 @end
 
@@ -29,6 +30,7 @@
 @synthesize issueHeaderLabel;
 @synthesize descriptionLabel;
 @synthesize issue;
+@synthesize requestEngine;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -72,20 +74,17 @@
 }
 
 -(void)loadAuthorImage{
-    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [self.issue.author.email MD5]]] usingCache:[ASIDownloadCache sharedCache]];
+    self.requestEngine = [[NBNGitlabEngine alloc] init];
     
-    [request setCompletionBlock:^{
+    [self.requestEngine requestWithURL:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [self.issue.author.email MD5]] completionHandler:^(MKNetworkOperation *request) {
         self.authorImage.image = [UIImage imageWithData:request.responseData];
         CALayer * l = [self.authorImage layer];
         [l setMasksToBounds:YES];
         [l setCornerRadius:5.0];
+        
+    } errorHandler:^(NSError *error) {
+        PBLog(@"%@", [error localizedDescription]);
     }];
-    
-    [request setFailedBlock:^{
-        PBLog(@"%@", [request.error localizedDescription]);
-    }];
-    
-    [request startAsynchronous];
 }
 
 - (void)dealloc
@@ -94,11 +93,14 @@
     self.authorNameLabel = nil;
     self.issueHeaderLabel = nil;
     self.descriptionLabel = nil;
+    self.requestEngine = nil;
     
     [authorImage release];
     [authorNameLabel release];
     [issueHeaderLabel release];
     [descriptionLabel release];
+    [requestEngine release];
+    
     [super dealloc];
 }
 

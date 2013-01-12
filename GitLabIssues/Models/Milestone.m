@@ -41,13 +41,15 @@
     milestone.title = [dict objectForKey:@"title"];
     milestone.descriptionString = [dict objectForKey:@"description"],
     milestone.closed = [NSNumber numberWithBool:[[dict objectForKey:@"closed"] boolValue]];
-    milestone.project_id = [NSNumber numberWithInt:projectID];
     
     return milestone;
 }
 
 -(void)parseServerResponseWithDict:(NSDictionary *)dict{
+<<<<<<< HEAD
     self.identifier = [NSNumber numberWithInt:[[dict objectForKey:@"id"] integerValue]];
+=======
+>>>>>>> develop
     self.title = [dict objectForKey:@"title"];
     self.descriptionString = [dict objectForKey:@"description"],
     self.closed = [NSNumber numberWithBool:[[dict objectForKey:@"closed"] boolValue]];

@@ -10,6 +10,8 @@
 #import "NBNProjectConnection.h"
 #import "Project.h"
 #import "NBNIssuesViewController.h"
+#import "MBProgressHUD.h"
+#import "NBNBackButtonHelper.h"
 
 @interface NBNFindReposViewController ()
 
@@ -17,6 +19,7 @@
 @property (nonatomic, retain) UISearchDisplayController *searchDisplayController;
 @property (nonatomic, retain) UISearchBar *searchBar;
 @property (nonatomic, retain) NSArray *projectsSearchResults;
+@property (nonatomic, retain) MBProgressHUD *HUD;
 
 @end
 
@@ -25,6 +28,7 @@
 @synthesize searchDisplayController;
 @synthesize searchBar;
 @synthesize projectsSearchResults;
+@synthesize HUD;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -50,14 +54,29 @@
     }
 }
 
-- (void)viewDidLoad
-{
+-(void)viewDidLoad{
     [super viewDidLoad];
+    [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
     
-    [NBNProjectConnection loadProjectsForDomain:[[Domain findAll] objectAtIndex:0] onSuccess:^{
+	// Show the HUD while the provided method executes in a new thread
+	[HUD show:YES];
+    
+    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain findAll] objectAtIndex:0] onSuccess:^{
         self.projectsArray = [Project findAllSortedBy:@"identifier" ascending:YES];
         [self.tableView reloadData];
+        [HUD setHidden:YES];
     }];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NBNProjectConnection sharedConnection] cancelProjectsConnection];
 }
 
 - (void)didReceiveMemoryWarning
@@ -139,16 +158,24 @@
     return YES;
 }
 
+- (void)pushBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 -(void)dealloc{
     self.projectsArray = nil;
     self.searchDisplayController = nil;
     self.searchBar = nil;
     self.projectsSearchResults = nil;
+    self.HUD = nil;
     
     [projectsArray release];
     [searchDisplayController release];
     [searchBar release];
     [projectsSearchResults release];
+    [HUD release];
+    
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

@@ -10,17 +10,20 @@
 #import "FormKit.h"
 #import "Domain.h"
 #import "Session.h"
+#import "MBProgressHUD.h"
 
 @interface GLLoginViewController ()
 
 @property (nonatomic, strong) FKFormModel *formModel;
 @property (nonatomic, strong) Domain *domain;
+@property (nonatomic, strong) MBProgressHUD *HUD;
 
 @end
 
 @implementation GLLoginViewController
 @synthesize formModel;
 @synthesize domain;
+@synthesize HUD;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,7 +36,7 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-    
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad
@@ -77,19 +80,27 @@
         [self.formModel registerMapping:mapping];
         
         [mapping buttonSave:@"Connect" handler:^{
+            
+            self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+            [self.navigationController.view addSubview:HUD];
+            
+            // Show the HUD while the provided method executes in a new thread
+            [HUD show:YES];
+            
             PBLog(@"save pressed");
             PBLog(@"Domain: %@", self.domain);
             
             [Session generateSessionWithCompletion:^(Session *session) {
                 [self dismissViewControllerAnimated:YES completion:nil];
                 [[NSManagedObjectContext MR_defaultContext] MR_saveNestedContexts];
+                [self.HUD setHidden:YES];
+                
             } onError:^(NSError *error) {
+                [self.HUD setHidden:YES];
+                
                 UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Something went wrong, please check your input." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
                 [view show];
-            }];
-            
-            
-            
+            }];            
         }];
     }];
     
@@ -108,6 +119,8 @@
 {
     self.formModel = nil;
     self.domain = nil;
+    self.HUD = nil;
+    PBLog(@"deallocing %@", [self class]);
 }
 
 @end

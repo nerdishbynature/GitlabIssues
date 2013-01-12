@@ -15,6 +15,7 @@
 #import "NBNProjectConnection.h"
 #import "NBNIssuesConnection.h"
 #import "MBProgressHUD.h"
+#import "NBNGroupedTableViewHeader.h"
 
 @interface NBNCreatedByMeViewController ()
 
@@ -49,6 +50,12 @@
     [self loadAllIssues];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NBNProjectConnection sharedConnection] cancelProjectsConnection];
+    [[NBNIssuesConnection sharedConnection] cancelAllIssuesConnection];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -57,8 +64,8 @@
 
 -(void)loadAllIssues{
 
-    [NBNProjectConnection loadProjectsForDomain:[[Domain findAll] lastObject] onSuccess:^{
-        [NBNIssuesConnection loadAllIssuesOnSuccess:^{
+    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain findAll] lastObject] onSuccess:^{
+        [[NBNIssuesConnection sharedConnection] loadAllIssuesOnSuccess:^{
             [self reloadResults];
             [self.HUD hide:YES];
         }];
@@ -68,22 +75,25 @@
 }
 
 -(void)reloadResults{
-    Session *session = [[Session findAll] lastObject];
     
-    NSArray *projectArray = [[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] toArray];
-    
-    self.projects = [[NSMutableArray alloc] init];
-
-    for (Project *project in projectArray) {
-        NSArray *issues = [[[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"author.identifier == %@", session.identifier] where:@"closed == 0"] where:@"project_id == %@", project.identifier] orderBy:@"identifier"] toArray];
-        NSDictionary *dict = @{@"name" : project.name, @"issues": issues};
+    [Session getCurrentSessionWithCompletion:^(Session *session) {
+        NSArray *projectArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
         
-        if (issues.count > 0) {
-            [self.projects addObject:dict];
+        self.projects = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < projectArray.count; i++) {
+            Project *project = [projectArray objectAtIndex:i];
+            
+            NSArray *issues = [[[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"author.identifier == %@", session.identifier] where:@"closed == 0"] where:@"project_id == %@", project.identifier] orderByDescending:@"updated_at"] toArray];
+            NSDictionary *dict = @{@"name" : project.name, @"issues": issues};
+            
+            if (issues.count > 0) {
+                [self.projects addObject:dict];
+            }
         }
-    }
-    
-    [self.tableView reloadData];
+        
+        [self.tableView reloadData];
+    }];
 }
 
 #pragma mark - Table view data source
@@ -120,11 +130,6 @@
     return cell;
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    NSDictionary *dict = [self.projects objectAtIndex:section];
-    return [dict objectForKey:@"name"];
-}
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     NBNIssueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
@@ -153,6 +158,19 @@
     [self.navigationController pushViewController:issueController animated:YES];
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    NSDictionary *dict = [self.projects objectAtIndex:section];
+
+    NBNGroupedTableViewHeader *header = [NBNGroupedTableViewHeader loadViewFromNib];
+    [header configureWithTitle:[dict objectForKey:@"name"]];
+    
+    return header;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 22.f;
+}
+
 - (void)dealloc
 {
     self.projects = nil;
@@ -160,6 +178,7 @@
     
     [projects release];
     [HUD release];
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

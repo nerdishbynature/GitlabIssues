@@ -26,6 +26,8 @@
 #import "NBNIssueCommentCell.h"
 
 #import "NBNMilestonesListViewController.h"
+#import "MBProgressHUD.h"
+#import "NBNBackButtonHelper.h"
 
 
 @interface NBNIssueDetailViewController ()
@@ -34,6 +36,7 @@
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) NSString *commentString;
 @property (nonatomic, retain) UITextField *textField;
+@property (nonatomic, retain) MBProgressHUD *HUD;
 
 @end
 
@@ -43,10 +46,16 @@
 @synthesize tableView;
 @synthesize commentString;
 @synthesize textField;
+@synthesize HUD;
 
 +(NBNIssueDetailViewController *)loadViewControllerWithIssue:(Issue *)_issue{
     NBNIssueDetailViewController *issueController = [[[NBNIssueDetailViewController alloc] init] autorelease];
     issueController.issue = _issue;
+    issueController.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, issueController.view.frame.size.width, issueController.view.frame.size.height-42.f) style:UITableViewStylePlain]; //42.f is navbar image height
+    issueController.tableView.delegate = issueController;
+    issueController.tableView.dataSource = issueController;
+    issueController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [issueController.view addSubview:issueController.tableView];
     
     return issueController;
 }
@@ -54,9 +63,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.title = [NSString stringWithFormat:@"Issue #%@", self.issue.identifier];
     [self setupKeyboard];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editIssue)];
+    [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+	[button setTitle:@"Edit" forState:UIControlStateNormal];
+	[button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+	[button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+    [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+    [button addTarget:self action:@selector(editIssue) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -64,14 +84,27 @@
     [self refreshData];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NBNIssuesConnection sharedConnection] cancelReloadConnection];
+    [[NBNIssuesConnection sharedConnection] cancelNotesConnection];
+}
+
 -(void)refreshData{
-    [NBNIssuesConnection reloadIssue:self.issue onSuccess:^{
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+    
+	// Show the HUD while the provided method executes in a new thread
+	[HUD show:YES];
+    
+    [[NBNIssuesConnection sharedConnection] reloadIssue:self.issue onSuccess:^{
         [self.tableView reloadData];
+        [self.HUD setHidden:YES];
     }];
     
-    [NBNIssuesConnection loadNotesForIssue:self.issue onSuccess:^(NSArray *notesArray) {
-        self.issue.notes = [NSSet setWithArray:notesArray];
+    [[NBNIssuesConnection sharedConnection] loadNotesForIssue:self.issue onSuccess:^(NSArray *notesArray) {
         [self.tableView reloadData];
+        [self.HUD setHidden:YES];
     }];
 }
 
@@ -200,8 +233,8 @@
         if (!cell) {
             cell = [NBNIssueDetailCell loadCellFromNib];
         }
-        
-        [cell configureCellWithHeadline:@"Labels:" andDescription:@"need to implement"];
+                
+        [cell configureCellWithHeadline:@"Labels:" andDescription:self.issue.labels];
         
         return cell;
         
@@ -291,7 +324,7 @@
         return;
     }
     
-    [NBNIssuesConnection sendNoteForIssue:self.issue andBody:self.commentString onSuccess:^{
+    [[NBNIssuesConnection sharedConnection] sendNoteForIssue:self.issue andBody:self.commentString onSuccess:^{
         self.textField.text = @"";
         [self.view hideKeyboard];
         [self refreshData];
@@ -304,11 +337,10 @@
     
     if ([label isEqualToString:@"Assigned:"]) {
         
-        NSMutableArray *assigneNameArray = [[NSMutableArray alloc] init];
+        NBNAssigneeListViewController *list = [NBNAssigneeListViewController loadControllerWithProjectID:[self.issue.project_id integerValue]];
+        list.delegate = self;
         
-        for (Assignee *assignee in [NBNUsersConnection loadMembersWithProjectID:[self.issue.project_id integerValue]]) {
-            [assigneNameArray addObject:assignee.name];
-        }
+        [self.navigationController pushViewController:list animated:YES];
         
     } else if ([label isEqualToString:@"Status:"]){
         
@@ -325,11 +357,24 @@
     } else if ([label isEqualToString:@"Milestone:"]){
         
         NBNMilestonesListViewController *list = [NBNMilestonesListViewController loadControllerWithProjectID:[self.issue.project_id integerValue]];
+        list.delegate = self;
         [self.navigationController pushViewController:list animated:YES];
         
     } else if ([label isEqualToString:@"Labels:"]){
         
     }
+}
+
+-(void)didSelectMilestone:(Milestone *)selectedMilestone{
+    self.issue.milestone = selectedMilestone;
+    [self.issue saveChanges];
+    [self refreshData];
+}
+
+-(void)didSelectAssignee:(Assignee *)selectedAssignee{
+    self.issue.assignee = selectedAssignee;
+    [self.issue saveChanges];
+    [self refreshData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -338,17 +383,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)pushBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 -(void)dealloc{
     self.issue = nil;
     self.tableView = nil;
     self.commentString = nil;
     self.textField = nil;
+    self.HUD = nil;
     
     [issue release];
     [tableView release];
     [commentString release];
     [textField release];
+    [HUD release];
     
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

@@ -79,7 +79,6 @@
     
     [request setCompletionBlock:^{
         
-        PBLog(@"jsonString %@",[request responseString]);
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
         
         
@@ -106,6 +105,20 @@
     }];
     
     [request startAsynchronous];
+}
+
++(void)getCurrentSessionWithCompletion:(void (^)(Session *session))block{
+    
+    if ([Session findAll].count > 0) {
+        Session *session = [[Session findAll] lastObject]; //there can only be one
+        block(session);
+    } else{
+        [Session generateSessionWithCompletion:^(Session *session) {
+            block(session);
+        } onError:^(NSError *error) {
+            PBLog(@"failed to generate session %@", error);
+        }];
+    }
 }
 
 @end

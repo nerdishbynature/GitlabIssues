@@ -9,8 +9,7 @@
 #import "NBNIssueCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Author.h"
-#import "ASIHTTPRequest.h"
-#import "ASIDownloadCache.h"
+#import "NBNGitlabEngine.h"
 #import "NSString+NSHash.h"
 
 @interface NBNIssueCell ()
@@ -22,6 +21,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *developerTitleLabel;
 @property (retain, nonatomic) IBOutlet UILabel *createdLabel;
 @property (nonatomic, retain) Issue *issue;
+@property (nonatomic, retain) NBNGitlabEngine *requestEngine;
 
 @end
 
@@ -34,6 +34,7 @@
 @synthesize developerTitleLabel;
 @synthesize createdLabel;
 @synthesize issue;
+@synthesize requestEngine;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -62,46 +63,44 @@
     
     self.createdLabel.text = [NSString stringWithFormat:@"created #%@",self.issue.identifier];
     
-    NSDateComponents *otherDay = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.issue.created_at];
-    NSDateComponents *today = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
-    if([today day] == [otherDay day] &&
-       [today month] == [otherDay month] &&
-       [today year] == [otherDay year] &&
-       [today era] == [otherDay era]) {
-
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"hh:mm a"];
-        
-        self.dateLabel.text = [formatter stringFromDate:self.issue.created_at];
-
-        [formatter release];
-    } else{
+//    NSDateComponents *otherDay = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.issue.created_at];
+//    NSDateComponents *today = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+//    if([today day] == [otherDay day] &&
+//       [today month] == [otherDay month] &&
+//       [today year] == [otherDay year] &&
+//       [today era] == [otherDay era]) {
+//
+//        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//        [formatter setDateFormat:@"hh:mm a"];
+//        
+//        self.dateLabel.text = [formatter stringFromDate:self.issue.created_at];
+//
+//        [formatter release];
+//    } else{
     
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"MM/dd/yy"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd/yy"];
+    
+    self.dateLabel.text = [formatter stringFromDate:self.issue.created_at];
+    
+    [formatter release];
         
-        self.dateLabel.text = [formatter stringFromDate:self.issue.created_at];
-        
-        [formatter release];
-        
-    }
+//    }
 
     [self calculateSizes];
     
-    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [_issue.author.email MD5]]] usingCache:[ASIDownloadCache sharedCache]];
-
-    [request setCompletionBlock:^{
-        self.developerProfilePicture.image = [UIImage imageWithData:request.responseData];
+    self.requestEngine = [[NBNGitlabEngine alloc] init];
+    
+    [self.requestEngine requestWithURL:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [_issue.author.email MD5]] completionHandler:^(MKNetworkOperation *request) {
+        
+        self.developerProfilePicture.image = [UIImage imageWithData:[request responseData]];
         CALayer * l = [self.developerProfilePicture layer];
         [l setMasksToBounds:YES];
         [l setCornerRadius:5.0];
+        
+    } errorHandler:^(NSError *error) {
+        PBLog(@"%@", [error localizedDescription]);
     }];
-    
-    [request setFailedBlock:^{
-        PBLog(@"%@", [request.error localizedDescription]);
-    }];
-    
-    [request startAsynchronous];
 }
 
 -(void)calculateSizes{
@@ -153,6 +152,7 @@
     self.developerTitleLabel = nil;
     self.createdLabel = nil;
     self.issue = nil;
+    self.requestEngine = nil;
     
     [titleLabel release];
     [dateLabel release];
@@ -161,6 +161,8 @@
     [developerTitleLabel release];
     [createdLabel release];
     [issue release];
+    [requestEngine release];
+    
     [super dealloc];
 }
 @end

@@ -30,6 +30,8 @@
  */
 +(Assignee *)createAndParseJSON:(NSDictionary *)dict;
 
+-(void)parseServerResponseWithDict:(NSDictionary *)dict;
+
 @end
 
 @interface Assignee (CoreDataGeneratedAccessors)

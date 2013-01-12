@@ -144,6 +144,8 @@
     [bubbleContainer release];
     [bubbleView release];
     [detailString release];
+    
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

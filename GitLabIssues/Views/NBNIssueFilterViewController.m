@@ -54,8 +54,25 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel:)] autorelease];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(apply:)] autorelease];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+	[button setTitle:@"Cancel" forState:UIControlStateNormal];
+	[button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+	[button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+    [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+    [button addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+    
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+    
+    UIButton *applybutton = [UIButton buttonWithType:UIButtonTypeCustom];
+	[applybutton setTitle:@"Apply" forState:UIControlStateNormal];
+	[applybutton.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+	[applybutton setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+    [applybutton setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+    [applybutton addTarget:self action:@selector(saveIssue) forControlEvents:UIControlEventTouchUpInside];
+    [applybutton setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+    
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:applybutton] autorelease];
     self.title = @"Issues Filter";
     
 }
@@ -195,6 +212,7 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     [filter release];
     [project release];
     
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

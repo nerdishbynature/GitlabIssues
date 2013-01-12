@@ -15,6 +15,7 @@
 #import "NBNIssueDetailViewController.h"
 #import "NBNIssuesConnection.h"
 #import "MBProgressHUD.h"
+#import "NBNGroupedTableViewHeader.h"
 
 @interface NBNAssignedToMeViewController ()
 
@@ -38,23 +39,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    Session *session = [[Session findAll] lastObject];
-    self.projects = [[NSMutableArray alloc] init];
-    
-    NSArray *projectArray = [[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] toArray];
-    
-    for (Project *project in projectArray) {
-        NSArray *issues = [[[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"assignee.identifier == %@", session.identifier] where:@"closed == 0"] where:@"project_id == %@", project.identifier] orderBy:@"identifier"] toArray];
-        NSDictionary *dict = @{@"name" : project.name, @"issues": issues};
-        
-        if (issues.count > 0) {
-            [self.projects addObject:dict];
-        }
-    }
-    
-    [self.tableView reloadData];
-    
     self.tabBarController.title = @"Assigned To Me";
 }
 
@@ -72,6 +56,12 @@
     [self loadAllIssues];
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [[NBNProjectConnection sharedConnection] cancelProjectsConnection];
+    [[NBNIssuesConnection sharedConnection] cancelAllIssuesConnection];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -80,8 +70,8 @@
 
 -(void)loadAllIssues{
     
-    [NBNProjectConnection loadProjectsForDomain:[[Domain findAll] lastObject] onSuccess:^{
-        [NBNIssuesConnection loadAllIssuesOnSuccess:^{
+    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain findAll] lastObject] onSuccess:^{
+        [[NBNIssuesConnection sharedConnection] loadAllIssuesOnSuccess:^{
             [self reloadResults];
             [self.HUD hide:YES];
         }];
@@ -91,22 +81,22 @@
 }
 
 -(void)reloadResults{
-    Session *session = [[Session findAll] lastObject];
-    
-    NSArray *projectArray = [[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] toArray];
-    
-    self.projects = [[NSMutableArray alloc] init];
-    
-    for (Project *project in projectArray) {
-        NSArray *issues = [[[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"assignee.identifier == %@", session.identifier] where:@"closed == 0"] where:@"project_id == %@", project.identifier] orderBy:@"identifier"] toArray];
-        NSDictionary *dict = @{@"name" : project.name, @"issues": issues};
+    [Session getCurrentSessionWithCompletion:^(Session *session) {
+        NSArray *projectArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
         
-        if (issues.count > 0) {
-            [self.projects addObject:dict];
+        self.projects = [[NSMutableArray alloc] init];
+        
+        for (Project *project in projectArray) {
+            NSArray *issues = [[[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"assignee.identifier == %@", session.identifier] where:@"closed == 0"] where:@"project_id == %@", project.identifier] orderByDescending:@"updated_at"] toArray];
+            NSDictionary *dict = @{@"name" : project.name, @"issues": issues};
+            
+            if (issues.count > 0) {
+                [self.projects addObject:dict];
+            }
         }
-    }
-    
-    [self.tableView reloadData];
+        
+        [self.tableView reloadData];
+    }];
 }
 
 #pragma mark - Table view data source
@@ -178,6 +168,19 @@
     [issueController release];
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    NSDictionary *dict = [self.projects objectAtIndex:section];
+    
+    NBNGroupedTableViewHeader *header = [NBNGroupedTableViewHeader loadViewFromNib];
+    [header configureWithTitle:[dict objectForKey:@"name"]];
+    
+    return header;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 22.f;
+}
+
 - (void)dealloc
 {
     self.projects = nil;
@@ -185,6 +188,7 @@
     
     [projects release];
     [HUD release];
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 

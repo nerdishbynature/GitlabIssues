@@ -158,6 +158,7 @@
     [searchBar release];
     [searchDisplayController release];
     
+    PBLog(@"deallocing %@", [self class]);
     [super dealloc];
 }
 
