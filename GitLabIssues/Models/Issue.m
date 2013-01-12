@@ -138,7 +138,7 @@
     }
     
     if (![[dict objectForKey:@"assignee"] isMemberOfClass:[NSNull class]]) {
-        NSArray *assigneeArray = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Assignee"] where:@"identifier == %@", [[dict objectForKey:@"assignee"] objectForKey:@"id"]] toArray];
+        NSArray *assigneeArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Assignee"] where:@"identifier == %@", [[dict objectForKey:@"assignee"] objectForKey:@"id"]] toArray];
         if (assigneeArray.count == 0) {
             self.assignee = [Assignee createAndParseJSON:[dict objectForKey:@"assignee"]];
         } else if (assigneeArray.count == 1){
@@ -149,7 +149,7 @@
     }
     
     if (![[dict objectForKey:@"milestone"] isMemberOfClass:[NSNull class]]) {
-        NSArray *milestoneArray = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Milestone"] where:@"identifier == %@", [[dict objectForKey:@"milestone"] objectForKey:@"id"], self.project_id] toArray];
+        NSArray *milestoneArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Milestone"] where:@"identifier == %@", [[dict objectForKey:@"milestone"] objectForKey:@"id"], self.project_id] toArray];
         
         if (milestoneArray.count == 0) {
             self.milestone = [Milestone createAndParseJSON:[dict objectForKey:@"milestone"] andProjectID:[self.project_id integerValue]];
@@ -160,7 +160,7 @@
     }
     
     if (![[dict objectForKey:@"author"] isMemberOfClass:[NSNull class]]) {
-        NSArray *authorArray = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Author"] where:@"identifier == %@", [[dict objectForKey:@"author"] objectForKey:@"id"] ] toArray];
+        NSArray *authorArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Author"] where:@"identifier == %@", [[dict objectForKey:@"author"] objectForKey:@"id"] ] toArray];
         
         if (authorArray.count == 1) {
             self.author = [authorArray objectAtIndex:0];
@@ -178,6 +178,8 @@
     
     [formatter release];
 }
+
+#pragma mark - toJSON
 
 -(NSData *)toCreateJSON{
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
