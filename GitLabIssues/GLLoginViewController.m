@@ -92,7 +92,7 @@
             
             [Session generateSessionWithCompletion:^(Session *session) {
                 [self dismissViewControllerAnimated:YES completion:nil];
-                [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveNestedContexts];
+                [[NSManagedObjectContext MR_defaultContext] MR_saveNestedContexts];
                 [self.HUD setHidden:YES];
                 
             } onError:^(NSError *error) {
