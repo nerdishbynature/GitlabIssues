@@ -15,6 +15,7 @@
 #import "NBNIssueDetailViewController.h"
 #import "NBNIssuesConnection.h"
 #import "MBProgressHUD.h"
+#import "NBNGroupedTableViewHeader.h"
 
 @interface NBNAssignedToMeViewController ()
 
@@ -165,6 +166,19 @@
     [self.navigationController pushViewController:issueController animated:YES];
     
     [issueController release];
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    NSDictionary *dict = [self.projects objectAtIndex:section];
+    
+    NBNGroupedTableViewHeader *header = [NBNGroupedTableViewHeader loadViewFromNib];
+    [header configureWithTitle:[dict objectForKey:@"name"]];
+    
+    return header;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 22.f;
 }
 
 - (void)dealloc

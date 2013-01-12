@@ -15,6 +15,7 @@
 #import "NBNProjectConnection.h"
 #import "NBNIssuesConnection.h"
 #import "MBProgressHUD.h"
+#import "NBNGroupedTableViewHeader.h"
 
 @interface NBNCreatedByMeViewController ()
 
@@ -129,11 +130,6 @@
     return cell;
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    NSDictionary *dict = [self.projects objectAtIndex:section];
-    return [dict objectForKey:@"name"];
-}
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     NBNIssueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
@@ -160,6 +156,19 @@
     
     NBNIssueDetailViewController *issueController = [NBNIssueDetailViewController loadViewControllerWithIssue:issue];
     [self.navigationController pushViewController:issueController animated:YES];
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    NSDictionary *dict = [self.projects objectAtIndex:section];
+
+    NBNGroupedTableViewHeader *header = [NBNGroupedTableViewHeader loadViewFromNib];
+    [header configureWithTitle:[dict objectForKey:@"name"]];
+    
+    return header;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 22.f;
 }
 
 - (void)dealloc
