@@ -38,24 +38,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    [Session getCurrentSessionWithCompletion:^(Session *session) {
-        self.projects = [[NSMutableArray alloc] init];
-        
-        NSArray *projectArray = [[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Project"] toArray];
-        
-        for (Project *project in projectArray) {
-            NSArray *issues = [[[[[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Issue"] where:@"assignee.identifier == %@", session.identifier] where:@"closed == 0"] where:@"project_id == %@", project.identifier] orderBy:@"identifier"] toArray];
-            NSDictionary *dict = @{@"name" : project.name, @"issues": issues};
-            
-            if (issues.count > 0) {
-                [self.projects addObject:dict];
-            }
-        }
-        
-        [self.tableView reloadData];
-    }];
-    
     self.tabBarController.title = @"Assigned To Me";
 }
 
@@ -99,12 +81,12 @@
 
 -(void)reloadResults{
     [Session getCurrentSessionWithCompletion:^(Session *session) {
-        NSArray *projectArray = [[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Project"] toArray];
+        NSArray *projectArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
         
         self.projects = [[NSMutableArray alloc] init];
         
         for (Project *project in projectArray) {
-            NSArray *issues = [[[[[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Issue"] where:@"assignee.identifier == %@", session.identifier] where:@"closed == 0"] where:@"project_id == %@", project.identifier] orderBy:@"identifier"] toArray];
+            NSArray *issues = [[[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"assignee.identifier == %@", session.identifier] where:@"closed == 0"] where:@"project_id == %@", project.identifier] orderByDescending:@"updated_at"] toArray];
             NSDictionary *dict = @{@"name" : project.name, @"issues": issues};
             
             if (issues.count > 0) {

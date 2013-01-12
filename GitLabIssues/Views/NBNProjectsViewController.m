@@ -112,7 +112,7 @@
 }
 
 -(void)refreshDataSource{
-    self.projectsArray = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
+    self.projectsArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
     [self.tableView reloadData];
     [self.HUD setHidden:YES];
 }

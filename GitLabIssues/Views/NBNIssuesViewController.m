@@ -121,7 +121,7 @@
 }
 
 -(void)refreshDataSource{    
-    self.issues = [[[[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] where:@"closed == 0"] orderBy:@"identifier"] toArray];
+    self.issues = [[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] where:@"closed == 0"] orderBy:@"identifier"] toArray];
     [self.tableView reloadData];
 }
 
@@ -138,9 +138,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.title = self.project.name;
-    
     
     if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Unstar" style:UIBarButtonItemStyleBordered target:self action:@selector(starThisProject)] autorelease];
@@ -244,7 +242,7 @@
 #pragma mark - Search
 
 -(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope{
-    self.issuesSearchResults = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Issue"] where:@"title contains[cd] %@",searchText] toArray];
+    self.issuesSearchResults = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"title contains[cd] %@",searchText] toArray];
     PBLog(@"searching %@ found %i results", searchText, self.issuesSearchResults.count);
 }
 

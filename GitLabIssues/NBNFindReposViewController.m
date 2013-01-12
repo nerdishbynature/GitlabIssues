@@ -138,7 +138,7 @@
 #pragma mark - Searching
 
 -(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope{
-    self.projectsSearchResults = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Project"] where:@"name contains[cd] %@",searchText] toArray];
+    self.projectsSearchResults = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"name contains[cd] %@",searchText] toArray];
     PBLog(@"filtering %@ got %i results %@", searchText, self.projectsSearchResults.count, self.projectsSearchResults);
 }
 

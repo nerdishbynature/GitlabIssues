@@ -92,7 +92,7 @@ static NBNMilestoneConnection *sharedConnection = nil;
         [milestoneArray addObject:milestone];
     }
     
-    [[NSManagedObjectContext MR_contextForCurrentThread] MR_save];
+    [[NSManagedObjectContext MR_defaultContext] MR_save];
     
     return milestoneArray;
 }

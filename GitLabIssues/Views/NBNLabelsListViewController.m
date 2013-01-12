@@ -41,7 +41,7 @@
     [super viewDidLoad];
     
 //    [NBNLabelsConnection loadAllLabelsForProjectID:self.projectID onSuccess:^{
-//        self.labelsArray = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Milestone"] where:@"project_id == %i", projectID] toArray];
+//        self.labelsArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Milestone"] where:@"project_id == %i", projectID] toArray];
 //        [self.tableView reloadData];
 //    }];
 }
@@ -111,7 +111,7 @@
 #pragma mark - Search
 
 -(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope{
-    self.labelsSearchArray = [[[[NSManagedObjectContext MR_contextForCurrentThread] ofType:@"Label"] where:@"title contains[cd] %@", searchText] toArray];
+    self.labelsSearchArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Label"] where:@"title contains[cd] %@", searchText] toArray];
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
