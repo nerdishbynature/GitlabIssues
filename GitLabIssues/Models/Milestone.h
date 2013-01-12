@@ -33,14 +33,11 @@
  */
 +(Milestone *)createAndParseJSON:(NSDictionary *)dict andProjectID:(NSUInteger)projectID;
 
-<<<<<<< HEAD
 /**
   This method parses the Server response.
  @param dict The JSON Dictionary containing the server response
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/milestones.md#single-milestone
  */
-=======
->>>>>>> develop
 -(void)parseServerResponseWithDict:(NSDictionary *)dict;
 
 @end

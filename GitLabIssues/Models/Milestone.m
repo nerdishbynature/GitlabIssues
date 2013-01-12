@@ -46,10 +46,6 @@
 }
 
 -(void)parseServerResponseWithDict:(NSDictionary *)dict{
-<<<<<<< HEAD
-    self.identifier = [NSNumber numberWithInt:[[dict objectForKey:@"id"] integerValue]];
-=======
->>>>>>> develop
     self.title = [dict objectForKey:@"title"];
     self.descriptionString = [dict objectForKey:@"description"],
     self.closed = [NSNumber numberWithBool:[[dict objectForKey:@"closed"] boolValue]];

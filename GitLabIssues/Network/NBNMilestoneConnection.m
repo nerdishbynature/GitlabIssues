@@ -47,18 +47,6 @@ static NBNMilestoneConnection *sharedConnection = nil;
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         self.milestonesForProjectRequest = [[NBNGitlabEngine alloc] init];
-        
-<<<<<<< HEAD
-        for (NSDictionary *dict in array) {
-            
-            NSPredicate *milestoneFinder = [NSPredicate predicateWithFormat:@"identifier = %i AND project_id = %i", [[dict objectForKey:@"id"] integerValue], projectID];
-            
-            if ([[Milestone MR_findAllWithPredicate:milestoneFinder] count] == 0) {
-                
-                [Milestone createAndParseJSON:dict andProjectID:projectID];
-            } else if ([[Milestone MR_findAllWithPredicate:milestoneFinder] count] == 1){
-                
-=======
         [self.milestonesForProjectRequest requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token] completionHandler:^(MKNetworkOperation *request) {
             NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             
@@ -70,7 +58,6 @@ static NBNMilestoneConnection *sharedConnection = nil;
                     
                     [Milestone createAndParseJSON:dict andProjectID:projectID];
                 }
->>>>>>> develop
             }
             block();
         } errorHandler:^(NSError *error) {
