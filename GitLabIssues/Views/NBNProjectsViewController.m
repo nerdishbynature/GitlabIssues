@@ -11,6 +11,7 @@
 #import "NBNProjectConnection.h"
 #import "NBNIssuesViewController.h"
 #import "MBProgressHUD.h"
+#import "NBNBackButtonHelper.h"
 
 @interface NBNProjectsViewController ()
 
@@ -32,6 +33,11 @@
         [self refreshDataSource];
     }
     return self;
+}
+
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -115,6 +121,10 @@
     self.projectsArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
     [self.tableView reloadData];
     [self.HUD setHidden:YES];
+}
+
+- (void)pushBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)dealloc{

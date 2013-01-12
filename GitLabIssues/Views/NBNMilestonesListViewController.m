@@ -9,6 +9,7 @@
 #import "NBNMilestonesListViewController.h"
 #import "Milestone.h"
 #import "NBNMilestoneConnection.h"
+#import "NBNBackButtonHelper.h"
 
 @interface NBNMilestonesListViewController ()
 
@@ -40,7 +41,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
     [[NBNMilestoneConnection sharedConnection] loadAllMilestonesForProjectID:self.projectID onSuccess:^{
         self.milestonesArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Milestone"] where:@"project_id == %i", projectID] toArray];
         [self.tableView reloadData];
@@ -149,6 +151,10 @@
         [self.delegate didSelectMilestone:milestone];
     }
     
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)pushBackButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 

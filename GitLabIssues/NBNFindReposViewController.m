@@ -11,6 +11,7 @@
 #import "Project.h"
 #import "NBNIssuesViewController.h"
 #import "MBProgressHUD.h"
+#import "NBNBackButtonHelper.h"
 
 @interface NBNFindReposViewController ()
 
@@ -51,6 +52,11 @@
         searchBar.frame = CGRectMake(0, 0, 0, 38);
         self.tableView.tableHeaderView = self.searchBar;
     }
+}
+
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -150,6 +156,10 @@
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption{
     [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:nil];
     return YES;
+}
+
+- (void)pushBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)dealloc{

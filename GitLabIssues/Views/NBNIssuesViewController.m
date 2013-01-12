@@ -15,6 +15,7 @@
 #import "NBNIssueEditViewController.h"
 #import "NBNIssueCell.h"
 #import "MBProgressHUD.h"
+#import "NBNBackButtonHelper.h"
 
 @interface NBNIssuesViewController ()
 
@@ -139,6 +140,7 @@
 {
     [super viewDidLoad];
     self.title = self.project.name;
+    [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
     
     if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -309,6 +311,10 @@
 
 -(void)applyFilter:(NSDictionary *)filterDictionary{
     
+}
+
+- (void)pushBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)dealloc

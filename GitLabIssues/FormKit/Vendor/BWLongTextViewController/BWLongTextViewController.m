@@ -7,6 +7,7 @@
 //
 
 #import "BWLongTextViewController.h"
+#import "NBNBackButtonHelper.h"
 
 #define HAS_ARC (__has_feature(objc_arc))
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -62,7 +63,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
     [self startObservingNotifications];
     
     self.view.backgroundColor = [UIColor whiteColor];
@@ -72,12 +73,15 @@
     self.textView.frame = frame;
 //    self.textView = [[UITextView alloc] initWithFrame:frame];
     self.textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.textView.returnKeyType = UIReturnKeyGo;
+    self.textView.returnKeyType = UIReturnKeyDefault;
     self.textView.text = self.text;
     [self.textView becomeFirstResponder];
     [self.view addSubview:self.textView];
 }
 
+- (void)pushBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewDidUnload {

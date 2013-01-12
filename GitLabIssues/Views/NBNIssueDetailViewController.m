@@ -27,6 +27,7 @@
 
 #import "NBNMilestonesListViewController.h"
 #import "MBProgressHUD.h"
+#import "NBNBackButtonHelper.h"
 
 
 @interface NBNIssueDetailViewController ()
@@ -65,6 +66,7 @@
     
     self.title = [NSString stringWithFormat:@"Issue #%@", self.issue.identifier];
     [self setupKeyboard];
+    [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 	[button setTitle:@"Edit" forState:UIControlStateNormal];
@@ -374,6 +376,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)pushBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)dealloc{
