@@ -337,12 +337,11 @@
     
     if ([label isEqualToString:@"Assigned:"]) {
         
-        NSMutableArray *assigneNameArray = [[NSMutableArray alloc] init];
+        NBNAssigneeListViewController *list = [NBNAssigneeListViewController loadControllerWithProjectID:[self.issue.project_id integerValue]];
+        list.delegate = self;
         
-        for (Assignee *assignee in [[NBNUsersConnection sharedConnection] loadMembersWithProjectID:[self.issue.project_id integerValue]]) {
-            [assigneNameArray addObject:assignee.name];
-        }
-                
+        [self.navigationController pushViewController:list animated:YES];
+        
     } else if ([label isEqualToString:@"Status:"]){
         
         if ([self.issue.closed boolValue] == YES) {
@@ -368,6 +367,12 @@
 
 -(void)didSelectMilestone:(Milestone *)selectedMilestone{
     self.issue.milestone = selectedMilestone;
+    [self.issue saveChanges];
+    [self refreshData];
+}
+
+-(void)didSelectAssignee:(Assignee *)selectedAssignee{
+    self.issue.assignee = selectedAssignee;
     [self.issue saveChanges];
     [self refreshData];
 }

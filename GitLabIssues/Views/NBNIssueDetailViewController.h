@@ -10,8 +10,9 @@
 #import "Issue.h"
 #import "NBNIssueDetailCell.h"
 #import "NBNMilestonesListViewController.h"
+#import "NBNAssigneeListViewController.h"
 
-@interface NBNIssueDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, NBNIssueDetailCellDelegate, NBNMilestoneListDelegate>
+@interface NBNIssueDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, NBNIssueDetailCellDelegate, NBNMilestoneListDelegate, NBNAssigneeListDelegate>
 
 /**
   Method sets up the view controller and returns the allocated and initialized object.
