@@ -22,4 +22,6 @@
 
 - (void) cancelMembersRequest;
 
+-(void)loadMembersWithProjectID:(NSUInteger)project_id onSuccess:(void (^)(NSArray *array))block;
+
 @end
