@@ -83,6 +83,11 @@
 		971F676D16A164CC00638E90 /* BarButtonPlain.png in Resources */ = {isa = PBXBuildFile; fileRef = 971F676B16A164CC00638E90 /* BarButtonPlain.png */; };
 		971F676E16A164CC00638E90 /* BarButtonPlain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 971F676C16A164CC00638E90 /* BarButtonPlain@2x.png */; };
 		971F677216A16D8200638E90 /* NBNBackButtonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 971F677116A16D8100638E90 /* NBNBackButtonHelper.m */; };
+		971F677516A1734500638E90 /* TableHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 971F677316A1734500638E90 /* TableHeader.png */; };
+		971F677616A1734500638E90 /* TableHeader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 971F677416A1734500638E90 /* TableHeader@2x.png */; };
+		971F677916A1737300638E90 /* NBNGroupedTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 971F677816A1737000638E90 /* NBNGroupedTableViewHeader.m */; };
+		971F677B16A173AD00638E90 /* NBNGroupedTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971F677A16A173AC00638E90 /* NBNGroupedTableViewHeader.xib */; };
+		971F677E16A17EA300638E90 /* NBNAssigneeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 971F677D16A17EA200638E90 /* NBNAssigneeListViewController.m */; };
 		972304D21691B092005866EF /* NBNIssueDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 972304D11691B092005866EF /* NBNIssueDetailCell.m */; };
 		972304D51691B0A0005866EF /* NBNIssueDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 972304D41691B0A0005866EF /* NBNIssueDescriptionCell.m */; };
 		972304D81691B0B0005866EF /* NBNIssueCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 972304D71691B0AF005866EF /* NBNIssueCommentCell.m */; };
@@ -345,6 +350,13 @@
 		971F676C16A164CC00638E90 /* BarButtonPlain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BarButtonPlain@2x.png"; sourceTree = "<group>"; };
 		971F677016A16D8000638E90 /* NBNBackButtonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNBackButtonHelper.h; sourceTree = "<group>"; };
 		971F677116A16D8100638E90 /* NBNBackButtonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBNBackButtonHelper.m; sourceTree = "<group>"; };
+		971F677316A1734500638E90 /* TableHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TableHeader.png; sourceTree = "<group>"; };
+		971F677416A1734500638E90 /* TableHeader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TableHeader@2x.png"; sourceTree = "<group>"; };
+		971F677716A1736E00638E90 /* NBNGroupedTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNGroupedTableViewHeader.h; path = Views/NBNGroupedTableViewHeader.h; sourceTree = "<group>"; };
+		971F677816A1737000638E90 /* NBNGroupedTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNGroupedTableViewHeader.m; path = Views/NBNGroupedTableViewHeader.m; sourceTree = "<group>"; };
+		971F677A16A173AC00638E90 /* NBNGroupedTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NBNGroupedTableViewHeader.xib; path = Views/NBNGroupedTableViewHeader.xib; sourceTree = "<group>"; };
+		971F677C16A17EA200638E90 /* NBNAssigneeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNAssigneeListViewController.h; path = Views/NBNAssigneeListViewController.h; sourceTree = "<group>"; };
+		971F677D16A17EA200638E90 /* NBNAssigneeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNAssigneeListViewController.m; path = Views/NBNAssigneeListViewController.m; sourceTree = "<group>"; };
 		972304D01691B092005866EF /* NBNIssueDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssueDetailCell.h; path = Views/NBNIssueDetailCell.h; sourceTree = "<group>"; };
 		972304D11691B092005866EF /* NBNIssueDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssueDetailCell.m; path = Views/NBNIssueDetailCell.m; sourceTree = "<group>"; };
 		972304D31691B0A0005866EF /* NBNIssueDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNIssueDescriptionCell.h; sourceTree = "<group>"; };
@@ -944,6 +956,8 @@
 		97714A17169E05CC00308536 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				971F677316A1734500638E90 /* TableHeader.png */,
+				971F677416A1734500638E90 /* TableHeader@2x.png */,
 				971F676B16A164CC00638E90 /* BarButtonPlain.png */,
 				971F676C16A164CC00638E90 /* BarButtonPlain@2x.png */,
 				97714A2D169E1B6700308536 /* Background.png */,
@@ -999,6 +1013,9 @@
 			children = (
 				978F7096169F593B004A0B67 /* NBNGitlabEngine.h */,
 				978F7097169F593D004A0B67 /* NBNGitlabEngine.m */,
+				971F677716A1736E00638E90 /* NBNGroupedTableViewHeader.h */,
+				971F677816A1737000638E90 /* NBNGroupedTableViewHeader.m */,
+				971F677A16A173AC00638E90 /* NBNGroupedTableViewHeader.xib */,
 				97860A57169099F1003D2092 /* Dashboard */,
 				979C65611680606500B3E2D5 /* Login */,
 				979C64F2167F342700B3E2D5 /* Connections */,
@@ -1105,6 +1122,8 @@
 				979C64F7167F351100B3E2D5 /* NBNMilestonesListViewController.m */,
 				979C64FA167F522700B3E2D5 /* NBNLabelsListViewController.h */,
 				979C64FB167F522700B3E2D5 /* NBNLabelsListViewController.m */,
+				971F677C16A17EA200638E90 /* NBNAssigneeListViewController.h */,
+				971F677D16A17EA200638E90 /* NBNAssigneeListViewController.m */,
 			);
 			name = FilterComponents;
 			sourceTree = "<group>";
@@ -1334,6 +1353,9 @@
 				97714A30169E1B6800308536 /* Background@2x.png in Resources */,
 				971F676D16A164CC00638E90 /* BarButtonPlain.png in Resources */,
 				971F676E16A164CC00638E90 /* BarButtonPlain@2x.png in Resources */,
+				971F677516A1734500638E90 /* TableHeader.png in Resources */,
+				971F677616A1734500638E90 /* TableHeader@2x.png in Resources */,
+				971F677B16A173AD00638E90 /* NBNGroupedTableViewHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1498,6 +1520,8 @@
 				978F7098169F593F004A0B67 /* NBNGitlabEngine.m in Sources */,
 				97049FB716A0B34E004BC6E3 /* NBNReachabilityChecker.m in Sources */,
 				971F677216A16D8200638E90 /* NBNBackButtonHelper.m in Sources */,
+				971F677916A1737300638E90 /* NBNGroupedTableViewHeader.m in Sources */,
+				971F677E16A17EA300638E90 /* NBNAssigneeListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
