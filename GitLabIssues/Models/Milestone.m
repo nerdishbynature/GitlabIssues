@@ -41,6 +41,7 @@
     milestone.title = [dict objectForKey:@"title"];
     milestone.descriptionString = [dict objectForKey:@"description"],
     milestone.closed = [NSNumber numberWithBool:[[dict objectForKey:@"closed"] boolValue]];
+    milestone.project_id = [NSNumber numberWithInteger:projectID];
     
     return milestone;
 }
