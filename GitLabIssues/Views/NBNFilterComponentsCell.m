@@ -65,6 +65,8 @@
         self.placeholderLabel.hidden = YES;
         self.clearButton.hidden = NO;
         
+        [self.clearButton addTarget:self action:@selector(clearAssignee:) forControlEvents:UIControlEventTouchUpInside];
+        
         self.bubbleView.alwaysBounceVertical = NO;
         self.bubbleView.alwaysBounceHorizontal = NO;
         self.bubbleView.bubbleDataSource = self;
@@ -119,13 +121,12 @@
 }
 
 -(IBAction)clearButtonPushed:(id)sender{
-    if (self.milestone) {
-        [self.delegate clearMilestone];
-    }
-    
-    if (self.assignee){
-        [self.delegate clearAssignee];
-    }
+
+    [self.delegate clearMilestone];
+}
+
+-(IBAction)clearAssignee:(id)sender{
+    [self.delegate clearAssignee];
 }
 
 #pragma mark - HEBubbleViewStuff

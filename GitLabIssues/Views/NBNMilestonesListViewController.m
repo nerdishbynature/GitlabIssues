@@ -167,6 +167,7 @@
     
     [milestonesArray release];
     [milestonesSearchArray release];
+    [searchBar release];
     [searchDisplayController release];
     
     PBLog(@"deallocing %@", [self class]);

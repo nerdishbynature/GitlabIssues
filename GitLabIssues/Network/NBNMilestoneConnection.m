@@ -60,6 +60,7 @@ static NBNMilestoneConnection *sharedConnection = nil;
                 } else{
                     Milestone *milestone = [[Milestone MR_findAllWithPredicate:issueFinder] objectAtIndex:0];
                     [milestone parseServerResponseWithDict:dict];
+                    milestone.project_id = [NSNumber numberWithInteger:projectID];
                 }
             }
             block();

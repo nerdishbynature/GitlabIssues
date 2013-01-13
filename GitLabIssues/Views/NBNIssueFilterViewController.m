@@ -97,28 +97,40 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    if (indexPath.section == 0) {// 
-        static NSString  *CellIdentifier = @"ComponentsCellIdentifier";
+    if (indexPath.section == 0) {// Assignee and Milestone
         
-        NBNFilterComponentsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        
-        if (!cell) {
-            cell = [NBNFilterComponentsCell loadCellFromNib];
-        }
+        NBNFilterComponentsCell *cell;
         
         switch (indexPath.row) {
-            case 0: // Assignee
+            case 0:
+            {
+                static NSString  *CellIdentifier = @"ComponentsAssigneeCellIdentifier";
+                cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+                
+                if (!cell) {
+                    cell = [NBNFilterComponentsCell loadCellFromNib];
+                }
+                
                 PBLog(@"Assigned %@", self.filter.assigned);
                 [cell configureCellWithAssignee:self.filter.assigned];
                 cell.delegate = self;
+            }
                 break;
-
-            case 1: // Milestone
+            
+            case 1:
+            {
+                static NSString  *CellIdentifier = @"ComponentsMilestoneCellIdentifier";
+                cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+                
+                if (!cell) {
+                    cell = [NBNFilterComponentsCell loadCellFromNib];
+                }
+                
                 PBLog(@"Milestone %@", self.filter.milestone);
                 [cell configureCellWithMilestone:self.filter.milestone];
                 cell.delegate = self;
+            }
                 break;
-                
             default:
                 break;
         }
@@ -194,7 +206,6 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     listController.delegate = self;
     
     [self.navigationController pushViewController:listController animated:YES];
-    [listController release];
 }
 
 - (void)addAssignee:(UIButton *)sender {
@@ -202,7 +213,6 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     listController.delegate = self;
     
     [self.navigationController pushViewController:listController animated:YES];
-    [listController release];
 }
 
 -(void)cancel:(id)sender{
