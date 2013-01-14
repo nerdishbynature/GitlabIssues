@@ -140,6 +140,7 @@
 		978F7095169F590E004A0B67 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 978F708C169F590E004A0B67 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		978F7098169F593F004A0B67 /* NBNGitlabEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 978F7097169F593D004A0B67 /* NBNGitlabEngine.m */; };
 		978F709A169F5CB2004A0B67 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 978F7099169F5CB1004A0B67 /* Security.framework */; };
+		979898D016A4809300A60B6D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 979898CF16A4809300A60B6D /* Default.png */; };
 		979993AD169986AA00AEA929 /* EmojiList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 979993AA169986AA00AEA929 /* EmojiList.plist */; };
 		979993AE169986AA00AEA929 /* PBEmojiLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 979993AC169986AA00AEA929 /* PBEmojiLabel.m */; };
 		979C64DE167F0B9C00B3E2D5 /* NBNIssueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979C64DC167F0B9B00B3E2D5 /* NBNIssueDetailViewController.m */; };
@@ -452,6 +453,7 @@
 		978F7096169F593B004A0B67 /* NBNGitlabEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNGitlabEngine.h; sourceTree = "<group>"; };
 		978F7097169F593D004A0B67 /* NBNGitlabEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBNGitlabEngine.m; sourceTree = "<group>"; };
 		978F7099169F5CB1004A0B67 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		979898CF16A4809300A60B6D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		979993AA169986AA00AEA929 /* EmojiList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EmojiList.plist; sourceTree = "<group>"; };
 		979993AB169986AA00AEA929 /* PBEmojiLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBEmojiLabel.h; sourceTree = "<group>"; };
 		979993AC169986AA00AEA929 /* PBEmojiLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBEmojiLabel.m; sourceTree = "<group>"; };
@@ -595,6 +597,7 @@
 		9710B599167E2C4500F26DE2 = {
 			isa = PBXGroup;
 			children = (
+				979898CF16A4809300A60B6D /* Default.png */,
 				979F46CC16A3513300871B4A /* Default-568h@2x.png */,
 				979F46CA16A350A900871B4A /* Default@2x.png */,
 				979F46C216A34E9200871B4A /* Icon@2x.png */,
@@ -1424,6 +1427,7 @@
 				979F46C316A34E9200871B4A /* Icon@2x.png in Resources */,
 				979F46CB16A350A900871B4A /* Default@2x.png in Resources */,
 				979F46CD16A3513300871B4A /* Default-568h@2x.png in Resources */,
+				979898D016A4809300A60B6D /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
