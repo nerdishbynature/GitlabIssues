@@ -46,6 +46,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self refreshFavorites];
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 -(void)refreshFavorites{
