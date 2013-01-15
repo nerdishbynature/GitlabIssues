@@ -30,7 +30,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        self.title = @"GitLab:Issues";
+//        self.title = @"Gitlab:Issues";
         self.menuArray = @[@"Favorites", @"Dashboard", @"Find Repos"];
     }
     return self;
@@ -57,6 +57,8 @@
     [super viewWillAppear:animated];
     self.domainArray = [Domain findAll];
     [self.tableView reloadData];
+    UIImage *backgroundImage = [UIImage imageNamed:@"NavBar_home.png"];
+    [self.navigationController.navigationBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -68,6 +70,12 @@
         
         [self logout:nil];
     }
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    UIImage *backgroundImage = [UIImage imageNamed:@"navBar.png"];
+    [self.navigationController.navigationBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)didReceiveMemoryWarning
