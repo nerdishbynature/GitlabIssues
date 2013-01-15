@@ -179,8 +179,11 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    self.navigationController.toolbarHidden = YES;
     [[NBNIssuesConnection sharedConnection] cancelIssuesConnection];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
     [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
@@ -351,6 +354,7 @@
 }
 
 - (void)pushBackButton:(id)sender {
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
