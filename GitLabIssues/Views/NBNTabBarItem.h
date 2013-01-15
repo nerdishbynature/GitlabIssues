@@ -10,4 +10,6 @@
 
 @interface NBNTabBarItem : UITabBarItem
 
+-(id)initWithTitle:(NSString *)title image:(UIImage *)image selectedImage:(UIImage *)_customHighlightedImage tag:(NSInteger)tag;
+
 @end
