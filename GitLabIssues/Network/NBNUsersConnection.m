@@ -35,38 +35,6 @@ static NBNUsersConnection *sharedConnection = nil;
     return sharedConnection;
 }
 
--(NSArray *)loadMembersWithProjectID:(NSUInteger)project_id{
-    
-    if (![[NBNReachabilityChecker sharedChecker] isReachable]) return @[];
-    
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
-    Session *firstSession = [[Session findAll] lastObject];
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/members?private_token=%@", domain.protocol, domain.domain, project_id, firstSession.private_token]];
-    self.membersConnection = [ASIHTTPRequest requestWithURL:url];
-    [self.membersConnection startSynchronous];
-    
-    NSArray *memberJSONArray = [NSJSONSerialization JSONObjectWithData:[self.membersConnection responseData] options:kNilOptions error:nil];
-    
-    NSMutableArray *memberArray = [[[NSMutableArray alloc] initWithCapacity:memberJSONArray.count] autorelease];
-    
-    for (NSDictionary *dict in memberJSONArray) {
-        NSArray *assigneeArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Assignee"] where:@"identifier == %@", [dict objectForKey:@"id"]] toArray];
-        
-        if (assigneeArray.count == 0) {
-            [memberArray addObject:[Assignee createAndParseJSON:dict]];
-        } else{
-            Assignee *assignee = [assigneeArray objectAtIndex:0];
-            [assignee parseServerResponseWithDict:dict];
-            [memberArray addObject:assignee];
-        }
-    }
-    
-    [[NSManagedObjectContext MR_defaultContext] MR_save];
-    
-    return memberArray;
-}
-
 - (void) cancelMembersRequest
 {
     if ([self.membersConnection isExecuting]){
@@ -101,7 +69,6 @@ static NBNUsersConnection *sharedConnection = nil;
                     [assignee parseServerResponseWithDict:dict];
                     [memberArray addObject:assignee];
                 }
-            
             }
             
             [[NSManagedObjectContext MR_defaultContext] MR_save];

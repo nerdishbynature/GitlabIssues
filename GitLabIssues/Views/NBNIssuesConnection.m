@@ -180,18 +180,22 @@ static NBNIssuesConnection *sharedConnection = nil;
         [self.sendNotesConnection setRequestMethod:@"POST"];
         
         NSDictionary *postDict = @{@"id": issue.project_id, @"issue_id":issue.identifier, @"body": body};
-        
         [self.sendNotesConnection appendPostData:[NSJSONSerialization dataWithJSONObject:postDict options:kNilOptions error:nil]];
-        [self.sendNotesConnection startSynchronous];
         
-        if (self.sendNotesConnection.error) {
+        [self.sendNotesConnection setCompletionBlock:^{
+                block();
+        }];
+        
+        [self.sendNotesConnection setFailedBlock:^{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.sendNotesConnection.responseStatusMessage message:self.sendNotesConnection.error.localizedFailureReason delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
             [alert show];
             [alert release];
-            PBLog(@"%@", self.sendNotesConnection.error);
-        } else{
+            
             block();
-        }
+        }];
+        
+        [self.sendNotesConnection startAsynchronous];
+        
     }];
 }
 

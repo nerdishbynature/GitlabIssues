@@ -41,15 +41,17 @@
 
 /**
   Saves object in local database and PUTs the new data on the Server using the GitLab API
+ @param block The completion block, which is called on success
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#edit-issue
  */
--(void)saveChanges;
+-(void)saveChangesonSuccess:(void (^)(void))block;
 
 /**
   Saves object in local database and POSTs the new data on the Server using the GitLab API
+ @param block The completion block, which is called on success
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#new-issue
  */
--(void)createANewOnServer;
+-(void)createANewOnServerOnSuccess:(void(^)(void))block;
 
 /**
   Catches the object and updates the data

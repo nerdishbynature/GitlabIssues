@@ -356,9 +356,9 @@
             self.issue.closed = [NSNumber numberWithBool:YES];
         }
         
-        [self.issue saveChanges];
-        
-        [self.tableView reloadData];
+        [self.issue saveChangesonSuccess:^{
+            [self.tableView reloadData];
+        }];
         
     } else if ([label isEqualToString:@"Milestone:"]){
         
@@ -373,14 +373,17 @@
 
 -(void)didSelectMilestone:(Milestone *)selectedMilestone{
     self.issue.milestone = selectedMilestone;
-    [self.issue saveChanges];
-    [self refreshData];
+    [self.issue saveChangesonSuccess:^{
+        [self refreshData];
+    }];
 }
 
 -(void)didSelectAssignee:(Assignee *)selectedAssignee{
     self.issue.assignee = selectedAssignee;
-    [self.issue saveChanges];
-    [self refreshData];
+    [self.issue saveChangesonSuccess:^{
+        [self refreshData];
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning

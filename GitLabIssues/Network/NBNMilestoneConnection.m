@@ -76,28 +76,37 @@ static NBNMilestoneConnection *sharedConnection = nil;
     [self.milestonesForProjectRequest cancel];
 }
 
-+(NSArray *)loadMilestonesWithProjectID:(NSUInteger)projectID{
++(void)loadMilestonesWithProjectID:(NSUInteger)projectID onSucess:(void(^)(NSArray *milestones))block{
     
-    if (![[NBNReachabilityChecker sharedChecker] isReachable]) return @[];
+    if (![[NBNReachabilityChecker sharedChecker] isReachable]) block(@[]);
     
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     Session *firstSession = [[Session findAll] lastObject];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, firstSession.private_token]];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request startSynchronous];
     
-    NSArray *milestoneJSONArray = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
-    NSMutableArray *milestoneArray = [[[NSMutableArray alloc] initWithCapacity:milestoneJSONArray.count] autorelease];
+                               
+    [request setCompletionBlock:^{
+        NSArray *milestoneJSONArray = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+        NSMutableArray *milestoneArray = [[[NSMutableArray alloc] initWithCapacity:milestoneJSONArray.count] autorelease];
     
-    for (NSDictionary *dict in milestoneJSONArray) {
-        Milestone *milestone = [Milestone createAndParseJSON:dict andProjectID:projectID];
-        [milestoneArray addObject:milestone];
-    }
+        for (NSDictionary *dict in milestoneJSONArray) {
+            Milestone *milestone = [Milestone createAndParseJSON:dict andProjectID:projectID];
+            [milestoneArray addObject:milestone];
+        }
     
-    [[NSManagedObjectContext MR_defaultContext] MR_save];
-    
-    return milestoneArray;
+        [[NSManagedObjectContext MR_defaultContext] MR_save];
+        
+        block(milestoneArray);
+    }];
+                               
+    [request setFailedBlock:^{
+        block(@[]);
+    }];
+                               
+                               
+    [request startAsynchronous];
 }
 
 

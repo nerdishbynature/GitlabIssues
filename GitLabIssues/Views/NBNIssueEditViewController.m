@@ -37,9 +37,8 @@
     [[NBNMilestoneConnection sharedConnection] cancelMilestonesForProjectRequest];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     
     if(self.editMode){
         self.title = [NSString stringWithFormat:@"Edit Issue #%@", self.issue.project_id];
@@ -51,76 +50,92 @@
     
     self.formModel = [FKFormModel formTableModelForTableView:self.tableView navigationController:self.navigationController];
     
+    [self doMappingWithCompletion:^{
+        [self.formModel loadFieldsWithObject:self.issue];
+    }];
+}
+
+-(void)doMappingWithCompletion:(void(^)(void))block{
     [FKFormMapping mappingForClass:[Issue class] block:^(FKFormMapping *mapping) {
         [mapping sectionWithTitle:@"" footer:@"" identifier:@"edit"];
         
         [mapping mapAttribute:@"title" title:@"Title" type:FKFormAttributeMappingTypeText];
         [mapping mapAttribute:@"descriptionString" title:@"Description" type:FKFormAttributeMappingTypeBigText];
         
-        [mapping mapAttribute:@"assignee"
-                        title:@"Assignee"
+        
+        [[NBNUsersConnection sharedConnection] loadMembersWithProjectID:[self.issue.project_id integerValue] onSuccess:^(NSArray *array) {
+            
+            [self mapAssigneesWithArray:array andMapping:mapping];
+            
+            [NBNMilestoneConnection loadMilestonesWithProjectID:[self.issue.project_id integerValue] onSucess:^(NSArray *milestones) {
+                
+                [self mapMilestonesWithArray:milestones andMapping:mapping];
+                
+                [self.formModel registerMapping:mapping];
+                
+                block();
+            }];
+        }];
+    }];
+}
+
+-(void)mapMilestonesWithArray:(NSArray *)milestones andMapping:(FKFormMapping *)mapping{
+    if (milestones.count > 0) {
+        [mapping mapAttribute:@"milestone"
+                        title:@"Milestone"
                  showInPicker:YES
             selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
                 *selectedValueIndex = 0;
                 
-                NSMutableArray *assigneNameArray = [[NSMutableArray alloc] init];
-                for (Assignee *assignee in [[NBNUsersConnection sharedConnection] loadMembersWithProjectID:[self.issue.project_id integerValue]]) {
-                    [assigneNameArray addObject:assignee.name];
+                NSMutableArray *milestoneNameArray = [[NSMutableArray alloc] init];
+                for (Milestone *milestone in milestones) {
+                    [milestoneNameArray addObject:milestone.title];
                 }
-                return assigneNameArray;
+                return milestoneNameArray;
                 
                 
             } valueFromSelectBlock:^id(id value, id object, NSInteger selectedValueIndex) {
                 
-                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", value];
-                self.issue.assignee = [[Assignee findAllWithPredicate:predicate] objectAtIndex:0];
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@", value];
+                self.issue.milestone = [[Milestone findAllWithPredicate:predicate] objectAtIndex:0];
                 
                 [[NSManagedObjectContext MR_defaultContext] MR_save];
                 
-                return self.issue.assignee;
+                return self.issue.milestone;
             } labelValueBlock:^id(id value, id object) {
                 
-                Assignee *assignee = (Assignee *)value;
-                return assignee.name;
+                Milestone *milestone = (Milestone *)value;
+                return milestone.title;
             }];
-        
-        NSArray *milestoneArray = [NBNMilestoneConnection loadMilestonesWithProjectID:[self.issue.project_id integerValue]];
-        
-        if (milestoneArray.count > 0) {
-            [mapping mapAttribute:@"milestone"
-                            title:@"Milestone"
-                     showInPicker:YES
-                selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
-                    *selectedValueIndex = 0;
-                    
-                    NSMutableArray *milestoneNameArray = [[NSMutableArray alloc] init];
-                    for (Milestone *milestone in [NBNMilestoneConnection loadMilestonesWithProjectID:[self.issue.project_id integerValue]]) {
-                        [milestoneNameArray addObject:milestone.title];
-                    }
-                    return milestoneNameArray;
-                    
-                    
-                } valueFromSelectBlock:^id(id value, id object, NSInteger selectedValueIndex) {
-                    
-                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@", value];
-                    self.issue.milestone = [[Milestone findAllWithPredicate:predicate] objectAtIndex:0];
-                    
-                    [[NSManagedObjectContext MR_defaultContext] MR_save];
-                    
-                    return self.issue.milestone;
-                } labelValueBlock:^id(id value, id object) {
-                    
-                    Milestone *milestone = (Milestone *)value;
-                    return milestone.title;
-                }];
-        }
-        
-        [self.formModel registerMapping:mapping];
-    }];
-    
-    
-    
-    [self.formModel loadFieldsWithObject:self.issue];
+    }
+}
+
+-(void)mapAssigneesWithArray:(NSArray *)array andMapping:(FKFormMapping *)mapping{
+    [mapping mapAttribute:@"assignee"
+                    title:@"Assignee"
+             showInPicker:YES
+        selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
+            *selectedValueIndex = 0;
+            
+            NSMutableArray *assigneeNameArray = [[NSMutableArray alloc] init];
+            for (Assignee *assignee in array) {
+                [assigneeNameArray addObject:assignee.name];
+            }
+            return assigneeNameArray;
+            
+        } valueFromSelectBlock:^id(id value, id object, NSInteger selectedValueIndex) {
+            
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", value];
+            self.issue.assignee = [[Assignee findAllWithPredicate:predicate] objectAtIndex:0];
+            
+            [[NSManagedObjectContext MR_defaultContext] MR_save];
+            
+            return self.issue.assignee;
+        } labelValueBlock:^id(id value, id object) {
+            
+            Assignee *assignee = (Assignee *)value;
+            return assignee.name;
+        }];
 }
 
 -(void)setupBarButtons{
@@ -156,14 +171,16 @@
     [self.formModel save];
     
     if (self.editMode) {
-        [self.issue saveChanges];
+        [self.issue saveChangesonSuccess:^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [[NSManagedObjectContext MR_defaultContext] MR_save];
+        }];
     } else{
-        [self.issue createANewOnServer];
+        [self.issue createANewOnServerOnSuccess:^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [[NSManagedObjectContext MR_defaultContext] MR_save];
+        }];
     }
-    
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [[NSManagedObjectContext MR_defaultContext] MR_save];
 }
 
 #pragma mark - UIAlertView

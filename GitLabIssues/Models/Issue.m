@@ -78,7 +78,7 @@
 
 //@see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#edit-issue
 
--(void)saveChanges{
+-(void)saveChangesonSuccess:(void (^)(void))block{
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
@@ -89,17 +89,23 @@
         [request setRequestMethod:@"PUT"];
         
         [request appendPostData:[self toJSON]];
-        [request startSynchronous];
         
-        if (request.error) {
+        [request setCompletionBlock:^{
+            block();
+        }];
+        
+        [request setFailedBlock:^{
             PBLog(@"%@", request.error);
-        }
+            block();
+        }];
+        
+        [request startAsynchronous];
     }];
 }
 
 //@see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#new-issue
 
--(void)createANewOnServer{
+-(void)createANewOnServerOnSuccess:(void(^)(void))block{
     
     Domain *domain = [[Domain findAll] objectAtIndex:0];
     
@@ -111,17 +117,23 @@
         [request setRequestMethod:@"POST"];
         
         [request appendPostData:[self toCreateJSON]];
-        [request startSynchronous];
         
-        if (request.error) {
+        [request setCompletionBlock:^{
+            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
+            
+            [self parseServerResponse:responseDict];
+            block();
+        }];
+        
+        [request setFailedBlock:^{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:request.responseStatusMessage message:request.error.localizedFailureReason delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
             [alert show];
             [alert release];
             PBLog(@"%@", request.error);
-        }
-        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
+            block();
+        }];
         
-        [self parseServerResponse:responseDict];
+        [request startAsynchronous];
     }];
 }
 
@@ -221,24 +233,6 @@
         [dict setObject:self.closed forKey:@"closed"];
     
     return [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:nil];
-}
-
--(void)saveMilestone{
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
-    
-    [Session getCurrentSessionWithCompletion:^(Session *session) {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/milestones/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.milestone.identifier, session.private_token]];
-        PBLog(@"url %@", url);
-        
-        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-        [request setRequestMethod:@"PUT"];
-        
-        [request appendPostData:[self milestoneToJSON]];
-        [request startSynchronous];
-        
-        PBLog(@"%@", request.error);
-        PBLog(@"%@", request.responseString);
-    }];
 }
 
 -(NSData *)milestoneToJSON{

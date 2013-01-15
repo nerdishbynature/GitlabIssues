@@ -21,13 +21,16 @@
 
 /**
   Generates a new session using the API
- @return Initialized Session object
+ @param block The completion block, which is called on success.
+ @param errorBlock The error block, which is called on failure.
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/session.md
  */
-+(Session *)generateSession;
-
 +(void)generateSessionWithCompletion:(void (^)(Session *session))block onError:(void (^)(NSError *error))errorBlock;
 
+/**
+ Always returns the correct session
+ @param block The completion block, which is called on success.
+ */
 +(void)getCurrentSessionWithCompletion:(void (^)(Session *session))block;
 
 @end
