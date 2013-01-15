@@ -64,8 +64,17 @@
 {
     [super viewDidLoad];
     
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f,
+                                                                   0.0f,
+                                                                   self.view.bounds.size.width,
+                                                                   self.view.bounds.size.height - 42.0f-42.f)];
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    
     self.title = [NSString stringWithFormat:@"Issue #%@", self.issue.identifier];
-    [self setupKeyboard];
     [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -81,6 +90,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    [self setupKeyboard];
     [self refreshData];
 }
 
@@ -109,15 +119,7 @@
 }
 
 -(void)setupKeyboard{    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f,
-                                                                           0.0f,
-                                                                           self.view.bounds.size.width,
-                                                                           self.view.bounds.size.height - 40.0f)];
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    [self.view addSubview:self.tableView];
-    
+
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f,
                                                                      self.view.bounds.size.height - 40.0f,
                                                                      self.view.bounds.size.width,
@@ -137,7 +139,11 @@
     [self.textField addTarget:self action:@selector(updateBodyUsingContentsOfTextField:) forControlEvents:UIControlEventEditingChanged];
     [toolBar addSubview:self.textField];
     
-    UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	[sendButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+	[sendButton setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+    [sendButton setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+    
     sendButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     [sendButton setTitle:@"Send" forState:UIControlStateNormal];
     sendButton.frame = CGRectMake(toolBar.bounds.size.width - 68.0f,
