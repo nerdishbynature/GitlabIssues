@@ -118,8 +118,8 @@
     }];
 }
 
--(void)setupKeyboard{    
-
+-(void)setupKeyboard{
+    
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f,
                                                                      self.view.bounds.size.height - 40.0f,
                                                                      self.view.bounds.size.width,
@@ -127,12 +127,12 @@
     toolBar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:toolBar];
     
-
+    
     
     self.textField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f,
-                                                                           6.0f,
-                                                                           toolBar.bounds.size.width - 20.0f - 68.0f,
-                                                                           30.0f)];
+                                                                   6.0f,
+                                                                   toolBar.bounds.size.width - 20.0f - 68.0f,
+                                                                   30.0f)];
     self.textField.borderStyle = UITextBorderStyleRoundedRect;
     self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.textField.delegate = self;
@@ -168,9 +168,9 @@
         toolBarFrame.origin.y = keyboardFrameInView.origin.y - toolBarFrame.size.height;
         toolBar.frame = toolBarFrame;
         
-        CGRect tableViewFrame = tableView.frame;
+        CGRect tableViewFrame = self.tableView.frame;
         tableViewFrame.size.height = toolBarFrame.origin.y;
-        tableView.frame = tableViewFrame;
+        self.tableView.frame = tableViewFrame;
     }];
 }
 
@@ -179,7 +179,7 @@
     editViewController.editMode = YES;
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:editViewController];
     navController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-
+    
     [self presentViewController:navController animated:YES completion:nil];
     
     [navController release];
@@ -223,14 +223,14 @@
         return cell;
         
     } else if (indexPath.row == 2){ // Milestone
-    
+        
         NBNIssueDetailCell *cell = [_tableView dequeueReusableCellWithIdentifier:IssueDetailCellIdentifier];
         if (!cell) {
             cell = [NBNIssueDetailCell loadCellFromNib];
         }
         cell.delegate = self;
         [cell configureCellWithHeadline:@"Milestone:" andDescription:self.issue.milestone.title];
-    
+        
         return cell;
         
     } else if (indexPath.row == 3){ // Labels
@@ -239,7 +239,7 @@
         if (!cell) {
             cell = [NBNIssueDetailCell loadCellFromNib];
         }
-                
+        
         [cell configureCellWithHeadline:@"Labels:" andDescription:self.issue.labels];
         
         return cell;
@@ -257,7 +257,7 @@
         return cell;
         
     } else{
-    
+        
         NBNIssueCommentCell *cell = [_tableView dequeueReusableCellWithIdentifier:IssueCommentCellIdentifier];
         
         if (!cell) {
@@ -267,7 +267,7 @@
         NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"created_at" ascending:YES];
         NSArray *descriptors = @[descriptor];
         Note *note = [[[self.issue.notes allObjects] sortedArrayUsingDescriptors:descriptors] objectAtIndex:indexPath.row-5];
-
+        
         
         [cell configureCellWithNote:note];
         
@@ -305,7 +305,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    
 }
 
 #pragma mark - UITextFieldDelegate
@@ -383,7 +383,7 @@
     [self.issue saveChangesonSuccess:^{
         [self refreshData];
     }];
-
+    
 }
 
 - (void)didReceiveMemoryWarning
