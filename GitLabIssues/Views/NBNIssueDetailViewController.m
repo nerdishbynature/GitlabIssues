@@ -51,7 +51,8 @@
 +(NBNIssueDetailViewController *)loadViewControllerWithIssue:(Issue *)_issue{
     NBNIssueDetailViewController *issueController = [[[NBNIssueDetailViewController alloc] init] autorelease];
     issueController.issue = _issue;
-    issueController.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, issueController.view.frame.size.width, issueController.view.frame.size.height-42.f) style:UITableViewStylePlain]; //42.f is navbar image height
+    issueController.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, issueController.view.frame.size.width, issueController.view.frame.size.height-42.f-40.f)
+                                                             style:UITableViewStylePlain]; //42.f is navbar image height
     issueController.tableView.delegate = issueController;
     issueController.tableView.dataSource = issueController;
     issueController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -63,16 +64,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f,
-                                                                   0.0f,
-                                                                   self.view.bounds.size.width,
-                                                                   self.view.bounds.size.height - 42.0f-42.f)];
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    [self.view addSubview:self.tableView];
     
     self.title = [NSString stringWithFormat:@"Issue #%@", self.issue.identifier];
     [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
@@ -171,6 +162,7 @@
         CGRect tableViewFrame = self.tableView.frame;
         tableViewFrame.size.height = toolBarFrame.origin.y;
         self.tableView.frame = tableViewFrame;
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(5+self.issue.notes.allObjects.count - 1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }];
 }
 
