@@ -10,6 +10,9 @@
 #import "NBNHomeScreenViewController.h"
 #import "Domain.h"
 #import "Session.h"
+#import "TestFlight.h"
+
+#define TESTING 1
 
 @implementation NBNAppDelegate
 
@@ -25,6 +28,14 @@
     // Override point for customization after application launch.
     
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"GitLabIssues.sqlite"];
+
+#warning Set Token here
+    [TestFlight takeOff:@"<DeviceToken>"];
+    
+    
+#ifdef TESTING
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] performSelector:@selector(uniqueIdentifier)]];
+#endif
     
     UIImage *image = [UIImage imageNamed:@"navBar.png"];
     [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];

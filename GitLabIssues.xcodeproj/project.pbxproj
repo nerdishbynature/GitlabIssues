@@ -204,6 +204,7 @@
 		979F46C316A34E9200871B4A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 979F46C216A34E9200871B4A /* Icon@2x.png */; };
 		979F46CB16A350A900871B4A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 979F46CA16A350A900871B4A /* Default@2x.png */; };
 		979F46CD16A3513300871B4A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 979F46CC16A3513300871B4A /* Default-568h@2x.png */; };
+		97C7E3B616A6027600D5163F /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C7E3B416A6027600D5163F /* libTestFlight.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -576,6 +577,8 @@
 		979F46C216A34E9200871B4A /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		979F46CA16A350A900871B4A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		979F46CC16A3513300871B4A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		97C7E3B416A6027600D5163F /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		97C7E3B516A6027600D5163F /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -593,6 +596,7 @@
 				9710B5FF167E2CD100F26DE2 /* SystemConfiguration.framework in Frameworks */,
 				9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */,
 				9710B5AB167E2C4500F26DE2 /* Foundation.framework in Frameworks */,
+				97C7E3B616A6027600D5163F /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,6 +640,8 @@
 		9710B5A7167E2C4500F26DE2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				97C7E3B416A6027600D5163F /* libTestFlight.a */,
+				97C7E3B516A6027600D5163F /* TestFlight.h */,
 				978F7099169F5CB1004A0B67 /* Security.framework */,
 				9723058C1691D821005866EF /* QuartzCore.framework */,
 				9710B695167E355700F26DE2 /* CoreData.framework */,
@@ -1728,6 +1734,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRANK_LIBRARY_SEARCH_PATHS)",
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1743,11 +1750,15 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
 				INFOPLIST_FILE = "GitLabIssues/GitLabIssues-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

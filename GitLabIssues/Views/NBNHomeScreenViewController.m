@@ -13,6 +13,7 @@
 #import "NBNDashboardViewController.h"
 #import "GLLoginViewController.h"
 #import "Domain.h"
+#import "TestFlight.h"
 
 @interface NBNHomeScreenViewController ()
 
@@ -50,7 +51,21 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
+    UIButton *feedback = [UIButton buttonWithType:UIButtonTypeCustom];
+	[feedback setTitle:@"Feedback" forState:UIControlStateNormal];
+    [feedback.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+	[feedback setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+    [feedback setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+    [feedback addTarget:self action:@selector(feedback:) forControlEvents:UIControlEventTouchUpInside];
+    [feedback setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:feedback];
+    
     self.domainArray = [Domain findAll];
+}
+
+-(void)feedback:(id)sender{
+    [TestFlight openFeedbackView];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
