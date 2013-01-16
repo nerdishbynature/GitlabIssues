@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Assignee, Author, Milestone;
+@class Assignee, Author, Milestone, Note;
 
 @interface Issue : NSManagedObject
 
@@ -58,5 +58,14 @@
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#single-issue
  */
 -(void)parseServerResponse:(NSDictionary *)dict;
+
+@end
+
+@interface Issue (CoreDataGeneratedAccessors)
+
+- (void)addNotesObject:(Note *)value;
+- (void)removeNotesObject:(Note *)value;
+- (void)addNotes:(NSSet *)values;
+- (void)removeNotes:(NSSet *)values;
 
 @end
