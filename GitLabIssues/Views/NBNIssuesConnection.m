@@ -139,9 +139,9 @@ static NBNIssuesConnection *sharedConnection = nil;
                 NSPredicate *noteFinder = [NSPredicate predicateWithFormat:@"identifier = %i", [[dict objectForKey:@"id"] integerValue]]; // 1 domain means no conflicts
                 
                 if ([[Note MR_findAllWithPredicate:noteFinder] count] == 0) {
-                    
-                    [returnArray addObject:[Note createAndParseJSON:dict]];
-                    
+                    Note *note = [Note createAndParseJSON:dict];
+                    note.issue = issue;
+                    [returnArray addObject:note];
                 } else if ([[Note MR_findAllWithPredicate:noteFinder] count] == 1){
                     
                     Note *note = [[Note MR_findAllWithPredicate:noteFinder] objectAtIndex:0];
