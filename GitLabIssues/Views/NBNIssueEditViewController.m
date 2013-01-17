@@ -41,7 +41,7 @@
     [super viewDidAppear:animated];
     
     if(self.editMode){
-        self.title = [NSString stringWithFormat:@"Edit Issue #%@", self.issue.project_id];
+        self.title = [NSString stringWithFormat:@"Edit Issue #%@", self.issue.identifier];
     } else{
         self.title = @"New Issue";
     }
