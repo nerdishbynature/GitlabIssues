@@ -91,21 +91,37 @@
                 for (Milestone *milestone in milestones) {
                     [milestoneNameArray addObject:milestone.title];
                 }
+                
+                [milestoneNameArray addObject:@"None"];
+                
                 return milestoneNameArray;
                 
                 
             } valueFromSelectBlock:^id(id value, id object, NSInteger selectedValueIndex) {
                 
-                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@", value];
-                self.issue.milestone = [[Milestone findAllWithPredicate:predicate] objectAtIndex:0];
+                if (![value isEqual:@"None"]) {
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@", value];
+                    self.issue.milestone = [[Milestone findAllWithPredicate:predicate] objectAtIndex:0];
+                    
+                    [[NSManagedObjectContext MR_defaultContext] MR_save];
+                    
+                    return self.issue.milestone;
+                }else{
+                    self.issue.milestone = nil;
+                    [[NSManagedObjectContext MR_defaultContext] MR_save];
+                    
+                    return self.issue.milestone;
+                }
                 
-                [[NSManagedObjectContext MR_defaultContext] MR_save];
-                
-                return self.issue.milestone;
             } labelValueBlock:^id(id value, id object) {
                 
-                Milestone *milestone = (Milestone *)value;
-                return milestone.title;
+                if (![value isEqual:@"None"]) {
+                    Milestone *milestone = (Milestone *)value;
+                    return milestone.title;
+                } else{
+                    return @"";
+                }
+                
             }];
     }
 }
