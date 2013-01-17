@@ -73,8 +73,8 @@
             } labelValueBlock:^id(id value, id object) {
                 return value;
             }];
-        [mapping mapAttribute:@"domain" title:@"Domain" type:FKFormAttributeMappingTypeText keyboardType:UIKeyboardTypeURL];
-        [mapping mapAttribute:@"email" title:@"Email" type:FKFormAttributeMappingTypeText keyboardType:UIKeyboardTypeEmailAddress];
+        [mapping mapAttribute:@"domain" title:@"Domain" placeholderText:@"www.example.com" keyboardType:UIKeyboardTypeURL type:FKFormAttributeMappingTypeText];
+        [mapping mapAttribute:@"email" title:@"Email" placeholderText:@"me@example.com" keyboardType:UIKeyboardTypeEmailAddress type:FKFormAttributeMappingTypeText];
         [mapping mapAttribute:@"password" title:@"Password" type:FKFormAttributeMappingTypePassword];
 
         [self.formModel registerMapping:mapping];
