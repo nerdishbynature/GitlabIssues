@@ -66,7 +66,7 @@
                         title:@"Protocol"
                  showInPicker:YES
             selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
-                *selectedValueIndex = 1;
+                selectedValueIndex = 0;
                 return [NSArray arrayWithObjects:@"http", @"https", nil];
             } valueFromSelectBlock:^id(id value, id object, NSInteger selectedValueIndex) {
                 return value;

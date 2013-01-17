@@ -37,10 +37,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
+-(void)createLogoutButton{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 	[button setTitle:@"Logout" forState:UIControlStateNormal];
     [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
@@ -50,7 +47,9 @@
     [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    
+}
+
+-(void)createFeedbackButton{
     UIButton *feedback = [UIButton buttonWithType:UIButtonTypeCustom];
 	[feedback setTitle:@"Feedback" forState:UIControlStateNormal];
     [feedback.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
@@ -74,6 +73,9 @@
     [self.tableView reloadData];
     UIImage *backgroundImage = [UIImage imageNamed:@"NavBar_home.png"];
     [self.navigationController.navigationBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
+    
+    [self createFeedbackButton];
+    [self createLogoutButton];
 }
 
 -(void)viewDidAppear:(BOOL)animated{

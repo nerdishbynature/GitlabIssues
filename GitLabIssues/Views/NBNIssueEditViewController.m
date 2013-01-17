@@ -27,6 +27,7 @@
 +(NBNIssueEditViewController *)loadViewControllerWithIssue:(Issue *)_issue{
     NBNIssueEditViewController *editViewController = [[[NBNIssueEditViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
     editViewController.issue = _issue;
+    editViewController.view.backgroundColor = [UIColor whiteColor];
     
     return editViewController;
 }
