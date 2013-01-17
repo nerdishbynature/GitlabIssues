@@ -125,7 +125,6 @@
     FKFormAttributeMapping *attributeMapping = [self attributeMappingWithTitle:title
                                                                      attribute:attribute
                                                                           type:type];
-    
     attributeMapping.keyboardType = keyboardType;
     
     return attributeMapping;
@@ -142,6 +141,22 @@
                                                                      attribute:attribute
                                                                           type:type];
     
+    attributeMapping.placeholderText = placeholderText;
+    
+    return attributeMapping;
+}
+
+- (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute
+                                   title:(NSString *)title
+                         placeholderText:(NSString *)placeholderText
+                            keyboardType:(UIKeyboardType)keyboardType
+                                    type:(FKFormAttributeMappingType)type {
+    
+    FKFormAttributeMapping *attributeMapping = [self attributeMappingWithTitle:title
+                                                                     attribute:attribute
+                                                                          type:type];
+    
+    attributeMapping.keyboardType = keyboardType;
     attributeMapping.placeholderText = placeholderText;
     
     return attributeMapping;
@@ -387,6 +402,7 @@
     attributeMapping.accessibilityLabel = title;
     attributeMapping.attribute = attribute;
     attributeMapping.type = type;
+
     [self addAttributeMappingToFormMapping:attributeMapping];
     
     return attributeMapping;
