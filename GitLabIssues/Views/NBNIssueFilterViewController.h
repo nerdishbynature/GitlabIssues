@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NBNMilestonesListViewController.h"
 #import "NBNFilterComponentsCell.h"
+#import "NBNFilterAssigneeCell.h"
 #import "NBNFilterStatusCell.h"
 #import "NBNFilterSortCell.h"
 #import "Project.h"
@@ -32,7 +33,7 @@ extern NSString *const kKeySortIssuesFilter;
 
 @end
 
-@interface NBNIssueFilterViewController : UITableViewController <NBNMilestoneListDelegate, NBNFilterStatusCellDelegate, NBNFilterSortCellDelegate, NBNMilestoneListDelegate, NBNAssigneeListDelegate, NBNFilterComponentsCellDelegate>
+@interface NBNIssueFilterViewController : UITableViewController <NBNMilestoneListDelegate, NBNFilterStatusCellDelegate, NBNFilterSortCellDelegate, NBNMilestoneListDelegate, NBNAssigneeListDelegate, NBNFilterComponentsCellDelegate, NBNFilterAssigneeCellDelegate>
 
 /**
   Used to tell the associated view controller which filter to apply

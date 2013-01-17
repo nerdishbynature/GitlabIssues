@@ -204,6 +204,8 @@
 		979F46CB16A350A900871B4A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 979F46CA16A350A900871B4A /* Default@2x.png */; };
 		979F46CD16A3513300871B4A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 979F46CC16A3513300871B4A /* Default-568h@2x.png */; };
 		97C49F2016A72CDC009DEC85 /* NBNIssueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C49F1F16A72CDC009DEC85 /* NBNIssueDetailViewController.m */; };
+		97C49F2D16A8641D009DEC85 /* NBNFilterAssigneeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C49F2C16A8641C009DEC85 /* NBNFilterAssigneeCell.m */; };
+		97C49F3016A86434009DEC85 /* NBNFilterAssigneeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97C49F2F16A86434009DEC85 /* NBNFilterAssigneeCell.xib */; };
 		97C7E3B616A6027600D5163F /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C7E3B416A6027600D5163F /* libTestFlight.a */; };
 /* End PBXBuildFile section */
 
@@ -577,6 +579,9 @@
 		979F46CC16A3513300871B4A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		97C49F1E16A72CDC009DEC85 /* NBNIssueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNIssueDetailViewController.h; path = Views/NBNIssueDetailViewController.h; sourceTree = "<group>"; };
 		97C49F1F16A72CDC009DEC85 /* NBNIssueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNIssueDetailViewController.m; path = Views/NBNIssueDetailViewController.m; sourceTree = "<group>"; };
+		97C49F2B16A8641C009DEC85 /* NBNFilterAssigneeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNFilterAssigneeCell.h; path = Views/NBNFilterAssigneeCell.h; sourceTree = "<group>"; };
+		97C49F2C16A8641C009DEC85 /* NBNFilterAssigneeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNFilterAssigneeCell.m; path = Views/NBNFilterAssigneeCell.m; sourceTree = "<group>"; };
+		97C49F2F16A86434009DEC85 /* NBNFilterAssigneeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NBNFilterAssigneeCell.xib; path = Views/NBNFilterAssigneeCell.xib; sourceTree = "<group>"; };
 		97C7E3B416A6027600D5163F /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		97C7E3B516A6027600D5163F /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1010,6 +1015,9 @@
 				974B8AE0169B549200ED15C5 /* NBNFilterComponentsCell.h */,
 				974B8AE1169B549200ED15C5 /* NBNFilterComponentsCell.m */,
 				974B8AE6169B54D900ED15C5 /* NBNFilterComponentsCell.xib */,
+				97C49F2B16A8641C009DEC85 /* NBNFilterAssigneeCell.h */,
+				97C49F2C16A8641C009DEC85 /* NBNFilterAssigneeCell.m */,
+				97C49F2F16A86434009DEC85 /* NBNFilterAssigneeCell.xib */,
 				971F678816A1B46000638E90 /* NBNFilterStatusCell.h */,
 				971F678916A1B46100638E90 /* NBNFilterStatusCell.m */,
 				971F678F16A1B49E00638E90 /* NBNFilterSortCell.h */,
@@ -1463,6 +1471,7 @@
 				979898E416A48FB500A60B6D /* tab_unselected_03@2x.png in Resources */,
 				979898FA16A49E1F00A60B6D /* NavBar_home.png in Resources */,
 				979898FB16A49E1F00A60B6D /* NavBar_home@2x.png in Resources */,
+				97C49F3016A86434009DEC85 /* NBNFilterAssigneeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1633,6 +1642,7 @@
 				971F679C16A1B5E800638E90 /* SVSegmentedThumb.m in Sources */,
 				979898D416A48E5100A60B6D /* NBNTabBarItem.m in Sources */,
 				97C49F2016A72CDC009DEC85 /* NBNIssueDetailViewController.m in Sources */,
+				97C49F2D16A8641D009DEC85 /* NBNFilterAssigneeCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
