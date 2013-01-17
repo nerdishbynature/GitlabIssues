@@ -16,17 +16,13 @@
 
 -(void)clearMilestone;
 
--(void)clearAssignee;
-
 @end
 
 @interface NBNFilterComponentsCell : UITableViewCell <HEBubbleViewDataSource, HEBubbleViewDelegate>
 
-@property (nonatomic, retain) id<NBNFilterComponentsCellDelegate> delegate;
+@property (nonatomic, assign) id<NBNFilterComponentsCellDelegate> delegate;
 
 +(NBNFilterComponentsCell *)loadCellFromNib;
-
--(void)configureCellWithAssignee:(Assignee *)_assignee;
 
 -(void)configureCellWithMilestone:(Milestone *)_milestone;
 

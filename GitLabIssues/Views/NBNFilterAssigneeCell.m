@@ -1,17 +1,16 @@
 //
-//  NBNFilterComponentsCell.m
+//  NBNFilterAssigneeCell.m
 //  GitLabIssues
 //
-//  Created by Piet Brauer on 07.01.13.
+//  Created by Piet Brauer on 17.01.13.
 //  Copyright (c) 2013 nerdishbynature. All rights reserved.
 //
 
-#import "NBNFilterComponentsCell.h"
+#import "NBNFilterAssigneeCell.h"
 
-@interface NBNFilterComponentsCell ()
+@interface NBNFilterAssigneeCell ()
 
-@property (nonatomic, retain) Milestone *milestone;
-@property (nonatomic, retain) NSArray *labels;
+@property (nonatomic, retain) Assignee *assignee;
 @property (retain, nonatomic) IBOutlet UILabel *headlineLabel;
 @property (retain, nonatomic) IBOutlet UIView *bubbleContainer;
 @property (retain, nonatomic) IBOutlet UILabel *placeholderLabel;
@@ -20,12 +19,11 @@
 
 @end
 
-@implementation NBNFilterComponentsCell
-@synthesize milestone;
-@synthesize labels;
+@implementation NBNFilterAssigneeCell
+@synthesize delegate;
 @synthesize bubbleView;
 @synthesize clearButton;
-@synthesize delegate;
+@synthesize assignee;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -43,14 +41,14 @@
     // Configure the view for the selected state
 }
 
-+(NBNFilterComponentsCell *)loadCellFromNib{
-    return (NBNFilterComponentsCell *)[[[NSBundle mainBundle] loadNibNamed:@"NBNFilterComponentsCell" owner:self options:kNilOptions] objectAtIndex:0];
++(NBNFilterAssigneeCell *)loadCellFromNib{
+    return (NBNFilterAssigneeCell *)[[[NSBundle mainBundle] loadNibNamed:@"NBNFilterAssigneeCell" owner:self options:kNilOptions] objectAtIndex:0];
 }
 
--(void)configureCellWithMilestone:(Milestone *)_milestone{
-    self.milestone = _milestone;
-    self.headlineLabel.text = @"Milestone:";
-    self.placeholderLabel.text = @"None";
+-(void)configureCellWithAssignee:(Assignee *)_assignee{
+    self.assignee = _assignee;
+    self.headlineLabel.text = @"Assigned:";
+    self.placeholderLabel.text = @"Anyone";
     
     CGSize headlineLabelSize =  [self.headlineLabel.text sizeWithFont:self.headlineLabel.font
                                                     constrainedToSize:CGSizeMake(MAXFLOAT, self.headlineLabel.frame.size.height)
@@ -59,7 +57,7 @@
     
     self.bubbleView = [[HEBubbleView alloc] initWithFrame:CGRectMake(self.headlineLabel.frame.origin.x+self.headlineLabel.frame.size.width+5, self.bubbleContainer.frame.origin.y, self.bubbleContainer.frame.size.width, self.bubbleContainer.frame.size.height)];
     
-    if (self.milestone) {
+    if (self.assignee) {
         self.placeholderLabel.hidden = YES;
         self.clearButton.hidden = NO;
         
@@ -74,18 +72,15 @@
         
         [self.bubbleView addItemAnimated:YES];
     } else{
-        self.clearButton.hidden = YES;
         self.placeholderLabel.hidden = NO;
+        self.clearButton.hidden = YES;
     }
-}
-
--(void)configureCellWithLabels:(NSArray *)_labels{
-    self.labels = _labels;
+    
 }
 
 -(IBAction)clearButtonPushed:(id)sender{
-
-    [self.delegate clearMilestone];
+    
+    [self.delegate clearAssignee];
 }
 
 #pragma mark - HEBubbleViewStuff
@@ -108,7 +103,7 @@
     }
     
 
-    item.textLabel.text = self.milestone.title;
+    item.textLabel.text = self.assignee.name;
     
     return item;
 }
@@ -148,17 +143,16 @@
 }
 
 -(void)dealloc{
-    self.milestone = nil;
-    self.labels = nil;
+    self.assignee = nil;
     
-    [milestone release];
-    [labels release];
-
+    [assignee release];    
     [_headlineLabel release];
     [_bubbleContainer release];
     [_placeholderLabel release];
-
+    
     [super dealloc];
 }
+
+
 
 @end
