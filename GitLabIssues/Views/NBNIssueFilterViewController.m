@@ -99,26 +99,31 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     
     if (indexPath.section == 0) {// Assignee and Milestone
         
-        NBNFilterComponentsCell *cell;
+        
         
         switch (indexPath.row) {
             case 0:
             {
+                NBNFilterAssigneeCell *cell;
+                
                 static NSString  *CellIdentifier = @"ComponentsAssigneeCellIdentifier";
                 cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
                 
                 if (!cell) {
-                    cell = [NBNFilterComponentsCell loadCellFromNib];
+                    cell = [NBNFilterAssigneeCell loadCellFromNib];
                 }
                 
-                PBLog(@"Assigned %@", self.filter.assigned);
                 [cell configureCellWithAssignee:self.filter.assigned];
                 cell.delegate = self;
+                
+                return cell;
             }
                 break;
             
             case 1:
             {
+                NBNFilterComponentsCell *cell;
+                
                 static NSString  *CellIdentifier = @"ComponentsMilestoneCellIdentifier";
                 cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
                 
@@ -126,16 +131,18 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
                     cell = [NBNFilterComponentsCell loadCellFromNib];
                 }
                 
-                PBLog(@"Milestone %@", self.filter.milestone);
                 [cell configureCellWithMilestone:self.filter.milestone];
                 cell.delegate = self;
+                
+                return cell;
             }
                 break;
             default:
+                return nil;
                 break;
         }
         
-        return cell;
+
         
     } else if (indexPath.section == 1){ // open/closed Issues
         static NSString  *CellIdentifier = @"SegmentedStatusCellIdentifier";
