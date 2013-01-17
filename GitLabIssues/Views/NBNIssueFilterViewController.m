@@ -37,6 +37,7 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 +(NBNIssueFilterViewController *)loadViewControllerWithFilter:(Filter *)_filter{
     NBNIssueFilterViewController *filterController = [[[NBNIssueFilterViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
     filterController.filter = _filter;
+    filterController.view.backgroundColor = [UIColor whiteColor];
     //[filterController configureView];
     
     return filterController;
