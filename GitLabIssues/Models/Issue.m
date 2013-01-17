@@ -206,8 +206,11 @@
     if (self.assignee.identifier)
         [dict setObject:self.assignee.identifier forKey:@"assignee_id"];
     
-    if (self.milestone.identifier)
+    if (self.milestone.identifier){
         [dict setObject:self.milestone.identifier forKey:@"milestone_id"];
+    } else{
+        [dict setObject:@"null" forKey:@"milestone_id"];
+    }
     
     return [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:nil];
 }
@@ -220,14 +223,22 @@
     if (self.title)
         [dict setObject:self.title forKey:@"title"];
 
-    if (self.descriptionString)
+    if (![self.descriptionString isEqualToString:@""]){
         [dict setObject:self.descriptionString forKey:@"description"];
+    } else{
+        [dict setValue:nil forKey:@"description"];
+    }
+    
+    PBLog(@"description %@", [dict objectForKey:@"description"]);
     
     if (self.assignee.identifier)
         [dict setObject:self.assignee.identifier forKey:@"assignee_id"];
     
-    if (self.milestone.identifier)
+    if (self.milestone.identifier){
         [dict setObject:self.milestone.identifier forKey:@"milestone_id"];
+    } else{
+        [dict setObject:@"null" forKey:@"milestone_id"];
+    }
     
     if (self.closed)
         [dict setObject:self.closed forKey:@"closed"];
