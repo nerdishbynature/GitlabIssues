@@ -223,8 +223,13 @@
     if (self.title)
         [dict setObject:self.title forKey:@"title"];
 
-    if (self.descriptionString)
+    if (![self.descriptionString isEqualToString:@""]){
         [dict setObject:self.descriptionString forKey:@"description"];
+    } else{
+        [dict setValue:nil forKey:@"description"];
+    }
+    
+    PBLog(@"description %@", [dict objectForKey:@"description"]);
     
     if (self.assignee.identifier)
         [dict setObject:self.assignee.identifier forKey:@"assignee_id"];
