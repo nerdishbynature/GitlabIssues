@@ -39,7 +39,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self createEditButton];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"Edit" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+    [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+    [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+    [button addTarget:self action:@selector(enterEditMode:) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+    
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+    
     [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
 }
 
@@ -151,40 +161,33 @@
 
 -(IBAction)enterEditMode:(id)sender {
     
-    if ([self.tableView isEditing]) {
+    if (self.tableView.isEditing) {
         //Turn off edit mode
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [button setTitle:@"Edit" forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+        [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+        [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+        [button addTarget:self action:@selector(enterEditMode:) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+        
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
         [self.tableView setEditing:NO animated:YES];
-        [self createDoneButton];
     }
     else {
         // Turn on edit mode
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:@"Done" forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
+        [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
+        [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+        [button addTarget:self action:@selector(enterEditMode:) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+        
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
         [self.tableView setEditing:YES animated:YES];
-        [self createEditButton];
     }
-}
-
--(void)createEditButton{
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setTitle:@"Edit" forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
-    [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
-    [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
-    [button addTarget:self action:@selector(enterEditMode:) forControlEvents:UIControlEventTouchUpInside];
-    [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
-    
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-}
-
--(void)createDoneButton{
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:@"Done" forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
-    [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
-    [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
-    [button addTarget:self action:@selector(enterEditMode:) forControlEvents:UIControlEventTouchUpInside];
-    [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
-    
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
 }
 
 #pragma mark - FilterDelegate
