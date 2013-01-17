@@ -177,6 +177,8 @@
 }
 
 -(void)discard{
+    [self.view endEditing:YES];
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Do you want to discard your changes?" message:@"" delegate:self cancelButtonTitle:@"Keep" otherButtonTitles:@"Discard", nil];
     [alert show];
     [alert release];
