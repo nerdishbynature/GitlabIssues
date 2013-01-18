@@ -219,6 +219,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:self.project_id forKey:@"id"];
     [dict setObject:self.identifier forKey:@"issue_id"];
+    [dict setObject:self.closed forKey:@"closed"];
     
     if (self.title)
         [dict setObject:self.title forKey:@"title"];
@@ -229,10 +230,11 @@
         [dict setValue:nil forKey:@"description"];
     }
     
-    PBLog(@"description %@", [dict objectForKey:@"description"]);
-    
-    if (self.assignee.identifier)
+    if (self.assignee.identifier){
         [dict setObject:self.assignee.identifier forKey:@"assignee_id"];
+    } else{
+        [dict setValue:nil forKey:@"assignee_id"];
+    }
     
     if (self.milestone.identifier){
         [dict setObject:self.milestone.identifier forKey:@"milestone_id"];
@@ -240,8 +242,8 @@
         [dict setObject:@"null" forKey:@"milestone_id"];
     }
     
-    if (self.closed)
-        [dict setObject:self.closed forKey:@"closed"];
+
+
     
     return [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:nil];
 }

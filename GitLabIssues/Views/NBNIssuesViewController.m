@@ -148,23 +148,19 @@
     
     if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitle:@"Unstar" forState:UIControlStateNormal];
-        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
-        [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
-        [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+        UIImage *image = [UIImage imageNamed:@"star_selected.png"];
+        [button setFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
         [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
-        [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
         
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     } else{
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitle:@"Star" forState:UIControlStateNormal];
-        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
-        [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
-        [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+        UIImage *image = [UIImage imageNamed:@"star.png"];
+        [button setFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
         [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
-        [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
         
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     }
@@ -293,23 +289,19 @@
     
     if ([self.project.isFavorite isEqualToNumber:[NSNumber numberWithBool:YES]] ) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitle:@"Unstar" forState:UIControlStateNormal];
-        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
-        [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
-        [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+        UIImage *image = [UIImage imageNamed:@"star_selected.png"];
+        [button setFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
         [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
-        [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
         
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     } else{
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitle:@"Star" forState:UIControlStateNormal];
-        [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
-        [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
-        [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
+        UIImage *image = [UIImage imageNamed:@"star.png"];
+        [button setFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
         [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
-        [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
         
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     }

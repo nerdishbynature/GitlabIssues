@@ -66,6 +66,12 @@
 
 - (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute
                                    title:(NSString *)title
+                         placeholderText:(NSString *)placeholderText
+                            keyboardType:(UIKeyboardType)keyboardType
+                                    type:(FKFormAttributeMappingType)type;
+
+- (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute
+                                   title:(NSString *)title
                                     type:(FKFormAttributeMappingType)type
                          controllerClass:(Class)controllerClass;
 
