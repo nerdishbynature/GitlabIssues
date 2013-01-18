@@ -164,8 +164,6 @@
     
     NBNIssueDetailViewController *issueController = [NBNIssueDetailViewController loadViewControllerWithIssue:issue];
     [self.navigationController pushViewController:issueController animated:YES];
-    
-    [issueController release];
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
