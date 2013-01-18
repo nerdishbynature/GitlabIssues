@@ -198,18 +198,18 @@
     [dict setObject:self.project_id forKey:@"id"];
     
     if (self.title)
-        [dict setObject:self.title forKey:@"title"];
+        [dict setValue:self.title forKey:@"title"];
     
     if (self.descriptionString)
-        [dict setObject:self.descriptionString forKey:@"description"];
+        [dict setValue:self.descriptionString forKey:@"description"];
     
     if (self.assignee.identifier)
-        [dict setObject:self.assignee.identifier forKey:@"assignee_id"];
+        [dict setValue:self.assignee.identifier forKey:@"assignee_id"];
     
     if (self.milestone.identifier){
-        [dict setObject:self.milestone.identifier forKey:@"milestone_id"];
+        [dict setValue:self.milestone.identifier forKey:@"milestone_id"];
     } else{
-        [dict setObject:@"null" forKey:@"milestone_id"];
+        [dict setValue:@"null" forKey:@"milestone_id"];
     }
     
     return [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:nil];
@@ -217,29 +217,29 @@
 
 -(NSData *)toJSON{
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:self.project_id forKey:@"id"];
-    [dict setObject:self.identifier forKey:@"issue_id"];
-    [dict setObject:self.closed forKey:@"closed"];
+    [dict setValue:self.project_id forKey:@"id"];
+    [dict setValue:self.identifier forKey:@"issue_id"];
+    [dict setValue:self.closed forKey:@"closed"];
     
     if (self.title)
-        [dict setObject:self.title forKey:@"title"];
+        [dict setValue:self.title forKey:@"title"];
 
     if (![self.descriptionString isEqualToString:@""]){
-        [dict setObject:self.descriptionString forKey:@"description"];
+        [dict setValue:self.descriptionString forKey:@"description"];
     } else{
         [dict setValue:nil forKey:@"description"];
     }
     
     if (self.assignee.identifier){
-        [dict setObject:self.assignee.identifier forKey:@"assignee_id"];
+        [dict setValue:self.assignee.identifier forKey:@"assignee_id"];
     } else{
         [dict setValue:nil forKey:@"assignee_id"];
     }
     
     if (self.milestone.identifier){
-        [dict setObject:self.milestone.identifier forKey:@"milestone_id"];
+        [dict setValue:self.milestone.identifier forKey:@"milestone_id"];
     } else{
-        [dict setObject:@"null" forKey:@"milestone_id"];
+        [dict setValue:@"null" forKey:@"milestone_id"];
     }
     
 
