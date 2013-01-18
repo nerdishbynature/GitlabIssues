@@ -54,7 +54,7 @@
 	// Show the HUD while the provided method executes in a new thread
 	[HUD show:YES];
     
-    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain findAll] objectAtIndex:0] onSuccess:^{
+    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain findAll] lastObject] onSuccess:^{
         [self refreshDataSource];
     }];
 }

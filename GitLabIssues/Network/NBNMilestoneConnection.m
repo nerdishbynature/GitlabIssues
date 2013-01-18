@@ -38,7 +38,7 @@ static NBNMilestoneConnection *sharedConnection = nil;
 }
 
 -(void)loadAllMilestonesForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block{
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Domain *domain = [[Domain findAll] lastObject];
     
     if (![[NBNReachabilityChecker sharedChecker] isReachable]){
         block();
@@ -80,7 +80,7 @@ static NBNMilestoneConnection *sharedConnection = nil;
     
     if (![[NBNReachabilityChecker sharedChecker] isReachable]) block(@[]);
     
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Domain *domain = [[Domain findAll] lastObject];
     Session *firstSession = [[Session findAll] lastObject];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, firstSession.private_token]];

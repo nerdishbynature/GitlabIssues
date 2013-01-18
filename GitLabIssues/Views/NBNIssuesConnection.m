@@ -54,7 +54,7 @@ static NBNIssuesConnection *sharedConnection = nil;
         return;
     }
     
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Domain *domain = [[Domain findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
     
@@ -95,7 +95,7 @@ static NBNIssuesConnection *sharedConnection = nil;
         return;
     }
     
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Domain *domain = [[Domain findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         //GET /projects/:id/issues/:issue_id        
@@ -123,7 +123,7 @@ static NBNIssuesConnection *sharedConnection = nil;
         return;
     }
 
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Domain *domain = [[Domain findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         //GET /projects/:id/issues/:issue_id/notes
@@ -170,7 +170,7 @@ static NBNIssuesConnection *sharedConnection = nil;
         return;
     }
     
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Domain *domain = [[Domain findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         //POST /projects/:id/issues/:issue_id/notes
@@ -213,7 +213,7 @@ static NBNIssuesConnection *sharedConnection = nil;
         return;
     }
     
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Domain *domain = [[Domain findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
 

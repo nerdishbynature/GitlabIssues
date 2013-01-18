@@ -79,7 +79,7 @@
 //@see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#edit-issue
 
 -(void)saveChangesonSuccess:(void (^)(void))block{
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Domain *domain = [[Domain findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.identifier, session.private_token]];
@@ -107,7 +107,7 @@
 
 -(void)createANewOnServerOnSuccess:(void(^)(void))block{
     
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Domain *domain = [[Domain findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@",domain.protocol, domain.domain, self.project_id, session.private_token]];
