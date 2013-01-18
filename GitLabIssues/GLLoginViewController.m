@@ -50,9 +50,15 @@
         self.domain.email = @"";
         self.domain.password = @"";
     } else{
+        for (Domain *domainInArray in [Domain findAll]) {
+            [[NSManagedObjectContext MR_defaultContext] deleteObject:domainInArray];
+        }
         
-        self.domain = [[Domain findAll] objectAtIndex:0];
-    
+        self.domain = [Domain createEntity];
+        self.domain.protocol = @"http";
+        self.domain.domain = @"";
+        self.domain.email = @"";
+        self.domain.password = @"";
     }
     
     self.title = @"Add your domain";
