@@ -1,11 +1,16 @@
-When /^I touch the cell marked "(.*?)"$/ do |name|
-  touch "view:'UILabel' marked:'#{name}'"
+When /^I touch the cell with placeholder "(.*?)"$/ do |name|
+  touch("view:'UITextFieldLabel' marked:'#{name}'")
 end
 
-When /^I touch the UIToolbarButton with text "(.*?)"$/ do |arg1|
-  touch "view:'UIToolbarTextButton' marked:'#{arg1}'"
+When /^I touch the cell with label "(.*?)"$/ do |name|
+  touch("view:'UIlabel' marked:'#{name}'")
 end
 
-Then /^I should see a cell with description "(.*?)" and content "(.*?)"$/ do |arg1, arg2|
-	
+When /^I touch the button labeled "(.*?)"$/ do |name|
+  touch("view:'UIlabel' marked:'#{name}'")
+end
+
+When /^I touch the table cell marked "([^\"]*)"$/ do |mark|
+  quote = get_selector_quote(mark)
+  touch("view:'UIlabel' marked:#{quote}#{mark}#{quote}")
 end
