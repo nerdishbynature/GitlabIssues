@@ -406,7 +406,7 @@
                                                 doneBlock:done
                                               cancelBlock:nil
                                                    origin:(nil == self.viewOrigin) ? self.tableView : self.viewOrigin];
-    
+    picker.accessibilityLabel = attributeMapping.title;
     picker.formAttributeMapping = attributeMapping;
 }
 

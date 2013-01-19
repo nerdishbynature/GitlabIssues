@@ -86,6 +86,11 @@
     if ([self.domainArray count] == 0) { // show login screen
         
         [self logout:nil];
+        
+    } else if ([((Domain *)[self.domainArray objectAtIndex:0]).domain isEqualToString:@""]){
+        
+        [self logout:nil];
+        
     }
 }
 

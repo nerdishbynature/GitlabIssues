@@ -43,8 +43,8 @@
     [super viewDidLoad];
     
     [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
-    [[NBNMilestoneConnection sharedConnection] loadAllMilestonesForProjectID:self.projectID onSuccess:^{
-        self.milestonesArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Milestone"] where:@"project_id == %i", projectID] toArray];
+    [NBNMilestoneConnection loadMilestonesWithProjectID:projectID onSucess:^(NSArray *milestones) {
+        self.milestonesArray = milestones;
         [self.tableView reloadData];
     }];
 }

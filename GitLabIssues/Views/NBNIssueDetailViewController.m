@@ -93,7 +93,7 @@
 
 -(void)refreshData{
     self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-	[self.navigationController.view addSubview:HUD];
+	[self.view addSubview:HUD];
     
 	// Show the HUD while the provided method executes in a new thread
 	[HUD show:YES];
@@ -101,11 +101,13 @@
     [[NBNIssuesConnection sharedConnection] reloadIssue:self.issue onSuccess:^{
         [self.tableView reloadData];
         [self.HUD setHidden:YES];
+        [self.HUD removeFromSuperview];
     }];
     
     [[NBNIssuesConnection sharedConnection] loadNotesForIssue:self.issue onSuccess:^(NSArray *notesArray) {
         [self.tableView reloadData];
         [self.HUD setHidden:YES];
+        [self.HUD removeFromSuperview];
     }];
 }
 

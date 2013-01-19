@@ -61,13 +61,14 @@
 
 -(void)refreshFavorites{
     self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-	[self.navigationController.view addSubview:HUD];
+	[self.view addSubview:HUD];
     
 	// Show the HUD while the provided method executes in a new thread
 	[HUD show:YES];
     self.favoriteArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"isFavorite == 1"] toArray];
     [self.tableView reloadData];
     [HUD setHidden:YES];
+    [HUD removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning

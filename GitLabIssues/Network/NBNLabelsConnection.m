@@ -36,7 +36,7 @@ static NBNLabelsConnection *sharedConnection = nil;
 }
 
 -(void)loadAllLabelsForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block{
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Domain *domain = [[Domain findAll] lastObject];
 
     if (![[NBNReachabilityChecker sharedChecker] isReachable]){
         block();

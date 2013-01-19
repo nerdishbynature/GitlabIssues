@@ -22,9 +22,9 @@
 +(void)generateSessionWithCompletion:(void (^)(Session *session))block onError:(void (^)(NSError *error))errorBlock{
     __block Session *session = [Session createEntity];
     
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Domain *domain = [[Domain findAll] lastObject];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/session", domain.protocol, domain.domain]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/session/", domain.protocol, domain.domain]];
     PBLog(@"url %@", url);
     
     __block ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -51,7 +51,13 @@
         session.blocked = [NSNumber numberWithBool:[[dict objectForKey:@"blocked"] boolValue]];
         session.name = [dict objectForKey:@"name"];
         
-        block(session);
+        if (!session.private_token) {
+            errorBlock(request.error);
+        } else{
+            block(session);
+        }
+        
+        
     }];
     
     [request setFailedBlock:^{

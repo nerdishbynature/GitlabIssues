@@ -78,7 +78,7 @@ static NBNProjectConnection* sharedConnection = nil;
         return;
     }
     
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Domain *domain = [[Domain findAll] lastObject];
 
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         

@@ -48,7 +48,7 @@ static NBNUsersConnection *sharedConnection = nil;
 
     if (![[NBNReachabilityChecker sharedChecker] isReachable]) block(@[]);
     
-    Domain *domain = [[Domain findAll] objectAtIndex:0];
+    Domain *domain = [[Domain findAll] lastObject];
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/members?private_token=%@", domain.protocol, domain.domain, project_id, session.private_token]];
