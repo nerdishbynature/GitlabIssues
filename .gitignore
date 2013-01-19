@@ -24,7 +24,9 @@ profile
 # NB: NIB/XIB files still exist even on Storyboard projects, so we want this...
  
 *~.nib
- 
+*.app 
+
+Frank/fankified_build/
  
 ####
 # Xcode build files -
@@ -36,8 +38,7 @@ DerivedData/
 # NB: slash on the end, so we only remove the FOLDER, not any files that were badly named "build"
  
 build/
-Frank/frankified_build/* 
- 
+
 #####
 # Xcode private settings (window sizes, bookmarks, breakpoints, custom executables, smart groups)
 #
