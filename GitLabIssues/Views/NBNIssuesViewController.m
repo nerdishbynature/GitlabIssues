@@ -118,6 +118,7 @@
     [[NBNIssuesConnection sharedConnection] loadIssuesForProject:self.project onSuccess:^{
         [self refreshDataSource];
         [self.HUD setHidden:YES];
+        [self.HUD removeFromSuperview];
     }];
 }
 

@@ -39,14 +39,13 @@
     [super viewDidAppear:animated];
     
     self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-	[self.navigationController.view addSubview:HUD];
+	[self.view addSubview:HUD];
 	
 	// Regiser for HUD callbacks so we can remove it from the window at the right time
 	HUD.delegate = self;
 	
 	// Show the HUD while the provided method executes in a new thread
 	[HUD show:YES];
-    [self.HUD setRemoveFromSuperViewOnHide:YES];
     [self loadAllIssues];
 }
 
@@ -68,6 +67,7 @@
         [[NBNIssuesConnection sharedConnection] loadAllIssuesOnSuccess:^{
             [self reloadResults];
             [self.HUD hide:YES];
+            [self.HUD removeFromSuperview];
         }];
     }];
     

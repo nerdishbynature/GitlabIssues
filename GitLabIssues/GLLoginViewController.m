@@ -108,10 +108,10 @@
         [self dismissViewControllerAnimated:YES completion:nil];
         [[NSManagedObjectContext MR_defaultContext] MR_saveNestedContexts];
         [self.HUD setHidden:YES];
-        
+        [self.HUD removeFromSuperview];
     } onError:^(NSError *error) {
         [self.HUD setHidden:YES];
-        
+        [self.HUD removeFromSuperview];
         UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Something went wrong, please check your input." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
         [view show];
     }];

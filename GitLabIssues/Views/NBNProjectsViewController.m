@@ -44,7 +44,7 @@
     [super viewDidAppear:animated];
     
     self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-	[self.navigationController.view addSubview:HUD];
+	[self.view addSubview:HUD];
     
     [self.navigationController setToolbarHidden:YES animated:YES];
 	
@@ -106,7 +106,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-	[self.navigationController.view addSubview:HUD];
+	[self.view addSubview:HUD];
 	
 	// Regiser for HUD callbacks so we can remove it from the window at the right time
 	HUD.delegate = self;
@@ -124,6 +124,7 @@
     self.projectsArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
     [self.tableView reloadData];
     [self.HUD setHidden:YES];
+    [self.HUD removeFromSuperview];
 }
 
 - (void)pushBackButton:(id)sender {

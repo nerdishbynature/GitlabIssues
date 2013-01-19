@@ -62,7 +62,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-	[self.navigationController.view addSubview:HUD];
+	[self.view addSubview:HUD];
     
 	// Show the HUD while the provided method executes in a new thread
 	[HUD show:YES];
@@ -71,6 +71,7 @@
         self.projectsArray = [Project findAllSortedBy:@"identifier" ascending:YES];
         [self.tableView reloadData];
         [HUD setHidden:YES];
+        [self.HUD removeFromSuperview];
     }];
 }
 
