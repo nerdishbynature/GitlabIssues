@@ -60,8 +60,8 @@
     [FKFormMapping mappingForClass:[Issue class] block:^(FKFormMapping *mapping) {
         [mapping sectionWithTitle:@"" footer:@"" identifier:@"edit"];
         
-        [mapping mapAttribute:@"title" title:@"Title" type:FKFormAttributeMappingTypeText];
-        [mapping mapAttribute:@"descriptionString" title:@"Description" type:FKFormAttributeMappingTypeBigText];
+        [mapping mapAttribute:@"title" title:@"Title" placeholderText:@"title" type:FKFormAttributeMappingTypeText];
+        [mapping mapAttribute:@"descriptionString" title:@"Description" placeholderText:@"description" type:FKFormAttributeMappingTypeBigText];
         
         
         [[NBNUsersConnection sharedConnection] loadMembersWithProjectID:[self.issue.project_id integerValue] onSuccess:^(NSArray *array) {
@@ -188,6 +188,7 @@
 -(void)saveIssue{
     PBLog(@"Issue: %@", self.issue);
     [self.formModel save];
+    [self.view endEditing:YES];
     
     if (self.editMode) {
         [self.issue saveChangesonSuccess:^{
