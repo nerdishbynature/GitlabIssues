@@ -66,6 +66,7 @@
         [addButton setBackgroundImage:addButtonImage forState:UIControlStateNormal];
         [addButton addTarget:self action:@selector(addNewIssue) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *createButton = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+        createButton.accessibilityLabel = @"Add";
         
         UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage *refreshButtonImage = [UIImage imageNamed:@"BarButton_Refresh.png"];
@@ -74,6 +75,7 @@
         [refreshButton setBackgroundImage:refreshButtonImage forState:UIControlStateNormal];
         [refreshButton addTarget:self action:@selector(refreshIssues) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
+        refreshBarButton.accessibilityLabel = @"Refresh";
         
         UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage *filterButtonImage = [UIImage imageNamed:@"BarButton_Filter.png"];
@@ -82,6 +84,7 @@
         [filterButton setBackgroundImage:filterButtonImage forState:UIControlStateNormal];
         [filterButton addTarget:self action:@selector(filter) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *filterBarButton = [[UIBarButtonItem alloc] initWithCustomView:filterButton];
+        filterButton.accessibilityLabel = @"Filter";
         
         UIBarButtonItem	*flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         
