@@ -7,8 +7,9 @@ Given I launch the app
 
 Then I should see a navigation bar titled "Add your domain"
 When I touch the 4 table cell
-When I select 1 row in picker "Protocol"
-When I touch "Done" picker button
+And I wait for 1 second
+And I touch the table cell marked "https"
+And I touch "Back"
 
 Then I should see a navigation bar titled "Add your domain"
 When I touch the cell with placeholder "www.example.com"
@@ -24,8 +25,9 @@ Given I launch the app
 
 Then I should see a navigation bar titled "Add your domain"
 When I touch the 4 table cell
-When I select 1 row in picker "Protocol"
-When I touch "Done" picker button
+And I wait for 1 second
+And I touch the table cell marked "https"
+And I touch "Back"
 
 Then I should see a navigation bar titled "Add your domain"
 When I touch the cell with placeholder "www.example.com"
@@ -45,8 +47,9 @@ Given I launch the app
 
 Then I should see a navigation bar titled "Add your domain"
 When I touch the 4 table cell
-When I select 1 row in picker "Protocol"
-When I touch "Done" picker button
+And I wait for 1 second
+And I touch the table cell marked "https"
+And I touch "Back"
 
 Then I should see a navigation bar titled "Add your domain"
 When I touch the cell with placeholder "www.example.com"

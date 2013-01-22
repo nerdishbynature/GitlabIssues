@@ -27,9 +27,26 @@ When I touch the 1 table cell
 And I wait for 2 seconds
 Then I should see a navigation bar titled "AppleDemo"
 
+Scenario: Change Assignee
+
+When I touch the 2 table cell
+And I wait for 2 seconds
+And I touch "Edit"
+And I wait for 2 seconds
+And I touch the 1 table cell
+And I wait for 1 second
+And I select 1 row in picker "Assignee"
+And I touch "Done" picker button
+And I wait for 1 second
+Then I should see a table view label marked "Piet Brauer"
+
+When I touch "Done"
+And I wait for 2 seconds
+Then I should see a bubble item marked "Piet Brauer"
+
 Scenario: Close an issue
 
-When I touch the 1 table cell
+When I touch the 2 table cell
 And I wait for 2 seconds
 And I touch "Open"
 And I wait for 2 seconds
