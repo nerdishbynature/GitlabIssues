@@ -71,7 +71,7 @@
         
         [mapping mapAttribute:@"protocol"
                         title:@"Protocol"
-                 showInPicker:YES
+                 showInPicker:NO
             selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
                 selectedValueIndex = 0;
                 return [NSArray arrayWithObjects:@"https", @"http", nil];

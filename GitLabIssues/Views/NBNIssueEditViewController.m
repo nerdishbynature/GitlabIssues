@@ -84,7 +84,7 @@
     if (milestones.count > 0) {
         [mapping mapAttribute:@"milestone"
                         title:@"Milestone"
-                 showInPicker:YES
+                 showInPicker:NO
             selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
                 *selectedValueIndex = 0;
                 
@@ -130,7 +130,7 @@
 -(void)mapAssigneesWithArray:(NSArray *)array andMapping:(FKFormMapping *)mapping{
     [mapping mapAttribute:@"assignee"
                     title:@"Assignee"
-             showInPicker:YES
+             showInPicker:NO
         selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
             *selectedValueIndex = 0;
             
