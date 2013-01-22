@@ -344,14 +344,14 @@
         
     } else if ([label isEqualToString:@"Status:"]){
         
-        if ([self.issue.closed boolValue] == YES) {
+        if ([self.issue.closed isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             self.issue.closed = [NSNumber numberWithBool:NO];
         } else{
             self.issue.closed = [NSNumber numberWithBool:YES];
         }
         
         [self.issue saveChangesonSuccess:^{
-            [self.tableView reloadData];
+            [self refreshData];
         }];
         
     } else if ([label isEqualToString:@"Milestone:"]){
