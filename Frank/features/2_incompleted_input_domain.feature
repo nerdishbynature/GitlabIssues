@@ -68,11 +68,6 @@ When I reset the simulator
 Given I launch the app
 
 Then I should see a navigation bar titled "Add your domain"
-When I touch the 4 table cell
-When I select 1 row in picker "Protocol"
-When I touch "Done" picker button
-
-Then I should see a navigation bar titled "Add your domain"
 When I touch the cell with placeholder "www.example.com"
 When I type "nerdishbynature.biz" into the "www.example.com" text field
 
