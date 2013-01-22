@@ -221,6 +221,7 @@
     [dict setValue:self.identifier forKey:@"issue_id"];
     [dict setValue:self.closed forKey:@"closed"];
     
+    
     if (self.title)
         [dict setValue:self.title forKey:@"title"];
 

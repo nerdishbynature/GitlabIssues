@@ -93,6 +93,7 @@
     }
     
     item.textLabel.text = self.detailString;
+    item.accessibilityLabel = self.detailString;
     
     return item;
 }
