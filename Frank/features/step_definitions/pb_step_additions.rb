@@ -25,6 +25,11 @@ end
 
 Then /^I should see a bubble item marked "(.*?)"$/ do |mark|
   quote = get_selector_quote(mark)
+  check_element_exists("view:'HEBubbleViewItem' marked:#{quote}#{mark}#{quote}")
+end
+
+When /^I touch the bubble item marked  "(.*?)"$/ do |mark|
+  quote = get_selector_quote(mark)
   touch("view:'HEBubbleViewItem' marked:#{quote}#{mark}#{quote}")
 end
 

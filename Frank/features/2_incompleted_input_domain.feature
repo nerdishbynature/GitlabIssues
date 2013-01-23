@@ -20,7 +20,6 @@ Then I should see a navigation bar titled "Add your domain"
 
 Scenario: Type in only domain and email
 
-When I reset the simulator
 Given I launch the app
 
 Then I should see a navigation bar titled "Add your domain"
@@ -42,7 +41,6 @@ Then I should see a navigation bar titled "Add your domain"
 
 Scenario: Type in a correct domain without saving
 
-When I reset the simulator
 Given I launch the app
 
 Then I should see a navigation bar titled "Add your domain"
@@ -67,7 +65,6 @@ Then I should see a navigation bar titled "Add your domain"
 
 Scenario: Type in a correct domain
 
-When I reset the simulator
 Given I launch the app
 
 And I touch the 4 table cell
