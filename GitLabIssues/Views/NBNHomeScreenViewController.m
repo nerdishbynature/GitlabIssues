@@ -13,7 +13,6 @@
 #import "NBNDashboardViewController.h"
 #import "GLLoginViewController.h"
 #import "Domain.h"
-#import "TestFlight.h"
 
 @interface NBNHomeScreenViewController ()
 
@@ -30,8 +29,6 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
-//        self.title = @"Gitlab:Issues";
         self.menuArray = @[@"Favorites", @"Dashboard", @"Find Repos"];
     }
     return self;
@@ -49,20 +46,6 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
--(void)createFeedbackButton{
-    UIButton *feedback = [UIButton buttonWithType:UIButtonTypeCustom];
-	[feedback setTitle:@"Feedback" forState:UIControlStateNormal];
-    [feedback.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
-	[feedback setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
-    [feedback setFrame:CGRectMake(0, 0, 58.f, 27.f)];
-    [feedback addTarget:self action:@selector(feedback:) forControlEvents:UIControlEventTouchUpInside];
-    [feedback setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:feedback];
-    
-    self.domainArray = [Domain findAll];
-}
-
 -(void)feedback:(id)sender{
     [TestFlight openFeedbackView];
 }
@@ -71,10 +54,10 @@
     [super viewWillAppear:animated];
     self.domainArray = [Domain findAll];
     [self.tableView reloadData];
+    
     UIImage *backgroundImage = [UIImage imageNamed:@"NavBar_home.png"];
     [self.navigationController.navigationBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
     
-    [self createFeedbackButton];
     [self createLogoutButton];
 }
 
@@ -87,10 +70,12 @@
         
         [self logout:nil];
         
-    } else if ([((Domain *)[self.domainArray objectAtIndex:0]).domain isEqualToString:@""]){
+    } else{
+        Domain *domain = [self.domainArray lastObject];
         
-        [self logout:nil];
-        
+        if ([domain.domain isEqualToString:@""] || [domain.password isEqualToString:@""] || [domain.email isEqualToString:@""]) {
+            [self logout:nil];
+        }
     }
 }
 
