@@ -7,6 +7,7 @@
 //
 
 #import "NBNAppDelegate.h"
+#import <Crashlytics/Crashlytics.h>
 #import "NBNHomeScreenViewController.h"
 #import "Domain.h"
 #import "Session.h"
@@ -64,6 +65,8 @@
     
     [navController release];
     [homeScreen release];
+    
+    [Crashlytics startWithAPIKey:@"05ca0a6e33a6b525e43d012f5f45165567158056"];
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
