@@ -91,6 +91,17 @@
         [request appendPostData:[self toJSON]];
         
         [request setCompletionBlock:^{
+            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
+            
+            if (responseDict) {
+                [self parseServerResponse:responseDict];
+            }
+            
+            if (request.responseStatusCode == 500) {
+                UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"" message:@"Server denied Issue change. We encountered this problem too and are already looking into it." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil] autorelease];
+                [alert show];
+            }
+            
             block();
         }];
         
