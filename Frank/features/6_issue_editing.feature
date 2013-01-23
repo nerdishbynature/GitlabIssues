@@ -35,8 +35,7 @@ And I touch "Edit"
 And I wait for 2 seconds
 And I touch the 1 table cell
 And I wait for 1 second
-And I select 1 row in picker "Assignee"
-And I touch "Done" picker button
+And I touch the 1 table cell
 And I wait for 1 second
 Then I should see a table view label marked "Piet Brauer"
 
@@ -64,8 +63,7 @@ When I touch "Edit"
 And I wait for 1 second
 And I touch the 1 table cell
 And I wait for 1 second
-And I select 2 row in picker "Assignee"
-And I touch "Done" picker button
+And I touch the 1 table cell
 And I wait for 1 second
 And I touch "Apply"
 And I wait for 2 seconds

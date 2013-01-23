@@ -6,10 +6,10 @@ When I reset the simulator
 Given I launch the app
 
 Then I should see a navigation bar titled "Add your domain"
-When I touch the 4 table cell
+And I touch the 4 table cell
 And I wait for 1 second
-And I touch the table cell marked "https"
-And I touch "Back"
+And I touch the 2 table cell
+And I wait for 1 second
 
 Then I should see a navigation bar titled "Add your domain"
 When I touch the cell with placeholder "www.example.com"
@@ -24,10 +24,10 @@ When I reset the simulator
 Given I launch the app
 
 Then I should see a navigation bar titled "Add your domain"
-When I touch the 4 table cell
+And I touch the 4 table cell
 And I wait for 1 second
-And I touch the table cell marked "https"
-And I touch "Back"
+And I touch the 2 table cell
+And I wait for 1 second
 
 Then I should see a navigation bar titled "Add your domain"
 When I touch the cell with placeholder "www.example.com"
@@ -46,10 +46,10 @@ When I reset the simulator
 Given I launch the app
 
 Then I should see a navigation bar titled "Add your domain"
-When I touch the 4 table cell
+And I touch the 4 table cell
 And I wait for 1 second
-And I touch the table cell marked "https"
-And I touch "Back"
+And I touch the 2 table cell
+And I wait for 1 second
 
 Then I should see a navigation bar titled "Add your domain"
 When I touch the cell with placeholder "www.example.com"
@@ -69,6 +69,11 @@ Scenario: Type in a correct domain
 
 When I reset the simulator
 Given I launch the app
+
+And I touch the 4 table cell
+And I wait for 1 second
+And I touch the 2 table cell
+And I wait for 1 second
 
 Then I should see a navigation bar titled "Add your domain"
 When I touch the cell with placeholder "www.example.com"
