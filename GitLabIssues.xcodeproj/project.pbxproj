@@ -111,6 +111,7 @@
 		9732860B167E5F1D00CFACC2 /* NBNIssuesConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9732860A167E5F1D00CFACC2 /* NBNIssuesConnection.m */; };
 		974B8AE2169B549200ED15C5 /* NBNFilterComponentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 974B8AE1169B549200ED15C5 /* NBNFilterComponentsCell.m */; };
 		974B8AE7169B54D900ED15C5 /* NBNFilterComponentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974B8AE6169B54D900ED15C5 /* NBNFilterComponentsCell.xib */; };
+		974BF5B516B077B30027DF63 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 974BF5B416B077B30027DF63 /* Crashlytics.framework */; };
 		97714A1A169E05CC00308536 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 97714A18169E05CC00308536 /* navBar.png */; };
 		97714A1B169E05CC00308536 /* navBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97714A19169E05CC00308536 /* navBar@2x.png */; };
 		97714A1E169E093300308536 /* backButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97714A1D169E093300308536 /* backButton@2x.png */; };
@@ -422,6 +423,7 @@
 		974B8AE0169B549200ED15C5 /* NBNFilterComponentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNFilterComponentsCell.h; path = Views/NBNFilterComponentsCell.h; sourceTree = "<group>"; };
 		974B8AE1169B549200ED15C5 /* NBNFilterComponentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNFilterComponentsCell.m; path = Views/NBNFilterComponentsCell.m; sourceTree = "<group>"; };
 		974B8AE6169B54D900ED15C5 /* NBNFilterComponentsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NBNFilterComponentsCell.xib; path = Views/NBNFilterComponentsCell.xib; sourceTree = "<group>"; };
+		974BF5B416B077B30027DF63 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		97714A18169E05CC00308536 /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
 		97714A19169E05CC00308536 /* navBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navBar@2x.png"; sourceTree = "<group>"; };
 		97714A1D169E093300308536 /* backButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backButton@2x.png"; sourceTree = "<group>"; };
@@ -610,6 +612,7 @@
 				9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */,
 				9710B5AB167E2C4500F26DE2 /* Foundation.framework in Frameworks */,
 				97C7E3B616A6027600D5163F /* libTestFlight.a in Frameworks */,
+				974BF5B516B077B30027DF63 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +656,7 @@
 		9710B5A7167E2C4500F26DE2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				974BF5B416B077B30027DF63 /* Crashlytics.framework */,
 				97C7E3B416A6027600D5163F /* libTestFlight.a */,
 				97C7E3B516A6027600D5163F /* TestFlight.h */,
 				978F7099169F5CB1004A0B67 /* Security.framework */,
@@ -1376,6 +1380,7 @@
 				9710B5A0167E2C4500F26DE2 /* Sources */,
 				9710B5A1167E2C4500F26DE2 /* Frameworks */,
 				9710B5A2167E2C4500F26DE2 /* Resources */,
+				974BF5B216B077870027DF63 /* ShellScript */,
 			);
 			buildRules = (
 				97860A46168FB266003D2092 /* PBXBuildRule */,
@@ -1514,6 +1519,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		974BF5B216B077870027DF63 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 05ca0a6e33a6b525e43d012f5f45165567158056";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1753,6 +1771,10 @@
 		9710B5D8167E2C4600F26DE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
 				INFOPLIST_FILE = "GitLabIssues/GitLabIssues-Info.plist";
@@ -1776,6 +1798,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
