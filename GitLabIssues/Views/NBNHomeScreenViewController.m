@@ -46,10 +46,6 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
--(void)feedback:(id)sender{
-    [TestFlight openFeedbackView];
-}
-
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.domainArray = [Domain findAll];
