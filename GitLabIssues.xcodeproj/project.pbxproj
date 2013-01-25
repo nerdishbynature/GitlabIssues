@@ -141,6 +141,7 @@
 		978F7095169F590E004A0B67 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 978F708C169F590E004A0B67 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		978F7098169F593F004A0B67 /* NBNGitlabEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 978F7097169F593D004A0B67 /* NBNGitlabEngine.m */; };
 		978F709A169F5CB2004A0B67 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 978F7099169F5CB1004A0B67 /* Security.framework */; };
+		979043A916B3076D005CB2C5 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 979043A816B3076D005CB2C5 /* libFlurry.a */; };
 		979898D016A4809300A60B6D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 979898CF16A4809300A60B6D /* Default.png */; };
 		979898D416A48E5100A60B6D /* NBNTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 979898D316A48E5100A60B6D /* NBNTabBarItem.m */; };
 		979898DB16A48F2B00A60B6D /* tab_unselected_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 979898D716A48F2B00A60B6D /* tab_unselected_02.png */; };
@@ -211,7 +212,6 @@
 		97C49F3A16A87262009DEC85 /* star_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C49F3616A87262009DEC85 /* star_selected@2x.png */; };
 		97C49F3B16A87262009DEC85 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C49F3716A87262009DEC85 /* star.png */; };
 		97C49F3C16A87262009DEC85 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C49F3816A87262009DEC85 /* star@2x.png */; };
-		97C7E3B616A6027600D5163F /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C7E3B416A6027600D5163F /* libTestFlight.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -469,6 +469,8 @@
 		978F7096169F593B004A0B67 /* NBNGitlabEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNGitlabEngine.h; sourceTree = "<group>"; };
 		978F7097169F593D004A0B67 /* NBNGitlabEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBNGitlabEngine.m; sourceTree = "<group>"; };
 		978F7099169F5CB1004A0B67 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		979043A716B3076D005CB2C5 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		979043A816B3076D005CB2C5 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 		979898CF16A4809300A60B6D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		979898D216A48E5100A60B6D /* NBNTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNTabBarItem.h; path = Views/NBNTabBarItem.h; sourceTree = "<group>"; };
 		979898D316A48E5100A60B6D /* NBNTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNTabBarItem.m; path = Views/NBNTabBarItem.m; sourceTree = "<group>"; };
@@ -592,8 +594,6 @@
 		97C49F3616A87262009DEC85 /* star_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_selected@2x.png"; sourceTree = "<group>"; };
 		97C49F3716A87262009DEC85 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		97C49F3816A87262009DEC85 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
-		97C7E3B416A6027600D5163F /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		97C7E3B516A6027600D5163F /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -611,8 +611,8 @@
 				9710B5FF167E2CD100F26DE2 /* SystemConfiguration.framework in Frameworks */,
 				9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */,
 				9710B5AB167E2C4500F26DE2 /* Foundation.framework in Frameworks */,
-				97C7E3B616A6027600D5163F /* libTestFlight.a in Frameworks */,
 				974BF5B516B077B30027DF63 /* Crashlytics.framework in Frameworks */,
+				979043A916B3076D005CB2C5 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,9 +656,8 @@
 		9710B5A7167E2C4500F26DE2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				979043A616B3076D005CB2C5 /* Flurry */,
 				974BF5B416B077B30027DF63 /* Crashlytics.framework */,
-				97C7E3B416A6027600D5163F /* libTestFlight.a */,
-				97C7E3B516A6027600D5163F /* TestFlight.h */,
 				978F7099169F5CB1004A0B67 /* Security.framework */,
 				9723058C1691D821005866EF /* QuartzCore.framework */,
 				9710B695167E355700F26DE2 /* CoreData.framework */,
@@ -1169,6 +1168,15 @@
 				978F708C169F590E004A0B67 /* Reachability.m */,
 			);
 			path = Reachability;
+			sourceTree = "<group>";
+		};
+		979043A616B3076D005CB2C5 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				979043A716B3076D005CB2C5 /* Flurry.h */,
+				979043A816B3076D005CB2C5 /* libFlurry.a */,
+			);
+			path = Flurry;
 			sourceTree = "<group>";
 		};
 		979993A9169986AA00AEA929 /* PBEmojiLabel */ = {
@@ -1783,6 +1791,7 @@
 					"$(inherited)",
 					"$(FRANK_LIBRARY_SEARCH_PATHS)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Flurry\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1796,8 +1805,8 @@
 		9710B5D9167E2C4600F26DE2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Piet Brauer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Piet Brauer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1810,10 +1819,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Flurry\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "5D26B18F-77B4-49A7-9019-3927AA06F5DF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5D26B18F-77B4-49A7-9019-3927AA06F5DF";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
