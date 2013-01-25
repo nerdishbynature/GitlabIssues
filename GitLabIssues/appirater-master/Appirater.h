@@ -78,7 +78,7 @@ extern NSString *const kAppiraterReminderRequestDate;
  Text of button that will send user to app review page.
  */
 #define APPIRATER_LOCALIZED_RATE_BUTTON NSLocalizedStringFromTable(@"Rate %@", @"AppiraterLocalizable", nil)
-#define APPIRATER_RATE_BUTTON			[NSString stringWithFormat:APPIRATER_LOCALIZED_RATE_BUTTON, APPIRATER_APP_NAME]
+#define APPIRATER_RATE_BUTTON			[NSString stringWithFormat:@""]
 
 /*
  Text for button to remind the user to review later.

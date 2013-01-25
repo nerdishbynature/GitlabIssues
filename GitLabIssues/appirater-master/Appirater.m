@@ -160,11 +160,11 @@ static BOOL _modalOpen = false;
 }
 
 - (void)showRatingAlert {
-	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:APPIRATER_MESSAGE_TITLE
-														 message:APPIRATER_MESSAGE
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@""
+														 message:@"If you enjoy using Gitlab:Issues, would you mind taking a moment to rate it? It won't take more than a minute. Thanks for your support!"
 														delegate:self
-											   cancelButtonTitle:APPIRATER_CANCEL_BUTTON
-											   otherButtonTitles:APPIRATER_RATE_BUTTON, APPIRATER_RATE_LATER, nil];
+											   cancelButtonTitle:@"No, Thanks"
+											   otherButtonTitles:@"Rate Gitlab:Issues", @"Remind me later", nil];
 	self.ratingAlert = alertView;
 	[alertView show];
 	

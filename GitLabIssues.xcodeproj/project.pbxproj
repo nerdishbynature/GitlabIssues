@@ -106,6 +106,7 @@
 		9728328116B31B4300A6DE91 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9728326616B31B4300A6DE91 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9728328216B31B4300A6DE91 /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9728326816B31B4300A6DE91 /* AppiraterLocalizable.strings */; };
 		9728328316B31B4300A6DE91 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9728327A16B31B4300A6DE91 /* README.md */; };
+		9728328E16B31D8A00A6DE91 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9728328D16B31D8A00A6DE91 /* StoreKit.framework */; };
 		973285F6167E4B0400CFACC2 /* NBNFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 973285F5167E4B0400CFACC2 /* NBNFavoritesViewController.m */; };
 		973285FF167E517800CFACC2 /* NBNProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 973285FE167E517800CFACC2 /* NBNProjectsViewController.m */; };
 		97328602167E525300CFACC2 /* NBNProjectConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 97328601167E525300CFACC2 /* NBNProjectConnection.m */; };
@@ -441,6 +442,7 @@
 		9728327D16B31B4300A6DE91 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/AppiraterLocalizable.strings; sourceTree = "<group>"; };
 		9728327E16B31B4300A6DE91 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AppiraterLocalizable.strings"; sourceTree = "<group>"; };
 		9728327F16B31B4300A6DE91 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AppiraterLocalizable.strings"; sourceTree = "<group>"; };
+		9728328D16B31D8A00A6DE91 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		973285F4167E4B0400CFACC2 /* NBNFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNFavoritesViewController.h; path = Views/NBNFavoritesViewController.h; sourceTree = "<group>"; };
 		973285F5167E4B0400CFACC2 /* NBNFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNFavoritesViewController.m; path = Views/NBNFavoritesViewController.m; sourceTree = "<group>"; };
 		973285FD167E517800CFACC2 /* NBNProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNProjectsViewController.h; path = Views/NBNProjectsViewController.h; sourceTree = "<group>"; };
@@ -632,6 +634,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9728328E16B31D8A00A6DE91 /* StoreKit.framework in Frameworks */,
 				978F709A169F5CB2004A0B67 /* Security.framework in Frameworks */,
 				9723058D1691D821005866EF /* QuartzCore.framework in Frameworks */,
 				9710B696167E355800F26DE2 /* CoreData.framework in Frameworks */,
@@ -687,6 +690,7 @@
 		9710B5A7167E2C4500F26DE2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9728328D16B31D8A00A6DE91 /* StoreKit.framework */,
 				979043A616B3076D005CB2C5 /* Flurry */,
 				974BF5B416B077B30027DF63 /* Crashlytics.framework */,
 				978F7099169F5CB1004A0B67 /* Security.framework */,

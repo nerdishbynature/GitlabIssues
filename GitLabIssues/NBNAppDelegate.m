@@ -26,9 +26,15 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    
+
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"GitLabIssues.sqlite"];
     [Flurry startSession:@"<set_token_here>"];
+    
+    [Appirater setAppId:@"593632411"];
+    [Appirater setDaysUntilPrompt:1];
+    [Appirater setUsesUntilPrompt:3];
+    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setTimeBeforeReminding:0];
     
     UIImage *image = [UIImage imageNamed:@"navBar.png"];
     [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
@@ -94,6 +100,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [Appirater appLaunched:YES];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
