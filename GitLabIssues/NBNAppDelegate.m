@@ -12,6 +12,7 @@
 #import "Domain.h"
 #import "Session.h"
 #import "Flurry.h"
+#import "Appirater.h"
 
 @implementation NBNAppDelegate
 
