@@ -28,6 +28,7 @@
 @property (nonatomic, retain) Owner *owner;
 @property (nonatomic, retain) NSNumber * isFavorite;
 @property (nonatomic, retain) Filter *filter;
+@property (nonatomic, retain) NSDate *lastOpened;
 
 /**
   This method is used for parsing the returned JSON from the API

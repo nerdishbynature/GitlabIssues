@@ -28,6 +28,7 @@
 @dynamic owner;
 @dynamic isFavorite;
 @dynamic filter;
+@dynamic lastOpened;
 
 +(Project *)createAndParseJSON:(NSDictionary *)dict{
     Project *project = [Project createEntity];
