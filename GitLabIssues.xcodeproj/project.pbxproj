@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		237FB14316BD19360007FB0A /* NBNDeletionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 237FB14216BD19360007FB0A /* NBNDeletionHelper.m */; };
 		97049FB716A0B34E004BC6E3 /* NBNReachabilityChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 97049FB616A0B34E004BC6E3 /* NBNReachabilityChecker.m */; };
 		9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5A8167E2C4500F26DE2 /* UIKit.framework */; };
 		9710B5AB167E2C4500F26DE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5AA167E2C4500F26DE2 /* Foundation.framework */; };
@@ -242,6 +243,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		237FB14116BD19360007FB0A /* NBNDeletionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNDeletionHelper.h; path = Models/NBNDeletionHelper.h; sourceTree = "<group>"; };
+		237FB14216BD19360007FB0A /* NBNDeletionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNDeletionHelper.m; path = Models/NBNDeletionHelper.m; sourceTree = "<group>"; };
+		237FB14416BD19810007FB0A /* Models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Models.h; path = Models/Models.h; sourceTree = "<group>"; };
 		97049FB516A0B34E004BC6E3 /* NBNReachabilityChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNReachabilityChecker.h; path = Network/NBNReachabilityChecker.h; sourceTree = "<group>"; };
 		97049FB616A0B34E004BC6E3 /* NBNReachabilityChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNReachabilityChecker.m; path = Network/NBNReachabilityChecker.m; sourceTree = "<group>"; };
 		9710B5A4167E2C4500F26DE2 /* GitLabIssues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitLabIssues.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -853,6 +857,9 @@
 				9710B619167E34C600F26DE2 /* Assignee.m */,
 				9710B615167E34B300F26DE2 /* Milestone.h */,
 				9710B616167E34B300F26DE2 /* Milestone.m */,
+				237FB14116BD19360007FB0A /* NBNDeletionHelper.h */,
+				237FB14216BD19360007FB0A /* NBNDeletionHelper.m */,
+				237FB14416BD19810007FB0A /* Models.h */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1759,6 +1766,7 @@
 				97C49F2016A72CDC009DEC85 /* NBNIssueDetailViewController.m in Sources */,
 				97C49F2D16A8641D009DEC85 /* NBNFilterAssigneeCell.m in Sources */,
 				9728328116B31B4300A6DE91 /* Appirater.m in Sources */,
+				237FB14316BD19360007FB0A /* NBNDeletionHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
