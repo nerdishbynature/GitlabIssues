@@ -141,9 +141,6 @@
         }
     }
     
-    
-    PBLog(@"%@", project.lastOpened);
-    
     cell.textLabel.text = project.name;
     
     return cell;
@@ -205,7 +202,7 @@
     
     NSDate *sevenDaysAgo = [NSDate dateWithTimeInterval:-7*24*3600 sinceDate:[NSDate date]];
     
-    self.lastOpenedProjects = [[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"lastOpened > %@", sevenDaysAgo] orderBy:@"lastOpened"] toArray];
+    self.lastOpenedProjects = [[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"lastOpened > %@", sevenDaysAgo] orderByDescending:@"lastOpened"] toArray];
 
     [self.tableView reloadData];
     [self.HUD setHidden:YES];
