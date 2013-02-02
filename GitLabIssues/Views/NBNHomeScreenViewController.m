@@ -12,7 +12,7 @@
 #import "NBNFindReposViewController.h"
 #import "NBNDashboardViewController.h"
 #import "GLLoginViewController.h"
-#import "Domain.h"
+#import "NBNDeletionHelper.h"
 
 @interface NBNHomeScreenViewController ()
 
@@ -148,11 +148,15 @@
     GLLoginViewController *loginViewController = [[GLLoginViewController alloc] initWithStyle:UITableViewStyleGrouped];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
     
+    [NBNDeletionHelper deletePersistedData];
+    
     [self presentViewController:navController animated:YES completion:nil];
     
     [loginViewController release];
     [navController release];
 }
+
+
 
 #pragma mark - Table view delegate
 
