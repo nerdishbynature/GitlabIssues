@@ -47,6 +47,7 @@ static NBNLabelsConnection *sharedConnection = nil;
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/labels?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token]];
         PBLog(@"%@", url);
         self.labelsConnection = [ASIHTTPRequest requestWithURL:url];
+        [self.labelsConnection setValidatesSecureCertificate:NO];
         
         [self.labelsConnection setCompletionBlock:^{
             //        NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];

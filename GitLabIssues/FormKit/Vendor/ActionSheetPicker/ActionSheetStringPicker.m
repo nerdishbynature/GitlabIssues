@@ -102,7 +102,7 @@
 #pragma clang diagnostic pop
         return;
     }
-    PBLog(@"Invalid target/action ( %s / %s ) combination used for ActionSheetPicker", object_getClassName(target), (char *)successAction);
+    PBLog(@"Invalid target/action ( %s / %s ) combination used for ActionSheetPicker", object_getClassName(target), sel_getName(successAction));
 }
 
 - (void)notifyTarget:(id)target didCancelWithAction:(SEL)cancelAction origin:(id)origin {

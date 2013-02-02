@@ -86,6 +86,7 @@
         PBLog(@"url %@", url);
         
         ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        [request setValidatesSecureCertificate:NO];
         [request setRequestMethod:@"PUT"];
         
         [request appendPostData:[self toJSON]];
@@ -123,6 +124,7 @@
         PBLog(@"url %@", url);
         
         ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        [request setValidatesSecureCertificate:NO];
         [request setRequestMethod:@"POST"];
         
         [request appendPostData:[self toCreateJSON]];
