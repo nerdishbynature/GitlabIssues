@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSArray *projectsSearchResults;
 @property (nonatomic, retain) UISearchBar *searchBar;
 @property (nonatomic, retain) UISearchDisplayController *searchDisplayController;
+@property (nonatomic, retain) NSArray *lastOpenedProjects;
 
 @end
 
@@ -29,6 +30,7 @@
 @synthesize projectsSearchResults;
 @synthesize searchBar;
 @synthesize searchDisplayController;
+@synthesize lastOpenedProjects;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -77,6 +79,7 @@
     [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain findAll] lastObject] onSuccess:^{
         [self refreshDataSource];
     }];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -95,18 +98,24 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    }
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if (tableView == self.searchDisplayController.searchResultsTableView){
-        return [self.projectsSearchResults count];
+    if (section == 0 && tableView != self.searchDisplayController.searchResultsTableView) {
+        return self.lastOpenedProjects.count;
     } else{
-        return self.projectsArray.count;
+        if (tableView == self.searchDisplayController.searchResultsTableView){
+            return [self.projectsSearchResults count];
+        } else{
+            return self.projectsArray.count;
+        }
     }
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,11 +131,18 @@
     
     Project *project;
     
-    if (tableView == self.searchDisplayController.searchResultsTableView){
-        project = [self.projectsSearchResults objectAtIndex:indexPath.row];
+    if (indexPath.section == 0 && tableView != self.searchDisplayController.searchResultsTableView) {
+        project = [self.lastOpenedProjects objectAtIndex:indexPath.row];
     } else{
-        project = [self.projectsArray objectAtIndex:indexPath.row]; 
+        if (tableView == self.searchDisplayController.searchResultsTableView){
+            project = [self.projectsSearchResults objectAtIndex:indexPath.row];
+        } else{
+            project = [self.projectsArray objectAtIndex:indexPath.row];
+        }
     }
+    
+    
+    PBLog(@"%@", project.lastOpened);
     
     cell.textLabel.text = project.name;
     
@@ -145,12 +161,19 @@
 	
 	// Show the HUD while the provided method executes in a new thread
     Project *project;
-    if (tableView == self.searchDisplayController.searchResultsTableView){
-        project = [self.projectsSearchResults objectAtIndex:indexPath.row];
+    
+    if (indexPath.section == 0 && tableView != self.searchDisplayController.searchResultsTableView) {
+        project = [self.lastOpenedProjects objectAtIndex:indexPath.row];
     } else{
-        project = [self.projectsArray objectAtIndex:indexPath.row];
+        if (tableView == self.searchDisplayController.searchResultsTableView){
+            project = [self.projectsSearchResults objectAtIndex:indexPath.row];
+        } else{
+            project = [self.projectsArray objectAtIndex:indexPath.row];
+        }
     }
     
+    project.lastOpened = [NSDate date];
+
     [HUD show:YES];
     [self navigateToIssues:project];
 }
@@ -158,13 +181,32 @@
 -(void)navigateToIssues:(Project *)project{
     [HUD hide:YES];
     [HUD removeFromSuperview];
+    [self.searchDisplayController setActive:NO];
     
     NBNIssuesViewController *issues = [NBNIssuesViewController loadWithProject:project];
     [self.navigationController pushViewController:issues animated:YES];
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return @"";
+    } else{
+        if (section == 0) {
+            return @"Recently Opened";
+        } else{
+            return @"All Projects";
+        }
+    }
+}
+
 -(void)refreshDataSource{
     self.projectsArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
+    
+    
+    NSDate *sevenDaysAgo = [NSDate dateWithTimeInterval:-7*24*3600 sinceDate:[NSDate date]];
+    
+    self.lastOpenedProjects = [[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"lastOpened > %@", sevenDaysAgo] orderBy:@"lastOpened"] toArray];
+
     [self.tableView reloadData];
     [self.HUD setHidden:YES];
     [self.HUD removeFromSuperview];
@@ -174,13 +216,10 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma mark - Search
-
 #pragma mark - Searching
 
 -(void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope{
     self.projectsSearchResults = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"name contains[cd] %@",searchText] toArray];
-    PBLog(@"filtering %@ got %i results %@", searchText, self.projectsSearchResults.count, self.projectsSearchResults);
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
@@ -199,12 +238,14 @@
     self.projectsSearchResults = nil;
     self.searchBar = nil;
     self.searchDisplayController = nil;
+    self.lastOpenedProjects = nil;
     
     [projectsArray release];
     [HUD release];
     [projectsSearchResults release];
     [searchBar release];
     [searchDisplayController release];
+    [lastOpenedProjects release];
     
     PBLog(@"deallocing %@", [self class]);
     [super dealloc];
