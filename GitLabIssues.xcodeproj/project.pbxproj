@@ -246,6 +246,7 @@
 		237FB14116BD19360007FB0A /* NBNDeletionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNDeletionHelper.h; path = Models/NBNDeletionHelper.h; sourceTree = "<group>"; };
 		237FB14216BD19360007FB0A /* NBNDeletionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNDeletionHelper.m; path = Models/NBNDeletionHelper.m; sourceTree = "<group>"; };
 		237FB14416BD19810007FB0A /* Models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Models.h; path = Models/Models.h; sourceTree = "<group>"; };
+		237FB1A816BD2FE10007FB0A /* GitLab 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GitLab 2.xcdatamodel"; sourceTree = "<group>"; };
 		97049FB516A0B34E004BC6E3 /* NBNReachabilityChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNReachabilityChecker.h; path = Network/NBNReachabilityChecker.h; sourceTree = "<group>"; };
 		97049FB616A0B34E004BC6E3 /* NBNReachabilityChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNReachabilityChecker.m; path = Network/NBNReachabilityChecker.m; sourceTree = "<group>"; };
 		9710B5A4167E2C4500F26DE2 /* GitLabIssues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitLabIssues.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2009,9 +2010,10 @@
 		9710B612167E345B00F26DE2 /* GitLab.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				237FB1A816BD2FE10007FB0A /* GitLab 2.xcdatamodel */,
 				9710B613167E345B00F26DE2 /* GitLab.xcdatamodel */,
 			);
-			currentVersion = 9710B613167E345B00F26DE2 /* GitLab.xcdatamodel */;
+			currentVersion = 237FB1A816BD2FE10007FB0A /* GitLab 2.xcdatamodel */;
 			path = GitLab.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

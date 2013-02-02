@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C2034" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Assignee" representedClassName="Assignee" syncable="YES">
+        <attribute name="blocked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="filter" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Filter" inverseName="assigned" inverseEntity="Filter" syncable="YES"/>
+        <relationship name="issues" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Issue" inverseName="assignee" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="mergeRequests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MergeRequest" inverseName="assignee" inverseEntity="MergeRequest" syncable="YES"/>
+    </entity>
+    <entity name="Author" representedClassName="Author" syncable="YES">
+        <attribute name="blocked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="issues" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Issue" inverseName="author" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="mergeRequests" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="MergeRequest" inverseName="author" inverseEntity="MergeRequest" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="author" inverseEntity="Note" syncable="YES"/>
+        <relationship name="snippets" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Snippet" inverseName="author" inverseEntity="Snippet" syncable="YES"/>
+    </entity>
+    <entity name="Domain" representedClassName="Domain" syncable="YES">
+        <attribute name="access_granted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="domain" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="protocol" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remember_me" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <entity name="Filter" representedClassName="Filter" syncable="YES">
+        <attribute name="closed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="labels" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="sortCreated" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="assigned" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Assignee" inverseName="filter" inverseEntity="Assignee" syncable="YES"/>
+        <relationship name="milestone" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Milestone" inverseName="filter" inverseEntity="Milestone" syncable="YES"/>
+        <relationship name="project" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="filter" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="Issue" representedClassName="Issue" syncable="YES">
+        <attribute name="closed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="descriptionString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="labels" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="project_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="assignee" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Assignee" inverseName="issues" inverseEntity="Assignee" syncable="YES"/>
+        <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Author" inverseName="issues" inverseEntity="Author" syncable="YES"/>
+        <relationship name="milestone" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Milestone" inverseName="issue" inverseEntity="Milestone" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="issue" inverseEntity="Note" syncable="YES"/>
+    </entity>
+    <entity name="MergeRequest" representedClassName="MergeRequest" syncable="YES">
+        <attribute name="closed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="merged" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="project_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="source_branch" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="target_branch" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="assignee" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Assignee" inverseName="mergeRequests" inverseEntity="Assignee" syncable="YES"/>
+        <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Author" inverseName="mergeRequests" inverseEntity="Author" syncable="YES"/>
+    </entity>
+    <entity name="Milestone" representedClassName="Milestone" syncable="YES">
+        <attribute name="closed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="descriptionString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="due_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="project_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="filter" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Filter" inverseName="milestone" inverseEntity="Filter" syncable="YES"/>
+        <relationship name="issue" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Issue" inverseName="milestone" inverseEntity="Issue" syncable="YES"/>
+    </entity>
+    <entity name="Note" representedClassName="Note" syncable="YES">
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Author" inverseName="notes" inverseEntity="Author" syncable="YES"/>
+        <relationship name="issue" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Issue" inverseName="notes" inverseEntity="Issue" syncable="YES"/>
+    </entity>
+    <entity name="Owner" representedClassName="Owner" syncable="YES">
+        <attribute name="blocked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Project" inverseName="owner" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="Project" representedClassName="Project" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="default_branch" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descriptionString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="issues_enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastOpened" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="merge_requests_enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="private" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="wall_enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="wiki_enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="filter" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Filter" inverseName="project" inverseEntity="Filter" syncable="YES"/>
+        <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Owner" inverseName="projects" inverseEntity="Owner" syncable="YES"/>
+    </entity>
+    <entity name="Session" representedClassName="Session" syncable="YES">
+        <attribute name="blocked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="private_token" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Snippet" representedClassName="Snippet" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="expires_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="file_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Author" inverseName="snippets" inverseEntity="Author" syncable="YES"/>
+    </entity>
+    <entity name="SSH_key" representedClassName="SSH_key" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="bio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="blocked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dark_scheme" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="linkedin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="skype" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="theme_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="twitter" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Assignee" positionX="106" positionY="42" width="128" height="163"/>
+        <element name="Author" positionX="304" positionY="360" width="128" height="180"/>
+        <element name="Domain" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Filter" positionX="-90" positionY="306" width="128" height="133"/>
+        <element name="Issue" positionX="-270" positionY="-18" width="128" height="223"/>
+        <element name="MergeRequest" positionX="394" positionY="0" width="128" height="180"/>
+        <element name="Milestone" positionX="-56" positionY="56" width="128" height="178"/>
+        <element name="Note" positionX="-198" positionY="387" width="128" height="118"/>
+        <element name="Owner" positionX="124" positionY="519" width="128" height="135"/>
+        <element name="Project" positionX="-371" positionY="405" width="128" height="285"/>
+        <element name="Session" positionX="-585" positionY="315" width="128" height="135"/>
+        <element name="Snippet" positionX="-407" positionY="207" width="128" height="150"/>
+        <element name="SSH_key" positionX="-414" positionY="27" width="128" height="90"/>
+        <element name="User" positionX="-621" positionY="36" width="128" height="210"/>
+    </elements>
+</model>
