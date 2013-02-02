@@ -10,4 +10,6 @@
 
 @interface NBNDeletionHelper : NSObject
 
++(void)deletePersistedData;
+
 @end
