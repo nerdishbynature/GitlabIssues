@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
 
-@interface NBNProjectsViewController : UITableViewController <MBProgressHUDDelegate>
+@interface NBNProjectsViewController : UITableViewController <MBProgressHUDDelegate, UISearchDisplayDelegate>
 
 @end
