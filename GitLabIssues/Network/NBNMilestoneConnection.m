@@ -85,7 +85,7 @@ static NBNMilestoneConnection *sharedConnection = nil;
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, firstSession.private_token]];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    
+    [request setValidatesSecureCertificate:NO];
                                
     [request setCompletionBlock:^{
         NSArray *milestoneJSONArray = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];

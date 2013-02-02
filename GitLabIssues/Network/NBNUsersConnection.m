@@ -52,10 +52,11 @@ static NBNUsersConnection *sharedConnection = nil;
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/members?private_token=%@", domain.protocol, domain.domain, project_id, session.private_token]];
-        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        self.membersConnection = [ASIHTTPRequest requestWithURL:url];
+        [self.membersConnection setValidatesSecureCertificate:NO];
         
-        [request setCompletionBlock:^{
-            NSArray *memberJSONArray = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+        [self.membersConnection setCompletionBlock:^{
+            NSArray *memberJSONArray = [NSJSONSerialization JSONObjectWithData:[self.membersConnection responseData] options:kNilOptions error:nil];
             
             NSMutableArray *memberArray = [[[NSMutableArray alloc] initWithCapacity:memberJSONArray.count] autorelease];
             
@@ -76,12 +77,12 @@ static NBNUsersConnection *sharedConnection = nil;
             block(memberArray);
         }];
         
-        [request setFailedBlock:^{
-            PBLog(@"%@", request.error);
+        [self.membersConnection setFailedBlock:^{
+            PBLog(@"%@", self.membersConnection.error);
             block(@[]);
         }];
         
-        [request startAsynchronous];
+        [self.membersConnection startAsynchronous];
     }];
 }
 

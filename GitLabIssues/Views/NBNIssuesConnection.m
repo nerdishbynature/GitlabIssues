@@ -176,7 +176,7 @@ static NBNIssuesConnection *sharedConnection = nil;
         //POST /projects/:id/issues/:issue_id/notes
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@/notes?private_token=%@", domain.protocol, domain.domain, issue.project_id, issue.identifier, session.private_token]];
         self.sendNotesConnection = [ASIHTTPRequest requestWithURL:url];
-        
+        [self.sendNotesConnection setValidatesSecureCertificate:NO];
         [self.sendNotesConnection setRequestMethod:@"POST"];
         
         NSDictionary *postDict = @{@"id": issue.project_id, @"issue_id":issue.identifier, @"body": body};

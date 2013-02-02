@@ -30,7 +30,7 @@
     __block ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     [request addPostValue:domain.email forKey:@"email"];
     [request addPostValue:domain.password forKey:@"password"];
-    
+    [request setValidatesSecureCertificate:NO];
     
     [request setCompletionBlock:^{
         
