@@ -27,7 +27,7 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
 
-    [MagicalRecord setupCoreDataStackWithStoreNamed:@"GitLabIssues.sqlite"];
+    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"GitLabIssues.sqlite"];
     [Flurry startSession:@"<set_token_here>"];
     
     [Appirater setAppId:@"593632411"];
