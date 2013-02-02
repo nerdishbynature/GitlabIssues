@@ -50,9 +50,7 @@
         self.domain.email = @"";
         self.domain.password = @"";
     } else{
-        for (Domain *domainInArray in [Domain findAll]) {
-            [[NSManagedObjectContext MR_defaultContext] deleteObject:domainInArray];
-        }
+        [Domain MR_truncateAll];
         
         self.domain = [Domain createEntity];
         self.domain.protocol = @"https";
