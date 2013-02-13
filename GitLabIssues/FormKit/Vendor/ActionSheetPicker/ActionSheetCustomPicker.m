@@ -12,10 +12,7 @@
 
 @synthesize delegate = _delegate;
 
-
-/////////////////////////////////////////////////////////////////////////
 #pragma mark - Init
-/////////////////////////////////////////////////////////////////////////
 
 - (id)initWithTitle:(NSString *)title delegate:(id<ActionSheetCustomPickerDelegate>)delegate showCancelButton:(BOOL)showCancelButton origin:(id)origin
 {
@@ -29,7 +26,7 @@
     return self;
 }
 
-/////////////////////////////////////////////////////////////////////////
+
 
 + (id)showPickerWithTitle:(NSString *)title delegate:(id<ActionSheetCustomPickerDelegate>)delegate showCancelButton:(BOOL)showCancelButton origin:(id)origin
 {
@@ -38,9 +35,9 @@
     return picker;
 }
 
-/////////////////////////////////////////////////////////////////////////
+
 #pragma mark - AbstractActionSheetPicker fulfilment
-/////////////////////////////////////////////////////////////////////////
+
 
 - (UIView *)configuredPickerView {
     CGRect pickerFrame = CGRectMake(0, 40, self.viewSize.width, 216);
@@ -59,7 +56,7 @@
     return pv;
 }
 
-/////////////////////////////////////////////////////////////////////////
+
 
 - (void)notifyTarget:(id)target didSucceedWithAction:(SEL)successAction origin:(id)origin
 {
@@ -69,7 +66,7 @@
     }
 }
 
-/////////////////////////////////////////////////////////////////////////
+
 
 - (void)notifyTarget:(id)target didCancelWithAction:(SEL)cancelAction origin:(id)origin
 {

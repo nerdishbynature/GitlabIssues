@@ -10,13 +10,19 @@
 
 @interface NBNUsersConnection : NSObject
 
+/**
+ Singleton used to get the correct Connection object
+ */
 + (NBNUsersConnection *) sharedConnection;
 
+/**
+ Cancels the connection
+ */
 - (void) cancelMembersRequest;
 
 /**
  Loads all member for the specified project.
- @param projectID The gitlab project identifier
+ @param project_id The gitlab project identifier
  @param block The completion block, which is called on success.
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/users.md#list-users
  */

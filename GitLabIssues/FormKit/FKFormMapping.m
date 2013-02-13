@@ -22,9 +22,9 @@
 #import "FKSectionObject.h"
 #import "FKFormAttributeValidation.h"
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 @interface FKFormMapping ()
 
 - (void)addFieldToOrdersArray:(NSString *)identifier;
@@ -39,9 +39,9 @@
 @end
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 @implementation FKFormMapping
 
 @synthesize objectClass = _objectClass;
@@ -60,7 +60,7 @@
 @synthesize attributeMappings = _attributeMappings;
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (id)init {
     self = [super init];
     if (self) {
@@ -83,7 +83,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (id)initWithObjectClass:(Class)objectClass {
     self = [self init];
     if (self) {
@@ -93,7 +93,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 + (id)mappingForClass:(Class)objectClass block:(void(^)(FKFormMapping *mapping))block {
     FKFormMapping *formMapping = [[self alloc] initWithObjectClass:objectClass];
     block(formMapping);
@@ -101,13 +101,13 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute title:(NSString *)title {
     return [self mapAttribute:attribute title:title type:FKFormAttributeMappingTypeDefault];
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute
                                    title:(NSString *)title
                                     type:(FKFormAttributeMappingType)type {
@@ -116,7 +116,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute
                                    title:(NSString *)title
                                     type:(FKFormAttributeMappingType)type
@@ -131,7 +131,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute
                                    title:(NSString *)title
                          placeholderText:(NSString *)placeholderText
@@ -163,7 +163,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute
                                    title:(NSString *)title
                                     type:(FKFormAttributeMappingType)type
@@ -179,7 +179,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (FKFormAttributeMapping *)mapSliderAttribute:(NSString *)attribute
                                          title:(NSString *)title
                                       minValue:(float)minValue
@@ -198,7 +198,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute
                                    title:(NSString *)title
                                     type:(FKFormAttributeMappingType)type
@@ -214,7 +214,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute
                                    title:(NSString *)title
                                     type:(FKFormAttributeMappingType)type
@@ -230,7 +230,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute
                                    title:(NSString *)title
                             showInPicker:(BOOL)showInPicker
@@ -251,7 +251,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (FKFormAttributeMapping *)mapCustomCell:(Class)cell
                                identifier:(NSString *)identifier
                      willDisplayCellBlock:(FKFormMappingWillDisplayCellBlock)willDisplayCellBlock
@@ -265,7 +265,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (FKFormAttributeMapping *)mapCustomCell:(Class)cell
                                identifier:(NSString *)identifier
                                 rowHeight:(CGFloat)rowHeight
@@ -285,7 +285,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (FKFormAttributeMapping *)button:(NSString *)title
                         identifier:(NSString *)identifier
                            handler:(FKFormMappingButtonHandlerBlock)blockHandler
@@ -303,7 +303,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (FKFormAttributeMapping *)buttonSave:(NSString *)title handler:(FKBasicBlock)blockHandler {
     [self sectionWithTitle:@"" identifier:@"saveSection"];
     
@@ -318,13 +318,13 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (void)sectionWithTitle:(NSString *)title identifier:(NSString *)identifier {
     [self sectionWithTitle:title footer:nil identifier:identifier];
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (void)sectionWithTitle:(NSString *)title footer:(NSString *)footer identifier:(NSString *)identifier {
     FKSectionObject *section = [FKSectionObject sectionWithHeaderTitle:(title ? title : @"")
                                                            footerTitle:footer];
@@ -336,7 +336,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (void)mappingForAttribute:(NSString *)attribute
                       title:(NSString *)title
                        type:(FKFormAttributeMappingType)type
@@ -347,7 +347,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (void)validationForAttribute:(NSString *)attribute
                     validBlock:(FKFormMappingIsValueValidBlock)validBlock {
     
@@ -355,7 +355,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (void)validationForAttribute:(NSString *)attribute
                     validBlock:(FKFormMappingIsValueValidBlock)validBlock
              errorMessageBlock:(FKFormMappingFieldErrorStringBlock)errorMessageBlock {
@@ -368,31 +368,31 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 #pragma mark -
 #pragma mark Getters and setters
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (NSDictionary *)attributeMappings {
     return _attributeMappings;
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (NSDictionary *)sectionTitles {
     return _sectionTitles;
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 #pragma mark -
 #pragma mark Private
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (FKFormAttributeMapping *)attributeMappingWithTitle:(NSString *)title
                                             attribute:(NSString *)attribute
                                                  type:(FKFormAttributeMappingType)type {
@@ -409,7 +409,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (void)addFieldToOrdersArray:(NSString *)identifier {
     if ([self.fieldsOrder isKindOfClass:[NSMutableArray class]]) {
         [(NSMutableArray *)self.fieldsOrder addObject:identifier];
@@ -417,7 +417,7 @@
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (void)addAttributeMappingToFormMapping:(FKFormAttributeMapping *)attributeMapping {
     [_attributeMappings setObject:attributeMapping forKey:attributeMapping.attribute];
     [self addFieldToOrdersArray:attributeMapping.attribute];

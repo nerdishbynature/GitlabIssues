@@ -140,7 +140,7 @@
             project = [self.projectsArray objectAtIndex:indexPath.row];
         }
     }
-    
+
     cell.textLabel.text = project.name;
     
     return cell;

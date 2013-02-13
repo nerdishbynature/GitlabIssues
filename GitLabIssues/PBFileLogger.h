@@ -44,7 +44,8 @@
 
 /**
  Method used for loggin
- @param format, ... The formatted string supposed to be logged
+ @param format The formatted string supposed to be logged
+ @param ... The formatted string supposed to be logged
  */
 - (void)log:(NSString *)format, ...;
 

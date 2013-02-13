@@ -13,20 +13,32 @@
 {
 }
 
-/////////////////////////////////////////////////////////////////////////
+
 #pragma mark - Properties
-/////////////////////////////////////////////////////////////////////////
+
 @property (nonatomic, strong) id<ActionSheetCustomPickerDelegate> delegate;
 
 
-/////////////////////////////////////////////////////////////////////////
-#pragma mark - Init Methods
-/////////////////////////////////////////////////////////////////////////
 
-/** Designated init */
+#pragma mark - Init Methods
+
+
+/** 
+ Designated init
+ @param title The title string
+ @param delegate The ActionSheetCustomPickerDelegate
+ @param showCancelButton Decides wether to show the cancel button or not
+ @param origin The object which called this method
+ */
 - (id)initWithTitle:(NSString *)title delegate:(id<ActionSheetCustomPickerDelegate>)delegate showCancelButton:(BOOL)showCancelButton origin:(id)origin;
 
-/** Convenience class method for creating an launched */
+/** 
+ Convenience class method for creating an launched
+ @param title The title string
+ @param delegate The ActionSheetCustomPickerDelegate
+ @param showCancelButton Decides wether to show the cancel button or not
+ @param origin The object which called this method
+ */
 + (id)showPickerWithTitle:(NSString *)title delegate:(id<ActionSheetCustomPickerDelegate>)delegate showCancelButton:(BOOL)showCancelButton origin:(id)origin;
 
 

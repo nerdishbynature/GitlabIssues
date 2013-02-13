@@ -79,7 +79,6 @@
     return  self;
 }
 
-//////////////////////////// Public methods /////////////////////////////////
 #pragma mark - Public methods
 
 // use items from the queue
@@ -236,7 +235,6 @@
     }
 }
 
-//////////////////////////// View Logic /////////////////////////////////
 #pragma mark - View Logic
 
 // fades in a bubble after creation
@@ -363,7 +361,6 @@
     
 }
 
-//////////////////////////// Bubble Item Delegate /////////////////////////////////
 #pragma mark - Bubble Item Delegate
 
 // Called after a bubble is selected
@@ -419,7 +416,6 @@
     }
 }
 
-//////////////////////////// Internal Logic /////////////////////////////////
 #pragma mark - Bubble Item Delegate
 
 -(BOOL)canBecomeFirstResponder

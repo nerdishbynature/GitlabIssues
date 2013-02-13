@@ -26,8 +26,8 @@ extern NSString *const kKeySortIssuesFilter;
 @protocol NBNIssueFilterDelegate <NSObject>
 
 /**
-  Used to tell the associated view controller which filter to apply
- @param filterDictionary is a dictionary containing the filter settings
+ Used to tell the associated view controller which filter to apply
+ @param _filter the Filter object used to apply the settings
  */
 -(void)applyFilter:(Filter *)_filter;
 
@@ -46,6 +46,8 @@ extern NSString *const kKeySortIssuesFilter;
 @property (nonatomic, retain) Project *project;
 
 /**
+ This is used to allocate and initialize the view controller using a Filter object
+ @param _filter the Filter object used to initialize the view controller
  */
 +(NBNIssueFilterViewController *)loadViewControllerWithFilter:(Filter *)_filter;
 

@@ -22,7 +22,7 @@
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT O@R OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
@@ -142,7 +142,7 @@ typedef void (^MBProgressHUDCompletionBlock)();
  * animations while disappearing.
  * @return the number of HUDs found and removed.
  *
- * @see hideAllHUDForView:animated:
+ * @see hideHUDForView:animated:
  * @see animationType
  */
 + (NSUInteger)hideAllHUDsForView:(UIView *)view animated:(BOOL)animated;
@@ -234,22 +234,28 @@ typedef void (^MBProgressHUDCompletionBlock)();
 
 /**
  * Shows the HUD while a block is executing on a background queue, then hides the HUD.
- *
- * @see showAnimated:whileExecutingBlock:onQueue:completion:
+ * @param animated animate or not
+ * @param block the block executed while showing the animation
+ * @see showAnimated:whileExecutingBlock:onQueue:
  */
 - (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block;
 
 /**
  * Shows the HUD while a block is executing on a background queue, then hides the HUD.
- *
- * @see showAnimated:whileExecutingBlock:onQueue:completion:
+ * @param animated animate or not
+ * @param block the block executed while showing the animation
+ * @param completion The MBProgressHUDCompletionBlock called on completion
+ * @see showAnimated:whileExecutingBlock:onQueue:
  */
 - (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block completionBlock:(MBProgressHUDCompletionBlock)completion;
 
 /**
  * Shows the HUD while a block is executing on the specified dispatch queue, then hides the HUD.
  *
- * @see showAnimated:whileExecutingBlock:onQueue:completion:
+ * @param animated animate or not
+ * @param block the block executed while showing the animation
+ * @param queue the queue executed while showing the animation
+ * @see showAnimated:whileExecutingBlock:onQueue:
  */
 - (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block onQueue:(dispatch_queue_t)queue;
 
@@ -276,15 +282,11 @@ typedef void (^MBProgressHUDCompletionBlock)();
 
 /** 
  * MBProgressHUD operation mode. The default is MBProgressHUDModeIndeterminate.
- *
- * @see MBProgressHUDMode
  */
 @property (assign) MBProgressHUDMode mode;
 
 /**
  * The animation type that should be used when the HUD is shown and hidden. 
- *
- * @see MBProgressHUDAnimation
  */
 @property (assign) MBProgressHUDAnimation animationType;
 
@@ -322,7 +324,7 @@ typedef void (^MBProgressHUDCompletionBlock)();
 /**
  * The color of the HUD window. Defaults to black. If this property is set, color is set using
  * this UIColor and the opacity property is not used.  using retain because performing copy on
- * UIColor base colors (like [UIColor greenColor]) cause problems with the copyZone.
+ * UIColor base colors (like UIColor.greenColor) cause problems with the copyZone.
  */
 @property (MB_STRONG) UIColor *color;
 
@@ -415,6 +417,7 @@ typedef void (^MBProgressHUDCompletionBlock)();
 
 /** 
  * Called after the HUD was fully hidden from the screen. 
+ * @param hud MBProgressHUD object that was hidden
  */
 - (void)hudWasHidden:(MBProgressHUD *)hud;
 
@@ -433,7 +436,7 @@ typedef void (^MBProgressHUDCompletionBlock)();
 
 /**
  * Indicator progress color.
- * Defaults to white [UIColor whiteColor]
+ * Defaults to white
  */
 @property (nonatomic, MB_STRONG) UIColor *progressTintColor;
 

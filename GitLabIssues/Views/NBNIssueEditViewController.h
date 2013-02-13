@@ -12,13 +12,14 @@
 @interface NBNIssueEditViewController : UITableViewController <UIAlertViewDelegate>
 
 /**
-  Creates ViewController with associated issue and returns it
+ Creates ViewController with associated issue and returns it
+ @param _issue The issue object used to initialize the view controller.
  @return NBNIssueEditViewController instance
  */
 +(NBNIssueEditViewController *)loadViewControllerWithIssue:(Issue *)_issue;
 
 /**
-  editMode specifies if the associated issue is a new one (editMode == NO) or
+ editMode specifies if the associated issue is a new one (editMode == NO) or
  if the issue needs to be created on the server (POST method) or updated (PUT method)
  */
 @property (nonatomic, assign) BOOL editMode;

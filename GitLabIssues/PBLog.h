@@ -54,7 +54,8 @@ extern NSString *kHTTPMethod;
  Method used for logging
  @param file The class from which the log comes
  @param lineNumber The line number where the log was sent from
- @param format, ... The formatted string, which should be logged
+ @param format The formatted string, which should be logged
+ @param ... The formatted string, which should be logged
  */
 + (void)logFile:(char*)file
    withLineNumber:(int)lineNumber

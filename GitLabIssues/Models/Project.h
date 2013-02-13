@@ -31,8 +31,8 @@
 @property (nonatomic, retain) NSDate *lastOpened;
 
 /**
-  This method is used for parsing the returned JSON from the API
- @param dict The JSON dictionary
+ This method is used for parsing the returned JSON from the API
+ @param json The JSON dictionary
  @return Initialized Project object
  */
 +(Project *)createAndParseJSON:(NSDictionary *)json;

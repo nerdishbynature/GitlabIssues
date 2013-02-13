@@ -52,7 +52,7 @@
     return self;
 }
 
-- (void)log:(NSString *)format, ... {
+- (void)log:(NSString *)format, ...{
     va_list ap;
     va_start(ap, format);
     
