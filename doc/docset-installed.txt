@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/pietbrauer/Library/Developer/Shared/Documentation/DocSets/com.nerdishbynature.GitlabIssues.docset
+Time: 2013-02-13 17:42:29 +0000
