@@ -28,7 +28,12 @@
     // Override point for customization after application launch.
 
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"GitLabIssues.sqlite"];
-    [Flurry startSession:@"<set_token_here>"];
+    [Flurry startSession:@""];
+
+//#ifdef DEBUG
+//    [Flurry setDebugLogEnabled:YES];
+//    [Flurry setShowErrorInLogEnabled:YES];
+//#endif
     
     [Appirater setAppId:@"593632411"];
     [Appirater setDaysUntilPrompt:1];
@@ -49,6 +54,7 @@
     NBNHomeScreenViewController *homeScreen = [[NBNHomeScreenViewController alloc] initWithStyle:UITableViewStyleGrouped];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homeScreen];
+    [Flurry logAllPageViews:navController];
     
     NSArray *sessionArray = [Session findAll];
     
