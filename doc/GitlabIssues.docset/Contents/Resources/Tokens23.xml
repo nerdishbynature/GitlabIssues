@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/NBNMilestoneConnection.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/NBNMilestoneConnection</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NBNMilestoneConnection.h</DeclaredIn>
+			
+			<NodeRef refid="23"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNMilestoneConnection/loadAllMilestonesForProjectID:onSuccess:</TokenIdentifier>
+			<Abstract type="html">@brief Loads all Milestones for the specified project.</Abstract>
+			<DeclaredIn>NBNMilestoneConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)loadAllMilestonesForProjectID:(NSUInteger)projectID onSuccess:(void ( ^ ) ( void ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>projectID</Name>
+					<Abstract type="html">The gitlab project identifier</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion Block which is called on success</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/loadAllMilestonesForProjectID:onSuccess:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

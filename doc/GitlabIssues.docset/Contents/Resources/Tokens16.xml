@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/NBNFavoritesViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/NBNFavoritesViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NBNFavoritesViewController.h</DeclaredIn>
+			
+			<NodeRef refid="16"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNFavoritesViewController/applyFilter:</TokenIdentifier>
+			<Abstract type="html">Used to tell the associated view controller which filter to apply</Abstract>
+			<DeclaredIn>NBNFavoritesViewController.m</DeclaredIn>			
+			
+			<Declaration>- (void)applyFilter:(Filter *)_filter</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>_filter</Name>
+					<Abstract type="html">the Filter object used to apply the settings</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/applyFilter:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

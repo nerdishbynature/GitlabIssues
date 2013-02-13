@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/NBNIssuesConnection.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/NBNIssuesConnection</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NBNIssuesConnection.h</DeclaredIn>
+			
+			<NodeRef refid="20"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssuesConnection/loadIssuesForProject:onSuccess:</TokenIdentifier>
+			<Abstract type="html">  Loads all issues for the specified project.</Abstract>
+			<DeclaredIn>NBNIssuesConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)loadIssuesForProject:(Project *)project onSuccess:(void ( ^ ) ( void ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>project</Name>
+					<Abstract type="html">The project object</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion Block which is called on success</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/loadIssuesForProject:onSuccess:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssuesConnection/cancelIssuesConnection</TokenIdentifier>
+			<Abstract type="html">Cancels the connection</Abstract>
+			<DeclaredIn>NBNIssuesConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)cancelIssuesConnection</Declaration>
+			
+			
+			<Anchor>//api/name/cancelIssuesConnection</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssuesConnection/reloadIssue:onSuccess:</TokenIdentifier>
+			<Abstract type="html">Reloads the specified issue using the API</Abstract>
+			<DeclaredIn>NBNIssuesConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)reloadIssue:(Issue *)issue onSuccess:(void ( ^ ) ( void ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>issue</Name>
+					<Abstract type="html">the issue object used to reload</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion block called on success</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/reloadIssue:onSuccess:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssuesConnection/cancelReloadConnection</TokenIdentifier>
+			<Abstract type="html">Cancels the connection</Abstract>
+			<DeclaredIn>NBNIssuesConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)cancelReloadConnection</Declaration>
+			
+			
+			<Anchor>//api/name/cancelReloadConnection</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssuesConnection/loadNotesForIssue:onSuccess:</TokenIdentifier>
+			<Abstract type="html">Loads all notes for the specified issue.</Abstract>
+			<DeclaredIn>NBNIssuesConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)loadNotesForIssue:(Issue *)issue onSuccess:(void ( ^ ) ( NSArray *))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>issue</Name>
+					<Abstract type="html">The issue object</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion Block which is called on success</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/loadNotesForIssue:onSuccess:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssuesConnection/cancelNotesConnection</TokenIdentifier>
+			<Abstract type="html">Cancels the connection</Abstract>
+			<DeclaredIn>NBNIssuesConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)cancelNotesConnection</Declaration>
+			
+			
+			<Anchor>//api/name/cancelNotesConnection</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssuesConnection/sendNoteForIssue:andBody:onSuccess:</TokenIdentifier>
+			<Abstract type="html">  Send a new Note to the server</Abstract>
+			<DeclaredIn>NBNIssuesConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)sendNoteForIssue:(Issue *)issue andBody:(NSString *)body onSuccess:(void ( ^ ) ( void ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>issue</Name>
+					<Abstract type="html">The issue object</Abstract>
+				</Parameter><Parameter>
+					<Name>body</Name>
+					<Abstract type="html">The Note body</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion block which is called on success</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/sendNoteForIssue:andBody:onSuccess:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssuesConnection/cancelSendNotesConnection</TokenIdentifier>
+			<Abstract type="html">Cancels the connection</Abstract>
+			<DeclaredIn>NBNIssuesConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)cancelSendNotesConnection</Declaration>
+			
+			
+			<Anchor>//api/name/cancelSendNotesConnection</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssuesConnection/loadAllIssuesOnSuccess:</TokenIdentifier>
+			<Abstract type="html">  Loads all issues for the current domain</Abstract>
+			<DeclaredIn>NBNIssuesConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)loadAllIssuesOnSuccess:(void ( ^ ) ( void ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion block, which is called on success</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/loadAllIssuesOnSuccess:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssuesConnection/cancelAllIssuesConnection</TokenIdentifier>
+			<Abstract type="html">Cancels the connection</Abstract>
+			<DeclaredIn>NBNIssuesConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)cancelAllIssuesConnection</Declaration>
+			
+			
+			<Anchor>//api/name/cancelAllIssuesConnection</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/NBNIssueDetailViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/NBNIssueDetailViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NBNIssueDetailViewController.h</DeclaredIn>
+			
+			<NodeRef refid="17"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/NBNIssueDetailViewController/loadViewControllerWithIssue:</TokenIdentifier>
+			<Abstract type="html">Method sets up the view controller and returns the allocated and initialized object.
+This method is an shortcut to create the view controller and don&apos;t forget to set anything.</Abstract>
+			<DeclaredIn>NBNIssueDetailViewController.h</DeclaredIn>			
+			
+			<Declaration>+ (NBNIssueDetailViewController *)loadViewControllerWithIssue:(Issue *)_issue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>_issue</Name>
+					<Abstract type="html">The issue object used to initialize the view controller.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Returns an allocated and initialized view controller object.</Abstract></ReturnValue>
+			<Anchor>//api/name/loadViewControllerWithIssue:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssueDetailViewController/didSelectMilestone:</TokenIdentifier>
+			<Abstract type="html">Called, when a milestone is selected. This delegate method is implemented in NBNIssueFilterViewController
+to get additional filter options.</Abstract>
+			<DeclaredIn>NBNIssueDetailViewController.m</DeclaredIn>			
+			
+			<Declaration>- (void)didSelectMilestone:(Milestone *)selectedMilestone</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>selectedMilestone</Name>
+					<Abstract type="html">The milestone object which is selected</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/didSelectMilestone:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssueDetailViewController/didSelectAssignee:</TokenIdentifier>
+			<Abstract type="html">Called, when a assignee is selected. This delegate method is implemented in NBNIssueFilterViewController
+to get additional filter options.</Abstract>
+			<DeclaredIn>NBNIssueDetailViewController.m</DeclaredIn>			
+			
+			<Declaration>- (void)didSelectAssignee:(Assignee *)selectedAssignee</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>selectedAssignee</Name>
+					<Abstract type="html">The assignee object which is selected</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/didSelectAssignee:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

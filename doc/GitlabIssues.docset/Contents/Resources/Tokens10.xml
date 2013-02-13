@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Issue.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Issue</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>
+			
+			<NodeRef refid="10"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/setClosed:</TokenIdentifier>
+			<Abstract type="html">Specifies whether the issue is closed or not</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSNumber *closed</Declaration>
+			
+			
+			<Anchor>//api/name/closed</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Issue/closed</TokenIdentifier>
+			<Abstract type="html">Specifies whether the issue is closed or not</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSNumber *closed</Declaration>
+			
+			
+			<Anchor>//api/name/closed</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/setCreated_at:</TokenIdentifier>
+			<Abstract type="html">Date object when the issue was created (specified by the API)</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSDate *created_at</Declaration>
+			
+			
+			<Anchor>//api/name/created_at</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Issue/created_at</TokenIdentifier>
+			<Abstract type="html">Date object when the issue was created (specified by the API)</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSDate *created_at</Declaration>
+			
+			
+			<Anchor>//api/name/created_at</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/setDescriptionString:</TokenIdentifier>
+			<Abstract type="html">String containing the description</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSString *descriptionString</Declaration>
+			
+			
+			<Anchor>//api/name/descriptionString</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Issue/descriptionString</TokenIdentifier>
+			<Abstract type="html">String containing the description</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSString *descriptionString</Declaration>
+			
+			
+			<Anchor>//api/name/descriptionString</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">Returned ID (API)</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSNumber *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Issue/identifier</TokenIdentifier>
+			<Abstract type="html">Returned ID (API)</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSNumber *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/setLabels:</TokenIdentifier>
+			<Abstract type="html">Returned labels</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) id labels</Declaration>
+			
+			
+			<Anchor>//api/name/labels</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Issue/labels</TokenIdentifier>
+			<Abstract type="html">Returned labels</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) id labels</Declaration>
+			
+			
+			<Anchor>//api/name/labels</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/setProject_id:</TokenIdentifier>
+			<Abstract type="html">Associated project ID</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSNumber *project_id</Declaration>
+			
+			
+			<Anchor>//api/name/project_id</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Issue/project_id</TokenIdentifier>
+			<Abstract type="html">Associated project ID</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSNumber *project_id</Declaration>
+			
+			
+			<Anchor>//api/name/project_id</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/setTitle:</TokenIdentifier>
+			<Abstract type="html">Title of the issue</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Issue/title</TokenIdentifier>
+			<Abstract type="html">Title of the issue</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/setUpdated_at:</TokenIdentifier>
+			<Abstract type="html">Date object when the issue was updated (specified by the API)</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSDate *updated_at</Declaration>
+			
+			
+			<Anchor>//api/name/updated_at</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Issue/updated_at</TokenIdentifier>
+			<Abstract type="html">Date object when the issue was updated (specified by the API)</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSDate *updated_at</Declaration>
+			
+			
+			<Anchor>//api/name/updated_at</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/setAssignee:</TokenIdentifier>
+			<Abstract type="html">Assigned user</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) Assignee *assignee</Declaration>
+			
+			
+			<Anchor>//api/name/assignee</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Issue/assignee</TokenIdentifier>
+			<Abstract type="html">Assigned user</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) Assignee *assignee</Declaration>
+			
+			
+			<Anchor>//api/name/assignee</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/setAuthor:</TokenIdentifier>
+			<Abstract type="html">Author of the issue</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) Author *author</Declaration>
+			
+			
+			<Anchor>//api/name/author</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Issue/author</TokenIdentifier>
+			<Abstract type="html">Author of the issue</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) Author *author</Declaration>
+			
+			
+			<Anchor>//api/name/author</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/setMilestone:</TokenIdentifier>
+			<Abstract type="html">Associated milestone object</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) Milestone *milestone</Declaration>
+			
+			
+			<Anchor>//api/name/milestone</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Issue/milestone</TokenIdentifier>
+			<Abstract type="html">Associated milestone object</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) Milestone *milestone</Declaration>
+			
+			
+			<Anchor>//api/name/milestone</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/setNotes:</TokenIdentifier>
+			<Abstract type="html">Contains the Notes of an issue</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSSet *notes</Declaration>
+			
+			
+			<Anchor>//api/name/notes</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Issue/notes</TokenIdentifier>
+			<Abstract type="html">Contains the Notes of an issue</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSSet *notes</Declaration>
+			
+			
+			<Anchor>//api/name/notes</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Issue/createAndParseJSON:</TokenIdentifier>
+			<Abstract type="html">This method is used for parsing the returned JSON from the API</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>+ (Issue *)createAndParseJSON:(NSDictionary *)dict</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>dict</Name>
+					<Abstract type="html">The JSON dictionary</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Initialized User object</Abstract></ReturnValue>
+			<Anchor>//api/name/createAndParseJSON:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/save</TokenIdentifier>
+			<Abstract type="html">Only used for FormKit</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>- (void)save</Declaration>
+			
+			
+			<Anchor>//api/name/save</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/saveChangesonSuccess:</TokenIdentifier>
+			<Abstract type="html">Saves object in local database and PUTs the new data on the Server using the GitLab API</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>- (void)saveChangesonSuccess:(void ( ^ ) ( void ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion block, which is called on success</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/saveChangesonSuccess:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/createANewOnServerOnSuccess:</TokenIdentifier>
+			<Abstract type="html">Saves object in local database and POSTs the new data on the Server using the GitLab API</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>- (void)createANewOnServerOnSuccess:(void ( ^ ) ( void ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion block, which is called on success</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createANewOnServerOnSuccess:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Issue/parseServerResponse:</TokenIdentifier>
+			<Abstract type="html">Catches the object and updates the data</Abstract>
+			<DeclaredIn>Issue.h</DeclaredIn>			
+			
+			<Declaration>- (void)parseServerResponse:(NSDictionary *)dict</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>dict</Name>
+					<Abstract type="html">The JSON dictionary</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/parseServerResponse:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/FKFormModel.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/FKFormModel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FKFormModel.h</DeclaredIn>
+			
+			<NodeRef refid="7"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FKFormModel/setInvalidAttributes:</TokenIdentifier>
+			<Abstract type="html">A set of attribute names with invalid values.</Abstract>
+			<DeclaredIn>FKFormModel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSSet *invalidAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/invalidAttributes</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FKFormModel/invalidAttributes</TokenIdentifier>
+			<Abstract type="html">A set of attribute names with invalid values.</Abstract>
+			<DeclaredIn>FKFormModel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSSet *invalidAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/invalidAttributes</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FKFormModel/setValidationNormalColor:</TokenIdentifier>
+			<Abstract type="html">Default text color used for the title label in table cells for attribues with valid values.</Abstract>
+			<DeclaredIn>FKFormModel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *validationNormalColor</Declaration>
+			
+			
+			<Anchor>//api/name/validationNormalColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FKFormModel/validationNormalColor</TokenIdentifier>
+			<Abstract type="html">Default text color used for the title label in table cells for attribues with valid values.</Abstract>
+			<DeclaredIn>FKFormModel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *validationNormalColor</Declaration>
+			
+			
+			<Anchor>//api/name/validationNormalColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FKFormModel/setValidationErrorColor:</TokenIdentifier>
+			<Abstract type="html">Color used for the title label in table cells for attribues with invalid values.</Abstract>
+			<DeclaredIn>FKFormModel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *validationErrorColor</Declaration>
+			
+			
+			<Anchor>//api/name/validationErrorColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FKFormModel/validationErrorColor</TokenIdentifier>
+			<Abstract type="html">Color used for the title label in table cells for attribues with invalid values.</Abstract>
+			<DeclaredIn>FKFormModel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *validationErrorColor</Declaration>
+			
+			
+			<Anchor>//api/name/validationErrorColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FKFormModel/setValidationNormalCellBackgroundColor:</TokenIdentifier>
+			<Abstract type="html">Cell background color in table cells for attribues with values.</Abstract>
+			<DeclaredIn>FKFormModel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *validationNormalCellBackgroundColor</Declaration>
+			
+			
+			<Anchor>//api/name/validationNormalCellBackgroundColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FKFormModel/validationNormalCellBackgroundColor</TokenIdentifier>
+			<Abstract type="html">Cell background color in table cells for attribues with values.</Abstract>
+			<DeclaredIn>FKFormModel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *validationNormalCellBackgroundColor</Declaration>
+			
+			
+			<Anchor>//api/name/validationNormalCellBackgroundColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FKFormModel/setValidationErrorCellBackgroundColor:</TokenIdentifier>
+			<Abstract type="html">Cell background color in table cells for attribues with invalid values.</Abstract>
+			<DeclaredIn>FKFormModel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *validationErrorCellBackgroundColor</Declaration>
+			
+			
+			<Anchor>//api/name/validationErrorCellBackgroundColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FKFormModel/validationErrorCellBackgroundColor</TokenIdentifier>
+			<Abstract type="html">Cell background color in table cells for attribues with invalid values.</Abstract>
+			<DeclaredIn>FKFormModel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *validationErrorCellBackgroundColor</Declaration>
+			
+			
+			<Anchor>//api/name/validationErrorCellBackgroundColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FKFormModel/findFirstTextField</TokenIdentifier>
+			<Abstract type="html">Find the first UITextField or UITextView in the table view.</Abstract>
+			<DeclaredIn>FKFormModel.h</DeclaredIn>			
+			
+			<Declaration>- (id)findFirstTextField</Declaration>
+			
+			<ReturnValue><Abstract type="html">Return first UITextField or UITextView.</Abstract></ReturnValue>
+			<Anchor>//api/name/findFirstTextField</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FKFormModel/findTextFields</TokenIdentifier>
+			<Abstract type="html">Find all UITextField or UITextView in the table view.</Abstract>
+			<DeclaredIn>FKFormModel.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)findTextFields</Declaration>
+			
+			<ReturnValue><Abstract type="html">Return an array of UITextField and UITextView.</Abstract></ReturnValue>
+			<Anchor>//api/name/findTextFields</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FKFormModel/save</TokenIdentifier>
+			<Abstract type="html">Save all attributes</Abstract>
+			<DeclaredIn>FKFormModel.h</DeclaredIn>			
+			
+			<Declaration>- (void)save</Declaration>
+			
+			
+			<Anchor>//api/name/save</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

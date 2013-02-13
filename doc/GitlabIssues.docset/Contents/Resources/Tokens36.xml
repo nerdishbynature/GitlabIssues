@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/NBNAssigneeListDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/NBNAssigneeListDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NBNAssigneeListViewController.h</DeclaredIn>
+			
+			<NodeRef refid="36"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NBNAssigneeListDelegate/didSelectAssignee:</TokenIdentifier>
+			<Abstract type="html">Called, when a assignee is selected. This delegate method is implemented in NBNIssueFilterViewController
+to get additional filter options.</Abstract>
+			<DeclaredIn>NBNAssigneeListViewController.h</DeclaredIn>			
+			
+			<Declaration>- (void)didSelectAssignee:(Assignee *)selectedAssignee</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>selectedAssignee</Name>
+					<Abstract type="html">The assignee object which is selected</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/didSelectAssignee:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

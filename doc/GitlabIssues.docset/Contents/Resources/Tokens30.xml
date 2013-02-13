@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Session.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Session</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>Session.h</DeclaredIn>
+			
+			<NodeRef refid="30"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Session/generateSessionWithCompletion:onError:</TokenIdentifier>
+			<Abstract type="html">  Generates a new session using the API</Abstract>
+			<DeclaredIn>Session.h</DeclaredIn>			
+			
+			<Declaration>+ (void)generateSessionWithCompletion:(void ( ^ ) ( Session *session ))block onError:(void ( ^ ) ( NSError *error ))errorBlock</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion block, which is called on success.</Abstract>
+				</Parameter><Parameter>
+					<Name>errorBlock</Name>
+					<Abstract type="html">The error block, which is called on failure.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/generateSessionWithCompletion:onError:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Session/getCurrentSessionWithCompletion:</TokenIdentifier>
+			<Abstract type="html">Always returns the correct session</Abstract>
+			<DeclaredIn>Session.h</DeclaredIn>			
+			
+			<Declaration>+ (void)getCurrentSessionWithCompletion:(void ( ^ ) ( Session *session ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion block, which is called on success.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getCurrentSessionWithCompletion:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

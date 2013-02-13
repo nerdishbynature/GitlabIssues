@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Project.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Project</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>Project.h</DeclaredIn>
+			
+			<NodeRef refid="29"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Project/createAndParseJSON:</TokenIdentifier>
+			<Abstract type="html">This method is used for parsing the returned JSON from the API</Abstract>
+			<DeclaredIn>Project.h</DeclaredIn>			
+			
+			<Declaration>+ (Project *)createAndParseJSON:(NSDictionary *)json</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>json</Name>
+					<Abstract type="html">The JSON dictionary</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Initialized Project object</Abstract></ReturnValue>
+			<Anchor>//api/name/createAndParseJSON:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Project/parseServerResponseWithDict:</TokenIdentifier>
+			<Abstract type="html">  Parses the specified dictionary and updates the model</Abstract>
+			<DeclaredIn>Project.h</DeclaredIn>			
+			
+			<Declaration>- (void)parseServerResponseWithDict:(NSDictionary *)dict</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>dict</Name>
+					<Abstract type="html">The JSON dictionary</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/parseServerResponseWithDict:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

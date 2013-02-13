@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PBLog.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PBLog</TokenIdentifier>
+			<Abstract type="html">Copyright © 2012 P. Brauer. All Rights Reserved.</Abstract>
+			<DeclaredIn>PBLog.h</DeclaredIn>
+			
+			<NodeRef refid="28"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/PBLog/logFile:withLineNumber:andFormat:</TokenIdentifier>
+			<Abstract type="html">Method used for logging</Abstract>
+			<DeclaredIn>PBLog.h</DeclaredIn>			
+			
+			<Declaration>+ (void)logFile:(char *)file withLineNumber:(int)lineNumber andFormat:(NSString *)format, ...</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>file</Name>
+					<Abstract type="html">The class from which the log comes</Abstract>
+				</Parameter><Parameter>
+					<Name>lineNumber</Name>
+					<Abstract type="html">The line number where the log was sent from</Abstract>
+				</Parameter><Parameter>
+					<Name>format</Name>
+					<Abstract type="html">The formatted string, which should be logged</Abstract>
+				</Parameter><Parameter>
+					<Name>...</Name>
+					<Abstract type="html">The formatted string, which should be logged</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/logFile:withLineNumber:andFormat:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/FKFormMapper.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/FKFormMapper</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FKFormMapper.h</DeclaredIn>
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FKFormMapper/convertValueToStringIfNeeded:attributeMapping:</TokenIdentifier>
+			<Abstract type="html">Converts an object property to a string that can be displayed in a label.</Abstract>
+			<DeclaredIn>FKFormMapper.m</DeclaredIn>			
+			
+			<Declaration>- (id)convertValueToStringIfNeeded:(id)value attributeMapping:(FKFormAttributeMapping *)attributeMapping</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>value</Name>
+					<Abstract type="html">the value</Abstract>
+				</Parameter><Parameter>
+					<Name>attributeMapping</Name>
+					<Abstract type="html">The FKFormAttributeMapping object</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/convertValueToStringIfNeeded:attributeMapping:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FKFormMapper/convertValueToObjectPropertyTypeIfNeeded:attributeMapping:</TokenIdentifier>
+			<Abstract type="html">Converts a string value from a text field to the correspondig object value type.</Abstract>
+			<DeclaredIn>FKFormMapper.m</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/FKFormMapper/convertValueToStringIfNeeded:attributeMapping:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (id)convertValueToObjectPropertyTypeIfNeeded:(NSString *)value attributeMapping:(FKFormAttributeMapping *)attributeMapping</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>value</Name>
+					<Abstract type="html">the value</Abstract>
+				</Parameter><Parameter>
+					<Name>attributeMapping</Name>
+					<Abstract type="html">The FKFormAttributeMapping object</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/convertValueToObjectPropertyTypeIfNeeded:attributeMapping:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

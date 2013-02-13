@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/NBNIssueEditViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/NBNIssueEditViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NBNIssueEditViewController.h</DeclaredIn>
+			
+			<NodeRef refid="18"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/NBNIssueEditViewController/loadViewControllerWithIssue:</TokenIdentifier>
+			<Abstract type="html">Creates ViewController with associated issue and returns it</Abstract>
+			<DeclaredIn>NBNIssueEditViewController.h</DeclaredIn>			
+			
+			<Declaration>+ (NBNIssueEditViewController *)loadViewControllerWithIssue:(Issue *)_issue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>_issue</Name>
+					<Abstract type="html">The issue object used to initialize the view controller.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">NBNIssueEditViewController instance</Abstract></ReturnValue>
+			<Anchor>//api/name/loadViewControllerWithIssue:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssueEditViewController/setEditMode:</TokenIdentifier>
+			<Abstract type="html">editMode specifies if the associated issue is a new one (editMode == NO) or
+if the issue needs to be created on the server (POST method) or updated (PUT method)</Abstract>
+			<DeclaredIn>NBNIssueEditViewController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL editMode</Declaration>
+			
+			
+			<Anchor>//api/name/editMode</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NBNIssueEditViewController/editMode</TokenIdentifier>
+			<Abstract type="html">editMode specifies if the associated issue is a new one (editMode == NO) or
+if the issue needs to be created on the server (POST method) or updated (PUT method)</Abstract>
+			<DeclaredIn>NBNIssueEditViewController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL editMode</Declaration>
+			
+			
+			<Anchor>//api/name/editMode</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

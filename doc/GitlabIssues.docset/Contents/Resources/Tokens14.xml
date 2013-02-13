@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Milestone.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Milestone</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>Milestone.h</DeclaredIn>
+			
+			<NodeRef refid="14"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Milestone/createAndParseJSON:andProjectID:</TokenIdentifier>
+			<Abstract type="html">  This method is used for parsing the returned JSON from the API</Abstract>
+			<DeclaredIn>Milestone.h</DeclaredIn>			
+			
+			<Declaration>+ (Milestone *)createAndParseJSON:(NSDictionary *)dict andProjectID:(NSUInteger)projectID</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>dict</Name>
+					<Abstract type="html">The JSON dictionary</Abstract>
+				</Parameter><Parameter>
+					<Name>projectID</Name>
+					<Abstract type="html">The associated gitlab project identifier.
+This is used for creating the fetch request and only load the related milestones for a project. This parameter is not returned via the API, sadly.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Initialized User object</Abstract></ReturnValue>
+			<Anchor>//api/name/createAndParseJSON:andProjectID:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Milestone/parseServerResponseWithDict:</TokenIdentifier>
+			<Abstract type="html">  This method parses the Server response.</Abstract>
+			<DeclaredIn>Milestone.h</DeclaredIn>			
+			
+			<Declaration>- (void)parseServerResponseWithDict:(NSDictionary *)dict</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>dict</Name>
+					<Abstract type="html">The JSON Dictionary containing the server response</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/parseServerResponseWithDict:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

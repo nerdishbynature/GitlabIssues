@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Author.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Author</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>Author.h</DeclaredIn>
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Author/createAndParseJSON:</TokenIdentifier>
+			<Abstract type="html">  This method is used for parsing the returned JSON from the API</Abstract>
+			<DeclaredIn>Author.h</DeclaredIn>			
+			
+			<Declaration>+ (Author *)createAndParseJSON:(NSDictionary *)dict</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>dict</Name>
+					<Abstract type="html">The JSON dictionary</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Initialized User object</Abstract></ReturnValue>
+			<Anchor>//api/name/createAndParseJSON:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

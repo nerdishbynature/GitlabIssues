@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/NBNLabelsConnection.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/NBNLabelsConnection</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NBNLabelsConnection.h</DeclaredIn>
+			
+			<NodeRef refid="22"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/NBNLabelsConnection/sharedConnection</TokenIdentifier>
+			<Abstract type="html">Singleton used to access the methods</Abstract>
+			<DeclaredIn>NBNLabelsConnection.h</DeclaredIn>			
+			
+			<Declaration>+ (NBNLabelsConnection *)sharedConnection</Declaration>
+			
+			<ReturnValue><Abstract type="html">Initialized object</Abstract></ReturnValue>
+			<Anchor>//api/name/sharedConnection</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNLabelsConnection/loadAllLabelsForProjectID:onSuccess:</TokenIdentifier>
+			<Abstract type="html">  Loads all Labels for the specified project.</Abstract>
+			<DeclaredIn>NBNLabelsConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)loadAllLabelsForProjectID:(NSUInteger)projectID onSuccess:(void ( ^ ) ( void ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>projectID</Name>
+					<Abstract type="html">The gitlab project identifier</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion Block which is called on success</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/loadAllLabelsForProjectID:onSuccess:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNLabelsConnection/cancelLabelsRequest</TokenIdentifier>
+			<Abstract type="html">Cancels ongoing request</Abstract>
+			<DeclaredIn>NBNLabelsConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)cancelLabelsRequest</Declaration>
+			
+			
+			<Anchor>//api/name/cancelLabelsRequest</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

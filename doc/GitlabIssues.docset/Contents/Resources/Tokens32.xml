@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/ActionSheetCustomPickerDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/ActionSheetCustomPickerDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ActionSheetCustomPickerDelegate.h</DeclaredIn>
+			
+			<NodeRef refid="32"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ActionSheetCustomPickerDelegate/configurePickerView:</TokenIdentifier>
+			<Abstract type="html">Allow the delegate to override default settings for the picker</Abstract>
+			<DeclaredIn>ActionSheetCustomPickerDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)configurePickerView:(UIPickerView *)pickerView</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>pickerView</Name>
+					<Abstract type="html">UIPickerView instance</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/configurePickerView:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ActionSheetCustomPickerDelegate/actionSheetPickerDidSucceed:origin:</TokenIdentifier>
+			<Abstract type="html">Success callback</Abstract>
+			<DeclaredIn>ActionSheetCustomPickerDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)actionSheetPickerDidSucceed:(AbstractActionSheetPicker *)actionSheetPicker origin:(id)origin</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>actionSheetPicker</Name>
+					<Abstract type="html">.pickerView property accesses the picker.  Requires a cast to UIView subclass for the picker</Abstract>
+				</Parameter><Parameter>
+					<Name>origin</Name>
+					<Abstract type="html">The entity which launched the ActionSheetPicker</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/actionSheetPickerDidSucceed:origin:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ActionSheetCustomPickerDelegate/actionSheetPickerDidCancel:origin:</TokenIdentifier>
+			<Abstract type="html">Cancel callback.</Abstract>
+			<DeclaredIn>ActionSheetCustomPickerDelegate.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/intfm/ActionSheetCustomPickerDelegate/actionSheetPickerDidSucceed:origin:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)actionSheetPickerDidCancel:(AbstractActionSheetPicker *)actionSheetPicker origin:(id)origin</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>actionSheetPicker</Name>
+					<Abstract type="html">AbstractActionSheetPicker instance</Abstract>
+				</Parameter><Parameter>
+					<Name>origin</Name>
+					<Abstract type="html">The entity which launched the ActionSheetPicker</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/actionSheetPickerDidCancel:origin:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

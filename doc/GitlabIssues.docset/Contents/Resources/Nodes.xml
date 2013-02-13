@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocSetNodes version="1.0">
+    <TOC>
+        <Node type="folder">
+            <Name>GitlabIssues</Name>
+            <Path>index.html</Path>
+			<Subnodes>
+                
+				
+				<Node type="folder">
+					<Name>Classes</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="1"/>
+						<NodeRef refid="2"/>
+						<NodeRef refid="3"/>
+						<NodeRef refid="4"/>
+						<NodeRef refid="5"/>
+						<NodeRef refid="6"/>
+						<NodeRef refid="7"/>
+						<NodeRef refid="8"/>
+						<NodeRef refid="9"/>
+						<NodeRef refid="10"/>
+						<NodeRef refid="11"/>
+						<NodeRef refid="12"/>
+						<NodeRef refid="13"/>
+						<NodeRef refid="14"/>
+						<NodeRef refid="15"/>
+						<NodeRef refid="16"/>
+						<NodeRef refid="17"/>
+						<NodeRef refid="18"/>
+						<NodeRef refid="19"/>
+						<NodeRef refid="20"/>
+						<NodeRef refid="21"/>
+						<NodeRef refid="22"/>
+						<NodeRef refid="23"/>
+						<NodeRef refid="24"/>
+						<NodeRef refid="25"/>
+						<NodeRef refid="26"/>
+						<NodeRef refid="27"/>
+						<NodeRef refid="28"/>
+						<NodeRef refid="29"/>
+						<NodeRef refid="30"/>
+						<NodeRef refid="31"/>
+						
+					</Subnodes>
+				</Node>
+				
+				
+				
+				<Node type="folder">
+					<Name>Protocols</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="32"/>
+						<NodeRef refid="33"/>
+						<NodeRef refid="34"/>
+						<NodeRef refid="35"/>
+						<NodeRef refid="36"/>
+						<NodeRef refid="37"/>
+						<NodeRef refid="38"/>
+						
+					</Subnodes>
+				</Node>
+				
+			</Subnodes>
+        </Node>
+    </TOC>
+	<Library>
+		
+		<Node id="1">
+			<Name>ActionSheetCustomPicker</Name>
+			<Path>Classes/ActionSheetCustomPicker.html</Path>
+		</Node>
+		<Node id="2">
+			<Name>Assignee</Name>
+			<Path>Classes/Assignee.html</Path>
+		</Node>
+		<Node id="3">
+			<Name>Author</Name>
+			<Path>Classes/Author.html</Path>
+		</Node>
+		<Node id="4">
+			<Name>DistancePickerView</Name>
+			<Path>Classes/DistancePickerView.html</Path>
+		</Node>
+		<Node id="5">
+			<Name>Domain</Name>
+			<Path>Classes/Domain.html</Path>
+		</Node>
+		<Node id="6">
+			<Name>FKFormMapper</Name>
+			<Path>Classes/FKFormMapper.html</Path>
+		</Node>
+		<Node id="7">
+			<Name>FKFormModel</Name>
+			<Path>Classes/FKFormModel.html</Path>
+		</Node>
+		<Node id="8">
+			<Name>Filter</Name>
+			<Path>Classes/Filter.html</Path>
+		</Node>
+		<Node id="9">
+			<Name>HEBubbleViewItem</Name>
+			<Path>Classes/HEBubbleViewItem.html</Path>
+		</Node>
+		<Node id="10">
+			<Name>Issue</Name>
+			<Path>Classes/Issue.html</Path>
+		</Node>
+		<Node id="11">
+			<Name>MBProgressHUD</Name>
+			<Path>Classes/MBProgressHUD.html</Path>
+		</Node>
+		<Node id="12">
+			<Name>MBRoundProgressView</Name>
+			<Path>Classes/MBRoundProgressView.html</Path>
+		</Node>
+		<Node id="13">
+			<Name>MagicalRecord</Name>
+			<Path>Classes/MagicalRecord.html</Path>
+		</Node>
+		<Node id="14">
+			<Name>Milestone</Name>
+			<Path>Classes/Milestone.html</Path>
+		</Node>
+		<Node id="15">
+			<Name>NBNAssigneeListViewController</Name>
+			<Path>Classes/NBNAssigneeListViewController.html</Path>
+		</Node>
+		<Node id="16">
+			<Name>NBNFavoritesViewController</Name>
+			<Path>Classes/NBNFavoritesViewController.html</Path>
+		</Node>
+		<Node id="17">
+			<Name>NBNIssueDetailViewController</Name>
+			<Path>Classes/NBNIssueDetailViewController.html</Path>
+		</Node>
+		<Node id="18">
+			<Name>NBNIssueEditViewController</Name>
+			<Path>Classes/NBNIssueEditViewController.html</Path>
+		</Node>
+		<Node id="19">
+			<Name>NBNIssueFilterViewController</Name>
+			<Path>Classes/NBNIssueFilterViewController.html</Path>
+		</Node>
+		<Node id="20">
+			<Name>NBNIssuesConnection</Name>
+			<Path>Classes/NBNIssuesConnection.html</Path>
+		</Node>
+		<Node id="21">
+			<Name>NBNIssuesViewController</Name>
+			<Path>Classes/NBNIssuesViewController.html</Path>
+		</Node>
+		<Node id="22">
+			<Name>NBNLabelsConnection</Name>
+			<Path>Classes/NBNLabelsConnection.html</Path>
+		</Node>
+		<Node id="23">
+			<Name>NBNMilestoneConnection</Name>
+			<Path>Classes/NBNMilestoneConnection.html</Path>
+		</Node>
+		<Node id="24">
+			<Name>NBNMilestonesListViewController</Name>
+			<Path>Classes/NBNMilestonesListViewController.html</Path>
+		</Node>
+		<Node id="25">
+			<Name>NBNProjectConnection</Name>
+			<Path>Classes/NBNProjectConnection.html</Path>
+		</Node>
+		<Node id="26">
+			<Name>NBNUsersConnection</Name>
+			<Path>Classes/NBNUsersConnection.html</Path>
+		</Node>
+		<Node id="27">
+			<Name>PBFileLogger</Name>
+			<Path>Classes/PBFileLogger.html</Path>
+		</Node>
+		<Node id="28">
+			<Name>PBLog</Name>
+			<Path>Classes/PBLog.html</Path>
+		</Node>
+		<Node id="29">
+			<Name>Project</Name>
+			<Path>Classes/Project.html</Path>
+		</Node>
+		<Node id="30">
+			<Name>Session</Name>
+			<Path>Classes/Session.html</Path>
+		</Node>
+		<Node id="31">
+			<Name>User</Name>
+			<Path>Classes/User.html</Path>
+		</Node>
+		
+		
+		<Node id="32">
+			<Name>ActionSheetCustomPickerDelegate</Name>
+			<Path>Protocols/ActionSheetCustomPickerDelegate.html</Path>
+		</Node>
+		<Node id="33">
+			<Name>HEBubbleViewDataSource</Name>
+			<Path>Protocols/HEBubbleViewDataSource.html</Path>
+		</Node>
+		<Node id="34">
+			<Name>HEBubbleViewDelegate</Name>
+			<Path>Protocols/HEBubbleViewDelegate.html</Path>
+		</Node>
+		<Node id="35">
+			<Name>MBProgressHUDDelegate</Name>
+			<Path>Protocols/MBProgressHUDDelegate.html</Path>
+		</Node>
+		<Node id="36">
+			<Name>NBNAssigneeListDelegate</Name>
+			<Path>Protocols/NBNAssigneeListDelegate.html</Path>
+		</Node>
+		<Node id="37">
+			<Name>NBNIssueFilterDelegate</Name>
+			<Path>Protocols/NBNIssueFilterDelegate.html</Path>
+		</Node>
+		<Node id="38">
+			<Name>NBNMilestoneListDelegate</Name>
+			<Path>Protocols/NBNMilestoneListDelegate.html</Path>
+		</Node>
+		
+	</Library>
+</DocSetNodes>

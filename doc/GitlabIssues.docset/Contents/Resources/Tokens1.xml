@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ActionSheetCustomPicker.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ActionSheetCustomPicker</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ActionSheetCustomPicker.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ActionSheetCustomPicker/initWithTitle:delegate:showCancelButton:origin:</TokenIdentifier>
+			<Abstract type="html">Designated init</Abstract>
+			<DeclaredIn>ActionSheetCustomPicker.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithTitle:(NSString *)title delegate:(id&lt;ActionSheetCustomPickerDelegate&gt;)delegate showCancelButton:(BOOL)showCancelButton origin:(id)origin</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>title</Name>
+					<Abstract type="html">The title string</Abstract>
+				</Parameter><Parameter>
+					<Name>delegate</Name>
+					<Abstract type="html">The ActionSheetCustomPickerDelegate</Abstract>
+				</Parameter><Parameter>
+					<Name>showCancelButton</Name>
+					<Abstract type="html">Decides wether to show the cancel button or not</Abstract>
+				</Parameter><Parameter>
+					<Name>origin</Name>
+					<Abstract type="html">The object which called this method</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithTitle:delegate:showCancelButton:origin:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ActionSheetCustomPicker/showPickerWithTitle:delegate:showCancelButton:origin:</TokenIdentifier>
+			<Abstract type="html">Convenience class method for creating an launched</Abstract>
+			<DeclaredIn>ActionSheetCustomPicker.h</DeclaredIn>			
+			
+			<Declaration>+ (id)showPickerWithTitle:(NSString *)title delegate:(id&lt;ActionSheetCustomPickerDelegate&gt;)delegate showCancelButton:(BOOL)showCancelButton origin:(id)origin</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>title</Name>
+					<Abstract type="html">The title string</Abstract>
+				</Parameter><Parameter>
+					<Name>delegate</Name>
+					<Abstract type="html">The ActionSheetCustomPickerDelegate</Abstract>
+				</Parameter><Parameter>
+					<Name>showCancelButton</Name>
+					<Abstract type="html">Decides wether to show the cancel button or not</Abstract>
+				</Parameter><Parameter>
+					<Name>origin</Name>
+					<Abstract type="html">The object which called this method</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/showPickerWithTitle:delegate:showCancelButton:origin:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

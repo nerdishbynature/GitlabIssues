@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/NBNUsersConnection.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/NBNUsersConnection</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NBNUsersConnection.h</DeclaredIn>
+			
+			<NodeRef refid="26"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/NBNUsersConnection/sharedConnection</TokenIdentifier>
+			<Abstract type="html">Singleton used to get the correct Connection object</Abstract>
+			<DeclaredIn>NBNUsersConnection.h</DeclaredIn>			
+			
+			<Declaration>+ (NBNUsersConnection *)sharedConnection</Declaration>
+			
+			
+			<Anchor>//api/name/sharedConnection</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNUsersConnection/cancelMembersRequest</TokenIdentifier>
+			<Abstract type="html">Cancels the connection</Abstract>
+			<DeclaredIn>NBNUsersConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)cancelMembersRequest</Declaration>
+			
+			
+			<Anchor>//api/name/cancelMembersRequest</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNUsersConnection/loadMembersWithProjectID:onSuccess:</TokenIdentifier>
+			<Abstract type="html">Loads all member for the specified project.</Abstract>
+			<DeclaredIn>NBNUsersConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)loadMembersWithProjectID:(NSUInteger)project_id onSuccess:(void ( ^ ) ( NSArray *array ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>project_id</Name>
+					<Abstract type="html">The gitlab project identifier</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion block, which is called on success.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/loadMembersWithProjectID:onSuccess:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

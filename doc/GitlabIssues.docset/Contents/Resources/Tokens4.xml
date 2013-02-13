@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/DistancePickerView.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/DistancePickerView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DistancePickerView.h</DeclaredIn>
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DistancePickerView/didMoveToWindow</TokenIdentifier>
+			<Abstract type="html">Adds the labels to the view, below the selection indicator glass.
+The labels are aligned to the right side of the wheel.
+The delegate is responsible for providing enough width for both the value and the label.</Abstract>
+			<DeclaredIn>DistancePickerView.m</DeclaredIn>			
+			
+			<Declaration>- (void)didMoveToWindow</Declaration>
+			
+			
+			<Anchor>//api/name/didMoveToWindow</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

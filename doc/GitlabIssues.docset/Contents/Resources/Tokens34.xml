@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/HEBubbleViewDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/HEBubbleViewDelegate</TokenIdentifier>
+			<Abstract type="html">///////////////// Bubble View Delegate /////////////////////</Abstract>
+			<DeclaredIn>HEBubbleView.h</DeclaredIn>
+			
+			<NodeRef refid="34"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

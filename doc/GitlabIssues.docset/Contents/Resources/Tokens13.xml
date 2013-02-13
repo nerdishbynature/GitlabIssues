@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/MagicalRecord.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/MagicalRecord</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MagicalRecord.h</DeclaredIn>
+			
+			<NodeRef refid="13"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/MagicalRecord/shouldDeleteStoreOnModelMismatch</TokenIdentifier>
+			<Abstract type="html">@method shouldDeleteStoreOnModelMistmatch
+  If true, when configuring the persistant store coordinator, and Magical Record encounters a store that does not match the model, it will attempt to remove it and re-create a new store.
+This is extremely useful during development where every model change could potentially require a delete/reinstall of the app.</Abstract>
+			<DeclaredIn>MagicalRecord+Options.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)shouldDeleteStoreOnModelMismatch</Declaration>
+			
+			
+			<Anchor>//api/name/shouldDeleteStoreOnModelMismatch</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

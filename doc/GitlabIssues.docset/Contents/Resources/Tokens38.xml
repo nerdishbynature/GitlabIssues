@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/NBNMilestoneListDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/NBNMilestoneListDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NBNMilestonesListViewController.h</DeclaredIn>
+			
+			<NodeRef refid="38"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NBNMilestoneListDelegate/didSelectMilestone:</TokenIdentifier>
+			<Abstract type="html">Called, when a milestone is selected. This delegate method is implemented in NBNIssueFilterViewController
+to get additional filter options.</Abstract>
+			<DeclaredIn>NBNMilestonesListViewController.h</DeclaredIn>			
+			
+			<Declaration>- (void)didSelectMilestone:(Milestone *)selectedMilestone</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>selectedMilestone</Name>
+					<Abstract type="html">The milestone object which is selected</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/didSelectMilestone:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

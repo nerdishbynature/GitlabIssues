@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/NBNIssueFilterViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/NBNIssueFilterViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NBNIssueFilterViewController.h</DeclaredIn>
+			
+			<NodeRef refid="19"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssueFilterViewController/setDelegate:</TokenIdentifier>
+			<Abstract type="html">  Used to tell the associated view controller which filter to apply</Abstract>
+			<DeclaredIn>NBNIssueFilterViewController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) id&lt;NBNIssueFilterDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NBNIssueFilterViewController/delegate</TokenIdentifier>
+			<Abstract type="html">  Used to tell the associated view controller which filter to apply</Abstract>
+			<DeclaredIn>NBNIssueFilterViewController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) id&lt;NBNIssueFilterDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssueFilterViewController/setProject:</TokenIdentifier>
+			<Abstract type="html">  Project used fot this ViewController</Abstract>
+			<DeclaredIn>NBNIssueFilterViewController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) Project *project</Declaration>
+			
+			
+			<Anchor>//api/name/project</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NBNIssueFilterViewController/project</TokenIdentifier>
+			<Abstract type="html">  Project used fot this ViewController</Abstract>
+			<DeclaredIn>NBNIssueFilterViewController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) Project *project</Declaration>
+			
+			
+			<Anchor>//api/name/project</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/NBNIssueFilterViewController/loadViewControllerWithFilter:</TokenIdentifier>
+			<Abstract type="html">This is used to allocate and initialize the view controller using a Filter object</Abstract>
+			<DeclaredIn>NBNIssueFilterViewController.h</DeclaredIn>			
+			
+			<Declaration>+ (NBNIssueFilterViewController *)loadViewControllerWithFilter:(Filter *)_filter</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>_filter</Name>
+					<Abstract type="html">the Filter object used to initialize the view controller</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/loadViewControllerWithFilter:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssueFilterViewController/didSelectAssignee:</TokenIdentifier>
+			<Abstract type="html">Called, when a assignee is selected. This delegate method is implemented in NBNIssueFilterViewController
+to get additional filter options.</Abstract>
+			<DeclaredIn>NBNIssueFilterViewController.m</DeclaredIn>			
+			
+			<Declaration>- (void)didSelectAssignee:(Assignee *)selectedAssignee</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>selectedAssignee</Name>
+					<Abstract type="html">The assignee object which is selected</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/didSelectAssignee:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNIssueFilterViewController/didSelectMilestone:</TokenIdentifier>
+			<Abstract type="html">Called, when a milestone is selected. This delegate method is implemented in NBNIssueFilterViewController
+to get additional filter options.</Abstract>
+			<DeclaredIn>NBNIssueFilterViewController.m</DeclaredIn>			
+			
+			<Declaration>- (void)didSelectMilestone:(Milestone *)selectedMilestone</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>selectedMilestone</Name>
+					<Abstract type="html">The milestone object which is selected</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/didSelectMilestone:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

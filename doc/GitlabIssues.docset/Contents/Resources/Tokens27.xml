@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PBFileLogger.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PBFileLogger</TokenIdentifier>
+			<Abstract type="html">Copyright © 2012 P. Brauer. All Rights Reserved.</Abstract>
+			<DeclaredIn>PBFileLogger.h</DeclaredIn>
+			
+			<NodeRef refid="27"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/PBFileLogger/sharedInstance</TokenIdentifier>
+			<Abstract type="html">Is the sharedInstance singleton for loggin into the same file</Abstract>
+			<DeclaredIn>PBFileLogger.h</DeclaredIn>			
+			
+			<Declaration>+ (PBFileLogger *)sharedInstance</Declaration>
+			
+			
+			<Anchor>//api/name/sharedInstance</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PBFileLogger/log:</TokenIdentifier>
+			<Abstract type="html">Method used for loggin</Abstract>
+			<DeclaredIn>PBFileLogger.h</DeclaredIn>			
+			
+			<Declaration>- (void)log:(NSString *)format, ...</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>format</Name>
+					<Abstract type="html">The formatted string supposed to be logged</Abstract>
+				</Parameter><Parameter>
+					<Name>...</Name>
+					<Abstract type="html">The formatted string supposed to be logged</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/log:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

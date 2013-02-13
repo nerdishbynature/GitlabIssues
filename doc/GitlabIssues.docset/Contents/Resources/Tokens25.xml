@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/NBNProjectConnection.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/NBNProjectConnection</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NBNProjectConnection.h</DeclaredIn>
+			
+			<NodeRef refid="25"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NBNProjectConnection/loadProjectsForDomain:onSuccess:</TokenIdentifier>
+			<Abstract type="html">  Loads all project for the specified domain object.</Abstract>
+			<DeclaredIn>NBNProjectConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)loadProjectsForDomain:(Domain *)domain onSuccess:(void ( ^ ) ( void ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>domain</Name>
+					<Abstract type="html">The domain object</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion Block which is called on success</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/loadProjectsForDomain:onSuccess:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

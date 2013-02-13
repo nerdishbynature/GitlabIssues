@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/HEBubbleViewItem.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/HEBubbleViewItem</TokenIdentifier>
+			<Abstract type="html">//////////////// Constants //////////////////////</Abstract>
+			<DeclaredIn>HEBubbleViewItem.h</DeclaredIn>
+			
+			<NodeRef refid="9"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/HEBubbleViewItem/setDelegate:</TokenIdentifier>
+			<Abstract type="html">///////// PRIVATE STUFF /////////////////</Abstract>
+			<DeclaredIn>HEBubbleViewItem.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, weak) id&lt;HEBubbleViewItemDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/HEBubbleViewItem/delegate</TokenIdentifier>
+			<Abstract type="html">///////// PRIVATE STUFF /////////////////</Abstract>
+			<DeclaredIn>HEBubbleViewItem.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, weak) id&lt;HEBubbleViewItemDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/HEBubbleViewItem/dealloc</TokenIdentifier>
+			<Abstract type="html">///////////// Memory management //////////////////////</Abstract>
+			<DeclaredIn>HEBubbleViewItem.m</DeclaredIn>			
+			
+			<Declaration>- (void)dealloc</Declaration>
+			
+			
+			<Anchor>//api/name/dealloc</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>
