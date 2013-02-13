@@ -83,6 +83,7 @@
         [l setCornerRadius:5.0];
         
     } errorHandler:^(NSError *error) {
+        [Flurry logError:@"loadAuthorImage" message:error.localizedDescription error:error];
         PBLog(@"%@", [error localizedDescription]);
     }];
 }
