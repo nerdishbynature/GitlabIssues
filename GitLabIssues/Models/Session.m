@@ -61,8 +61,9 @@
     }];
     
     [request setFailedBlock:^{
-        errorBlock(request.error);
         PBLog(@"err %@",request.error);
+        [Flurry logError:@"generateSessionWithCompletion:onError:" message:request.error.localizedFailureReason error:request.error];
+        errorBlock(request.error);
     }];
     
     [request startAsynchronous];
