@@ -164,7 +164,7 @@
         CGRect tableViewFrame = self.tableView.frame;
         tableViewFrame.size.height = toolBarFrame.origin.y;
         self.tableView.frame = tableViewFrame;
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(5+self.issue.notes.allObjects.count - 1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.tableView numberOfRowsInSection:0]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }];
 }
 
@@ -320,7 +320,8 @@
 }
 
 -(void)sendPressed:(id)sender{
-    if ([self.commentString isEqualToString:@""]) { // abort crash with empty string
+    if (!self.commentString) { // abort crash with empty string
+        [self.view hideKeyboard];
         return;
     }
     
