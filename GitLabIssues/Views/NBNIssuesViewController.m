@@ -132,6 +132,8 @@
         self.issues = [[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"project_id == %@", self.project.identifier] where:@"closed == 0"] orderBy:@"identifier"] toArray];
         [self.tableView reloadData];
     }
+    
+    [Flurry logEvent:@"number_of_issues" withParameters:@{@"project_id": self.project.identifier, @"count": [NSNumber numberWithInt:self.issues.count]}];
 }
 
 -(void)filter{
