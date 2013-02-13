@@ -35,6 +35,8 @@
         createdViewController.tabBarItem = [[NBNTabBarItem alloc] initWithTitle:@"" image:[UIImage imageNamed:@"tab_selected_02.png"] selectedImage:[UIImage imageNamed:@"tab_unselected_02.png"] tag:0];
         
         self.viewControllers = @[createdViewController, assignedViewController];
+        
+        [Flurry logAllPageViews:self];
     }
     return self;
 }
@@ -47,10 +49,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-	[self hideTabBar];
+    [self hideTabBar];
 	[self setupTabItems];
-    [self selectCreated];
+    //[self selectCreated];
 }
 
 -(void)setupTabItems{
