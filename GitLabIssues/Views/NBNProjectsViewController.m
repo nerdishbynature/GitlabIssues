@@ -198,12 +198,12 @@
 
 -(void)refreshDataSource{
     self.projectsArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
-    
+    [Flurry logEvent:@"number_of_projects" withParameters:@{@"count": [NSNumber numberWithInt:self.projectsArray.count]}];
     
     NSDate *sevenDaysAgo = [NSDate dateWithTimeInterval:-7*24*3600 sinceDate:[NSDate date]];
     
     self.lastOpenedProjects = [[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"lastOpened > %@", sevenDaysAgo] orderByDescending:@"lastOpened"] toArray];
-
+    
     [self.tableView reloadData];
     [self.HUD setHidden:YES];
     [self.HUD removeFromSuperview];
