@@ -1,1 +1,1 @@
-appledoc --project-name GitlabIssues --project-company "Piet Brauer" --company-id com.nerdishbynature --output ~/help ./GitLabIssues/
+appledoc --project-name GitlabIssues --project-company "Piet Brauer" --company-id com.nerdishbynature --output ./doc --no-install-docset ./GitLabIssues/
