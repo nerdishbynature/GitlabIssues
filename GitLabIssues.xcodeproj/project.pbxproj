@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2337116B16E251350061C849 /* CKRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337116A16E251350061C849 /* CKRefreshControl.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		2337117016E2516F0061C849 /* CKParagraphStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337116D16E2516F0061C849 /* CKParagraphStyle.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		2337117116E2516F0061C849 /* CKRefreshArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337116F16E2516F0061C849 /* CKRefreshArrowView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		237FB14316BD19360007FB0A /* NBNDeletionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 237FB14216BD19360007FB0A /* NBNDeletionHelper.m */; };
 		97049FB716A0B34E004BC6E3 /* NBNReachabilityChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 97049FB616A0B34E004BC6E3 /* NBNReachabilityChecker.m */; };
 		9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5A8167E2C4500F26DE2 /* UIKit.framework */; };
@@ -243,6 +246,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2337116916E251350061C849 /* CKRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRefreshControl.h; sourceTree = "<group>"; };
+		2337116A16E251350061C849 /* CKRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRefreshControl.m; sourceTree = "<group>"; };
+		2337116C16E2516F0061C849 /* CKParagraphStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKParagraphStyle.h; sourceTree = "<group>"; };
+		2337116D16E2516F0061C849 /* CKParagraphStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKParagraphStyle.m; sourceTree = "<group>"; };
+		2337116E16E2516F0061C849 /* CKRefreshArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRefreshArrowView.h; sourceTree = "<group>"; };
+		2337116F16E2516F0061C849 /* CKRefreshArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRefreshArrowView.m; sourceTree = "<group>"; };
 		237FB14116BD19360007FB0A /* NBNDeletionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNDeletionHelper.h; path = Models/NBNDeletionHelper.h; sourceTree = "<group>"; };
 		237FB14216BD19360007FB0A /* NBNDeletionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNDeletionHelper.m; path = Models/NBNDeletionHelper.m; sourceTree = "<group>"; };
 		237FB14416BD19810007FB0A /* Models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Models.h; path = Models/Models.h; sourceTree = "<group>"; };
@@ -668,6 +677,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2337116816E251350061C849 /* CKRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				2337116C16E2516F0061C849 /* CKParagraphStyle.h */,
+				2337116D16E2516F0061C849 /* CKParagraphStyle.m */,
+				2337116E16E2516F0061C849 /* CKRefreshArrowView.h */,
+				2337116F16E2516F0061C849 /* CKRefreshArrowView.m */,
+				2337116916E251350061C849 /* CKRefreshControl.h */,
+				2337116A16E251350061C849 /* CKRefreshControl.m */,
+			);
+			path = CKRefreshControl;
+			sourceTree = "<group>";
+		};
 		9710B599167E2C4500F26DE2 = {
 			isa = PBXGroup;
 			children = (
@@ -727,6 +749,7 @@
 		9710B5AF167E2C4500F26DE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2337116816E251350061C849 /* CKRefreshControl */,
 				9728326316B31B4300A6DE91 /* appirater-master */,
 				971F679616A1B5E800638E90 /* SVSegmentedControl */,
 				978F7077169F590D004A0B67 /* MKNetworkKit */,
@@ -1768,6 +1791,9 @@
 				97C49F2D16A8641D009DEC85 /* NBNFilterAssigneeCell.m in Sources */,
 				9728328116B31B4300A6DE91 /* Appirater.m in Sources */,
 				237FB14316BD19360007FB0A /* NBNDeletionHelper.m in Sources */,
+				2337116B16E251350061C849 /* CKRefreshControl.m in Sources */,
+				2337117016E2516F0061C849 /* CKParagraphStyle.m in Sources */,
+				2337117116E2516F0061C849 /* CKRefreshArrowView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
