@@ -69,15 +69,6 @@
         UIBarButtonItem *createButton = [[UIBarButtonItem alloc] initWithCustomView:addButton];
         createButton.accessibilityLabel = @"Add";
         
-        UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage *refreshButtonImage = [UIImage imageNamed:@"BarButton_Refresh.png"];
-        
-        [refreshButton setFrame:CGRectMake(0.0, 0.0, refreshButtonImage.size.width, refreshButtonImage.size.height)];
-        [refreshButton setBackgroundImage:refreshButtonImage forState:UIControlStateNormal];
-        [refreshButton addTarget:self action:@selector(refreshIssues) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *refreshBarButton = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
-        refreshBarButton.accessibilityLabel = @"Refresh";
-        
         UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage *filterButtonImage = [UIImage imageNamed:@"BarButton_Filter.png"];
         
@@ -89,11 +80,10 @@
         
         UIBarButtonItem	*flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         
-        [self setToolbarItems:@[createButton, refreshBarButton, flex, filterBarButton] animated:YES];
+        [self setToolbarItems:@[createButton, flex, filterBarButton] animated:YES];
         self.navigationController.toolbarHidden = NO;
         
         [createButton release];
-        [refreshBarButton release];
         [filterBarButton release];
         [flex release];
     }
