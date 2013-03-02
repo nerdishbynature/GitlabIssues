@@ -33,31 +33,35 @@
     [request setValidatesSecureCertificate:NO];
     
     [request setCompletionBlock:^{
-        
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
-        
-        
-        /*{
-         "private_token" : "xxxxxx",
-         "id" : 2,
-         "created_at" : "2012-11-21T08:18:51Z",
-         "email" : "piet@nerdishbynature.com",
-         "blocked" : false,
-         "name" : "Piet"
-         }*/
-        session.private_token = [dict objectForKey:@"private_token"];
-        session.identifier = [NSNumber numberWithInt:[[dict objectForKey:@"id"] integerValue]];
-        session.email = [dict objectForKey:@"email"];
-        session.blocked = [NSNumber numberWithBool:[[dict objectForKey:@"blocked"] boolValue]];
-        session.name = [dict objectForKey:@"name"];
-        
-        if (!session.private_token) {
-            errorBlock(request.error);
+        if (request.responseStatusCode == 201) {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+            
+            
+            /*{
+             "private_token" : "xxxxxx",
+             "id" : 2,
+             "created_at" : "2012-11-21T08:18:51Z",
+             "email" : "piet@nerdishbynature.com",
+             "blocked" : false,
+             "name" : "Piet"
+             }*/
+            session.private_token = [dict objectForKey:@"private_token"];
+            session.identifier = [NSNumber numberWithInt:[[dict objectForKey:@"id"] integerValue]];
+            session.email = [dict objectForKey:@"email"];
+            session.blocked = [NSNumber numberWithBool:[[dict objectForKey:@"blocked"] boolValue]];
+            session.name = [dict objectForKey:@"name"];
+            
+            if (!session.private_token) {
+                errorBlock(request.error);
+            } else{
+                block(session);
+            }
+            
         } else{
-            block(session);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Server sent unexpected response, please try again later." delegate:nil cancelButtonTitle:@"Dsmiss" otherButtonTitles:nil];
+            [alert show];
+            errorBlock(request.error);
         }
-        
-        
     }];
     
     [request setFailedBlock:^{
