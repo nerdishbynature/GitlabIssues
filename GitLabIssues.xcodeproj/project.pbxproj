@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2337119016E253710061C849 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2337118F16E253710061C849 /* libFlurry.a */; };
-		2337119216E2537D0061C849 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2337119116E2537D0061C849 /* Crashlytics.framework */; };
 		2337119916E255900061C849 /* NBNGitlabEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119816E255900061C849 /* NBNGitlabEngine.m */; };
 		2337119C16E2559D0061C849 /* GLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119B16E2559D0061C849 /* GLLoginViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		2337119F16E255AB0061C849 /* NBNBackButtonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119E16E255AB0061C849 /* NBNBackButtonHelper.m */; };
 		233711C916E255E20061C849 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 233711A116E255E20061C849 /* .gitignore */; };
-		233711CA16E255E20061C849 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 233711A316E255E20061C849 /* Appirater.m */; };
+		233711CA16E255E20061C849 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 233711A316E255E20061C849 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		233711CB16E255E20061C849 /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 233711A516E255E20061C849 /* AppiraterLocalizable.strings */; };
 		233711CC16E255E20061C849 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 233711B716E255E20061C849 /* README.md */; };
 		233711CD16E255E20061C849 /* CKParagraphStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 233711BF16E255E20061C849 /* CKParagraphStyle.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -109,6 +107,8 @@
 		233712F816E256A10061C849 /* MKNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 233712EE16E256A10061C849 /* MKNetworkEngine.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		233712F916E256A10061C849 /* MKNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 233712F116E256A10061C849 /* MKNetworkOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		233712FD16E256B10061C849 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 233712FC16E256B10061C849 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		2337130216E2592E0061C849 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 233712FE16E2592E0061C849 /* Crashlytics.framework */; };
+		2337130316E2592E0061C849 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2337130116E2592E0061C849 /* libFlurry.a */; };
 		237FB14316BD19360007FB0A /* NBNDeletionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 237FB14216BD19360007FB0A /* NBNDeletionHelper.m */; };
 		97049FB716A0B34E004BC6E3 /* NBNReachabilityChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 97049FB616A0B34E004BC6E3 /* NBNReachabilityChecker.m */; };
 		9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5A8167E2C4500F26DE2 /* UIKit.framework */; };
@@ -244,9 +244,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2337118E16E253710061C849 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		2337118F16E253710061C849 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
-		2337119116E2537D0061C849 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Vendor/Crashlytics.framework; sourceTree = "<group>"; };
 		2337119716E2558F0061C849 /* NBNGitlabEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNGitlabEngine.h; path = Network/NBNGitlabEngine.h; sourceTree = "<group>"; };
 		2337119816E255900061C849 /* NBNGitlabEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNGitlabEngine.m; path = Network/NBNGitlabEngine.m; sourceTree = "<group>"; };
 		2337119A16E2559D0061C849 /* GLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLLoginViewController.h; path = Views/GLLoginViewController.h; sourceTree = "<group>"; };
@@ -479,6 +476,9 @@
 		233712F116E256A10061C849 /* MKNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNetworkOperation.m; sourceTree = "<group>"; };
 		233712FB16E256B10061C849 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		233712FC16E256B10061C849 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		233712FE16E2592E0061C849 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = GitLabIssues/Vendor/Crashlytics.framework; sourceTree = "<group>"; };
+		2337130016E2592E0061C849 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		2337130116E2592E0061C849 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 		237FB14116BD19360007FB0A /* NBNDeletionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNDeletionHelper.h; path = Models/NBNDeletionHelper.h; sourceTree = "<group>"; };
 		237FB14216BD19360007FB0A /* NBNDeletionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNDeletionHelper.m; path = Models/NBNDeletionHelper.m; sourceTree = "<group>"; };
 		237FB14416BD19810007FB0A /* Models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Models.h; path = Models/Models.h; sourceTree = "<group>"; };
@@ -657,8 +657,8 @@
 				9710B5FF167E2CD100F26DE2 /* SystemConfiguration.framework in Frameworks */,
 				9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */,
 				9710B5AB167E2C4500F26DE2 /* Foundation.framework in Frameworks */,
-				2337119016E253710061C849 /* libFlurry.a in Frameworks */,
-				2337119216E2537D0061C849 /* Crashlytics.framework in Frameworks */,
+				2337130216E2592E0061C849 /* Crashlytics.framework in Frameworks */,
+				2337130316E2592E0061C849 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,16 +675,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2337118D16E253710061C849 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				2337118E16E253710061C849 /* Flurry.h */,
-				2337118F16E253710061C849 /* libFlurry.a */,
-			);
-			name = Flurry;
-			path = Vendor/Flurry;
-			sourceTree = "<group>";
-		};
 		233711A016E255E20061C849 /* appirater */ = {
 			isa = PBXGroup;
 			children = (
@@ -1095,6 +1085,16 @@
 			path = GitLabIssues/Vendor/Reachability;
 			sourceTree = SOURCE_ROOT;
 		};
+		233712FF16E2592E0061C849 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				2337130016E2592E0061C849 /* Flurry.h */,
+				2337130116E2592E0061C849 /* libFlurry.a */,
+			);
+			name = Flurry;
+			path = GitLabIssues/Vendor/Flurry;
+			sourceTree = "<group>";
+		};
 		9710B599167E2C4500F26DE2 = {
 			isa = PBXGroup;
 			children = (
@@ -1122,8 +1122,8 @@
 		9710B5A7167E2C4500F26DE2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2337119116E2537D0061C849 /* Crashlytics.framework */,
-				2337118D16E253710061C849 /* Flurry */,
+				233712FE16E2592E0061C849 /* Crashlytics.framework */,
+				233712FF16E2592E0061C849 /* Flurry */,
 				9728328D16B31D8A00A6DE91 /* StoreKit.framework */,
 				978F7099169F5CB1004A0B67 /* Security.framework */,
 				9723058C1691D821005866EF /* QuartzCore.framework */,
@@ -1648,7 +1648,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Vendor/Crashlytics.framework/run 05ca0a6e33a6b525e43d012f5f45165567158056";
+			shellScript = "./GitLabIssues/Vendor/Crashlytics.framework/run 05ca0a6e33a6b525e43d012f5f45165567158056";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1924,6 +1924,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Vendor\"",
+					"\"$(SRCROOT)/GitLabIssues/Vendor\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
@@ -1933,7 +1934,7 @@
 					"$(inherited)",
 					"$(FRANK_LIBRARY_SEARCH_PATHS)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/Vendor/Flurry\"",
+					"\"$(SRCROOT)/GitLabIssues/Vendor/Flurry\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1953,6 +1954,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Vendor\"",
+					"\"$(SRCROOT)/GitLabIssues/Vendor\"",
 				);
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1962,7 +1964,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/Vendor/Flurry\"",
+					"\"$(SRCROOT)/GitLabIssues/Vendor/Flurry\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
