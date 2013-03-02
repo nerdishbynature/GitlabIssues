@@ -16,6 +16,7 @@
 #import "NBNIssueCell.h"
 #import "MBProgressHUD.h"
 #import "NBNBackButtonHelper.h"
+#import "CKRefreshControl.h"
 
 @interface NBNIssuesViewController ()
 
@@ -122,6 +123,7 @@
         [self refreshDataSource];
         [self.HUD setHidden:YES];
         [self.HUD removeFromSuperview];
+        [self.refreshControl endRefreshing];
     }];
 }
 
@@ -170,6 +172,9 @@
         
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     }
+    
+    self.refreshControl = [[[UIRefreshControl alloc] init] autorelease];
+    [self.refreshControl addTarget:self action:@selector(refreshIssues) forControlEvents:UIControlEventValueChanged];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
