@@ -88,8 +88,8 @@
 		971F677E16A17EA300638E90 /* NBNAssigneeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 971F677D16A17EA200638E90 /* NBNAssigneeListViewController.m */; };
 		971F678A16A1B46100638E90 /* NBNFilterStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 971F678916A1B46100638E90 /* NBNFilterStatusCell.m */; };
 		971F679116A1B4A100638E90 /* NBNFilterSortCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 971F679016A1B49F00638E90 /* NBNFilterSortCell.m */; };
-		971F679B16A1B5E800638E90 /* SVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 971F679816A1B5E800638E90 /* SVSegmentedControl.m */; };
-		971F679C16A1B5E800638E90 /* SVSegmentedThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 971F679A16A1B5E800638E90 /* SVSegmentedThumb.m */; };
+		971F679B16A1B5E800638E90 /* SVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 971F679816A1B5E800638E90 /* SVSegmentedControl.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		971F679C16A1B5E800638E90 /* SVSegmentedThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 971F679A16A1B5E800638E90 /* SVSegmentedThumb.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		971F679F16A1D95D00638E90 /* ClearButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 971F679D16A1D95D00638E90 /* ClearButton.png */; };
 		971F67A016A1D95D00638E90 /* ClearButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 971F679E16A1D95D00638E90 /* ClearButton@2x.png */; };
 		972304D21691B092005866EF /* NBNIssueDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 972304D11691B092005866EF /* NBNIssueDetailCell.m */; };
@@ -101,7 +101,7 @@
 		972305861691D495005866EF /* HEBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 972305831691D495005866EF /* HEBubbleView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		972305871691D495005866EF /* HEBubbleViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 972305851691D495005866EF /* HEBubbleViewItem.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9723058D1691D821005866EF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9723058C1691D821005866EF /* QuartzCore.framework */; };
-		972305AB169322DB005866EF /* DAKeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 972305AA169322DB005866EF /* DAKeyboardControl.m */; };
+		972305AB169322DB005866EF /* DAKeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 972305AA169322DB005866EF /* DAKeyboardControl.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		972305B616933BE7005866EF /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 972305B516933BE7005866EF /* Filter.m */; };
 		9728328016B31B4300A6DE91 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9728326416B31B4300A6DE91 /* .gitignore */; };
 		9728328116B31B4300A6DE91 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9728326616B31B4300A6DE91 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -130,7 +130,7 @@
 		97714A2C169E153800308536 /* BarButton_Refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97714A26169E153800308536 /* BarButton_Refresh@2x.png */; };
 		97714A2F169E1B6800308536 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 97714A2D169E1B6700308536 /* Background.png */; };
 		97714A30169E1B6800308536 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97714A2E169E1B6800308536 /* Background@2x.png */; };
-		9771CCB8169A086500DC1200 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9771CCB7169A086500DC1200 /* MBProgressHUD.m */; };
+		9771CCB8169A086500DC1200 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9771CCB7169A086500DC1200 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		97860A5016903C8F003D2092 /* NBNIssueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97860A4F16903C8F003D2092 /* NBNIssueCell.m */; };
 		97860A5216903CAC003D2092 /* NBNIssueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97860A5116903CAC003D2092 /* NBNIssueCell.xib */; };
 		97860A5B16909B4E003D2092 /* NBNCreatedByMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97860A5A16909B4E003D2092 /* NBNCreatedByMeViewController.m */; };
