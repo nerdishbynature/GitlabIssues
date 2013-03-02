@@ -45,7 +45,7 @@ static NBNProjectConnection* sharedConnection = nil;
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {        
         
-        self.projectConnection = [[NBNGitlabEngine alloc] init];
+        self.projectConnection = [[[NBNGitlabEngine alloc] init] autorelease];
         [self.projectConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects?private_token=%@", domain.protocol, domain.domain, session.private_token] completionHandler:^(MKNetworkOperation *request) {
             NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             
@@ -82,7 +82,7 @@ static NBNProjectConnection* sharedConnection = nil;
 
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         
-        self.membersConnection = [[NBNGitlabEngine alloc] init];
+        self.membersConnection = [[[NBNGitlabEngine alloc] init] autorelease];
         [self.membersConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/members?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token] completionHandler:^(MKNetworkOperation *request) {
             NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             

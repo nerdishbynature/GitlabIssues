@@ -46,8 +46,8 @@
 - (void)createSearchBar {
 
     if (self.tableView && !self.tableView.tableHeaderView) {
-        self.searchBar = [[UISearchBar alloc] init];
-        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
+        self.searchBar = [[[UISearchBar alloc] init] autorelease];
+        self.searchDisplayController = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
         self.searchDisplayController.delegate = self;
@@ -112,7 +112,7 @@
 }
 
 -(void)refreshIssues{
-    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    self.HUD = [[[MBProgressHUD alloc] initWithView:self.navigationController.view] autorelease];
 	[self.navigationController.view addSubview:self.HUD];
     
 	// Show the HUD while the provided method executes in a new thread
@@ -141,7 +141,7 @@
     NBNIssueFilterViewController *issueFilterViewController = [NBNIssueFilterViewController loadViewControllerWithFilter:self.project.filter];
     issueFilterViewController.delegate = self;
     issueFilterViewController.project = self.project;
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:issueFilterViewController];
+    UINavigationController *navController = [[[UINavigationController alloc] initWithRootViewController:issueFilterViewController] autorelease];
 
     [self presentViewController:navController animated:YES completion:nil];
 }

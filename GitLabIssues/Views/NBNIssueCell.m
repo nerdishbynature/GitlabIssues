@@ -89,7 +89,7 @@
 
     [self calculateSizes];
     
-    self.requestEngine = [[NBNGitlabEngine alloc] init];
+    self.requestEngine = [[[NBNGitlabEngine alloc] init] autorelease];
     
     [self.requestEngine requestWithURL:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [_issue.author.email MD5]] completionHandler:^(MKNetworkOperation *request) {
         

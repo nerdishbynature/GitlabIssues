@@ -57,7 +57,7 @@
                                                         lineBreakMode:NSLineBreakByWordWrapping];
     self.headlineLabel.frame = CGRectMake(self.headlineLabel.frame.origin.x, self.headlineLabel.frame.origin.y, headlineLabelSize.width, self.headlineLabel.frame.size.height);
     
-    self.bubbleView = [[HEBubbleView alloc] initWithFrame:CGRectMake(self.headlineLabel.frame.origin.x+self.headlineLabel.frame.size.width+5, self.bubbleContainer.frame.origin.y, self.bubbleContainer.frame.size.width, self.bubbleContainer.frame.size.height)];
+    self.bubbleView = [[[HEBubbleView alloc] initWithFrame:CGRectMake(self.headlineLabel.frame.origin.x+self.headlineLabel.frame.size.width+5, self.bubbleContainer.frame.origin.y, self.bubbleContainer.frame.size.width, self.bubbleContainer.frame.size.height)] autorelease];
     
     if (self.milestone) {
         self.placeholderLabel.hidden = YES;
@@ -104,7 +104,7 @@
     HEBubbleViewItem *item = [bubbleView dequeueItemUsingReuseIdentifier:itemIdentifier];
     
     if (item == nil) {
-        item = [[HEBubbleViewItem alloc] initWithReuseIdentifier:itemIdentifier];
+        item = [[[HEBubbleViewItem alloc] initWithReuseIdentifier:itemIdentifier] autorelease];
     }
     
 

@@ -28,11 +28,11 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        NBNAssignedToMeViewController *assignedViewController = [[NBNAssignedToMeViewController alloc] initWithStyle:UITableViewStylePlain];
-        assignedViewController.tabBarItem = [[NBNTabBarItem alloc] initWithTitle:@"" image:[UIImage imageNamed:@"tab_selected_03.png"] selectedImage:[UIImage imageNamed:@"tab_unselected_03.png"] tag:0];
+        NBNAssignedToMeViewController *assignedViewController = [[[NBNAssignedToMeViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
+        assignedViewController.tabBarItem = [[[NBNTabBarItem alloc] initWithTitle:@"" image:[UIImage imageNamed:@"tab_selected_03.png"] selectedImage:[UIImage imageNamed:@"tab_unselected_03.png"] tag:0] autorelease];
         
-        NBNCreatedByMeViewController *createdViewController = [[NBNCreatedByMeViewController alloc] initWithStyle:UITableViewStylePlain];
-        createdViewController.tabBarItem = [[NBNTabBarItem alloc] initWithTitle:@"" image:[UIImage imageNamed:@"tab_selected_02.png"] selectedImage:[UIImage imageNamed:@"tab_unselected_02.png"] tag:0];
+        NBNCreatedByMeViewController *createdViewController = [[[NBNCreatedByMeViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
+        createdViewController.tabBarItem = [[[NBNTabBarItem alloc] initWithTitle:@"" image:[UIImage imageNamed:@"tab_selected_02.png"] selectedImage:[UIImage imageNamed:@"tab_unselected_02.png"] tag:0] autorelease];
         
         self.viewControllers = @[createdViewController, assignedViewController];
         

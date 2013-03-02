@@ -114,7 +114,7 @@
 }
 
 -(void)loadAuthorImage{
-    self.requestEngine = [[NBNGitlabEngine alloc] init];
+    self.requestEngine = [[[NBNGitlabEngine alloc] init] autorelease];
     
     [self.requestEngine requestWithURL:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [self.note.author.email MD5]] completionHandler:^(MKNetworkOperation *request) {
         self.authorImageView.image = [UIImage imageWithData:request.responseData];

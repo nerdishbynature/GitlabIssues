@@ -58,7 +58,7 @@ static NBNIssuesConnection *sharedConnection = nil;
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
     
-        self.issuesConnection = [[NBNGitlabEngine alloc] init];
+        self.issuesConnection = [[[NBNGitlabEngine alloc] init] autorelease];
         [self.issuesConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token] completionHandler:^(MKNetworkOperation *request) {
             NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             
@@ -99,7 +99,7 @@ static NBNIssuesConnection *sharedConnection = nil;
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         //GET /projects/:id/issues/:issue_id        
-        self.reloadConnection = [[NBNGitlabEngine alloc] init];
+        self.reloadConnection = [[[NBNGitlabEngine alloc] init] autorelease];
         [self.reloadConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@?private_token=%@", domain.protocol, domain.domain, issue.project_id, issue.identifier, session.private_token] completionHandler:^(MKNetworkOperation *request) {
             NSDictionary *returnDict = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             
@@ -128,7 +128,7 @@ static NBNIssuesConnection *sharedConnection = nil;
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         //GET /projects/:id/issues/:issue_id/notes
         
-        self.notesConnection = [[NBNGitlabEngine alloc] init];
+        self.notesConnection = [[[NBNGitlabEngine alloc] init] autorelease];
         [self.notesConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@/notes?private_token=%@", domain.protocol,
                                               domain.domain, issue.project_id, issue.identifier, session.private_token] completionHandler:^(MKNetworkOperation *request) {
             NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
@@ -218,7 +218,7 @@ static NBNIssuesConnection *sharedConnection = nil;
     [Session getCurrentSessionWithCompletion:^(Session *session) {
 
         //GET /issues/
-        self.allIssuesConnection = [[NBNGitlabEngine alloc] init];
+        self.allIssuesConnection = [[[NBNGitlabEngine alloc] init] autorelease];
         [self.allIssuesConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/issues/?private_token=%@", domain.protocol, domain.domain, session.private_token] completionHandler:^(MKNetworkOperation *request) {
             NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             

@@ -65,7 +65,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    self.HUD = [[[MBProgressHUD alloc] initWithView:self.navigationController.view] autorelease];
 	[self.view addSubview:HUD];
     
     [self.navigationController setToolbarHidden:YES animated:YES];
@@ -150,7 +150,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    self.HUD = [[[MBProgressHUD alloc] initWithView:self.navigationController.view] autorelease];
 	[self.view addSubview:HUD];
 	
 	// Regiser for HUD callbacks so we can remove it from the window at the right time

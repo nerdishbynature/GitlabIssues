@@ -46,7 +46,7 @@ static NBNMilestoneConnection *sharedConnection = nil;
     }
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
-        self.milestonesForProjectRequest = [[NBNGitlabEngine alloc] init];
+        self.milestonesForProjectRequest = [[[NBNGitlabEngine alloc] init] autorelease];
         [self.milestonesForProjectRequest requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token] completionHandler:^(MKNetworkOperation *request) {
             NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             

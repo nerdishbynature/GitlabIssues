@@ -60,7 +60,7 @@
 }
 
 -(void)refreshFavorites{
-    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    self.HUD = [[[MBProgressHUD alloc] initWithView:self.navigationController.view] autorelease];
 	[self.view addSubview:HUD];
     
 	// Show the HUD while the provided method executes in a new thread
