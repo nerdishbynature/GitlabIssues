@@ -25,10 +25,6 @@
     domain.password = @"password";
 }
 
--(void)tearDown{
-    [super tearDown];
-}
-
 -(void)testSessionGetting{
     [Session generateSessionWithCompletion:^(Session *session) {
         STAssertTrue(@"Sessions was generated", @"success");
