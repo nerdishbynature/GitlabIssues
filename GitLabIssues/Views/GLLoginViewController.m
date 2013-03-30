@@ -61,7 +61,7 @@
     }
     
     [self createDoneButton];
-    self.title = @"Add your domain";
+    self.title = NSLocalizedString(@"Add your domain", nil);
     
     self.formModel = [FKFormModel formTableModelForTableView:self.tableView navigationController:self.navigationController];
     
@@ -69,7 +69,7 @@
         [mapping sectionWithTitle:@"" footer:@"" identifier:@"login"];
         
         [mapping mapAttribute:@"protocol"
-                        title:@"Protocol"
+                        title:NSLocalizedString(@"Protocol", nil)
                  showInPicker:NO
             selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
                 selectedValueIndex = 0;
@@ -79,9 +79,22 @@
             } labelValueBlock:^id(id value, id object) {
                 return value;
             }];
-        [mapping mapAttribute:@"domain" title:@"Domain" placeholderText:@"www.example.com" keyboardType:UIKeyboardTypeURL type:FKFormAttributeMappingTypeText];
-        [mapping mapAttribute:@"email" title:@"Email" placeholderText:@"me@example.com" keyboardType:UIKeyboardTypeEmailAddress type:FKFormAttributeMappingTypeText];
-        [mapping mapAttribute:@"password" title:@"Password" placeholderText:@"password" type:FKFormAttributeMappingTypePassword];
+        [mapping mapAttribute:@"domain"
+                        title:NSLocalizedString(@"Domain", nil)
+              placeholderText:NSLocalizedString(@"www.example.com", nil)
+                 keyboardType:UIKeyboardTypeURL
+                         type:FKFormAttributeMappingTypeText];
+        
+        [mapping mapAttribute:@"email"
+                        title:NSLocalizedString(@"Email", nil)
+              placeholderText:NSLocalizedString(@"me@example.com", nil)
+                 keyboardType:UIKeyboardTypeEmailAddress
+                         type:FKFormAttributeMappingTypeText];
+
+        [mapping mapAttribute:@"password"
+                        title:NSLocalizedString(@"Password", nil)
+              placeholderText:NSLocalizedString(@"password", nil)
+                         type:FKFormAttributeMappingTypePassword];
 
         [self.formModel registerMapping:mapping];
     }];
@@ -122,7 +135,7 @@
 
 -(void)createDoneButton{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:@"Done" forState:UIControlStateNormal];
+    [button setTitle:NSLocalizedString(@"Done", nil) forState:UIControlStateNormal];
     [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
     [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
     [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];

@@ -37,7 +37,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        self.title = @"Projects";
+        self.title = NSLocalizedString(@"Projects", nil);
         [self refreshDataSource];
         [self createSearchBar];
     }
@@ -194,12 +194,12 @@
         return @"";
     } if ([self hasLastOpenedProjects]) {
         if (section == 0) {
-            return @"Recently Opened";
+            return NSLocalizedString(@"Recently Opened", nil);
         } else{
-            return @"All Projects";
+            return NSLocalizedString(@"All Projects", nil);
         }
     } else {
-        return @"All Projects";
+        return NSLocalizedString(@"All Projects", nil);
     }
 }
 

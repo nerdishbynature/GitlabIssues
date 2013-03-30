@@ -58,7 +58,11 @@
             }
             
         } else{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Server sent unexpected response, please try again later." delegate:nil cancelButtonTitle:@"Dsmiss" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                            message:NSLocalizedString(@"Server sent unexpected response, please try again later.", nil)
+                                                           delegate:nil
+                                                  cancelButtonTitle:NSLocalizedString(@"Dismiss", nil)
+                                                  otherButtonTitles:nil];
             [alert show];
             errorBlock(request.error);
         }

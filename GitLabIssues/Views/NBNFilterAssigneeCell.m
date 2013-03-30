@@ -47,8 +47,8 @@
 
 -(void)configureCellWithAssignee:(Assignee *)_assignee{
     self.assignee = _assignee;
-    self.headlineLabel.text = @"Assigned:";
-    self.placeholderLabel.text = @"Anyone";
+    self.headlineLabel.text = NSLocalizedString(@"Assigned:", nil);
+    self.placeholderLabel.text = NSLocalizedString(@"Anyone", nil);
     
     CGSize headlineLabelSize =  [self.headlineLabel.text sizeWithFont:self.headlineLabel.font
                                                     constrainedToSize:CGSizeMake(MAXFLOAT, self.headlineLabel.frame.size.height)

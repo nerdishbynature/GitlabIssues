@@ -29,14 +29,14 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.menuArray = @[@"Favorites", @"Dashboard", @"Find Repos"];
+        self.menuArray = @[NSLocalizedString(@"Favorites", nil), NSLocalizedString(@"Dashboard", nil), NSLocalizedString(@"Find Repos", nil)];
     }
     return self;
 }
 
 -(void)createLogoutButton{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-	[button setTitle:@"Logout" forState:UIControlStateNormal];
+	[button setTitle:NSLocalizedString(@"Logout", nil) forState:UIControlStateNormal];
     [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
 	[button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
     [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];

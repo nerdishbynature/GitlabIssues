@@ -49,8 +49,8 @@
 
 -(void)configureCellWithMilestone:(Milestone *)_milestone{
     self.milestone = _milestone;
-    self.headlineLabel.text = @"Milestone:";
-    self.placeholderLabel.text = @"None";
+    self.headlineLabel.text = NSLocalizedString(@"Milestone:", nil);
+    self.placeholderLabel.text = NSLocalizedString(@"None", nil);
     
     CGSize headlineLabelSize =  [self.headlineLabel.text sizeWithFont:self.headlineLabel.font
                                                     constrainedToSize:CGSizeMake(MAXFLOAT, self.headlineLabel.frame.size.height)

@@ -39,7 +39,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.tabBarController.title = @"Assigned To Me";
+    self.tabBarController.title = NSLocalizedString(@"Assigned To Me", nil);
 }
 
 -(void)viewDidAppear:(BOOL)animated{

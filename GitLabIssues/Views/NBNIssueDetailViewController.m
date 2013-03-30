@@ -65,11 +65,11 @@
 {
     [super viewDidLoad];
     
-    self.title = [NSString stringWithFormat:@"Issue #%@", self.issue.identifier];
+    self.title = [NSString stringWithFormat:@"%@ #%@", NSLocalizedString(@"Issue", nil), self.issue.identifier];
     [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-	[button setTitle:@"Edit" forState:UIControlStateNormal];
+	[button setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
 	[button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
 	[button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
     [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
@@ -138,7 +138,7 @@
     [sendButton setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
     
     sendButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-    [sendButton setTitle:@"Send" forState:UIControlStateNormal];
+    [sendButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
     sendButton.frame = CGRectMake(toolBar.bounds.size.width - 68.0f,
                                   6.0f,
                                   58.0f,
@@ -200,7 +200,7 @@
         }
         
         cell.delegate = self;
-        [cell configureCellWithHeadline:@"Assigned:" andDescription:self.issue.assignee.name];
+        [cell configureCellWithHeadline:NSLocalizedString(@"Assigned:", nil) andDescription:self.issue.assignee.name];
         
         return cell;
         
@@ -212,7 +212,7 @@
         }
         
         cell.delegate = self;
-        [cell configureCellWithHeadline:@"Status:" andDescription:[NSString stringWithFormat:@"%@", [self.issue.closed boolValue] ? @"Closed" : @"Open"]];
+        [cell configureCellWithHeadline:NSLocalizedString(@"Status:", nil) andDescription:[NSString stringWithFormat:@"%@", [self.issue.closed boolValue] ? NSLocalizedString(@"Closed", nil) : NSLocalizedString(@"Open", nil)]];
         
         return cell;
         
@@ -223,7 +223,7 @@
             cell = [NBNIssueDetailCell loadCellFromNib];
         }
         cell.delegate = self;
-        [cell configureCellWithHeadline:@"Milestone:" andDescription:self.issue.milestone.title];
+        [cell configureCellWithHeadline:NSLocalizedString(@"Milestone:", nil) andDescription:self.issue.milestone.title];
         
         return cell;
         
@@ -234,7 +234,7 @@
             cell = [NBNIssueDetailCell loadCellFromNib];
         }
         
-        [cell configureCellWithHeadline:@"Labels:" andDescription:self.issue.labels];
+        [cell configureCellWithHeadline:NSLocalizedString(@"Labels:", nil) andDescription:self.issue.labels];
         
         return cell;
         
@@ -352,14 +352,14 @@
 
 -(void)cellWithLabel:(NSString *)label didSelectBubbleItem:(HEBubbleViewItem *)item{
     
-    if ([label isEqualToString:@"Assigned:"]) {
+    if ([label isEqualToString:NSLocalizedString(@"Assigned:", nil)]) {
         
         NBNAssigneeListViewController *list = [NBNAssigneeListViewController loadControllerWithProjectID:[self.issue.project_id integerValue]];
         list.delegate = self;
         
         [self.navigationController pushViewController:list animated:YES];
         
-    } else if ([label isEqualToString:@"Status:"]){
+    } else if ([label isEqualToString:NSLocalizedString(@"Status:", nil)]){
         
         if ([self.issue.closed isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             self.issue.closed = [NSNumber numberWithBool:NO];
@@ -373,13 +373,13 @@
             }
         }];
         
-    } else if ([label isEqualToString:@"Milestone:"]){
+    } else if ([label isEqualToString:NSLocalizedString(@"Milestone:", nil)]){
         
         NBNMilestonesListViewController *list = [NBNMilestonesListViewController loadControllerWithProjectID:[self.issue.project_id integerValue]];
         list.delegate = self;
         [self.navigationController pushViewController:list animated:YES];
         
-    } else if ([label isEqualToString:@"Labels:"]){
+    } else if ([label isEqualToString:NSLocalizedString(@"Labels:", nil)]){
         
     }
 }
