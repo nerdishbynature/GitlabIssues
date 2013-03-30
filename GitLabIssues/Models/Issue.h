@@ -91,14 +91,14 @@
  @param block The completion block, which is called on success
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#edit-issue
  */
--(void)saveChangesonSuccess:(void (^)(void))block;
+-(void)saveChangesonSuccess:(void (^)(BOOL success))block;
 
 /**
  Saves object in local database and POSTs the new data on the Server using the GitLab API
  @param block The completion block, which is called on success
  @see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#new-issue
  */
--(void)createANewOnServerOnSuccess:(void(^)(void))block;
+-(void)createANewOnServerOnSuccess:(void(^)(BOOL success))block;
 
 /**
  Catches the object and updates the data

@@ -13,7 +13,7 @@
 #import "Domain.h"
 #import "Session.h"
 #import "ASIHTTPRequest.h"
-
+#import "WBErrorNoticeView.h"
 
 @implementation Issue
 
@@ -78,7 +78,7 @@
 
 //@see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#edit-issue
 
--(void)saveChangesonSuccess:(void (^)(void))block{
+-(void)saveChangesonSuccess:(void (^)(BOOL))block{
     Domain *domain = [[Domain findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
@@ -96,17 +96,15 @@
         
             if (request.responseStatusCode == 200) {
                 [self parseServerResponse:responseDict];
+                block(YES);
             } else{
-                UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"" message:@"An error occured, check if you have the rights to perform this action." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil] autorelease];
-                [alert show];
+                block(NO);
             }
-            
-            block();
         }];
         
         [request setFailedBlock:^{
             PBLog(@"%@", request.error);
-            block();
+            block(NO);
         }];
         
         [request startAsynchronous];
@@ -115,7 +113,7 @@
 
 //@see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#new-issue
 
--(void)createANewOnServerOnSuccess:(void(^)(void))block{
+-(void)createANewOnServerOnSuccess:(void(^)(BOOL success))block{
     
     Domain *domain = [[Domain findAll] lastObject];
     
@@ -134,19 +132,16 @@
             
             if (request.responseStatusCode == 201) {
                 [self parseServerResponse:responseDict];
+                block(YES);
             } else{
-                UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"" message:@"An error occured, check if you have the rights to perform this action." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil] autorelease];
-                [alert show];
+                block(NO);
             }
-            block();
+            
         }];
         
         [request setFailedBlock:^{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:request.responseStatusMessage message:request.error.localizedFailureReason delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-            [alert show];
-            [alert release];
             PBLog(@"%@", request.error);
-            block();
+            block(NO);
         }];
         
         [request startAsynchronous];
