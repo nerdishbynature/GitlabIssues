@@ -30,10 +30,10 @@
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"GitLabIssues.sqlite"];
     [Flurry startSession:@""];
 
-//#ifdef DEBUG
-//    [Flurry setDebugLogEnabled:YES];
-//    [Flurry setShowErrorInLogEnabled:YES];
-//#endif
+#ifdef DEBUG
+    [Flurry setDebugLogEnabled:YES];
+    [Flurry setShowErrorInLogEnabled:YES];
+#endif
     
     [Appirater setAppId:@"593632411"];
     [Appirater setDaysUntilPrompt:1];
