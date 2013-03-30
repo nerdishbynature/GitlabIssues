@@ -11,6 +11,7 @@
 #import "Domain.h"
 #import "Session.h"
 #import "MBProgressHUD.h"
+#import "WBErrorNoticeView.h"
 
 @interface GLLoginViewController ()
 
@@ -110,8 +111,12 @@
     } onError:^(NSError *error) {
         [self.HUD setHidden:YES];
         [self.HUD removeFromSuperview];
-        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Something went wrong, please check your input." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-        [view show];
+        
+        WBErrorNoticeView *notice = [WBErrorNoticeView errorNoticeInView:self.tableView
+                                                                   title:NSLocalizedString(@"Signup Error", nil)
+                                                                 message:NSLocalizedString(@"You need to fill out all entries in this screen to signup.", nil)];
+        notice.sticky = YES;
+        [notice show];
     }];
 }
 

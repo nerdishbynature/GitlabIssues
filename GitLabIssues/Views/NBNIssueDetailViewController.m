@@ -28,6 +28,7 @@
 #import "NBNMilestonesListViewController.h"
 #import "MBProgressHUD.h"
 #import "NBNBackButtonHelper.h"
+#import "WBErrorNoticeView.h"
 
 
 @interface NBNIssueDetailViewController ()
@@ -324,10 +325,26 @@
         return;
     }
     
-    [[NBNIssuesConnection sharedConnection] sendNoteForIssue:self.issue andBody:self.commentString onSuccess:^{
+    [[NBNIssuesConnection sharedConnection] sendNoteForIssue:self.issue andBody:self.commentString onSuccess:^(BOOL success){
         self.textField.text = @"";
         [self.view hideKeyboard];
-        [self refreshData];
+        
+        if (success) {
+            [self refreshData];
+        } else{        
+            WBErrorNoticeView *notice = [WBErrorNoticeView errorNoticeInView:self.tableView
+                                                                       title:NSLocalizedString(@"Error", nil)
+                                                                     message:NSLocalizedString(@"An error occured while add your comment, please try again later.", nil)];
+            
+            notice.duration = 1.f;
+            [notice setDismissalBlock:^(BOOL dismissedInteractively) {
+                
+            }];
+            [notice show];
+            
+        }
+        
+     
     }];
 }
 
@@ -350,8 +367,10 @@
             self.issue.closed = [NSNumber numberWithBool:YES];
         }
         
-        [self.issue saveChangesonSuccess:^{
-            [self refreshData];
+        [self.issue saveChangesonSuccess:^(BOOL success){
+            if (success) {
+                [self refreshData];
+            }
         }];
         
     } else if ([label isEqualToString:@"Milestone:"]){
@@ -367,15 +386,19 @@
 
 -(void)didSelectMilestone:(Milestone *)selectedMilestone{
     self.issue.milestone = selectedMilestone;
-    [self.issue saveChangesonSuccess:^{
-        [self refreshData];
+    [self.issue saveChangesonSuccess:^(BOOL success){
+        if (success) {
+            [self refreshData];
+        }
     }];
 }
 
 -(void)didSelectAssignee:(Assignee *)selectedAssignee{
     self.issue.assignee = selectedAssignee;
-    [self.issue saveChangesonSuccess:^{
-        [self refreshData];
+    [self.issue saveChangesonSuccess:^(BOOL success){
+        if (success) {
+            [self refreshData];
+        }
     }];
     
 }

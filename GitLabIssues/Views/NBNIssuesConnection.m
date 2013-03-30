@@ -163,10 +163,10 @@ static NBNIssuesConnection *sharedConnection = nil;
     [self.notesConnection cancel];
 }
 
--(void)sendNoteForIssue:(Issue *)issue andBody:(NSString *)body onSuccess:(void (^)(void))block{
+-(void)sendNoteForIssue:(Issue *)issue andBody:(NSString *)body onSuccess:(void (^)(BOOL success))block{
 
     if (![[NBNReachabilityChecker sharedChecker] isReachable]){
-        block();
+        block(NO);
         return;
     }
     
@@ -183,15 +183,11 @@ static NBNIssuesConnection *sharedConnection = nil;
         [self.sendNotesConnection appendPostData:[NSJSONSerialization dataWithJSONObject:postDict options:kNilOptions error:nil]];
         
         [self.sendNotesConnection setCompletionBlock:^{
-                block();
+                block(YES);
         }];
         
-        [self.sendNotesConnection setFailedBlock:^{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.sendNotesConnection.responseStatusMessage message:self.sendNotesConnection.error.localizedFailureReason delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-            [alert show];
-            [alert release];
-            
-            block();
+        [self.sendNotesConnection setFailedBlock:^{            
+            block(NO);
         }];
         
         [self.sendNotesConnection startAsynchronous];

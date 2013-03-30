@@ -13,6 +13,7 @@
 #import "Issue.h"
 #import "Assignee.h"
 #import "Milestone.h"
+#import "WBErrorNoticeView.h"
 
 @interface NBNIssueEditViewController ()
 @property (nonatomic, retain) FKFormModel *formModel;
@@ -191,14 +192,41 @@
     [self.view endEditing:YES];
     
     if (self.editMode) {
-        [self.issue saveChangesonSuccess:^{
-            [self dismissViewControllerAnimated:YES completion:nil];
-            [[NSManagedObjectContext MR_defaultContext] MR_save];
+        [self.issue saveChangesonSuccess:^(BOOL success){
+            if (!success) {
+                WBErrorNoticeView *notice = [WBErrorNoticeView errorNoticeInView:self.tableView title:NSLocalizedString(@"Error", nil)
+                                                                         message:NSLocalizedString(@"An error occured, check if you have the rights to perform this action.", nil)];
+                notice.duration = 1.f;
+                [notice setDismissalBlock:^(BOOL dismissedInteractively) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }];
+                
+                [notice show];
+            } else{
+                [[NSManagedObjectContext MR_defaultContext] MR_save];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+         
+            
         }];
     } else{
-        [self.issue createANewOnServerOnSuccess:^{
-            [self dismissViewControllerAnimated:YES completion:nil];
-            [[NSManagedObjectContext MR_defaultContext] MR_save];
+        [self.issue createANewOnServerOnSuccess:^(BOOL success){
+            if (success) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+                [[NSManagedObjectContext MR_defaultContext] MR_save];
+            } else{
+                WBErrorNoticeView *notice = [WBErrorNoticeView errorNoticeInView:self.tableView
+                                                                          title:NSLocalizedString(@"Error", nil)
+                                                                         message:NSLocalizedString(@"Issue could not be created.", nil)];
+                notice.duration = 1.f;
+                
+                [notice setDismissalBlock:^(BOOL dismissedInteractively) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }];
+            
+                [notice show];
+            }
+            
         }];
     }
 }
