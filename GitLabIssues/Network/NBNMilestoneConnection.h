@@ -20,7 +20,7 @@
  */
 -(void)loadAllMilestonesForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block;
 
-- (void) cancelMilestonesForProjectRequest;
+-(void)cancelMilestonesForProjectRequest;
 
 +(void)loadMilestonesWithProjectID:(NSUInteger)projectID onSucess:(void(^)(NSArray *milestones))block;
 

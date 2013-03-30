@@ -19,6 +19,8 @@
 		23142AD21706F83900D3C200 /* WBStickyNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AC61706F83900D3C200 /* WBStickyNoticeView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		23142AD31706F83900D3C200 /* WBSuccessNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AC81706F83900D3C200 /* WBSuccessNoticeView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		23142AD51706FCFA00D3C200 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23142AD41706FCFA00D3C200 /* Crashlytics.framework */; };
+		23142AD8170703C000D3C200 /* NBNMilestoneConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AD7170703C000D3C200 /* NBNMilestoneConnectionTests.m */; };
+		23142ADB1707064D00D3C200 /* NBNSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142ADA1707064D00D3C200 /* NBNSessionTests.m */; };
 		2337119916E255900061C849 /* NBNGitlabEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119816E255900061C849 /* NBNGitlabEngine.m */; };
 		2337119C16E2559D0061C849 /* GLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119B16E2559D0061C849 /* GLLoginViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		2337119F16E255AB0061C849 /* NBNBackButtonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119E16E255AB0061C849 /* NBNBackButtonHelper.m */; };
@@ -278,6 +280,10 @@
 		23142AC71706F83900D3C200 /* WBSuccessNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSuccessNoticeView.h; sourceTree = "<group>"; };
 		23142AC81706F83900D3C200 /* WBSuccessNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSuccessNoticeView.m; sourceTree = "<group>"; };
 		23142AD41706FCFA00D3C200 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = GitLabIssues/Vendor/Crashlytics.framework; sourceTree = "<group>"; };
+		23142AD6170703C000D3C200 /* NBNMilestoneConnectionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNMilestoneConnectionTests.h; path = Network/NBNMilestoneConnectionTests.h; sourceTree = "<group>"; };
+		23142AD7170703C000D3C200 /* NBNMilestoneConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNMilestoneConnectionTests.m; path = Network/NBNMilestoneConnectionTests.m; sourceTree = "<group>"; };
+		23142AD91707064D00D3C200 /* NBNSessionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNSessionTests.h; path = Models/NBNSessionTests.h; sourceTree = "<group>"; };
+		23142ADA1707064D00D3C200 /* NBNSessionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNSessionTests.m; path = Models/NBNSessionTests.m; sourceTree = "<group>"; };
 		2337119716E2558F0061C849 /* NBNGitlabEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNGitlabEngine.h; path = Network/NBNGitlabEngine.h; sourceTree = "<group>"; };
 		2337119816E255900061C849 /* NBNGitlabEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNGitlabEngine.m; path = Network/NBNGitlabEngine.m; sourceTree = "<group>"; };
 		2337119A16E2559D0061C849 /* GLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLLoginViewController.h; path = Views/GLLoginViewController.h; sourceTree = "<group>"; };
@@ -1249,6 +1255,10 @@
 			children = (
 				9710B5D2167E2C4600F26DE2 /* GitLabIssuesTests.h */,
 				9710B5D3167E2C4600F26DE2 /* GitLabIssuesTests.m */,
+				23142AD6170703C000D3C200 /* NBNMilestoneConnectionTests.h */,
+				23142AD7170703C000D3C200 /* NBNMilestoneConnectionTests.m */,
+				23142AD91707064D00D3C200 /* NBNSessionTests.h */,
+				23142ADA1707064D00D3C200 /* NBNSessionTests.m */,
 				9710B5CD167E2C4600F26DE2 /* Supporting Files */,
 			);
 			path = GitLabIssuesTests;
@@ -1882,6 +1892,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9710B5D4167E2C4600F26DE2 /* GitLabIssuesTests.m in Sources */,
+				23142AD8170703C000D3C200 /* NBNMilestoneConnectionTests.m in Sources */,
+				23142ADB1707064D00D3C200 /* NBNSessionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
