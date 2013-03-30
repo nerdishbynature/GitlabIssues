@@ -1869,6 +1869,72 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		237A78CC1706DAEA00479C3A /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = AdHoc;
+		};
+		237A78CD1706DAEA00479C3A /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Piet Brauer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Piet Brauer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Vendor\"",
+					"\"$(SRCROOT)/GitLabIssues/Vendor\"",
+				);
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
+				INFOPLIST_FILE = "GitLabIssues/GitLabIssues-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/GitLabIssues/Vendor/Flurry\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "832C93E6-0BCC-41A4-AEA3-E83800FF21BC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "832C93E6-0BCC-41A4-AEA3-E83800FF21BC";
+				WRAPPER_EXTENSION = app;
+			};
+			name = AdHoc;
+		};
+		237A78CE1706DAEA00479C3A /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitLabIssues.app/GitLabIssues";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
+				INFOPLIST_FILE = "GitLabIssuesTests/GitLabIssuesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = AdHoc;
+		};
 		9710B5D5167E2C4600F26DE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2015,6 +2081,7 @@
 			buildConfigurations = (
 				9710B5D5167E2C4600F26DE2 /* Debug */,
 				9710B5D6167E2C4600F26DE2 /* Release */,
+				237A78CC1706DAEA00479C3A /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2024,6 +2091,7 @@
 			buildConfigurations = (
 				9710B5D8167E2C4600F26DE2 /* Debug */,
 				9710B5D9167E2C4600F26DE2 /* Release */,
+				237A78CD1706DAEA00479C3A /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2033,6 +2101,7 @@
 			buildConfigurations = (
 				9710B5DB167E2C4600F26DE2 /* Debug */,
 				9710B5DC167E2C4600F26DE2 /* Release */,
+				237A78CE1706DAEA00479C3A /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
