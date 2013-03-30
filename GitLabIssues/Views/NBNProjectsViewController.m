@@ -98,19 +98,24 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if ([self isSearchTableView:tableView]) {
         return 1;
     }
-    return 2;
+    
+    if ([self hasLastOpenedProjects]) {
+        return 2;
+    }
+    
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if (section == 0 && tableView != self.searchDisplayController.searchResultsTableView) {
+    if (section == 0 && ![self isSearchTableView:tableView] && [self hasLastOpenedProjects]) {
         return self.lastOpenedProjects.count;
     } else{
-        if (tableView == self.searchDisplayController.searchResultsTableView){
+        if ([self isSearchTableView:tableView]){
             return [self.projectsSearchResults count];
         } else{
             return self.projectsArray.count;
@@ -131,10 +136,10 @@
     
     Project *project;
     
-    if (indexPath.section == 0 && tableView != self.searchDisplayController.searchResultsTableView) {
+    if (indexPath.section == 0 && ![self isSearchTableView:tableView] && [self hasLastOpenedProjects]) {
         project = [self.lastOpenedProjects objectAtIndex:indexPath.row];
     } else{
-        if (tableView == self.searchDisplayController.searchResultsTableView){
+        if ([self isSearchTableView:tableView]){
             project = [self.projectsSearchResults objectAtIndex:indexPath.row];
         } else{
             project = [self.projectsArray objectAtIndex:indexPath.row];
@@ -159,10 +164,10 @@
 	// Show the HUD while the provided method executes in a new thread
     Project *project;
     
-    if (indexPath.section == 0 && tableView != self.searchDisplayController.searchResultsTableView) {
+    if (indexPath.section == 0 && ![self isSearchTableView:tableView] && [self hasLastOpenedProjects]) {
         project = [self.lastOpenedProjects objectAtIndex:indexPath.row];
     } else{
-        if (tableView == self.searchDisplayController.searchResultsTableView){
+        if ([self isSearchTableView:tableView]){
             project = [self.projectsSearchResults objectAtIndex:indexPath.row];
         } else{
             project = [self.projectsArray objectAtIndex:indexPath.row];
@@ -185,14 +190,16 @@
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if ([self isSearchTableView:tableView]) {
         return @"";
-    } else{
+    } if ([self hasLastOpenedProjects]) {
         if (section == 0) {
             return @"Recently Opened";
         } else{
             return @"All Projects";
         }
+    } else {
+        return @"All Projects";
     }
 }
 
@@ -248,5 +255,14 @@
     [super dealloc];
 }
 
+#pragma mark - if helpers
+
+-(BOOL)hasLastOpenedProjects{
+    return self.lastOpenedProjects.count > 0;
+}
+
+-(BOOL)isSearchTableView:(UITableView *)tableView{
+    return tableView == self.searchDisplayController.searchResultsTableView;
+}
 
 @end
