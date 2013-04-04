@@ -67,7 +67,7 @@
         [addButton setBackgroundImage:addButtonImage forState:UIControlStateNormal];
         [addButton addTarget:self action:@selector(addNewIssue) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *createButton = [[UIBarButtonItem alloc] initWithCustomView:addButton];
-        createButton.accessibilityLabel = @"Add";
+        createButton.accessibilityLabel = NSLocalizedString(@"Add", nil);
         
         UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage *filterButtonImage = [UIImage imageNamed:@"BarButton_Filter.png"];
@@ -76,7 +76,7 @@
         [filterButton setBackgroundImage:filterButtonImage forState:UIControlStateNormal];
         [filterButton addTarget:self action:@selector(filter) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *filterBarButton = [[UIBarButtonItem alloc] initWithCustomView:filterButton];
-        filterButton.accessibilityLabel = @"Filter";
+        filterButton.accessibilityLabel = NSLocalizedString(@"Filter", nil);
         
         UIBarButtonItem	*flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         

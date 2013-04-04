@@ -61,7 +61,7 @@
     
     self.developerTitleLabel.text = self.issue.author.name;
     
-    self.createdLabel.text = [NSString stringWithFormat:@"created #%@",self.issue.identifier];
+    self.createdLabel.text = [NSString stringWithFormat:@"%@ #%@", NSLocalizedString(@"created", nil),self.issue.identifier];
     
 //    NSDateComponents *otherDay = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.issue.created_at];
 //    NSDateComponents *today = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];

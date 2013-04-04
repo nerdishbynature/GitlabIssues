@@ -18,10 +18,10 @@
     
     [backButton setImage:backImage forState:UIControlStateNormal];
     [backButton addTarget:viewController action:@selector(pushBackButton:) forControlEvents:UIControlEventTouchUpInside];
-    [backButton setAccessibilityLabel:@"BackButton"];
+    [backButton setAccessibilityLabel:NSLocalizedString(@"BackButton", nil)];
     
     UIBarButtonItem *backBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:backButton] autorelease];
-    backBarButtonItem.accessibilityLabel = @"back";
+    backBarButtonItem.accessibilityLabel = NSLocalizedString(@"back", nil);
     item.hidesBackButton = YES;
     item.leftBarButtonItem = backBarButtonItem;
 }

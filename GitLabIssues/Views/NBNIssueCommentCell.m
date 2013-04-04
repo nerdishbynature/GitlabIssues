@@ -58,18 +58,18 @@
     
     [self loadAuthorImage];
     
-    self.headlineLabel.text = [NSString stringWithFormat:@"%@ commented", self.note.author.name];
+    self.headlineLabel.text = [NSString stringWithFormat:@"%@ %@", self.note.author.name, NSLocalizedString(@"commented", nil)];
     
     [self.descriptionLabel setEmojiText:self.note.body];
     
     if ([self.descriptionLabel.text isEqualToString:@"_Status changed to closed_"]) {
-        self.descriptionLabel.text = @"Closed";
+        self.descriptionLabel.text = NSLocalizedString(@"Closed", nil);
         self.descriptionLabel.textColor = [UIColor redColor];
-        self.headlineLabel.text = [NSString stringWithFormat:@"%@ changed issue status to", self.note.author.name];
+        self.headlineLabel.text = [NSString stringWithFormat:@"%@ %@", self.note.author.name, NSLocalizedString(@"changed issue status to", nil)];
     } else if ([self.descriptionLabel.text isEqualToString:@"_Status changed to reopened_"]){
-        self.descriptionLabel.text = @"Reopened";
+        self.descriptionLabel.text = NSLocalizedString(@"Reopened", nil);
         self.descriptionLabel.textColor = [UIColor greenColor];
-        self.headlineLabel.text = [NSString stringWithFormat:@"%@ changed issue status to", self.note.author.name];
+        self.headlineLabel.text = [NSString stringWithFormat:@"%@ %@", self.note.author.name, NSLocalizedString(@"changed issue status to", nil)];
     }
     
     CGSize expectedSize = [self.descriptionLabel.text sizeWithFont:self.descriptionLabel.font constrainedToSize:CGSizeMake(self.descriptionLabel.frame.size.width, MAXFLOAT)];

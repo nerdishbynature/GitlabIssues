@@ -43,9 +43,9 @@
     [super viewDidAppear:animated];
     
     if(self.editMode){
-        self.title = [NSString stringWithFormat:@"Edit Issue #%@", self.issue.identifier];
+        self.title = [NSString stringWithFormat:@"%@ #%@", NSLocalizedString(@"Edit Issue", nil), self.issue.identifier];
     } else{
-        self.title = @"New Issue";
+        self.title = NSLocalizedString(@"New Issue", nil);
     }
     
     [self setupBarButtons];
@@ -61,8 +61,8 @@
     [FKFormMapping mappingForClass:[Issue class] block:^(FKFormMapping *mapping) {
         [mapping sectionWithTitle:@"" footer:@"" identifier:@"edit"];
         
-        [mapping mapAttribute:@"title" title:@"Title" placeholderText:@"title" type:FKFormAttributeMappingTypeText];
-        [mapping mapAttribute:@"descriptionString" title:@"Description" placeholderText:@"description" type:FKFormAttributeMappingTypeBigText];
+        [mapping mapAttribute:@"title" title:NSLocalizedString(@"Title", nil) placeholderText:NSLocalizedString(@"title", nil) type:FKFormAttributeMappingTypeText];
+        [mapping mapAttribute:@"descriptionString" title:NSLocalizedString(@"Description", nil) placeholderText:NSLocalizedString(@"description", nil) type:FKFormAttributeMappingTypeBigText];
         
         
         [[NBNUsersConnection sharedConnection] loadMembersWithProjectID:[self.issue.project_id integerValue] onSuccess:^(NSArray *array) {
@@ -84,7 +84,7 @@
 -(void)mapMilestonesWithArray:(NSArray *)milestones andMapping:(FKFormMapping *)mapping{
     if (milestones.count > 0) {
         [mapping mapAttribute:@"milestone"
-                        title:@"Milestone"
+                        title:NSLocalizedString(@"Milestone", nil)
                  showInPicker:NO
             selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
                 *selectedValueIndex = 0;
@@ -94,14 +94,14 @@
                     [milestoneNameArray addObject:milestone.title];
                 }
                 
-                [milestoneNameArray addObject:@"None"];
+                [milestoneNameArray addObject:NSLocalizedString(@"None", nil)];
                 
                 return milestoneNameArray;
                 
                 
             } valueFromSelectBlock:^id(id value, id object, NSInteger selectedValueIndex) {
                 
-                if (![value isEqual:@"None"]) {
+                if (![value isEqual:NSLocalizedString(@"None", nil)]) {
                     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@", value];
                     self.issue.milestone = [[Milestone findAllWithPredicate:predicate] objectAtIndex:0];
                     
@@ -117,7 +117,7 @@
                 
             } labelValueBlock:^id(id value, id object) {
                 
-                if (![value isEqual:@"None"]) {
+                if (![value isEqual:NSLocalizedString(@"None", nil)]) {
                     Milestone *milestone = (Milestone *)value;
                     return milestone.title;
                 } else{
@@ -130,7 +130,7 @@
 
 -(void)mapAssigneesWithArray:(NSArray *)array andMapping:(FKFormMapping *)mapping{
     [mapping mapAttribute:@"assignee"
-                    title:@"Assignee"
+                    title:NSLocalizedString(@"Assignee", nil)
              showInPicker:NO
         selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
             *selectedValueIndex = 0;
@@ -158,7 +158,7 @@
 
 -(void)setupBarButtons{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-	[button setTitle:@"Discard" forState:UIControlStateNormal];
+	[button setTitle:NSLocalizedString(@"Discard", nil) forState:UIControlStateNormal];
 	[button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
 	[button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
     [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
@@ -168,7 +168,7 @@
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     
 	UIButton *applybutton = [UIButton buttonWithType:UIButtonTypeCustom];
-	[applybutton setTitle:@"Apply" forState:UIControlStateNormal];
+	[applybutton setTitle:NSLocalizedString(@"Apply", nil) forState:UIControlStateNormal];
 	[applybutton.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
 	[applybutton setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
     [applybutton setFrame:CGRectMake(0, 0, 58.f, 27.f)];
@@ -181,7 +181,7 @@
 -(void)discard{
     [self.view endEditing:YES];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Do you want to discard your changes?" message:@"" delegate:self cancelButtonTitle:@"Keep" otherButtonTitles:@"Discard", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Do you want to discard your changes?", nil) message:@"" delegate:self cancelButtonTitle:NSLocalizedString(@"Keep", nil) otherButtonTitles:NSLocalizedString(@"Discard", nil), nil];
     [alert show];
     [alert release];
 }
