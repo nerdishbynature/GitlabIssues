@@ -199,7 +199,11 @@
             return NSLocalizedString(@"All Projects", nil);
         }
     } else {
-        return NSLocalizedString(@"All Projects", nil);
+        if ([self hasProjects]) {
+            return NSLocalizedString(@"All Projects", nil);
+        } else{
+            return @"";
+        }
     }
 }
 
@@ -259,6 +263,10 @@
 
 -(BOOL)hasLastOpenedProjects{
     return self.lastOpenedProjects.count > 0;
+}
+
+-(BOOL)hasProjects{
+    return self.projectsArray.count > 0;
 }
 
 -(BOOL)isSearchTableView:(UITableView *)tableView{
