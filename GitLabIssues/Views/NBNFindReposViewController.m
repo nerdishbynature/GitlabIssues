@@ -36,7 +36,7 @@
     if (self) {
         // Custom initialization
         [self createSearchBar];
-        self.title = @"Search";
+        self.title = NSLocalizedString(@"Search", nil);
     }
     return self;
 }

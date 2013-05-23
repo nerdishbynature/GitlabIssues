@@ -19,6 +19,7 @@
 		23142AD21706F83900D3C200 /* WBStickyNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AC61706F83900D3C200 /* WBStickyNoticeView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		23142AD31706F83900D3C200 /* WBSuccessNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AC81706F83900D3C200 /* WBSuccessNoticeView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		23142AD51706FCFA00D3C200 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23142AD41706FCFA00D3C200 /* Crashlytics.framework */; };
+		23142ADE1707822800D3C200 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23142ADC1707822800D3C200 /* Localizable.strings */; };
 		2337119916E255900061C849 /* NBNGitlabEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119816E255900061C849 /* NBNGitlabEngine.m */; };
 		2337119C16E2559D0061C849 /* GLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119B16E2559D0061C849 /* GLLoginViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		2337119F16E255AB0061C849 /* NBNBackButtonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119E16E255AB0061C849 /* NBNBackButtonHelper.m */; };
@@ -278,6 +279,8 @@
 		23142AC71706F83900D3C200 /* WBSuccessNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSuccessNoticeView.h; sourceTree = "<group>"; };
 		23142AC81706F83900D3C200 /* WBSuccessNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSuccessNoticeView.m; sourceTree = "<group>"; };
 		23142AD41706FCFA00D3C200 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = GitLabIssues/Vendor/Crashlytics.framework; sourceTree = "<group>"; };
+		23142ADD1707822800D3C200 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		23142ADF1707823300D3C200 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2337119716E2558F0061C849 /* NBNGitlabEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNGitlabEngine.h; path = Network/NBNGitlabEngine.h; sourceTree = "<group>"; };
 		2337119816E255900061C849 /* NBNGitlabEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNGitlabEngine.m; path = Network/NBNGitlabEngine.m; sourceTree = "<group>"; };
 		2337119A16E2559D0061C849 /* GLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLLoginViewController.h; path = Views/GLLoginViewController.h; sourceTree = "<group>"; };
@@ -1217,6 +1220,7 @@
 		9710B5AF167E2C4500F26DE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				23142ADC1707822800D3C200 /* Localizable.strings */,
 				23142AB21706F83900D3C200 /* WBNoticeView */,
 				233712DF16E256A10061C849 /* MKNetworkKit */,
 				233711D216E2560D0061C849 /* ASIHTTPRequest */,
@@ -1675,6 +1679,7 @@
 				233711CC16E255E20061C849 /* README.md in Resources */,
 				233712D516E2560E0061C849 /* EmojiList.plist in Resources */,
 				23142AC91706F83900D3C200 /* NoticeView.bundle in Resources */,
+				23142ADE1707822800D3C200 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1896,6 +1901,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		23142ADC1707822800D3C200 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23142ADD1707822800D3C200 /* en */,
+				23142ADF1707823300D3C200 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		233711A516E255E20061C849 /* AppiraterLocalizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

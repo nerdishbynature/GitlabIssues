@@ -30,7 +30,7 @@
 +(NBNLabelsListViewController *)loadControllerWithProjectID:(NSUInteger)_projectID{
     NBNLabelsListViewController *listController = [[[NBNLabelsListViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
     listController.projectID = _projectID;
-    listController.title = @"Milestones";
+    listController.title = NSLocalizedString(@"Milestones", nil);
     [listController createSearchBar];
     
     return listController;

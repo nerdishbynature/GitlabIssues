@@ -32,7 +32,7 @@
 +(NBNAssigneeListViewController *)loadControllerWithProjectID:(NSUInteger)_projectID{
     NBNAssigneeListViewController *listController = [[[NBNAssigneeListViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
     listController.projectID = _projectID;
-    listController.title = @"Assignees";
+    listController.title = NSLocalizedString(@"Assignees", nil);
     [listController createSearchBar];
     
     return listController;

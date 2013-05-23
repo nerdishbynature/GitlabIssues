@@ -32,7 +32,7 @@
 {
     [super viewWillAppear:animated];
     [self reloadResults];
-    self.tabBarController.title = @"Created By Me";
+    self.tabBarController.title = NSLocalizedString(@"Created By Me", nil);
 }
 
 -(void)viewDidAppear:(BOOL)animated{

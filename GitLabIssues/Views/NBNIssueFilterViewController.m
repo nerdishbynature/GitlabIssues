@@ -57,7 +57,7 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-	[button setTitle:@"Cancel" forState:UIControlStateNormal];
+	[button setTitle:NSLocalizedString(@"Cancel", nil) forState:UIControlStateNormal];
 	[button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
 	[button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
     [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
@@ -67,7 +67,7 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     
     UIButton *applybutton = [UIButton buttonWithType:UIButtonTypeCustom];
-	[applybutton setTitle:@"Apply" forState:UIControlStateNormal];
+	[applybutton setTitle:NSLocalizedString(@"Apply", nil) forState:UIControlStateNormal];
 	[applybutton.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
 	[applybutton setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
     [applybutton setFrame:CGRectMake(0, 0, 58.f, 27.f)];
@@ -75,7 +75,7 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     [applybutton setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:applybutton] autorelease];
-    self.title = @"Issues Filter";
+    self.title = NSLocalizedString(@"Issues Filter", nil);
     
 }
 
@@ -182,9 +182,9 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     if (section == 0) {
         return @"";
     } else if (section == 1){
-        return @"Issue Status";
+        return NSLocalizedString(@"Issue Status", nil);
     } else{
-        return @"Sort Issues";
+        return NSLocalizedString(@"Sort Issues", nil);
     }
 }
 

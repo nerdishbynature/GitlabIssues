@@ -24,7 +24,7 @@
 }
 
 -(void)configureView{
-    SVSegmentedControl *navSC = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"Open Issues", @"Closed Issues", nil]];
+    SVSegmentedControl *navSC = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:NSLocalizedString(@"Open Issues", nil), NSLocalizedString(@"Closed Issues", nil), nil]];
     
     navSC.selectedIndex = self.closed ? 1 : 0;
     

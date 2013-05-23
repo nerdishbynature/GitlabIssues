@@ -49,7 +49,11 @@ static NBNReachabilityChecker *sharedChecker = nil;
         
         NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:self.lastShown];
         if (interval > 60) { // more than 60s ago -> show AlertView
-            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"" message:@"Your internet connection appears to be offline, reconnect and try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil] autorelease];
+            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@""
+                                                             message:NSLocalizedString(@"Your internet connection appears to be offline, reconnect and try again.", nil)
+                                                            delegate:nil
+                                                   cancelButtonTitle:NSLocalizedString(@"Dismiss", nil)
+                                                   otherButtonTitles:nil] autorelease];
             [alert show];
             
             self.lastShown = [NSDate date];

@@ -31,7 +31,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        self.title = @"Favorites";
+        self.title = NSLocalizedString(@"Favorites", nil);
     }
     return self;
 }
@@ -41,7 +41,7 @@
     [super viewDidLoad];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:@"Edit" forState:UIControlStateNormal];
+    [button setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
     [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
     [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
     [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
@@ -166,7 +166,7 @@
         //Turn off edit mode
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [button setTitle:@"Edit" forState:UIControlStateNormal];
+        [button setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
         [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
         [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
         [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
@@ -179,7 +179,7 @@
     else {
         // Turn on edit mode
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitle:@"Done" forState:UIControlStateNormal];
+        [button setTitle:NSLocalizedString(@"Done", nil) forState:UIControlStateNormal];
         [button.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.f]];
         [button setTitleColor:[UIColor colorWithWhite:1.f alpha:1.f] forState:UIControlStateNormal];
         [button setFrame:CGRectMake(0, 0, 58.f, 27.f)];
