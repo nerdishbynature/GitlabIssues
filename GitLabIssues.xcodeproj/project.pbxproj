@@ -19,7 +19,6 @@
 		23142AD21706F83900D3C200 /* WBStickyNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AC61706F83900D3C200 /* WBStickyNoticeView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		23142AD31706F83900D3C200 /* WBSuccessNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AC81706F83900D3C200 /* WBSuccessNoticeView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		23142AD51706FCFA00D3C200 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23142AD41706FCFA00D3C200 /* Crashlytics.framework */; };
-
 		23142AD8170703C000D3C200 /* NBNMilestoneConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AD7170703C000D3C200 /* NBNMilestoneConnectionTests.m */; };
 		23142ADB1707064D00D3C200 /* NBNSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142ADA1707064D00D3C200 /* NBNSessionTests.m */; };
 		23142ADE1707822800D3C200 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23142ADC1707822800D3C200 /* Localizable.strings */; };
@@ -125,6 +124,8 @@
 		233712FD16E256B10061C849 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 233712FC16E256B10061C849 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		2337130316E2592E0061C849 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2337130116E2592E0061C849 /* libFlurry.a */; };
 		237FB14316BD19360007FB0A /* NBNDeletionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 237FB14216BD19360007FB0A /* NBNDeletionHelper.m */; };
+		2390D6D1170DE93500B9C865 /* MTTestSemaphor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2390D6D0170DE93500B9C865 /* MTTestSemaphor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		23D7A10D1742D569003D5713 /* SparkInspector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = HYXIFWTDXJPPRRMDCEPMDTJH /* SparkInspector.framework */; };
 		97049FB716A0B34E004BC6E3 /* NBNReachabilityChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 97049FB616A0B34E004BC6E3 /* NBNReachabilityChecker.m */; };
 		9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5A8167E2C4500F26DE2 /* UIKit.framework */; };
 		9710B5AB167E2C4500F26DE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5AA167E2C4500F26DE2 /* Foundation.framework */; };
@@ -234,6 +235,7 @@
 		97C49F3A16A87262009DEC85 /* star_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C49F3616A87262009DEC85 /* star_selected@2x.png */; };
 		97C49F3B16A87262009DEC85 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C49F3716A87262009DEC85 /* star.png */; };
 		97C49F3C16A87262009DEC85 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C49F3816A87262009DEC85 /* star@2x.png */; };
+		KIYDQKWBMRKIEYEVRWSLKUDQ /* SparkInspector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = HYXIFWTDXJPPRRMDCEPMDTJH /* SparkInspector.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -526,6 +528,8 @@
 		237FB14216BD19360007FB0A /* NBNDeletionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNDeletionHelper.m; path = Models/NBNDeletionHelper.m; sourceTree = "<group>"; };
 		237FB14416BD19810007FB0A /* Models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Models.h; path = Models/Models.h; sourceTree = "<group>"; };
 		237FB1A816BD2FE10007FB0A /* GitLab 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GitLab 2.xcdatamodel"; sourceTree = "<group>"; };
+		2390D6CF170DE93500B9C865 /* MTTestSemaphor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTestSemaphor.h; sourceTree = "<group>"; };
+		2390D6D0170DE93500B9C865 /* MTTestSemaphor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTestSemaphor.m; sourceTree = "<group>"; };
 		97049FB516A0B34E004BC6E3 /* NBNReachabilityChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNReachabilityChecker.h; path = Network/NBNReachabilityChecker.h; sourceTree = "<group>"; };
 		97049FB616A0B34E004BC6E3 /* NBNReachabilityChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNReachabilityChecker.m; path = Network/NBNReachabilityChecker.m; sourceTree = "<group>"; };
 		9710B5A4167E2C4500F26DE2 /* GitLabIssues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitLabIssues.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -682,6 +686,7 @@
 		97C49F3616A87262009DEC85 /* star_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_selected@2x.png"; sourceTree = "<group>"; };
 		97C49F3716A87262009DEC85 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		97C49F3816A87262009DEC85 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
+		HYXIFWTDXJPPRRMDCEPMDTJH /* SparkInspector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SparkInspector.framework; path = "/Applications/Spark Inspector.app/Contents/Resources/Frameworks/SparkInspector.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -689,6 +694,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23D7A10D1742D569003D5713 /* SparkInspector.framework in Frameworks */,
 				9728328E16B31D8A00A6DE91 /* StoreKit.framework in Frameworks */,
 				978F709A169F5CB2004A0B67 /* Security.framework in Frameworks */,
 				9723058D1691D821005866EF /* QuartzCore.framework in Frameworks */,
@@ -712,6 +718,7 @@
 				9710B5C7167E2C4600F26DE2 /* SenTestingKit.framework in Frameworks */,
 				9710B5C8167E2C4600F26DE2 /* UIKit.framework in Frameworks */,
 				9710B5C9167E2C4600F26DE2 /* Foundation.framework in Frameworks */,
+				KIYDQKWBMRKIEYEVRWSLKUDQ /* SparkInspector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1168,6 +1175,16 @@
 			path = GitLabIssues/Vendor/Flurry;
 			sourceTree = "<group>";
 		};
+		2390D6CE170DE93500B9C865 /* MTTestSemaphore */ = {
+			isa = PBXGroup;
+			children = (
+				2390D6CF170DE93500B9C865 /* MTTestSemaphor.h */,
+				2390D6D0170DE93500B9C865 /* MTTestSemaphor.m */,
+			);
+			name = MTTestSemaphore;
+			path = GitLabIssues/Vendor/MTTestSemaphore;
+			sourceTree = SOURCE_ROOT;
+		};
 		9710B599167E2C4500F26DE2 = {
 			isa = PBXGroup;
 			children = (
@@ -1209,6 +1226,7 @@
 				9710B5AA167E2C4500F26DE2 /* Foundation.framework */,
 				9710B5AC167E2C4500F26DE2 /* CoreGraphics.framework */,
 				9710B5C6167E2C4600F26DE2 /* SenTestingKit.framework */,
+				HYXIFWTDXJPPRRMDCEPMDTJH /* SparkInspector.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1272,6 +1290,7 @@
 		9710B5CD167E2C4600F26DE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2390D6CE170DE93500B9C865 /* MTTestSemaphore */,
 				9710B5CE167E2C4600F26DE2 /* GitLabIssuesTests-Info.plist */,
 				9710B5CF167E2C4600F26DE2 /* InfoPlist.strings */,
 			);
@@ -1900,6 +1919,7 @@
 				9710B5D4167E2C4600F26DE2 /* GitLabIssuesTests.m in Sources */,
 				23142AD8170703C000D3C200 /* NBNMilestoneConnectionTests.m in Sources */,
 				23142ADB1707064D00D3C200 /* NBNSessionTests.m in Sources */,
+				2390D6D1170DE93500B9C865 /* MTTestSemaphor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1981,12 +2001,16 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2002,6 +2026,7 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Vendor\"",
 					"\"$(SRCROOT)/GitLabIssues/Vendor\"",
+					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
 				);
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2013,6 +2038,7 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/GitLabIssues/Vendor/Flurry\"",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "832C93E6-0BCC-41A4-AEA3-E83800FF21BC";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "832C93E6-0BCC-41A4-AEA3-E83800FF21BC";
@@ -2027,10 +2053,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
 				INFOPLIST_FILE = "GitLabIssuesTests/GitLabIssuesTests-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -2047,6 +2075,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2060,6 +2091,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2074,12 +2106,16 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2093,6 +2129,7 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Vendor\"",
 					"\"$(SRCROOT)/GitLabIssues/Vendor\"",
+					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
@@ -2123,6 +2160,7 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Vendor\"",
 					"\"$(SRCROOT)/GitLabIssues/Vendor\"",
+					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
 				);
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2134,6 +2172,7 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/GitLabIssues/Vendor/Flurry\"",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -2148,10 +2187,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
 				INFOPLIST_FILE = "GitLabIssuesTests/GitLabIssuesTests-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -2165,10 +2206,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
 				INFOPLIST_FILE = "GitLabIssuesTests/GitLabIssuesTests-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

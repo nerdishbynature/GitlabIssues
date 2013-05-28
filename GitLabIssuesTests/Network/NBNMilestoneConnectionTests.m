@@ -19,11 +19,13 @@
     
     // Set-up code here.
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"GitLabIssuesTest.sqlite"];
-    Domain *domain = [Domain createEntity];
-    domain.domain = @"www.nerdishbynature.biz";
-    domain.protocol = @"https://";
-    domain.email = @"appledemo@nerdishbynature.com";
-    domain.password = @"password";
+    if ([Domain MR_countOfEntities] == 0) {
+        Domain *domain = [Domain createEntity];
+        domain.domain = @"www.nerdishbynature.biz";
+        domain.protocol = @"https://";
+        domain.email = @"appledemo@nerdishbynature.com";
+        domain.password = @"password";
+    }
 }
 
 - (void)tearDown

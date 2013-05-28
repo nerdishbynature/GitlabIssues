@@ -7,6 +7,7 @@
 //
 
 #import "NBNSessionTests.h"
+#import "MTTestSemaphor.h"
 #import "Session.h"
 #import "Domain.h"
 
@@ -18,19 +19,50 @@
     
     // Set-up code here.
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"GitLabIssuesTest.sqlite"];
-    Domain *domain = [Domain createEntity];
-    domain.domain = @"www.nerdishbynature.biz";
-    domain.protocol = @"https://";
-    domain.email = @"appledemo@nerdishbynature.com";
-    domain.password = @"password";
+    [Domain MR_truncateAll];
+    
+    if ([Domain MR_countOfEntities] == 0) {
+        Domain *domain = [Domain createEntity];
+        domain.domain = @"www.nerdishbynature.biz";
+        domain.protocol = @"https://";
+        domain.email = @"appledemo@nerdishbynature.com";
+        domain.password = @"!Qayxsw2";
+    } else{
+        STFail(@"Domains are not empty");
+    }
 }
 
--(void)testSessionGetting{
+-(void)tearDown{
+    [super tearDown];
+}
+
+-(void)testBadKnowSessionGetting{
+    NSString* sempahoreKey = @"testBadKnowSessionGetting";
+    
     [Session generateSessionWithCompletion:^(Session *session) {
-        STAssertTrue(@"Sessions was generated", @"success");
+        STAssertFalse(session, @"successful loaded session");
+        [[MTTestSemaphor semaphore] lift: sempahoreKey];
     } onError:^(NSError *error) {
-        STAssertFalse(@"Session could not be generated", error.localizedDescription);
+        STAssertTrue(error, error.localizedDescription);
+        [[MTTestSemaphor semaphore] lift: sempahoreKey];
     }];
+    
+    [[MTTestSemaphor semaphore] waitForKey: sempahoreKey];
+}
+
+-(void)testGoodKnowSessionGetting{
+    
+    NSString* testKey = @"testGoodKnowSessionGetting";
+    
+    [Session generateSessionWithCompletion:^(Session *session) {
+        STAssertTrue(session, @"successful loaded session");
+        [[MTTestSemaphor semaphore] lift: testKey];
+    } onError:^(NSError *error) {
+        STAssertFalse(error, error.localizedDescription);
+        [[MTTestSemaphor semaphore] lift: testKey];
+    }];
+    
+    [[MTTestSemaphor semaphore] waitForKey: testKey];
 }
 
 @end
