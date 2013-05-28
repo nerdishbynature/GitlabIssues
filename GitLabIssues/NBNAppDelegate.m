@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 nerdishbynature. All rights reserved.
 //
 
+#import <SparkInspector/SparkInspector.h>
 #import "NBNAppDelegate.h"
 #import <Crashlytics/Crashlytics.h>
 #import "NBNHomeScreenViewController.h"
@@ -24,6 +25,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Enable the Spark Inspector
+    #if DEBUG
+    [SparkInspector enableObservation];
+    #endif
+
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
 
