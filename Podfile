@@ -13,3 +13,7 @@ pod 'CKRefreshControl', '~> 1.1.0'
 pod 'SVSegmentedControl', '~> 0.2'
 pod 'AFNetworking', '~> 1.3.0'
 pod 'Reachability',  '~> 3.0.0'
+
+target :GitLabIssuesTests, :exclusive => true do
+  pod 'Kiwi'
+end  

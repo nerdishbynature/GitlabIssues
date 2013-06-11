@@ -164,6 +164,7 @@
 		97C49F3A16A87262009DEC85 /* star_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C49F3616A87262009DEC85 /* star_selected@2x.png */; };
 		97C49F3B16A87262009DEC85 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C49F3716A87262009DEC85 /* star.png */; };
 		97C49F3C16A87262009DEC85 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C49F3816A87262009DEC85 /* star@2x.png */; };
+		989AC1156D834AA387AC3831 /* libPods-GitLabIssuesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD94947D2FAB487EA0397801 /* libPods-GitLabIssuesTests.a */; };
 		KIYDQKWBMRKIEYEVRWSLKUDQ /* SparkInspector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = HYXIFWTDXJPPRRMDCEPMDTJH /* SparkInspector.framework */; };
 /* End PBXBuildFile section */
 
@@ -454,6 +455,8 @@
 		97C49F3616A87262009DEC85 /* star_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_selected@2x.png"; sourceTree = "<group>"; };
 		97C49F3716A87262009DEC85 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		97C49F3816A87262009DEC85 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
+		AD94947D2FAB487EA0397801 /* libPods-GitLabIssuesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GitLabIssuesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5108C251E964A3DB139D30F /* Pods-GitLabIssuesTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitLabIssuesTests.xcconfig"; path = "Pods/Pods-GitLabIssuesTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		HYXIFWTDXJPPRRMDCEPMDTJH /* SparkInspector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SparkInspector.framework; path = "/Applications/Spark Inspector.app/Contents/Resources/Frameworks/SparkInspector.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -481,6 +484,7 @@
 				9710B5C8167E2C4600F26DE2 /* UIKit.framework in Frameworks */,
 				9710B5C9167E2C4600F26DE2 /* Foundation.framework in Frameworks */,
 				KIYDQKWBMRKIEYEVRWSLKUDQ /* SparkInspector.framework in Frameworks */,
+				989AC1156D834AA387AC3831 /* libPods-GitLabIssuesTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -722,6 +726,7 @@
 				9710B5A7167E2C4500F26DE2 /* Frameworks */,
 				9710B5A5167E2C4500F26DE2 /* Products */,
 				2A7CE991593242A1BC7F5A34 /* Pods.xcconfig */,
+				C5108C251E964A3DB139D30F /* Pods-GitLabIssuesTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -746,6 +751,7 @@
 				9710B5C6167E2C4600F26DE2 /* SenTestingKit.framework */,
 				HYXIFWTDXJPPRRMDCEPMDTJH /* SparkInspector.framework */,
 				3526E8A259E0423889E376F7 /* libPods.a */,
+				AD94947D2FAB487EA0397801 /* libPods-GitLabIssuesTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1054,10 +1060,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9710B5DA167E2C4600F26DE2 /* Build configuration list for PBXNativeTarget "GitLabIssuesTests" */;
 			buildPhases = (
+				340A19C7CEFA4238BA05C0A0 /* Check Pods Manifest.lock */,
 				9710B5C0167E2C4600F26DE2 /* Sources */,
 				9710B5C1167E2C4600F26DE2 /* Frameworks */,
 				9710B5C2167E2C4600F26DE2 /* Resources */,
 				9710B5C3167E2C4600F26DE2 /* ShellScript */,
+				6277E94BBD2A48C7BD3A5ED4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1200,6 +1208,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		340A19C7CEFA4238BA05C0A0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		6277E94BBD2A48C7BD3A5ED4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-GitLabIssuesTests-resources.sh\"\n";
 		};
 		7A9B92A47A0348BB95E7F31B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1447,17 +1483,14 @@
 		};
 		237A78CE1706DAEA00479C3A /* AdHoc */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5108C251E964A3DB139D30F /* Pods-GitLabIssuesTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitLabIssues.app/GitLabIssues";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
 				INFOPLIST_FILE = "GitLabIssuesTests/GitLabIssuesTests-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -1574,17 +1607,14 @@
 		};
 		9710B5DB167E2C4600F26DE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5108C251E964A3DB139D30F /* Pods-GitLabIssuesTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitLabIssues.app/GitLabIssues";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
 				INFOPLIST_FILE = "GitLabIssuesTests/GitLabIssuesTests-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -1593,17 +1623,14 @@
 		};
 		9710B5DC167E2C4600F26DE2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5108C251E964A3DB139D30F /* Pods-GitLabIssuesTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitLabIssues.app/GitLabIssues";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
 				INFOPLIST_FILE = "GitLabIssuesTests/GitLabIssuesTests-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
