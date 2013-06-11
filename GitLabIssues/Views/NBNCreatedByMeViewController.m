@@ -63,7 +63,7 @@
 
 -(void)loadAllIssues{
 
-    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain findAll] lastObject] onSuccess:^{
+    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain MR_findAll] lastObject] onSuccess:^{
         [[NBNIssuesConnection sharedConnection] loadAllIssuesOnSuccess:^{
             [self reloadResults];
             [self.HUD hide:YES];

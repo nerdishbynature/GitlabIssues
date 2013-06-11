@@ -90,7 +90,7 @@
 }
 
 -(void)addNewIssue{
-    Issue *issue = [Issue createEntity];
+    Issue *issue = [Issue MR_createEntity];
     issue.project_id = self.project.identifier; // this is important
     
     NBNIssueEditViewController *editViewController = [NBNIssueEditViewController loadViewControllerWithIssue:issue];

@@ -12,8 +12,6 @@
 #import "NBNUsersConnection.h"
 #import "NBNMilestoneConnection.h"
 #import "NSString+NSHash.h"
-#import "ASIHTTPRequest.h"
-#import "ASIDownloadCache.h"
 
 #import "Issue.h"
 #import "Assignee.h"

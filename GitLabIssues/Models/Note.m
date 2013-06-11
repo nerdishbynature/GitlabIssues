@@ -19,7 +19,7 @@
 @dynamic issue;
 
 +(Note *)createAndParseJSON:(NSDictionary *)dict{
-    Note *note = [Note createEntity];
+    Note *note = [Note MR_createEntity];
     [note parseServerResponse:dict];
     
     return note;

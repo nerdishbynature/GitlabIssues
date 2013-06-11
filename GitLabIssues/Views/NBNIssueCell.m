@@ -9,8 +9,8 @@
 #import "NBNIssueCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Author.h"
-#import "NBNGitlabEngine.h"
 #import "NSString+NSHash.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface NBNIssueCell ()
 
@@ -21,20 +21,11 @@
 @property (retain, nonatomic) IBOutlet UILabel *developerTitleLabel;
 @property (retain, nonatomic) IBOutlet UILabel *createdLabel;
 @property (nonatomic, retain) Issue *issue;
-@property (nonatomic, retain) NBNGitlabEngine *requestEngine;
 
 @end
 
 
 @implementation NBNIssueCell
-@synthesize titleLabel;
-@synthesize dateLabel;
-@synthesize descriptionLabel;
-@synthesize developerProfilePicture;
-@synthesize developerTitleLabel;
-@synthesize createdLabel;
-@synthesize issue;
-@synthesize requestEngine;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -52,8 +43,8 @@
     // Configure the view for the selected state
 }
 
--(void)configureCellWithIssue:(Issue *)_issue{
-    self.issue = _issue;
+-(void)configureCellWithIssue:(Issue *)issue{
+    self.issue = issue;
     
     self.titleLabel.text = self.issue.title;
     
@@ -63,44 +54,21 @@
     
     self.createdLabel.text = [NSString stringWithFormat:@"%@ #%@", NSLocalizedString(@"created", nil),self.issue.identifier];
     
-//    NSDateComponents *otherDay = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.issue.created_at];
-//    NSDateComponents *today = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
-//    if([today day] == [otherDay day] &&
-//       [today month] == [otherDay month] &&
-//       [today year] == [otherDay year] &&
-//       [today era] == [otherDay era]) {
-//
-//        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//        [formatter setDateFormat:@"hh:mm a"];
-//        
-//        self.dateLabel.text = [formatter stringFromDate:self.issue.created_at];
-//
-//        [formatter release];
-//    } else{
-    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM/dd/yy"];
     
     self.dateLabel.text = [formatter stringFromDate:self.issue.created_at];
     
     [formatter release];
-        
-//    }
-
+    
     [self calculateSizes];
     
-    self.requestEngine = [[[NBNGitlabEngine alloc] init] autorelease];
     
-    [self.requestEngine requestWithURL:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [_issue.author.email MD5]] completionHandler:^(MKNetworkOperation *request) {
-        
-        self.developerProfilePicture.image = [UIImage imageWithData:[request responseData]];
-        CALayer * l = [self.developerProfilePicture layer];
-        [l setMasksToBounds:YES];
-        [l setCornerRadius:5.0];
-        
-    } errorHandler:^(NSError *error) {
-        PBLog(@"%@", [error localizedDescription]);
-    }];
+    [self.developerProfilePicture setImageWithURL:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [self.issue.author.email MD5]]];
+    
+    CALayer * l = [self.developerProfilePicture layer];
+    [l setMasksToBounds:YES];
+    [l setCornerRadius:5.0];
 }
 
 -(void)calculateSizes{
@@ -152,16 +120,14 @@
     self.developerTitleLabel = nil;
     self.createdLabel = nil;
     self.issue = nil;
-    self.requestEngine = nil;
     
-    [titleLabel release];
-    [dateLabel release];
-    [descriptionLabel release];
-    [developerProfilePicture release];
-    [developerTitleLabel release];
-    [createdLabel release];
-    [issue release];
-    [requestEngine release];
+    [_titleLabel release];
+    [_dateLabel release];
+    [_descriptionLabel release];
+    [_developerProfilePicture release];
+    [_developerTitleLabel release];
+    [_createdLabel release];
+    [_issue release];
     
     [super dealloc];
 }

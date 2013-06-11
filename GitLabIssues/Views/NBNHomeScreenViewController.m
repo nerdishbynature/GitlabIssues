@@ -48,7 +48,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.domainArray = [Domain findAll];
+    self.domainArray = [Domain MR_findAll];
     [self.tableView reloadData];
     
     UIImage *backgroundImage = [UIImage imageNamed:@"NavBar_home.png"];

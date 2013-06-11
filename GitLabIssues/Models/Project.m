@@ -31,7 +31,7 @@
 @dynamic lastOpened;
 
 +(Project *)createAndParseJSON:(NSDictionary *)dict{
-    Project *project = [Project createEntity];
+    Project *project = [Project MR_createEntity];
     
     [project parseServerResponseWithDict:dict];
     project.isFavorite = [NSNumber numberWithBool:NO];

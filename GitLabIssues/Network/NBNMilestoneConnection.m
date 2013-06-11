@@ -10,20 +10,18 @@
 #import "Domain.h"
 #import "Session.h"
 #import "Milestone.h"
-#import "NBNGitlabEngine.h"
-#import "ASIHTTPRequest.h"
 #import "NBNReachabilityChecker.h"
+#import <AFNetworking/AFJSONRequestOperation.h>
 
 @interface NBNMilestoneConnection ()
 
-@property (nonatomic, retain) NBNGitlabEngine *milestonesForProjectRequest;
+@property (nonatomic, retain) AFJSONRequestOperation *milestonesForProjectOperation;
 
 @end
 
 static NBNMilestoneConnection *sharedConnection = nil;
 
 @implementation NBNMilestoneConnection
-@synthesize milestonesForProjectRequest;
 
 + (NBNMilestoneConnection *) sharedConnection {
     
@@ -38,7 +36,7 @@ static NBNMilestoneConnection *sharedConnection = nil;
 }
 
 -(void)loadAllMilestonesForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block{
-    Domain *domain = [[Domain findAll] lastObject];
+    Domain *domain = [[Domain MR_findAll] lastObject];
     
     if (![[NBNReachabilityChecker sharedChecker] isReachable]){
         block();
@@ -46,9 +44,12 @@ static NBNMilestoneConnection *sharedConnection = nil;
     }
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
-        self.milestonesForProjectRequest = [[[NBNGitlabEngine alloc] init] autorelease];
-        [self.milestonesForProjectRequest requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token] completionHandler:^(MKNetworkOperation *request) {
-            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+        
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        self.milestonesForProjectOperation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            NSArray *array = JSON;
             
             for (NSDictionary *dict in array) {
                 
@@ -64,49 +65,48 @@ static NBNMilestoneConnection *sharedConnection = nil;
                 }
             }
             block();
-        } errorHandler:^(NSError *error) {
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
             PBLog(@"err %@", error);
             block();
         }];
+        
+        [self.milestonesForProjectOperation start];
     }];
 }
 
 - (void) cancelMilestonesForProjectRequest
 {
-    [self.milestonesForProjectRequest cancel];
+    [self.milestonesForProjectOperation cancel];
 }
 
 +(void)loadMilestonesWithProjectID:(NSUInteger)projectID onSucess:(void(^)(NSArray *milestones))block{
     
     if (![[NBNReachabilityChecker sharedChecker] isReachable]) block(@[]);
     
-    Domain *domain = [[Domain findAll] lastObject];
-    Session *firstSession = [[Session findAll] lastObject];
+    Domain *domain = [[Domain MR_findAll] lastObject];
+    Session *firstSession = [[Session MR_findAll] lastObject];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/milestones?private_token=%@", domain.protocol, domain.domain, projectID, firstSession.private_token]];
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setValidatesSecureCertificate:NO];
-                               
-    [request setCompletionBlock:^{
-        NSArray *milestoneJSONArray = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
-        NSMutableArray *milestoneArray = [[[NSMutableArray alloc] initWithCapacity:milestoneJSONArray.count] autorelease];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        NSArray *milestoneJSONArray = JSON;
+        NSMutableArray *milestoneArray = [[[NSMutableArray alloc] initWithCapacity:milestoneJSONArray.count] autorelease];
+        
         for (NSDictionary *dict in milestoneJSONArray) {
             Milestone *milestone = [Milestone createAndParseJSON:dict andProjectID:projectID];
             [milestoneArray addObject:milestone];
         }
-    
+        
         [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
         
         block(milestoneArray);
-    }];
-                               
-    [request setFailedBlock:^{
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         block(@[]);
     }];
-                               
-                               
-    [request startAsynchronous];
+    
+    [operation start];
 }
 
 

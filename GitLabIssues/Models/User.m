@@ -24,7 +24,7 @@
 @dynamic twitter;
 
 +(User *)createAndParseJSON:(NSDictionary *)dict{
-    User *user = [User createEntity];
+    User *user = [User MR_createEntity];
     /*{
      
      "id": 1,

@@ -23,7 +23,7 @@
 @dynamic filter;
 
 +(Assignee *)createAndParseJSON:(NSDictionary *)dict{
-    Assignee *assignee = [Assignee createEntity];
+    Assignee *assignee = [Assignee MR_createEntity];
     /*{
      
      "id": 1,

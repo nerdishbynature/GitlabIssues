@@ -7,8 +7,9 @@
 //
 
 #import "Session.h"
-#import "ASIFormDataRequest.h"
 #import "Domain.h"
+#import <AFNetworking/AFHTTPClient.h>
+#import <AFNetworking/AFHTTPRequestOperation.h>
 
 @implementation Session
 
@@ -20,22 +21,19 @@
 @dynamic private_token;
 
 +(void)generateSessionWithCompletion:(void (^)(Session *session))block onError:(void (^)(NSError *error))errorBlock{
-    __block Session *session = [Session createEntity];
+    __block Session *session = [Session MR_createEntity];
     
-    Domain *domain = [[Domain findAll] lastObject];
+    Domain *domain = [[Domain MR_findAll] lastObject];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/session/", domain.protocol, domain.domain]];
-    PBLog(@"url %@", url);
     
-    __block ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-    [request addPostValue:domain.email forKey:@"email"];
-    [request addPostValue:domain.password forKey:@"password"];
-    [request setValidatesSecureCertificate:NO];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     
-    [request setCompletionBlock:^{
-        if (request.responseStatusCode == 201) {
-            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
-            
+    NSDictionary *params = @{@"email": domain.email, @"password": domain.password};
+    
+    [httpClient postPath:@"" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (operation.response.statusCode == 201) {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:operation.responseData options:kNilOptions error:nil];
             
             /*{
              "private_token" : "xxxxxx",
@@ -52,7 +50,7 @@
             session.name = [dict objectForKey:@"name"];
             
             if (!session.private_token) {
-                errorBlock(request.error);
+                errorBlock(nil);
             } else{
                 block(session);
             }
@@ -64,23 +62,18 @@
                                                   cancelButtonTitle:NSLocalizedString(@"Dismiss", nil)
                                                   otherButtonTitles:nil];
             [alert show];
-            errorBlock(request.error);
+            errorBlock(nil);
         }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Flurry logError:@"generateSessionWithCompletion:onError:" message:error.localizedFailureReason error:error];
+        errorBlock(error);
     }];
-    
-    [request setFailedBlock:^{
-        PBLog(@"err %@",request.error);
-        [Flurry logError:@"generateSessionWithCompletion:onError:" message:request.error.localizedFailureReason error:request.error];
-        errorBlock(request.error);
-    }];
-    
-    [request startAsynchronous];
 }
 
 +(void)getCurrentSessionWithCompletion:(void (^)(Session *session))block{
     
-    if ([Session findAll].count > 0) {
-        Session *session = [[Session findAll] lastObject]; //there can only be one
+    if ([Session MR_findAll].count > 0) {
+        Session *session = [[Session MR_findAll] lastObject]; //there can only be one
         block(session);
     } else{
         [Session generateSessionWithCompletion:^(Session *session) {

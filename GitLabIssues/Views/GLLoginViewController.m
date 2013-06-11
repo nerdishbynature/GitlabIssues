@@ -44,8 +44,8 @@
 {
     [super viewDidLoad];
     
-    if ([Domain findAll].count == 0) {
-        self.domain = [Domain createEntity];
+    if ([Domain MR_findAll].count == 0) {
+        self.domain = [Domain MR_createEntity];
         self.domain.protocol = @"https";
         self.domain.domain = @"";
         self.domain.email = @"";
@@ -53,7 +53,7 @@
     } else{
         [Domain MR_truncateAll];
         
-        self.domain = [Domain createEntity];
+        self.domain = [Domain MR_createEntity];
         self.domain.protocol = @"https";
         self.domain.domain = @"";
         self.domain.email = @"";

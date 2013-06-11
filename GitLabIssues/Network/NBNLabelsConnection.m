@@ -7,21 +7,20 @@
 //
 
 #import "NBNLabelsConnection.h"
-#import "ASIHTTPRequest.h"
+#import <AFNetworking/AFJSONRequestOperation.h>
 #import "Domain.h"
 #import "Session.h"
 #import "NBNReachabilityChecker.h"
 
 @interface NBNLabelsConnection ()
 
-@property (nonatomic, retain) ASIHTTPRequest *labelsConnection;
+@property (nonatomic, retain) AFJSONRequestOperation *labelsOperation;
 
 @end
 
 static NBNLabelsConnection *sharedConnection = nil;
 
 @implementation NBNLabelsConnection
-@synthesize labelsConnection;
 
 + (NBNLabelsConnection *) sharedConnection {
     
@@ -36,7 +35,7 @@ static NBNLabelsConnection *sharedConnection = nil;
 }
 
 -(void)loadAllLabelsForProjectID:(NSUInteger)projectID onSuccess:(void (^)(void))block{
-    Domain *domain = [[Domain findAll] lastObject];
+    Domain *domain = [[Domain MR_findAll] lastObject];
 
     if (![[NBNReachabilityChecker sharedChecker] isReachable]){
         block();
@@ -45,11 +44,9 @@ static NBNLabelsConnection *sharedConnection = nil;
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/labels?private_token=%@", domain.protocol, domain.domain, projectID, session.private_token]];
-        PBLog(@"%@", url);
-        self.labelsConnection = [ASIHTTPRequest requestWithURL:url];
-        [self.labelsConnection setValidatesSecureCertificate:NO];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
-        [self.labelsConnection setCompletionBlock:^{
+        self.labelsOperation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             //        NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
             //
             //        for (NSDictionary *dict in array) {
@@ -63,23 +60,17 @@ static NBNLabelsConnection *sharedConnection = nil;
             //        }
             PBLog(@"not yet supported");
             block();
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            PBLog(@"err %@", error.localizedDescription);
         }];
         
-        [self.labelsConnection setFailedBlock:^{
-            PBLog(@"err %@", [self.labelsConnection error]);
-        }];
-        
-        [self.labelsConnection startAsynchronous];
+        [self.labelsOperation start];
     }];
 }
 
 - (void) cancelLabelsRequest
 {
-    if ([self.labelsConnection isExecuting]){
-        [self.labelsConnection clearDelegatesAndCancel];
-        self.labelsConnection = nil;
-        PBLog(@"cancel labelsConnection!");
-    }
+    [self.labelsOperation cancel];
 }
 
 

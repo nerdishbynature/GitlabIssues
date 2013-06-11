@@ -20,7 +20,6 @@
 		23142AD31706F83900D3C200 /* WBSuccessNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AC81706F83900D3C200 /* WBSuccessNoticeView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		23142AD51706FCFA00D3C200 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23142AD41706FCFA00D3C200 /* Crashlytics.framework */; };
 		23142ADE1707822800D3C200 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23142ADC1707822800D3C200 /* Localizable.strings */; };
-		2337119916E255900061C849 /* NBNGitlabEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119816E255900061C849 /* NBNGitlabEngine.m */; };
 		2337119C16E2559D0061C849 /* GLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119B16E2559D0061C849 /* GLLoginViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		2337119F16E255AB0061C849 /* NBNBackButtonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119E16E255AB0061C849 /* NBNBackButtonHelper.m */; };
 		2337129516E2560E0061C849 /* FKBadgeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 233711ED16E2560D0061C849 /* FKBadgeField.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -216,8 +215,6 @@
 		23142AD41706FCFA00D3C200 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = GitLabIssues/Vendor/Crashlytics.framework; sourceTree = "<group>"; };
 		23142ADD1707822800D3C200 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		23142ADF1707823300D3C200 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2337119716E2558F0061C849 /* NBNGitlabEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNGitlabEngine.h; path = Network/NBNGitlabEngine.h; sourceTree = "<group>"; };
-		2337119816E255900061C849 /* NBNGitlabEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNGitlabEngine.m; path = Network/NBNGitlabEngine.m; sourceTree = "<group>"; };
 		2337119A16E2559D0061C849 /* GLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLLoginViewController.h; path = Views/GLLoginViewController.h; sourceTree = "<group>"; };
 		2337119B16E2559D0061C849 /* GLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLLoginViewController.m; path = Views/GLLoginViewController.m; sourceTree = "<group>"; };
 		2337119D16E255AA0061C849 /* NBNBackButtonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNBackButtonHelper.h; path = Helper/NBNBackButtonHelper.h; sourceTree = "<group>"; };
@@ -756,15 +753,16 @@
 		9710B5AE167E2C4500F26DE2 /* GitLabIssues */ = {
 			isa = PBXGroup;
 			children = (
+				9710B5B7167E2C4500F26DE2 /* NBNAppDelegate.h */,
+				9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */,
 				23D173E8176798550041D286 /* Cells */,
 				23D173E7176798400041D286 /* Views */,
 				23D173E6176797F20041D286 /* Helper */,
 				979C64F2167F342700B3E2D5 /* Network */,
 				9710B611167E343000F26DE2 /* Models */,
-				9710B5B7167E2C4500F26DE2 /* NBNAppDelegate.h */,
-				9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */,
 				978F7075169F53E0004A0B67 /* ViewController */,
 				23D173E9176798640041D286 /* Vendor */,
+				97714A17169E05CC00308536 /* Assets */,
 				9710B5AF167E2C4500F26DE2 /* Supporting Files */,
 			);
 			path = GitLabIssues;
@@ -774,11 +772,9 @@
 			isa = PBXGroup;
 			children = (
 				23142ADC1707822800D3C200 /* Localizable.strings */,
-				97714A17169E05CC00308536 /* Graphics */,
 				9710B5B0167E2C4500F26DE2 /* GitLabIssues-Info.plist */,
 				9710B5B1167E2C4500F26DE2 /* InfoPlist.strings */,
 				9710B5B4167E2C4500F26DE2 /* main.m */,
-				979F46AC16A34E7600871B4A /* Icons */,
 				9710B5B6167E2C4500F26DE2 /* GitLabIssues-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -907,9 +903,10 @@
 			name = FilterCells;
 			sourceTree = "<group>";
 		};
-		97714A17169E05CC00308536 /* Graphics */ = {
+		97714A17169E05CC00308536 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				979F46AC16A34E7600871B4A /* Icons */,
 				97C49F3516A87262009DEC85 /* star_selected.png */,
 				97C49F3616A87262009DEC85 /* star_selected@2x.png */,
 				97C49F3716A87262009DEC85 /* star.png */,
@@ -939,6 +936,7 @@
 				97714A18169E05CC00308536 /* navBar.png */,
 				97714A19169E05CC00308536 /* navBar@2x.png */,
 			);
+			name = Assets;
 			path = Graphics;
 			sourceTree = SOURCE_ROOT;
 		};
@@ -973,8 +971,6 @@
 		979C64F2167F342700B3E2D5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				2337119716E2558F0061C849 /* NBNGitlabEngine.h */,
-				2337119816E255900061C849 /* NBNGitlabEngine.m */,
 				979C64F3167F343D00B3E2D5 /* NBNMilestoneConnection.h */,
 				979C64F4167F343D00B3E2D5 /* NBNMilestoneConnection.m */,
 				979C64FD167F52F000B3E2D5 /* NBNLabelsConnection.h */,
@@ -1298,7 +1294,6 @@
 				97C49F2016A72CDC009DEC85 /* NBNIssueDetailViewController.m in Sources */,
 				97C49F2D16A8641D009DEC85 /* NBNFilterAssigneeCell.m in Sources */,
 				237FB14316BD19360007FB0A /* NBNDeletionHelper.m in Sources */,
-				2337119916E255900061C849 /* NBNGitlabEngine.m in Sources */,
 				2337119C16E2559D0061C849 /* GLLoginViewController.m in Sources */,
 				2337119F16E255AB0061C849 /* NBNBackButtonHelper.m in Sources */,
 				2337129516E2560E0061C849 /* FKBadgeField.m in Sources */,

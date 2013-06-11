@@ -62,14 +62,14 @@
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homeScreen];
     [Flurry logAllPageViews:navController];
     
-    NSArray *sessionArray = [Session findAll];
+    NSArray *sessionArray = [Session MR_findAll];
     
     for (Session *session in sessionArray) {
         PBLog(@"deleting %@", session.private_token);
         [[NSManagedObjectContext MR_contextForCurrentThread] deleteObject:session];
     }
     
-    PBLog(@"sessions %@", [Session findAll]);
+    PBLog(@"sessions %@", [Session MR_findAll]);
     
     self.window.rootViewController = navController;
     
@@ -99,14 +99,14 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    NSArray *sessionArray = [Session findAll];
+    NSArray *sessionArray = [Session MR_findAll];
     
     for (Session *session in sessionArray) {
         PBLog(@"deleting %@", session.private_token);
         [[NSManagedObjectContext MR_contextForCurrentThread] deleteObject:session];
     }
     
-    PBLog(@"sessions %@", [Session findAll]);
+    PBLog(@"sessions %@", [Session MR_findAll]);
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

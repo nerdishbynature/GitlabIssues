@@ -9,9 +9,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "NBNIssueCommentCell.h"
 #import "Author.h"
-#import "NBNGitlabEngine.h"
 #import "NSString+NSHash.h"
 #import "PBEmojiLabel.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface NBNIssueCommentCell ()
 
@@ -20,17 +20,10 @@
 @property (nonatomic, retain) IBOutlet UILabel *descriptionLabel; // PBEmojiLabel
 @property (nonatomic, retain) IBOutlet UILabel *dateTimeLabel;
 @property (nonatomic, retain) Note *note;
-@property (nonatomic, retain) NBNGitlabEngine *requestEngine;
 
 @end
 
 @implementation NBNIssueCommentCell
-@synthesize authorImageView;
-@synthesize headlineLabel;
-@synthesize descriptionLabel;
-@synthesize dateTimeLabel;
-@synthesize note;
-@synthesize requestEngine;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -52,9 +45,9 @@
     return (NBNIssueCommentCell *)[[[NSBundle mainBundle] loadNibNamed:@"NBNIssueCommentCell" owner:self options:0] objectAtIndex:0];
 }
 
--(void)configureCellWithNote:(Note *)_note{
+-(void)configureCellWithNote:(Note *)note{
     
-    self.note = _note;
+    self.note = note;
     
     [self loadAuthorImage];
     
@@ -74,21 +67,7 @@
     
     CGSize expectedSize = [self.descriptionLabel.text sizeWithFont:self.descriptionLabel.font constrainedToSize:CGSizeMake(self.descriptionLabel.frame.size.width, MAXFLOAT)];
     self.descriptionLabel.frame = CGRectMake(self.descriptionLabel.frame.origin.x, self.descriptionLabel.frame.origin.y, self.descriptionLabel.frame.size.width, expectedSize.height);
-    
-//    NSDateComponents *otherDay = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.note.created_at];
-//    NSDateComponents *today = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
-//    if([today day] == [otherDay day] &&
-//       [today month] == [otherDay month] &&
-//       [today year] == [otherDay year] &&
-//       [today era] == [otherDay era]) {
-//        
-//        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//        [formatter setDateFormat:@"hh:mm a"];
-//        
-//        self.dateTimeLabel.text = [formatter stringFromDate:self.note.created_at];
-//        
-//        [formatter release];
-//    } else{
+
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM/dd/yy"];
@@ -96,17 +75,13 @@
     self.dateTimeLabel.text = [formatter stringFromDate:self.note.created_at];
     
     [formatter release];
-        
-//    }
     
     self.dateTimeLabel.frame = CGRectMake(self.dateTimeLabel.frame.origin.x, self.descriptionLabel.frame.origin.y+self.descriptionLabel.frame.size.height+3, self.dateTimeLabel.frame.size.width, self.dateTimeLabel.frame.size.height);
-
-    
 }
 
--(CGFloat)getHeightForCellWithNote:(Note *)_note{
+-(CGFloat)getHeightForCellWithNote:(Note *)note{
     
-    CGSize expectedSize = [_note.body sizeWithFont:self.descriptionLabel.font constrainedToSize:CGSizeMake(self.descriptionLabel.frame.size.width, MAXFLOAT)];
+    CGSize expectedSize = [note.body sizeWithFont:self.descriptionLabel.font constrainedToSize:CGSizeMake(self.descriptionLabel.frame.size.width, MAXFLOAT)];
     self.descriptionLabel.frame = CGRectMake(self.descriptionLabel.frame.origin.x, self.descriptionLabel.frame.origin.y, self.descriptionLabel.frame.size.width, expectedSize.height);
     self.dateTimeLabel.frame = CGRectMake(self.dateTimeLabel.frame.origin.x, self.descriptionLabel.frame.origin.y+self.descriptionLabel.frame.size.height+3, self.dateTimeLabel.frame.size.width, self.dateTimeLabel.frame.size.height);
     
@@ -114,17 +89,12 @@
 }
 
 -(void)loadAuthorImage{
-    self.requestEngine = [[[NBNGitlabEngine alloc] init] autorelease];
     
-    [self.requestEngine requestWithURL:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [self.note.author.email MD5]] completionHandler:^(MKNetworkOperation *request) {
-        self.authorImageView.image = [UIImage imageWithData:request.responseData];
-        CALayer * l = [self.authorImageView layer];
-        [l setMasksToBounds:YES];
-        [l setCornerRadius:5.0];
-    } errorHandler:^(NSError *error) {
-        [Flurry logError:@"loadAuthorImage" message:error.localizedDescription error:error];
-        PBLog(@"%@", [error localizedDescription]);
-    }];
+    [self.authorImageView setImageWithURL:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [self.note.author.email MD5]]];
+    CALayer * l = [self.authorImageView layer];
+    [l setMasksToBounds:YES];
+    [l setCornerRadius:5.0];
+
 }
 
 - (void)dealloc
@@ -134,14 +104,12 @@
     self.descriptionLabel = nil;
     self.dateTimeLabel = nil;
     self.note = nil;
-    self.requestEngine = nil;
     
-    [authorImageView release];
-    [headlineLabel release];
-    [descriptionLabel release];
-    [dateTimeLabel release];
-    [note release];
-    [requestEngine release];
+    [_authorImageView release];
+    [_headlineLabel release];
+    [_descriptionLabel release];
+    [_dateTimeLabel release];
+    [_note release];
     
     [super dealloc];
 }
