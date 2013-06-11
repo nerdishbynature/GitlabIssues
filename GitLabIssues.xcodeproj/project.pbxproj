@@ -19,8 +19,6 @@
 		23142AD21706F83900D3C200 /* WBStickyNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AC61706F83900D3C200 /* WBStickyNoticeView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		23142AD31706F83900D3C200 /* WBSuccessNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AC81706F83900D3C200 /* WBSuccessNoticeView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		23142AD51706FCFA00D3C200 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23142AD41706FCFA00D3C200 /* Crashlytics.framework */; };
-		23142AD8170703C000D3C200 /* NBNMilestoneConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AD7170703C000D3C200 /* NBNMilestoneConnectionTests.m */; };
-		23142ADB1707064D00D3C200 /* NBNSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142ADA1707064D00D3C200 /* NBNSessionTests.m */; };
 		23142ADE1707822800D3C200 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23142ADC1707822800D3C200 /* Localizable.strings */; };
 		2337119916E255900061C849 /* NBNGitlabEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119816E255900061C849 /* NBNGitlabEngine.m */; };
 		2337119C16E2559D0061C849 /* GLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119B16E2559D0061C849 /* GLLoginViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -76,7 +74,6 @@
 		9710B5C8167E2C4600F26DE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5A8167E2C4500F26DE2 /* UIKit.framework */; };
 		9710B5C9167E2C4600F26DE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5AA167E2C4500F26DE2 /* Foundation.framework */; };
 		9710B5D1167E2C4600F26DE2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9710B5CF167E2C4600F26DE2 /* InfoPlist.strings */; };
-		9710B5D4167E2C4600F26DE2 /* GitLabIssuesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B5D3167E2C4600F26DE2 /* GitLabIssuesTests.m */; };
 		9710B603167E2CE400F26DE2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B602167E2CE400F26DE2 /* libz.dylib */; };
 		9710B610167E30F000F26DE2 /* NBNHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B60F167E30F000F26DE2 /* NBNHomeScreenViewController.m */; };
 		9710B614167E345B00F26DE2 /* GitLab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9710B612167E345B00F26DE2 /* GitLab.xcdatamodeld */; };
@@ -217,10 +214,6 @@
 		23142AC71706F83900D3C200 /* WBSuccessNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSuccessNoticeView.h; sourceTree = "<group>"; };
 		23142AC81706F83900D3C200 /* WBSuccessNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSuccessNoticeView.m; sourceTree = "<group>"; };
 		23142AD41706FCFA00D3C200 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = GitLabIssues/Vendor/Crashlytics.framework; sourceTree = "<group>"; };
-		23142AD6170703C000D3C200 /* NBNMilestoneConnectionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNMilestoneConnectionTests.h; path = Network/NBNMilestoneConnectionTests.h; sourceTree = "<group>"; };
-		23142AD7170703C000D3C200 /* NBNMilestoneConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNMilestoneConnectionTests.m; path = Network/NBNMilestoneConnectionTests.m; sourceTree = "<group>"; };
-		23142AD91707064D00D3C200 /* NBNSessionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNSessionTests.h; path = Models/NBNSessionTests.h; sourceTree = "<group>"; };
-		23142ADA1707064D00D3C200 /* NBNSessionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNSessionTests.m; path = Models/NBNSessionTests.m; sourceTree = "<group>"; };
 		23142ADD1707822800D3C200 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		23142ADF1707823300D3C200 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2337119716E2558F0061C849 /* NBNGitlabEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNGitlabEngine.h; path = Network/NBNGitlabEngine.h; sourceTree = "<group>"; };
@@ -332,8 +325,6 @@
 		9710B5C6167E2C4600F26DE2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		9710B5CE167E2C4600F26DE2 /* GitLabIssuesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GitLabIssuesTests-Info.plist"; sourceTree = "<group>"; };
 		9710B5D0167E2C4600F26DE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9710B5D2167E2C4600F26DE2 /* GitLabIssuesTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GitLabIssuesTests.h; sourceTree = "<group>"; };
-		9710B5D3167E2C4600F26DE2 /* GitLabIssuesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GitLabIssuesTests.m; sourceTree = "<group>"; };
 		9710B602167E2CE400F26DE2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		9710B60E167E30F000F26DE2 /* NBNHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNHomeScreenViewController.h; path = Views/NBNHomeScreenViewController.h; sourceTree = "<group>"; };
 		9710B60F167E30F000F26DE2 /* NBNHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNHomeScreenViewController.m; path = Views/NBNHomeScreenViewController.m; sourceTree = "<group>"; };
@@ -670,6 +661,57 @@
 			path = GitLabIssues/Vendor/MTTestSemaphore;
 			sourceTree = SOURCE_ROOT;
 		};
+		23D173E6176797F20041D286 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				2337119D16E255AA0061C849 /* NBNBackButtonHelper.h */,
+				2337119E16E255AB0061C849 /* NBNBackButtonHelper.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		23D173E7176798400041D286 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				979898D216A48E5100A60B6D /* NBNTabBarItem.h */,
+				979898D316A48E5100A60B6D /* NBNTabBarItem.m */,
+				971F677716A1736E00638E90 /* NBNGroupedTableViewHeader.h */,
+				971F677816A1737000638E90 /* NBNGroupedTableViewHeader.m */,
+				971F677A16A173AC00638E90 /* NBNGroupedTableViewHeader.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		23D173E8176798550041D286 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				972304D01691B092005866EF /* NBNIssueDetailCell.h */,
+				972304D11691B092005866EF /* NBNIssueDetailCell.m */,
+				972304D91691B0CD005866EF /* NBNIssueDetailCell.xib */,
+				233712D916E2566C0061C849 /* NBNIssueDescriptionCell.h */,
+				233712DA16E2566C0061C849 /* NBNIssueDescriptionCell.m */,
+				972304DB1691B0EA005866EF /* NBNIssueDescriptionCell.xib */,
+				972304D61691B0AF005866EF /* NBNIssueCommentCell.h */,
+				972304D71691B0AF005866EF /* NBNIssueCommentCell.m */,
+				972304DD1691B101005866EF /* NBNIssueCommentCell.xib */,
+				97860A4E16903C8F003D2092 /* NBNIssueCell.h */,
+				97860A4F16903C8F003D2092 /* NBNIssueCell.m */,
+				97860A5116903CAC003D2092 /* NBNIssueCell.xib */,
+				974B8ADF169B546200ED15C5 /* FilterCells */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		23D173E9176798640041D286 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				23142AB21706F83900D3C200 /* WBNoticeView */,
+				233711EA16E2560D0061C849 /* FormKit */,
+				2337123716E2560E0061C849 /* HEBubbleView */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
 		9710B599167E2C4500F26DE2 = {
 			isa = PBXGroup;
 			children = (
@@ -714,9 +756,15 @@
 		9710B5AE167E2C4500F26DE2 /* GitLabIssues */ = {
 			isa = PBXGroup;
 			children = (
+				23D173E8176798550041D286 /* Cells */,
+				23D173E7176798400041D286 /* Views */,
+				23D173E6176797F20041D286 /* Helper */,
+				979C64F2167F342700B3E2D5 /* Network */,
+				9710B611167E343000F26DE2 /* Models */,
 				9710B5B7167E2C4500F26DE2 /* NBNAppDelegate.h */,
 				9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */,
-				978F7075169F53E0004A0B67 /* Classes */,
+				978F7075169F53E0004A0B67 /* ViewController */,
+				23D173E9176798640041D286 /* Vendor */,
 				9710B5AF167E2C4500F26DE2 /* Supporting Files */,
 			);
 			path = GitLabIssues;
@@ -726,17 +774,12 @@
 			isa = PBXGroup;
 			children = (
 				23142ADC1707822800D3C200 /* Localizable.strings */,
-				23142AB21706F83900D3C200 /* WBNoticeView */,
-				233711EA16E2560D0061C849 /* FormKit */,
-				2337123716E2560E0061C849 /* HEBubbleView */,
 				97714A17169E05CC00308536 /* Graphics */,
 				9710B5B0167E2C4500F26DE2 /* GitLabIssues-Info.plist */,
 				9710B5B1167E2C4500F26DE2 /* InfoPlist.strings */,
 				9710B5B4167E2C4500F26DE2 /* main.m */,
 				979F46AC16A34E7600871B4A /* Icons */,
 				9710B5B6167E2C4500F26DE2 /* GitLabIssues-Prefix.pch */,
-				979898D216A48E5100A60B6D /* NBNTabBarItem.h */,
-				979898D316A48E5100A60B6D /* NBNTabBarItem.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -744,12 +787,6 @@
 		9710B5CC167E2C4600F26DE2 /* GitLabIssuesTests */ = {
 			isa = PBXGroup;
 			children = (
-				9710B5D2167E2C4600F26DE2 /* GitLabIssuesTests.h */,
-				9710B5D3167E2C4600F26DE2 /* GitLabIssuesTests.m */,
-				23142AD6170703C000D3C200 /* NBNMilestoneConnectionTests.h */,
-				23142AD7170703C000D3C200 /* NBNMilestoneConnectionTests.m */,
-				23142AD91707064D00D3C200 /* NBNSessionTests.h */,
-				23142ADA1707064D00D3C200 /* NBNSessionTests.m */,
 				9710B5CD167E2C4600F26DE2 /* Supporting Files */,
 			);
 			path = GitLabIssuesTests;
@@ -822,22 +859,6 @@
 			name = FindRepos;
 			sourceTree = "<group>";
 		};
-		972304CB1691B046005866EF /* DetailCells */ = {
-			isa = PBXGroup;
-			children = (
-				972304D01691B092005866EF /* NBNIssueDetailCell.h */,
-				972304D11691B092005866EF /* NBNIssueDetailCell.m */,
-				972304D91691B0CD005866EF /* NBNIssueDetailCell.xib */,
-				233712D916E2566C0061C849 /* NBNIssueDescriptionCell.h */,
-				233712DA16E2566C0061C849 /* NBNIssueDescriptionCell.m */,
-				972304DB1691B0EA005866EF /* NBNIssueDescriptionCell.xib */,
-				972304D61691B0AF005866EF /* NBNIssueCommentCell.h */,
-				972304D71691B0AF005866EF /* NBNIssueCommentCell.m */,
-				972304DD1691B101005866EF /* NBNIssueCommentCell.xib */,
-			);
-			name = DetailCells;
-			sourceTree = "<group>";
-		};
 		973285F2167E4AEE00CFACC2 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
@@ -859,12 +880,10 @@
 		97328608167E5D6200CFACC2 /* Issues */ = {
 			isa = PBXGroup;
 			children = (
-				97860A4C16903C6B003D2092 /* Cells */,
 				97328605167E5D5D00CFACC2 /* NBNIssuesViewController.h */,
 				97328606167E5D5D00CFACC2 /* NBNIssuesViewController.m */,
 				97C49F1E16A72CDC009DEC85 /* NBNIssueDetailViewController.h */,
 				97C49F1F16A72CDC009DEC85 /* NBNIssueDetailViewController.m */,
-				972304CB1691B046005866EF /* DetailCells */,
 				979C65861680678400B3E2D5 /* NBNIssueEditViewController.h */,
 				979C65871680678400B3E2D5 /* NBNIssueEditViewController.m */,
 			);
@@ -923,16 +942,6 @@
 			path = Graphics;
 			sourceTree = SOURCE_ROOT;
 		};
-		97860A4C16903C6B003D2092 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				97860A4E16903C8F003D2092 /* NBNIssueCell.h */,
-				97860A4F16903C8F003D2092 /* NBNIssueCell.m */,
-				97860A5116903CAC003D2092 /* NBNIssueCell.xib */,
-			);
-			name = Cells;
-			sourceTree = "<group>";
-		};
 		97860A57169099F1003D2092 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -946,33 +955,26 @@
 			name = Dashboard;
 			sourceTree = "<group>";
 		};
-		978F7075169F53E0004A0B67 /* Classes */ = {
+		978F7075169F53E0004A0B67 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2337119716E2558F0061C849 /* NBNGitlabEngine.h */,
-				2337119816E255900061C849 /* NBNGitlabEngine.m */,
-				971F677716A1736E00638E90 /* NBNGroupedTableViewHeader.h */,
-				971F677816A1737000638E90 /* NBNGroupedTableViewHeader.m */,
-				971F677A16A173AC00638E90 /* NBNGroupedTableViewHeader.xib */,
 				97860A57169099F1003D2092 /* Dashboard */,
 				979C65611680606500B3E2D5 /* Login */,
-				979C64F2167F342700B3E2D5 /* Connections */,
 				979C64F9167F520700B3E2D5 /* Filter */,
 				9713925B167E8E0500AB2E39 /* FindRepos */,
 				97328608167E5D6200CFACC2 /* Issues */,
 				973285FB167E514500CFACC2 /* Projects */,
 				973285F2167E4AEE00CFACC2 /* Favorite */,
 				9710B60D167E30D300F26DE2 /* HomeScreen */,
-				9710B611167E343000F26DE2 /* Models */,
-				2337119D16E255AA0061C849 /* NBNBackButtonHelper.h */,
-				2337119E16E255AB0061C849 /* NBNBackButtonHelper.m */,
 			);
-			name = Classes;
+			name = ViewController;
 			sourceTree = "<group>";
 		};
-		979C64F2167F342700B3E2D5 /* Connections */ = {
+		979C64F2167F342700B3E2D5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2337119716E2558F0061C849 /* NBNGitlabEngine.h */,
+				2337119816E255900061C849 /* NBNGitlabEngine.m */,
 				979C64F3167F343D00B3E2D5 /* NBNMilestoneConnection.h */,
 				979C64F4167F343D00B3E2D5 /* NBNMilestoneConnection.m */,
 				979C64FD167F52F000B3E2D5 /* NBNLabelsConnection.h */,
@@ -986,7 +988,7 @@
 				97049FB516A0B34E004BC6E3 /* NBNReachabilityChecker.h */,
 				97049FB616A0B34E004BC6E3 /* NBNReachabilityChecker.m */,
 			);
-			name = Connections;
+			name = Network;
 			sourceTree = "<group>";
 		};
 		979C64F9167F520700B3E2D5 /* Filter */ = {
@@ -1000,7 +1002,6 @@
 				979C64FB167F522700B3E2D5 /* NBNLabelsListViewController.m */,
 				971F677C16A17EA200638E90 /* NBNAssigneeListViewController.h */,
 				971F677D16A17EA200638E90 /* NBNAssigneeListViewController.m */,
-				974B8ADF169B546200ED15C5 /* FilterCells */,
 			);
 			name = Filter;
 			sourceTree = "<group>";
@@ -1353,9 +1354,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9710B5D4167E2C4600F26DE2 /* GitLabIssuesTests.m in Sources */,
-				23142AD8170703C000D3C200 /* NBNMilestoneConnectionTests.m in Sources */,
-				23142ADB1707064D00D3C200 /* NBNSessionTests.m in Sources */,
 				2390D6D1170DE93500B9C865 /* MTTestSemaphor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
