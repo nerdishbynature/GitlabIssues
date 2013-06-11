@@ -72,7 +72,7 @@ static NBNUsersConnection *sharedConnection = nil;
                 }
             }
             
-            [[NSManagedObjectContext MR_defaultContext] MR_save];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
             
             block(memberArray);
         }];

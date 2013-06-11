@@ -118,7 +118,7 @@
     
     [Session generateSessionWithCompletion:^(Session *session) {
         [self dismissViewControllerAnimated:YES completion:nil];
-        [[NSManagedObjectContext MR_defaultContext] MR_saveNestedContexts];
+        [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
         [self.HUD setHidden:YES];
         [self.HUD removeFromSuperview];
     } onError:^(NSError *error) {

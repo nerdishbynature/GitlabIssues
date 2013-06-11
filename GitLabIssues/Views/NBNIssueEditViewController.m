@@ -105,12 +105,12 @@
                     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@", value];
                     self.issue.milestone = [[Milestone findAllWithPredicate:predicate] objectAtIndex:0];
                     
-                    [[NSManagedObjectContext MR_defaultContext] MR_save];
+                    [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
                     
                     return self.issue.milestone;
                 }else{
                     self.issue.milestone = nil;
-                    [[NSManagedObjectContext MR_defaultContext] MR_save];
+                    [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
                     
                     return self.issue.milestone;
                 }
@@ -146,7 +146,7 @@
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", value];
             self.issue.assignee = [[Assignee findAllWithPredicate:predicate] objectAtIndex:0];
             
-            [[NSManagedObjectContext MR_defaultContext] MR_save];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
             
             return self.issue.assignee;
         } labelValueBlock:^id(id value, id object) {
@@ -203,7 +203,7 @@
                 
                 [notice show];
             } else{
-                [[NSManagedObjectContext MR_defaultContext] MR_save];
+                [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
          
@@ -213,7 +213,7 @@
         [self.issue createANewOnServerOnSuccess:^(BOOL success){
             if (success) {
                 [self dismissViewControllerAnimated:YES completion:nil];
-                [[NSManagedObjectContext MR_defaultContext] MR_save];
+                [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
             } else{
                 WBErrorNoticeView *notice = [WBErrorNoticeView errorNoticeInView:self.tableView
                                                                           title:NSLocalizedString(@"Error", nil)

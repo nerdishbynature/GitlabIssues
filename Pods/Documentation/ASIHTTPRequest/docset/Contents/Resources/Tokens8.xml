@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ASICloudFilesObjectRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ASICloudFilesObjectRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>
+			
+			<NodeRef refid="8"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObjectRequest/setAccountName:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *accountName</Declaration>
+			
+			
+			<Anchor>//api/name/accountName</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesObjectRequest/accountName</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *accountName</Declaration>
+			
+			
+			<Anchor>//api/name/accountName</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObjectRequest/setContainerName:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *containerName</Declaration>
+			
+			
+			<Anchor>//api/name/containerName</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesObjectRequest/containerName</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *containerName</Declaration>
+			
+			
+			<Anchor>//api/name/containerName</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObjectRequest/setCurrentElement:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *currentElement</Declaration>
+			
+			
+			<Anchor>//api/name/currentElement</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesObjectRequest/currentElement</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *currentElement</Declaration>
+			
+			
+			<Anchor>//api/name/currentElement</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObjectRequest/setCurrentContent:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *currentContent</Declaration>
+			
+			
+			<Anchor>//api/name/currentContent</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesObjectRequest/currentContent</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *currentContent</Declaration>
+			
+			
+			<Anchor>//api/name/currentContent</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObjectRequest/setCurrentObject:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) ASICloudFilesObject *currentObject</Declaration>
+			
+			
+			<Anchor>//api/name/currentObject</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesObjectRequest/currentObject</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) ASICloudFilesObject *currentObject</Declaration>
+			
+			
+			<Anchor>//api/name/currentObject</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesObjectRequest/containerInfoRequest:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)containerInfoRequest:(NSString *)containerName</Declaration>
+			
+			
+			<Anchor>//api/name/containerInfoRequest:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObjectRequest/containerObjectCount</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>- (NSUInteger)containerObjectCount</Declaration>
+			
+			
+			<Anchor>//api/name/containerObjectCount</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObjectRequest/containerBytesUsed</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>- (NSUInteger)containerBytesUsed</Declaration>
+			
+			
+			<Anchor>//api/name/containerBytesUsed</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesObjectRequest/objectInfoRequest:objectPath:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)objectInfoRequest:(NSString *)containerName objectPath:(NSString *)objectPath</Declaration>
+			
+			
+			<Anchor>//api/name/objectInfoRequest:objectPath:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObjectRequest/objects</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)objects</Declaration>
+			
+			
+			<Anchor>//api/name/objects</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesObjectRequest/listRequestWithContainer:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)listRequestWithContainer:(NSString *)containerName</Declaration>
+			
+			
+			<Anchor>//api/name/listRequestWithContainer:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesObjectRequest/listRequestWithContainer:limit:marker:prefix:path:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)listRequestWithContainer:(NSString *)containerName limit:(NSUInteger)limit marker:(NSString *)marker prefix:(NSString *)prefix path:(NSString *)path</Declaration>
+			
+			
+			<Anchor>//api/name/listRequestWithContainer:limit:marker:prefix:path:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesObjectRequest/getObjectRequestWithContainer:objectPath:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)getObjectRequestWithContainer:(NSString *)containerName objectPath:(NSString *)objectPath</Declaration>
+			
+			
+			<Anchor>//api/name/getObjectRequestWithContainer:objectPath:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObjectRequest/object</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>- (ASICloudFilesObject *)object</Declaration>
+			
+			
+			<Anchor>//api/name/object</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesObjectRequest/putObjectRequestWithContainer:object:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)putObjectRequestWithContainer:(NSString *)containerName object:(ASICloudFilesObject *)object</Declaration>
+			
+			
+			<Anchor>//api/name/putObjectRequestWithContainer:object:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesObjectRequest/putObjectRequestWithContainer:objectPath:contentType:objectData:metadata:etag:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)putObjectRequestWithContainer:(NSString *)containerName objectPath:(NSString *)objectPath contentType:(NSString *)contentType objectData:(NSData *)objectData metadata:(NSDictionary *)metadata etag:(NSString *)etag</Declaration>
+			
+			
+			<Anchor>//api/name/putObjectRequestWithContainer:objectPath:contentType:objectData:metadata:etag:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesObjectRequest/putObjectRequestWithContainer:objectPath:contentType:file:metadata:etag:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)putObjectRequestWithContainer:(NSString *)containerName objectPath:(NSString *)objectPath contentType:(NSString *)contentType file:(NSString *)filePath metadata:(NSDictionary *)metadata etag:(NSString *)etag</Declaration>
+			
+			
+			<Anchor>//api/name/putObjectRequestWithContainer:objectPath:contentType:file:metadata:etag:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesObjectRequest/postObjectRequestWithContainer:object:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)postObjectRequestWithContainer:(NSString *)containerName object:(ASICloudFilesObject *)object</Declaration>
+			
+			
+			<Anchor>//api/name/postObjectRequestWithContainer:object:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesObjectRequest/postObjectRequestWithContainer:objectPath:metadata:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)postObjectRequestWithContainer:(NSString *)containerName objectPath:(NSString *)objectPath metadata:(NSDictionary *)metadata</Declaration>
+			
+			
+			<Anchor>//api/name/postObjectRequestWithContainer:objectPath:metadata:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesObjectRequest/deleteObjectRequestWithContainer:objectPath:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)deleteObjectRequestWithContainer:(NSString *)containerName objectPath:(NSString *)objectPath</Declaration>
+			
+			
+			<Anchor>//api/name/deleteObjectRequestWithContainer:objectPath:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

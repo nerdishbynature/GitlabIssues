@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ASIS3ObjectRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ASIS3ObjectRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>
+			
+			<NodeRef refid="20"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3ObjectRequest/requestWithBucket:key:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)requestWithBucket:(NSString *)bucket key:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/requestWithBucket:key:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3ObjectRequest/requestWithBucket:key:subResource:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)requestWithBucket:(NSString *)bucket key:(NSString *)key subResource:(NSString *)subResource</Declaration>
+			
+			
+			<Anchor>//api/name/requestWithBucket:key:subResource:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3ObjectRequest/PUTRequestForFile:withBucket:key:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)PUTRequestForFile:(NSString *)filePath withBucket:(NSString *)bucket key:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/PUTRequestForFile:withBucket:key:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3ObjectRequest/PUTRequestForData:withBucket:key:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)PUTRequestForData:(NSData *)data withBucket:(NSString *)bucket key:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/PUTRequestForData:withBucket:key:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3ObjectRequest/DELETERequestWithBucket:key:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)DELETERequestWithBucket:(NSString *)bucket key:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/DELETERequestWithBucket:key:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3ObjectRequest/COPYRequestFromBucket:key:toBucket:key:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)COPYRequestFromBucket:(NSString *)sourceBucket key:(NSString *)sourceKey toBucket:(NSString *)bucket key:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/COPYRequestFromBucket:key:toBucket:key:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3ObjectRequest/HEADRequestWithBucket:key:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)HEADRequestWithBucket:(NSString *)bucket key:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/HEADRequestWithBucket:key:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3ObjectRequest/setBucket:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3ObjectRequest/bucket</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3ObjectRequest/setKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3ObjectRequest/key</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3ObjectRequest/setSourceBucket:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *sourceBucket</Declaration>
+			
+			
+			<Anchor>//api/name/sourceBucket</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3ObjectRequest/sourceBucket</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *sourceBucket</Declaration>
+			
+			
+			<Anchor>//api/name/sourceBucket</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3ObjectRequest/setSourceKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *sourceKey</Declaration>
+			
+			
+			<Anchor>//api/name/sourceKey</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3ObjectRequest/sourceKey</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *sourceKey</Declaration>
+			
+			
+			<Anchor>//api/name/sourceKey</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3ObjectRequest/setMimeType:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *mimeType</Declaration>
+			
+			
+			<Anchor>//api/name/mimeType</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3ObjectRequest/mimeType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *mimeType</Declaration>
+			
+			
+			<Anchor>//api/name/mimeType</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3ObjectRequest/setSubResource:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *subResource</Declaration>
+			
+			
+			<Anchor>//api/name/subResource</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3ObjectRequest/subResource</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *subResource</Declaration>
+			
+			
+			<Anchor>//api/name/subResource</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3ObjectRequest/setStorageClass:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *storageClass</Declaration>
+			
+			
+			<Anchor>//api/name/storageClass</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3ObjectRequest/storageClass</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3ObjectRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *storageClass</Declaration>
+			
+			
+			<Anchor>//api/name/storageClass</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

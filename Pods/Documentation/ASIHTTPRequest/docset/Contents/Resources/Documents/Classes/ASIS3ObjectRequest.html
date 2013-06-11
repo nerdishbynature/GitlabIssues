@@ -1,0 +1,567 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>ASIS3ObjectRequest Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">ASIHTTPRequest 1.8.1 </a></h1>
+				<a id="developerHome" href="../index.html">Ben Copsey</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">ASIS3ObjectRequest Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/bucket">&nbsp;&nbsp;&nbsp;&nbsp;bucket</option>
+	
+	<option value="//api/name/key">&nbsp;&nbsp;&nbsp;&nbsp;key</option>
+	
+	<option value="//api/name/mimeType">&nbsp;&nbsp;&nbsp;&nbsp;mimeType</option>
+	
+	<option value="//api/name/sourceBucket">&nbsp;&nbsp;&nbsp;&nbsp;sourceBucket</option>
+	
+	<option value="//api/name/sourceKey">&nbsp;&nbsp;&nbsp;&nbsp;sourceKey</option>
+	
+	<option value="//api/name/storageClass">&nbsp;&nbsp;&nbsp;&nbsp;storageClass</option>
+	
+	<option value="//api/name/subResource">&nbsp;&nbsp;&nbsp;&nbsp;subResource</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/COPYRequestFromBucket:key:toBucket:key:">&nbsp;&nbsp;&nbsp;&nbsp;+ COPYRequestFromBucket:key:toBucket:key:</option>
+	
+	<option value="//api/name/DELETERequestWithBucket:key:">&nbsp;&nbsp;&nbsp;&nbsp;+ DELETERequestWithBucket:key:</option>
+	
+	<option value="//api/name/HEADRequestWithBucket:key:">&nbsp;&nbsp;&nbsp;&nbsp;+ HEADRequestWithBucket:key:</option>
+	
+	<option value="//api/name/PUTRequestForData:withBucket:key:">&nbsp;&nbsp;&nbsp;&nbsp;+ PUTRequestForData:withBucket:key:</option>
+	
+	<option value="//api/name/PUTRequestForFile:withBucket:key:">&nbsp;&nbsp;&nbsp;&nbsp;+ PUTRequestForFile:withBucket:key:</option>
+	
+	<option value="//api/name/requestWithBucket:key:">&nbsp;&nbsp;&nbsp;&nbsp;+ requestWithBucket:key:</option>
+	
+	<option value="//api/name/requestWithBucket:key:subResource:">&nbsp;&nbsp;&nbsp;&nbsp;+ requestWithBucket:key:subResource:</option>
+	
+	
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/bucket">bucket</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/key">key</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mimeType">mimeType</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sourceBucket">sourceBucket</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sourceKey">sourceKey</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/storageClass">storageClass</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/subResource">subResource</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/COPYRequestFromBucket:key:toBucket:key:">COPYRequestFromBucket:key:toBucket:key:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/DELETERequestWithBucket:key:">DELETERequestWithBucket:key:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/HEADRequestWithBucket:key:">HEADRequestWithBucket:key:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/PUTRequestForData:withBucket:key:">PUTRequestForData:withBucket:key:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/PUTRequestForFile:withBucket:key:">PUTRequestForFile:withBucket:key:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestWithBucket:key:">requestWithBucket:key:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestWithBucket:key:subResource:">requestWithBucket:key:subResource:</a></span></li>
+	
+</ul></li>
+
+
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="ASIS3ObjectRequest Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">ASIS3ObjectRequest Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value"><a href="../Classes/ASIS3Request.html">ASIS3Request</a> : <a href="../Classes/ASIHTTPRequest.html">ASIHTTPRequest</a> : NSOperation</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">ASIS3ObjectRequest.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/requestWithBucket:key:">+&nbsp;requestWithBucket:key:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/requestWithBucket:key:subResource:">+&nbsp;requestWithBucket:key:subResource:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/PUTRequestForFile:withBucket:key:">+&nbsp;PUTRequestForFile:withBucket:key:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/PUTRequestForData:withBucket:key:">+&nbsp;PUTRequestForData:withBucket:key:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/DELETERequestWithBucket:key:">+&nbsp;DELETERequestWithBucket:key:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/COPYRequestFromBucket:key:toBucket:key:">+&nbsp;COPYRequestFromBucket:key:toBucket:key:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/HEADRequestWithBucket:key:">+&nbsp;HEADRequestWithBucket:key:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/bucket">&nbsp;&nbsp;bucket</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/key">&nbsp;&nbsp;key</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sourceBucket">&nbsp;&nbsp;sourceBucket</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sourceKey">&nbsp;&nbsp;sourceKey</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mimeType">&nbsp;&nbsp;mimeType</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/subResource">&nbsp;&nbsp;subResource</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/storageClass">&nbsp;&nbsp;storageClass</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/bucket" title="bucket"></a>
+	<h3 class="subsubtitle method-title">bucket</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (retain, nonatomic) NSString *bucket</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/key" title="key"></a>
+	<h3 class="subsubtitle method-title">key</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (retain, nonatomic) NSString *key</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mimeType" title="mimeType"></a>
+	<h3 class="subsubtitle method-title">mimeType</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (retain, nonatomic) NSString *mimeType</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sourceBucket" title="sourceBucket"></a>
+	<h3 class="subsubtitle method-title">sourceBucket</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (retain, nonatomic) NSString *sourceBucket</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sourceKey" title="sourceKey"></a>
+	<h3 class="subsubtitle method-title">sourceKey</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (retain, nonatomic) NSString *sourceKey</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/storageClass" title="storageClass"></a>
+	<h3 class="subsubtitle method-title">storageClass</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (retain, nonatomic) NSString *storageClass</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/subResource" title="subResource"></a>
+	<h3 class="subsubtitle method-title">subResource</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (retain, nonatomic) NSString *subResource</code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/COPYRequestFromBucket:key:toBucket:key:" title="COPYRequestFromBucket:key:toBucket:key:"></a>
+	<h3 class="subsubtitle method-title">COPYRequestFromBucket:key:toBucket:key:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (id)COPYRequestFromBucket:(NSString *)<em>sourceBucket</em> key:(NSString *)<em>sourceKey</em> toBucket:(NSString *)<em>bucket</em> key:(NSString *)<em>key</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/DELETERequestWithBucket:key:" title="DELETERequestWithBucket:key:"></a>
+	<h3 class="subsubtitle method-title">DELETERequestWithBucket:key:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (id)DELETERequestWithBucket:(NSString *)<em>bucket</em> key:(NSString *)<em>key</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/HEADRequestWithBucket:key:" title="HEADRequestWithBucket:key:"></a>
+	<h3 class="subsubtitle method-title">HEADRequestWithBucket:key:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (id)HEADRequestWithBucket:(NSString *)<em>bucket</em> key:(NSString *)<em>key</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/PUTRequestForData:withBucket:key:" title="PUTRequestForData:withBucket:key:"></a>
+	<h3 class="subsubtitle method-title">PUTRequestForData:withBucket:key:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (id)PUTRequestForData:(NSData *)<em>data</em> withBucket:(NSString *)<em>bucket</em> key:(NSString *)<em>key</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/PUTRequestForFile:withBucket:key:" title="PUTRequestForFile:withBucket:key:"></a>
+	<h3 class="subsubtitle method-title">PUTRequestForFile:withBucket:key:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (id)PUTRequestForFile:(NSString *)<em>filePath</em> withBucket:(NSString *)<em>bucket</em> key:(NSString *)<em>key</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/requestWithBucket:key:" title="requestWithBucket:key:"></a>
+	<h3 class="subsubtitle method-title">requestWithBucket:key:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (id)requestWithBucket:(NSString *)<em>bucket</em> key:(NSString *)<em>key</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/requestWithBucket:key:subResource:" title="requestWithBucket:key:subResource:"></a>
+	<h3 class="subsubtitle method-title">requestWithBucket:key:subResource:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (id)requestWithBucket:(NSString *)<em>bucket</em> key:(NSString *)<em>key</em> subResource:(NSString *)<em>subResource</em></code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Ben Copsey. All rights reserved. (Last updated: 2013-06-11)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

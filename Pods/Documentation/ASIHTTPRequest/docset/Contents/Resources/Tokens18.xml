@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ASIS3BucketObject.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ASIS3BucketObject</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>
+			
+			<NodeRef refid="18"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3BucketObject/objectWithBucket:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>+ (id)objectWithBucket:(NSString *)bucket</Declaration>
+			
+			
+			<Anchor>//api/name/objectWithBucket:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketObject/GETRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>- (ASIS3ObjectRequest *)GETRequest</Declaration>
+			
+			
+			<Anchor>//api/name/GETRequest</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketObject/PUTRequestWithFile:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>- (ASIS3ObjectRequest *)PUTRequestWithFile:(NSString *)filePath</Declaration>
+			
+			
+			<Anchor>//api/name/PUTRequestWithFile:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketObject/DELETERequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>- (ASIS3ObjectRequest *)DELETERequest</Declaration>
+			
+			
+			<Anchor>//api/name/DELETERequest</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketObject/setBucket:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketObject/bucket</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketObject/setKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketObject/key</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketObject/setLastModified:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSDate *lastModified</Declaration>
+			
+			
+			<Anchor>//api/name/lastModified</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketObject/lastModified</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSDate *lastModified</Declaration>
+			
+			
+			<Anchor>//api/name/lastModified</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketObject/setETag:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *ETag</Declaration>
+			
+			
+			<Anchor>//api/name/ETag</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketObject/ETag</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *ETag</Declaration>
+			
+			
+			<Anchor>//api/name/ETag</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketObject/setSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) unsigned long long size</Declaration>
+			
+			
+			<Anchor>//api/name/size</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketObject/size</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) unsigned long long size</Declaration>
+			
+			
+			<Anchor>//api/name/size</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketObject/setOwnerID:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *ownerID</Declaration>
+			
+			
+			<Anchor>//api/name/ownerID</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketObject/ownerID</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *ownerID</Declaration>
+			
+			
+			<Anchor>//api/name/ownerID</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketObject/setOwnerName:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *ownerName</Declaration>
+			
+			
+			<Anchor>//api/name/ownerName</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketObject/ownerName</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *ownerName</Declaration>
+			
+			
+			<Anchor>//api/name/ownerName</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

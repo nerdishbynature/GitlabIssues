@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.cocoapods.mknetworkkit.MKNetworkKit-0.87</string>
+	<key>CFBundleName</key>
+	<string>MKNetworkKit 0.87 Documentation</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	
+	
+	<key>DocSetDescription</key>
+	<string>ARC ready Networking Framework with built in authentication and HTTP 1.1 caching standards support for iOS 5+ devices.</string>
+	
+	<key>DocSetFeedName</key>
+	<string>MKNetworkKit 0.87 Documentation</string>
+	
+	<key>DocSetMinimumXcodeVersion</key>
+	<string>3.0</string>
+	
+	<key>DashDocSetFamily</key>
+	<string>appledoc</string>
+	<key>DocSetPublisherIdentifier</key>
+	<string>org.cocoapods.mknetworkkit.documentation</string>
+	<key>DocSetPublisherName</key>
+	<string>Mugunth Kumar</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Mugunth Kumar</string>
+</dict>
+</plist>

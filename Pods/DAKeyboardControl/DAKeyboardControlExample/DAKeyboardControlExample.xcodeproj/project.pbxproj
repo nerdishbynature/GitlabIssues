@@ -1,0 +1,294 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6366DFC815B3E76100FE53DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6366DFC715B3E76100FE53DE /* UIKit.framework */; };
+		6366DFCA15B3E76100FE53DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6366DFC915B3E76100FE53DE /* Foundation.framework */; };
+		6366DFCC15B3E76100FE53DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6366DFCB15B3E76100FE53DE /* CoreGraphics.framework */; };
+		6366DFD215B3E76100FE53DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6366DFD015B3E76100FE53DE /* InfoPlist.strings */; };
+		6366DFD415B3E76100FE53DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6366DFD315B3E76100FE53DE /* main.m */; };
+		6366DFD815B3E76100FE53DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6366DFD715B3E76100FE53DE /* AppDelegate.m */; };
+		6366DFDB15B3E76100FE53DE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6366DFDA15B3E76100FE53DE /* ViewController.m */; };
+		63DD74B915B424B700E33D01 /* DAKeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DD74B815B424B700E33D01 /* DAKeyboardControl.m */; };
+		63ECD0631628CC5A004D8D10 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63ECD0621628CC5A004D8D10 /* Default-568h@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6366DFC315B3E76100FE53DE /* DAKeyboardControlExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DAKeyboardControlExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6366DFC715B3E76100FE53DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6366DFC915B3E76100FE53DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6366DFCB15B3E76100FE53DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6366DFCF15B3E76100FE53DE /* DAKeyboardControlExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DAKeyboardControlExample-Info.plist"; sourceTree = "<group>"; };
+		6366DFD115B3E76100FE53DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6366DFD315B3E76100FE53DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6366DFD515B3E76100FE53DE /* DAKeyboardControlExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DAKeyboardControlExample-Prefix.pch"; sourceTree = "<group>"; };
+		6366DFD615B3E76100FE53DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6366DFD715B3E76100FE53DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6366DFD915B3E76100FE53DE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6366DFDA15B3E76100FE53DE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		63DD74B715B424B700E33D01 /* DAKeyboardControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAKeyboardControl.h; sourceTree = "<group>"; };
+		63DD74B815B424B700E33D01 /* DAKeyboardControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAKeyboardControl.m; sourceTree = "<group>"; };
+		63ECD0621628CC5A004D8D10 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6366DFC015B3E76100FE53DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6366DFC815B3E76100FE53DE /* UIKit.framework in Frameworks */,
+				6366DFCA15B3E76100FE53DE /* Foundation.framework in Frameworks */,
+				6366DFCC15B3E76100FE53DE /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6366DFB815B3E76000FE53DE = {
+			isa = PBXGroup;
+			children = (
+				63DD74B615B424B700E33D01 /* DAKeyboardControl */,
+				6366DFCD15B3E76100FE53DE /* DAKeyboardControlExample */,
+				6366DFC615B3E76100FE53DE /* Frameworks */,
+				6366DFC415B3E76100FE53DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6366DFC415B3E76100FE53DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6366DFC315B3E76100FE53DE /* DAKeyboardControlExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6366DFC615B3E76100FE53DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6366DFC715B3E76100FE53DE /* UIKit.framework */,
+				6366DFC915B3E76100FE53DE /* Foundation.framework */,
+				6366DFCB15B3E76100FE53DE /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6366DFCD15B3E76100FE53DE /* DAKeyboardControlExample */ = {
+			isa = PBXGroup;
+			children = (
+				6366DFD615B3E76100FE53DE /* AppDelegate.h */,
+				6366DFD715B3E76100FE53DE /* AppDelegate.m */,
+				6366DFD915B3E76100FE53DE /* ViewController.h */,
+				6366DFDA15B3E76100FE53DE /* ViewController.m */,
+				6366DFCE15B3E76100FE53DE /* Supporting Files */,
+			);
+			path = DAKeyboardControlExample;
+			sourceTree = "<group>";
+		};
+		6366DFCE15B3E76100FE53DE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				63ECD0621628CC5A004D8D10 /* Default-568h@2x.png */,
+				6366DFCF15B3E76100FE53DE /* DAKeyboardControlExample-Info.plist */,
+				6366DFD015B3E76100FE53DE /* InfoPlist.strings */,
+				6366DFD315B3E76100FE53DE /* main.m */,
+				6366DFD515B3E76100FE53DE /* DAKeyboardControlExample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63DD74B615B424B700E33D01 /* DAKeyboardControl */ = {
+			isa = PBXGroup;
+			children = (
+				63DD74B715B424B700E33D01 /* DAKeyboardControl.h */,
+				63DD74B815B424B700E33D01 /* DAKeyboardControl.m */,
+			);
+			name = DAKeyboardControl;
+			path = ../DAKeyboardControl;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6366DFC215B3E76100FE53DE /* DAKeyboardControlExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6366DFE415B3E76100FE53DE /* Build configuration list for PBXNativeTarget "DAKeyboardControlExample" */;
+			buildPhases = (
+				6366DFBF15B3E76100FE53DE /* Sources */,
+				6366DFC015B3E76100FE53DE /* Frameworks */,
+				6366DFC115B3E76100FE53DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DAKeyboardControlExample;
+			productName = DAKeyboardControlExample;
+			productReference = 6366DFC315B3E76100FE53DE /* DAKeyboardControlExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6366DFBA15B3E76000FE53DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Shout Messenger";
+			};
+			buildConfigurationList = 6366DFBD15B3E76000FE53DE /* Build configuration list for PBXProject "DAKeyboardControlExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6366DFB815B3E76000FE53DE;
+			productRefGroup = 6366DFC415B3E76100FE53DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6366DFC215B3E76100FE53DE /* DAKeyboardControlExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6366DFC115B3E76100FE53DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6366DFD215B3E76100FE53DE /* InfoPlist.strings in Resources */,
+				63ECD0631628CC5A004D8D10 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6366DFBF15B3E76100FE53DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6366DFD415B3E76100FE53DE /* main.m in Sources */,
+				6366DFD815B3E76100FE53DE /* AppDelegate.m in Sources */,
+				6366DFDB15B3E76100FE53DE /* ViewController.m in Sources */,
+				63DD74B915B424B700E33D01 /* DAKeyboardControl.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6366DFD015B3E76100FE53DE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6366DFD115B3E76100FE53DE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6366DFE215B3E76100FE53DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6366DFE315B3E76100FE53DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6366DFE515B3E76100FE53DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DAKeyboardControlExample/DAKeyboardControlExample-Prefix.pch";
+				INFOPLIST_FILE = "DAKeyboardControlExample/DAKeyboardControlExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6366DFE615B3E76100FE53DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DAKeyboardControlExample/DAKeyboardControlExample-Prefix.pch";
+				INFOPLIST_FILE = "DAKeyboardControlExample/DAKeyboardControlExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6366DFBD15B3E76000FE53DE /* Build configuration list for PBXProject "DAKeyboardControlExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6366DFE215B3E76100FE53DE /* Debug */,
+				6366DFE315B3E76100FE53DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6366DFE415B3E76100FE53DE /* Build configuration list for PBXNativeTarget "DAKeyboardControlExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6366DFE515B3E76100FE53DE /* Debug */,
+				6366DFE615B3E76100FE53DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6366DFBA15B3E76000FE53DE /* Project object */;
+}

@@ -199,7 +199,7 @@
 
     self.tappedIndexPath = nil;
     
-    [[NSManagedObjectContext MR_defaultContext] save];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
 }
 
 - (void)pushBackButton:(id)sender {

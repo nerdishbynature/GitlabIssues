@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>ASIHTTPRequest 1.8.1 Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">ASIHTTPRequest 1.8.1 </a></h1>
+				<a id="developerHome" href="index.html">Ben Copsey</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">ASIHTTPRequest 1.8.1 Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">ASIHTTPRequest 1.8.1 Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<p><a href="Classes/ASIHTTPRequest.html">ASIHTTPRequest</a> is an easy to use wrapper around the CFNetwork API that makes some of the more tedious aspects of communicating with web servers easier. It is written in Objective-C and works in both Mac OS X and iPhone applications.</p>
+
+<p>It is suitable performing basic HTTP requests and interacting with REST-based services (GET / POST / PUT / DELETE). The included <a href="Classes/ASIFormDataRequest.html">ASIFormDataRequest</a> subclass makes it easy to submit POST data and files using multipart/form-data.</p>
+
+<p>It provides:
+* A straightforward interface for submitting data to and fetching data from webservers
+* Download data to memory or directly to a file on disk
+* Submit files on local drives as part of POST data, compatible with the HTML file input mechanism
+* Stream request bodies directly from disk to the server, to conserve memory
+* Resume for partial downloads
+* Easy access to request and response HTTP headers
+* Progress delegates (NSProgressIndicators and UIProgressViews) to show information about download AND upload progress
+* Auto-magic management of upload and download progress indicators for operation queues
+* Basic, Digest + NTLM authentication support, credentials are automatically re-used for the duration of a session, and can be stored for later in the Keychain.
+* Cookie support
+* [NEW] Requests can continue to run when your app moves to the background (iOS 4+)
+* GZIP support for response data AND request bodies
+* The included <a href="Classes/ASIDownloadCache.html">ASIDownloadCache</a> class lets requests transparently cache responses, and allow requests for cached data to succeed even when there is no network available
+* [NEW] <a href="Classes/ASIWebPageRequest.html">ASIWebPageRequest</a> &ndash; download complete webpages, including external resources like images and stylesheets. Pages of any size can be indefinitely cached, and displayed in a UIWebview / WebView even when you have no network connection.
+* Easy to use support for Amazon S3 &ndash; no need to fiddle around signing requests yourself!
+* Full support for Rackspace Cloud Files
+* [NEW] Client certificates support
+* Supports manual and auto-detected proxies, authenticating proxies, and PAC file auto-configuration. The built-in login dialog lets your iPhone application work transparently with authenticating proxies without any additional effort.
+* Bandwidth throttling support
+* Support for persistent connections
+* Supports synchronous &amp; asynchronous requests
+* Get notifications about changes in your request state via delegation or [NEW] blocks (Mac OS X 10.6, iOS 4 and above)
+* Comes with a broad range of unit tests</p>
+
+<p>ASIHTTPRequest is compatible with Mac OS 10.5 or later, and iOS 3.0 or later.</p>
+
+<p>Documentation is available &ldquo;here&rdquo;:<a href="http://allseeing-i.com/ASIHTTPRequest.">http://allseeing-i.com/ASIHTTPRequest.</a></p>
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/ASIAuthenticationDialog.html">ASIAuthenticationDialog</a></li>
+							
+							<li><a href="Classes/ASIAutorotatingViewController.html">ASIAutorotatingViewController</a></li>
+							
+							<li><a href="Classes/ASICloudFilesCDNRequest.html">ASICloudFilesCDNRequest</a></li>
+							
+							<li><a href="Classes/ASICloudFilesContainer.html">ASICloudFilesContainer</a></li>
+							
+							<li><a href="Classes/ASICloudFilesContainerRequest.html">ASICloudFilesContainerRequest</a></li>
+							
+							<li><a href="Classes/ASICloudFilesContainerXMLParserDelegate.html">ASICloudFilesContainerXMLParserDelegate</a></li>
+							
+							<li><a href="Classes/ASICloudFilesObject.html">ASICloudFilesObject</a></li>
+							
+							<li><a href="Classes/ASICloudFilesObjectRequest.html">ASICloudFilesObjectRequest</a></li>
+							
+							<li><a href="Classes/ASICloudFilesRequest.html">ASICloudFilesRequest</a></li>
+							
+							<li><a href="Classes/ASIDataCompressor.html">ASIDataCompressor</a></li>
+							
+							<li><a href="Classes/ASIDataDecompressor.html">ASIDataDecompressor</a></li>
+							
+							<li><a href="Classes/ASIDownloadCache.html">ASIDownloadCache</a></li>
+							
+							<li><a href="Classes/ASIFormDataRequest.html">ASIFormDataRequest</a></li>
+							
+							<li><a href="Classes/ASIHTTPRequest.html">ASIHTTPRequest</a></li>
+							
+							<li><a href="Classes/ASIInputStream.html">ASIInputStream</a></li>
+							
+							<li><a href="Classes/ASINetworkQueue.html">ASINetworkQueue</a></li>
+							
+							<li><a href="Classes/ASIS3Bucket.html">ASIS3Bucket</a></li>
+							
+							<li><a href="Classes/ASIS3BucketObject.html">ASIS3BucketObject</a></li>
+							
+							<li><a href="Classes/ASIS3BucketRequest.html">ASIS3BucketRequest</a></li>
+							
+							<li><a href="Classes/ASIS3ObjectRequest.html">ASIS3ObjectRequest</a></li>
+							
+							<li><a href="Classes/ASIS3Request.html">ASIS3Request</a></li>
+							
+							<li><a href="Classes/ASIS3ServiceRequest.html">ASIS3ServiceRequest</a></li>
+							
+							<li><a href="Classes/ASIWebPageRequest.html">ASIWebPageRequest</a></li>
+							
+						</ul>
+					</div>
+					
+					
+						
+					<div class="index-column">
+						
+						<h2 class="index-title">Protocol References</h2>
+						<ul>
+							
+							<li><a href="Protocols/ASICacheDelegate.html">ASICacheDelegate</a></li>
+							
+							<li><a href="Protocols/ASIHTTPRequestDelegate.html">ASIHTTPRequestDelegate</a></li>
+							
+							<li><a href="Protocols/ASIProgressDelegate.html">ASIProgressDelegate</a></li>
+							
+							<li><a href="Protocols/NSXMLParserDelegate.html">NSXMLParserDelegate</a></li>
+							
+						</ul>
+						
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Ben Copsey. All rights reserved. (Last updated: 2013-06-11)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>

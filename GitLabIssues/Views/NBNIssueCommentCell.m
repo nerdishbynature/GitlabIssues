@@ -17,7 +17,7 @@
 
 @property (nonatomic, retain) IBOutlet UIImageView *authorImageView;
 @property (nonatomic, retain) IBOutlet UILabel *headlineLabel;
-@property (nonatomic, retain) IBOutlet PBEmojiLabel *descriptionLabel;
+@property (nonatomic, retain) IBOutlet UILabel *descriptionLabel; // PBEmojiLabel
 @property (nonatomic, retain) IBOutlet UILabel *dateTimeLabel;
 @property (nonatomic, retain) Note *note;
 @property (nonatomic, retain) NBNGitlabEngine *requestEngine;

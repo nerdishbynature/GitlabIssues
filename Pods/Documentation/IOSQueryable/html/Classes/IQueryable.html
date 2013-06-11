@@ -1,0 +1,689 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>IQueryable Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">IOSQueryable 0.0.1 </a></h1>
+				<a id="developerHome" href="../index.html">Marty Dill</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">IQueryable Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/all:">&nbsp;&nbsp;&nbsp;&nbsp;- all:</option>
+	
+	<option value="//api/name/any">&nbsp;&nbsp;&nbsp;&nbsp;- any</option>
+	
+	<option value="//api/name/any:">&nbsp;&nbsp;&nbsp;&nbsp;- any:</option>
+	
+	<option value="//api/name/count">&nbsp;&nbsp;&nbsp;&nbsp;- count</option>
+	
+	<option value="//api/name/count:">&nbsp;&nbsp;&nbsp;&nbsp;- count:</option>
+	
+	<option value="//api/name/first">&nbsp;&nbsp;&nbsp;&nbsp;- first</option>
+	
+	<option value="//api/name/first:">&nbsp;&nbsp;&nbsp;&nbsp;- first:</option>
+	
+	<option value="//api/name/firstOrDefault">&nbsp;&nbsp;&nbsp;&nbsp;- firstOrDefault</option>
+	
+	<option value="//api/name/firstOrDefault:">&nbsp;&nbsp;&nbsp;&nbsp;- firstOrDefault:</option>
+	
+	<option value="//api/name/initWithType:context:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithType:context:</option>
+	
+	<option value="//api/name/orderBy:">&nbsp;&nbsp;&nbsp;&nbsp;- orderBy:</option>
+	
+	<option value="//api/name/orderByDescending:">&nbsp;&nbsp;&nbsp;&nbsp;- orderByDescending:</option>
+	
+	<option value="//api/name/single">&nbsp;&nbsp;&nbsp;&nbsp;- single</option>
+	
+	<option value="//api/name/single:">&nbsp;&nbsp;&nbsp;&nbsp;- single:</option>
+	
+	<option value="//api/name/singleOrDefault">&nbsp;&nbsp;&nbsp;&nbsp;- singleOrDefault</option>
+	
+	<option value="//api/name/singleOrDefault:">&nbsp;&nbsp;&nbsp;&nbsp;- singleOrDefault:</option>
+	
+	<option value="//api/name/skip:">&nbsp;&nbsp;&nbsp;&nbsp;- skip:</option>
+	
+	<option value="//api/name/take:">&nbsp;&nbsp;&nbsp;&nbsp;- take:</option>
+	
+	<option value="//api/name/toArray">&nbsp;&nbsp;&nbsp;&nbsp;- toArray</option>
+	
+	<option value="//api/name/where:">&nbsp;&nbsp;&nbsp;&nbsp;- where:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/all:">all:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/any">any</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/any:">any:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/count">count</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/count:">count:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/first">first</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/first:">first:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/firstOrDefault">firstOrDefault</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/firstOrDefault:">firstOrDefault:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithType:context:">initWithType:context:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/orderBy:">orderBy:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/orderByDescending:">orderByDescending:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/single">single</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/single:">single:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/singleOrDefault">singleOrDefault</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/singleOrDefault:">singleOrDefault:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/skip:">skip:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/take:">take:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/toArray">toArray</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/where:">where:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="IQueryable Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">IQueryable Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSFastEnumeration</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">NSManagedObjectContext+Queryable.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithType:context:">&ndash;&nbsp;initWithType:context:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/toArray">&ndash;&nbsp;toArray</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/orderBy:">&ndash;&nbsp;orderBy:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/orderByDescending:">&ndash;&nbsp;orderByDescending:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/skip:">&ndash;&nbsp;skip:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/take:">&ndash;&nbsp;take:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/first">&ndash;&nbsp;first</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/first:">&ndash;&nbsp;first:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/firstOrDefault">&ndash;&nbsp;firstOrDefault</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/firstOrDefault:">&ndash;&nbsp;firstOrDefault:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/single">&ndash;&nbsp;single</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/single:">&ndash;&nbsp;single:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/singleOrDefault">&ndash;&nbsp;singleOrDefault</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/singleOrDefault:">&ndash;&nbsp;singleOrDefault:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/where:">&ndash;&nbsp;where:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/count">&ndash;&nbsp;count</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/count:">&ndash;&nbsp;count:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/any">&ndash;&nbsp;any</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/any:">&ndash;&nbsp;any:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/all:">&ndash;&nbsp;all:</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/all:" title="all:"></a>
+	<h3 class="subsubtitle method-title">all:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (bool)all:(NSString *)<em>condition</em>, <em>...</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/any" title="any"></a>
+	<h3 class="subsubtitle method-title">any</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (bool)any</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/any:" title="any:"></a>
+	<h3 class="subsubtitle method-title">any:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (bool)any:(NSString *)<em>condition</em>, <em>...</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/count" title="count"></a>
+	<h3 class="subsubtitle method-title">count</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (int)count</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/count:" title="count:"></a>
+	<h3 class="subsubtitle method-title">count:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (int)count:(NSString *)<em>condition</em>, <em>...</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/first" title="first"></a>
+	<h3 class="subsubtitle method-title">first</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (id)first</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/first:" title="first:"></a>
+	<h3 class="subsubtitle method-title">first:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (id)first:(NSString *)<em>condition</em>, <em>...</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/firstOrDefault" title="firstOrDefault"></a>
+	<h3 class="subsubtitle method-title">firstOrDefault</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (id)firstOrDefault</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/firstOrDefault:" title="firstOrDefault:"></a>
+	<h3 class="subsubtitle method-title">firstOrDefault:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (id)firstOrDefault:(NSString *)<em>condition</em>, <em>...</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithType:context:" title="initWithType:context:"></a>
+	<h3 class="subsubtitle method-title">initWithType:context:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithType:(NSString *)<em>type</em> context:(NSManagedObjectContext *)<em>theContext</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/orderBy:" title="orderBy:"></a>
+	<h3 class="subsubtitle method-title">orderBy:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (IQueryable *)orderBy:(NSString *)<em>fieldName</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/orderByDescending:" title="orderByDescending:"></a>
+	<h3 class="subsubtitle method-title">orderByDescending:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (IQueryable *)orderByDescending:(NSString *)<em>fieldName</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/single" title="single"></a>
+	<h3 class="subsubtitle method-title">single</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (id)single</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/single:" title="single:"></a>
+	<h3 class="subsubtitle method-title">single:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (id)single:(NSString *)<em>condition</em>, <em>...</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/singleOrDefault" title="singleOrDefault"></a>
+	<h3 class="subsubtitle method-title">singleOrDefault</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (id)singleOrDefault</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/singleOrDefault:" title="singleOrDefault:"></a>
+	<h3 class="subsubtitle method-title">singleOrDefault:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (id)singleOrDefault:(NSString *)<em>condition</em>, <em>...</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/skip:" title="skip:"></a>
+	<h3 class="subsubtitle method-title">skip:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (IQueryable *)skip:(int)<em>numberToSkip</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/take:" title="take:"></a>
+	<h3 class="subsubtitle method-title">take:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (IQueryable *)take:(int)<em>numberToTake</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/toArray" title="toArray"></a>
+	<h3 class="subsubtitle method-title">toArray</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)toArray</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/where:" title="where:"></a>
+	<h3 class="subsubtitle method-title">where:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (IQueryable *)where:(NSString *)<em>condition</em>, <em>...</em></code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Marty Dill. All rights reserved. (Last updated: 2013-06-11)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

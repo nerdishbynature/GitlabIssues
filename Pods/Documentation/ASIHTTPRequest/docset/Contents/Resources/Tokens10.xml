@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ASIDataCompressor.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ASIDataCompressor</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDataCompressor.h</DeclaredIn>
+			
+			<NodeRef refid="10"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIDataCompressor/compressor</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDataCompressor.h</DeclaredIn>			
+			
+			<Declaration>+ (id)compressor</Declaration>
+			
+			
+			<Anchor>//api/name/compressor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIDataCompressor/compressBytes:length:error:shouldFinish:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDataCompressor.h</DeclaredIn>			
+			
+			<Declaration>- (NSData *)compressBytes:(Bytef *)bytes length:(NSUInteger)length error:(NSError **)err shouldFinish:(BOOL)shouldFinish</Declaration>
+			
+			
+			<Anchor>//api/name/compressBytes:length:error:shouldFinish:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIDataCompressor/compressData:error:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDataCompressor.h</DeclaredIn>			
+			
+			<Declaration>+ (NSData *)compressData:(NSData *)uncompressedData error:(NSError **)err</Declaration>
+			
+			
+			<Anchor>//api/name/compressData:error:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIDataCompressor/compressDataFromFile:toFile:error:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDataCompressor.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)compressDataFromFile:(NSString *)sourcePath toFile:(NSString *)destinationPath error:(NSError **)err</Declaration>
+			
+			
+			<Anchor>//api/name/compressDataFromFile:toFile:error:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIDataCompressor/setupStream</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDataCompressor.h</DeclaredIn>			
+			
+			<Declaration>- (NSError *)setupStream</Declaration>
+			
+			
+			<Anchor>//api/name/setupStream</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIDataCompressor/closeStream</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDataCompressor.h</DeclaredIn>			
+			
+			<Declaration>- (NSError *)closeStream</Declaration>
+			
+			
+			<Anchor>//api/name/closeStream</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIDataCompressor/setStreamReady:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDataCompressor.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, readonly) BOOL streamReady</Declaration>
+			
+			
+			<Anchor>//api/name/streamReady</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIDataCompressor/streamReady</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDataCompressor.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, readonly) BOOL streamReady</Declaration>
+			
+			
+			<Anchor>//api/name/streamReady</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ASIS3BucketRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ASIS3BucketRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>
+			
+			<NodeRef refid="19"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3BucketRequest/requestWithBucket:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)requestWithBucket:(NSString *)bucket</Declaration>
+			
+			
+			<Anchor>//api/name/requestWithBucket:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3BucketRequest/requestWithBucket:subResource:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)requestWithBucket:(NSString *)bucket subResource:(NSString *)subResource</Declaration>
+			
+			
+			<Anchor>//api/name/requestWithBucket:subResource:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3BucketRequest/PUTRequestWithBucket:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)PUTRequestWithBucket:(NSString *)bucket</Declaration>
+			
+			
+			<Anchor>//api/name/PUTRequestWithBucket:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3BucketRequest/DELETERequestWithBucket:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)DELETERequestWithBucket:(NSString *)bucket</Declaration>
+			
+			
+			<Anchor>//api/name/DELETERequestWithBucket:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketRequest/setBucket:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketRequest/bucket</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketRequest/setSubResource:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *subResource</Declaration>
+			
+			
+			<Anchor>//api/name/subResource</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketRequest/subResource</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *subResource</Declaration>
+			
+			
+			<Anchor>//api/name/subResource</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketRequest/setPrefix:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketRequest/prefix</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketRequest/setMarker:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *marker</Declaration>
+			
+			
+			<Anchor>//api/name/marker</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketRequest/marker</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *marker</Declaration>
+			
+			
+			<Anchor>//api/name/marker</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketRequest/setMaxResultCount:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) int maxResultCount</Declaration>
+			
+			
+			<Anchor>//api/name/maxResultCount</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketRequest/maxResultCount</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) int maxResultCount</Declaration>
+			
+			
+			<Anchor>//api/name/maxResultCount</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketRequest/setDelimiter:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *delimiter</Declaration>
+			
+			
+			<Anchor>//api/name/delimiter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketRequest/delimiter</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *delimiter</Declaration>
+			
+			
+			<Anchor>//api/name/delimiter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketRequest/setObjects:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, readonly) NSMutableArray *objects</Declaration>
+			
+			
+			<Anchor>//api/name/objects</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketRequest/objects</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, readonly) NSMutableArray *objects</Declaration>
+			
+			
+			<Anchor>//api/name/objects</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketRequest/setCommonPrefixes:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, readonly) NSMutableArray *commonPrefixes</Declaration>
+			
+			
+			<Anchor>//api/name/commonPrefixes</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketRequest/commonPrefixes</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, readonly) NSMutableArray *commonPrefixes</Declaration>
+			
+			
+			<Anchor>//api/name/commonPrefixes</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3BucketRequest/setIsTruncated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, readonly) BOOL isTruncated</Declaration>
+			
+			
+			<Anchor>//api/name/isTruncated</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3BucketRequest/isTruncated</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3BucketRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, readonly) BOOL isTruncated</Declaration>
+			
+			
+			<Anchor>//api/name/isTruncated</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

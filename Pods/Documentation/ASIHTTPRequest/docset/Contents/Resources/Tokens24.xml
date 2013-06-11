@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/ASICacheDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/ASICacheDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>
+			
+			<NodeRef refid="24"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/defaultCachePolicy</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (ASICachePolicy)defaultCachePolicy</Declaration>
+			
+			
+			<Anchor>//api/name/defaultCachePolicy</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/expiryDateForRequest:maxAge:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (NSDate *)expiryDateForRequest:(ASIHTTPRequest *)request maxAge:(NSTimeInterval)maxAge</Declaration>
+			
+			
+			<Anchor>//api/name/expiryDateForRequest:maxAge:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/updateExpiryForRequest:maxAge:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)updateExpiryForRequest:(ASIHTTPRequest *)request maxAge:(NSTimeInterval)maxAge</Declaration>
+			
+			
+			<Anchor>//api/name/updateExpiryForRequest:maxAge:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/canUseCachedDataForRequest:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)canUseCachedDataForRequest:(ASIHTTPRequest *)request</Declaration>
+			
+			
+			<Anchor>//api/name/canUseCachedDataForRequest:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/removeCachedDataForRequest:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)removeCachedDataForRequest:(ASIHTTPRequest *)request</Declaration>
+			
+			
+			<Anchor>//api/name/removeCachedDataForRequest:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/isCachedDataCurrentForRequest:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)isCachedDataCurrentForRequest:(ASIHTTPRequest *)request</Declaration>
+			
+			
+			<Anchor>//api/name/isCachedDataCurrentForRequest:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/storeResponseForRequest:maxAge:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)storeResponseForRequest:(ASIHTTPRequest *)request maxAge:(NSTimeInterval)maxAge</Declaration>
+			
+			
+			<Anchor>//api/name/storeResponseForRequest:maxAge:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/removeCachedDataForURL:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)removeCachedDataForURL:(NSURL *)url</Declaration>
+			
+			
+			<Anchor>//api/name/removeCachedDataForURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/cachedResponseHeadersForURL:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (NSDictionary *)cachedResponseHeadersForURL:(NSURL *)url</Declaration>
+			
+			
+			<Anchor>//api/name/cachedResponseHeadersForURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/cachedResponseDataForURL:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (NSData *)cachedResponseDataForURL:(NSURL *)url</Declaration>
+			
+			
+			<Anchor>//api/name/cachedResponseDataForURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/pathToCachedResponseDataForURL:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)pathToCachedResponseDataForURL:(NSURL *)url</Declaration>
+			
+			
+			<Anchor>//api/name/pathToCachedResponseDataForURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/pathToCachedResponseHeadersForURL:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)pathToCachedResponseHeadersForURL:(NSURL *)url</Declaration>
+			
+			
+			<Anchor>//api/name/pathToCachedResponseHeadersForURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/pathToStoreCachedResponseHeadersForRequest:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)pathToStoreCachedResponseHeadersForRequest:(ASIHTTPRequest *)request</Declaration>
+			
+			
+			<Anchor>//api/name/pathToStoreCachedResponseHeadersForRequest:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/pathToStoreCachedResponseDataForRequest:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)pathToStoreCachedResponseDataForRequest:(ASIHTTPRequest *)request</Declaration>
+			
+			
+			<Anchor>//api/name/pathToStoreCachedResponseDataForRequest:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASICacheDelegate/clearCachedResponsesForStoragePolicy:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICacheDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)clearCachedResponsesForStoragePolicy:(ASICacheStoragePolicy)cachePolicy</Declaration>
+			
+			
+			<Anchor>//api/name/clearCachedResponsesForStoragePolicy:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

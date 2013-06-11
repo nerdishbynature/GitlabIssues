@@ -1,0 +1,309 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>MBProgressHUD 0.6 Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">MBProgressHUD 0.6 </a></h1>
+				<a id="developerHome" href="index.html">Matej Bukovinski</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">MBProgressHUD 0.6 Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">MBProgressHUD 0.6 Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1><a href="Classes/MBProgressHUD.html">MBProgressHUD</a></h1>
+
+<p><a href="Classes/MBProgressHUD.html">MBProgressHUD</a> is an iOS drop-in class that displays a translucent HUD with an indicator and/or labels while work is being done in a background thread. The HUD is meant as a replacement for the undocumented, private UIKit UIProgressHUD with some additional features.</p>
+
+<p><a href="http://dl.dropbox.com/u/378729/MBProgressHUD/1.png"><img src="http://dl.dropbox.com/u/378729/MBProgressHUD/1-thumb.png" alt="" /></a>
+<a href="http://dl.dropbox.com/u/378729/MBProgressHUD/2.png"><img src="http://dl.dropbox.com/u/378729/MBProgressHUD/2-thumb.png" alt="" /></a>
+<a href="http://dl.dropbox.com/u/378729/MBProgressHUD/3.png"><img src="http://dl.dropbox.com/u/378729/MBProgressHUD/3-thumb.png" alt="" /></a>
+<a href="http://dl.dropbox.com/u/378729/MBProgressHUD/4.png"><img src="http://dl.dropbox.com/u/378729/MBProgressHUD/4-thumb.png" alt="" /></a>
+<a href="http://dl.dropbox.com/u/378729/MBProgressHUD/5.png"><img src="http://dl.dropbox.com/u/378729/MBProgressHUD/5-thumb.png" alt="" /></a>
+<a href="http://dl.dropbox.com/u/378729/MBProgressHUD/6.png"><img src="http://dl.dropbox.com/u/378729/MBProgressHUD/6-thumb.png" alt="" /></a>
+<a href="http://dl.dropbox.com/u/378729/MBProgressHUD/7.png"><img src="http://dl.dropbox.com/u/378729/MBProgressHUD/7-thumb.png" alt="" /></a></p>
+
+<h2>Requirements</h2>
+
+<p><a href="Classes/MBProgressHUD.html">MBProgressHUD</a> works on any iOS version and is compatible with both ARC and non-ARC projects. It depends on the following Apple frameworks, which should already be included with most Xcode templates:</p>
+
+<ul>
+<li>Foundation.framework</li>
+<li>UIKit.framework</li>
+<li>CoreGraphics.framework</li>
+</ul>
+
+
+<p>You will need LLVM 3.0 or later in order to build <a href="Classes/MBProgressHUD.html">MBProgressHUD</a>.</p>
+
+<h2>Adding <a href="Classes/MBProgressHUD.html">MBProgressHUD</a> to your project</h2>
+
+<h3>Cocoapods</h3>
+
+<p><a href="http://cocoapods.org">CocoaPods</a> is the recommended way to add <a href="Classes/MBProgressHUD.html">MBProgressHUD</a> to your project.</p>
+
+<ol>
+<li>Add a pod entry for <a href="Classes/MBProgressHUD.html">MBProgressHUD</a> to your Podfile <code>pod 'MBProgressHUD', '~&gt; 0.6'</code></li>
+<li>Install the pod(s) by running <code>pod install</code>.</li>
+<li>Include <a href="Classes/MBProgressHUD.html">MBProgressHUD</a> wherever you need it with <code>#import "MBProgressHUD.h"</code>.</li>
+</ol>
+
+
+<h3>Source files</h3>
+
+<p>Alternatively you can directly add the <code>MBProgressHUD.h</code> and <code>MBProgressHUD.m</code> source files to your project.</p>
+
+<ol>
+<li>Download the <a href="https://github.com/matej/MBProgressHUD/archive/master.zip">latest code version</a> or add the repository as a git submodule to your git-tracked project.</li>
+<li>Open your project in Xcode, than drag and drop <code>MBProgressHUD.h</code> and <code>MBProgressHUD.m</code> onto your project (use the &ldquo;Product Navigator view&rdquo;). Make sure to select Copy items when asked if you extracted the code archive outside of your project.</li>
+<li>Include <a href="Classes/MBProgressHUD.html">MBProgressHUD</a> wherever you need it with <code>#import "MBProgressHUD.h"</code>.</li>
+</ol>
+
+
+<h3>Static library</h3>
+
+<p>You can also add <a href="Classes/MBProgressHUD.html">MBProgressHUD</a> as a static library to your project or workspace.</p>
+
+<ol>
+<li>Download the <a href="https://github.com/matej/MBProgressHUD/downloads">latest code version</a> or add the repository as a git submodule to your git-tracked project.</li>
+<li>Open your project in Xcode, than drag and drop <code>MBProgressHUD.xcodeproj</code> onto your project or workspace (use the &ldquo;Product Navigator view&rdquo;).</li>
+<li>Select your target and go to the Build phases tab. In the Link Binary With Libraries section select the add button. On the sheet find and add <code>libMBProgressHUD.a</code>. You might also need to add <code>MBProgressHUD</code> to the Target Dependencies list.</li>
+<li>Include <a href="Classes/MBProgressHUD.html">MBProgressHUD</a> wherever you need it with <code>#import &lt;MBProgressHUD/MBProgressHUD.h&gt;</code>.</li>
+</ol>
+
+
+<h2>Usage</h2>
+
+<p>The main guideline you need to follow when dealing with <a href="Classes/MBProgressHUD.html">MBProgressHUD</a> while running long-running tasks is keeping the main thread work-free, so the UI can be updated promptly. The recommended way of using <a href="Classes/MBProgressHUD.html">MBProgressHUD</a> is therefore to set it up on the main thread and then spinning the task, that you want to perform, off onto a new thread.</p>
+
+<p>```objective-c
+[<a href="Classes/MBProgressHUD.html">MBProgressHUD</a> showHUDAddedTo:self.view animated:YES];
+dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{</p>
+
+<pre><code>// Do something...
+dispatch_async(dispatch_get_main_queue(), ^{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+});
+</code></pre>
+
+<p>});
+```</p>
+
+<p>If you need to configure the HUD you can do this by using the <a href="Classes/MBProgressHUD.html">MBProgressHUD</a> reference that showHUDAddedTo:animated: returns.</p>
+
+<p>```objective-c
+<a href="Classes/MBProgressHUD.html">MBProgressHUD</a> *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+hud.mode = MBProgressHUDModeAnnularDeterminate;
+hud.labelText = @&ldquo;Loading&rdquo;;
+[self doSomethingInBackgroundWithProgressCallback:^(float progress) {</p>
+
+<pre><code>hud.progress = progress;
+</code></pre>
+
+<p>} completionCallback:^{</p>
+
+<pre><code>[hud hide:YES];
+</code></pre>
+
+<p>}];
+```</p>
+
+<p>UI updates should always be done on the main thread. Some <a href="Classes/MBProgressHUD.html">MBProgressHUD</a> setters are however considered &ldquo;thread safe&rdquo; and can be called from background threads. Those also include <code>setMode:</code>, <code>setCustomView:</code>, <code>setLabelText:</code>, <code>setLabelFont:</code>, <code>setDetailsLabelText:</code>, <code>setDetailsLabelFont:</code> and <code>setProgress:</code>.</p>
+
+<p>If you need to run your long-running task in the main thread, you should perform it with a slight delay, so UIKit will have enough time to update the UI (i.e., draw the HUD) before you block the main thread with your task.</p>
+
+<p>```objective-c
+[<a href="Classes/MBProgressHUD.html">MBProgressHUD</a> showHUDAddedTo:self.view animated:YES];
+dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
+dispatch_after(popTime, dispatch_get_main_queue(), ^(void){</p>
+
+<pre><code>// Do something...
+[MBProgressHUD hideHUDForView:self.view animated:YES];
+</code></pre>
+
+<p>});
+```</p>
+
+<p>You should be aware that any HUD updates issued inside the above block won&rsquo;t be displayed until the block completes.</p>
+
+<p>For more examples, including how to use <a href="Classes/MBProgressHUD.html">MBProgressHUD</a> with asynchronous operations such as NSURLConnection, take a look at the bundled demo project. Extensive API documentation is provided in the header file (<a href="Classes/MBProgressHUD.html">MBProgressHUD</a>.h).</p>
+
+<h2>License</h2>
+
+<p>This code is distributed under the terms and conditions of the <a href="LICENSE">MIT license</a>.</p>
+
+<h2>Change-log</h2>
+
+<p><strong>Version 0.6</strong> @ 13.03.13</p>
+
+<ul>
+<li>Full cocoapods support.</li>
+<li>Static library integration option.</li>
+<li>Improved blocks support.</li>
+<li>Bezel color.</li>
+<li>Demo app fixes (iOS 6).</li>
+<li>Various bug-fixes and enhancements.</li>
+</ul>
+
+
+<p><strong>Version 0.5</strong> @ 22.03.12</p>
+
+<ul>
+<li>Major source code modernization and cleanup (KVO, layout code, instance vars, etc.).</li>
+<li>New annular determinate mode.</li>
+<li>New text only mode.</li>
+<li>Added a static library project and Xcode 4 workspace.</li>
+<li>Added methods to find and return HUD(s) on a view.</li>
+<li>Various bug fixes.</li>
+<li>Various demo project enhancements (hi-res rescues, new samples).</li>
+</ul>
+
+
+<p>IMPORTANT: Requires LLVM 3+.</p>
+
+<p><strong>Version 0.41</strong> @ 03.01.12</p>
+
+<ul>
+<li>Support for ARC.</li>
+</ul>
+
+
+<p><strong>Version 0.4</strong> @ 25.07.10</p>
+
+<ul>
+<li>Different animation modes. Default set to zoom.</li>
+<li>Class convenience methods (tadelv &ndash; <a href="http://github.com/tadelv">http://github.com/tadelv).</a>.)</li>
+<li>Autorotation when added to a UIWindow (wuf810 &ndash; <a href="http://github.com/wuf810">http://github.com/wuf810).</a>.)</li>
+<li>Extended demo app.</li>
+<li>Several smaller fixes.</li>
+</ul>
+
+
+<p><strong>Version 0.33</strong> @ 27.03.10</p>
+
+<ul>
+<li>Custom view operation mode added.</li>
+<li>Fixed a memory leak.</li>
+</ul>
+
+
+<p><strong>Version 0.32</strong> @ 4.01.10</p>
+
+<ul>
+<li>Added minShowTime, graceTime, xOffset, yOffset.</li>
+<li>Various fixes.</li>
+</ul>
+
+
+<p><strong>Version 0.31</strong> @ 8.10.09</p>
+
+<ul>
+<li>Fix for touch through during the fade-out animation.</li>
+</ul>
+
+
+<p><strong>Version 0.3</strong> @ 30.9.09</p>
+
+<ul>
+<li>Added show: and hide: methods.</li>
+<li>Now using UIViews layoutSubviews to automate layout calls.</li>
+<li>Added some floors to round pixel positions and thereby prevent unsharp views.</li>
+<li>Some additional documentation and code cleanup.</li>
+</ul>
+
+
+<p><strong>Version 0.2</strong> @ 21.7.09</p>
+
+<ul>
+<li>Added determinate progress mode and switching capabilities between determinate and indeterminate modes.</li>
+<li>Various bug-fixes.</li>
+</ul>
+
+
+<p><strong>Version 0.11</strong> @ 2.6.09.</p>
+
+<ul>
+<li>Updated labelText and detailsLabelText properties to support text modifications while the HUD is being shown.</li>
+</ul>
+
+
+<p><strong>Version 0.1</strong> @ 2.4.09</p>
+
+<ul>
+<li>Initial release.</li>
+</ul>
+
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/MBProgressHUD.html">MBProgressHUD</a></li>
+							
+							<li><a href="Classes/MBRoundProgressView.html">MBRoundProgressView</a></li>
+							
+						</ul>
+					</div>
+					
+					
+						
+					<div class="index-column">
+						
+						<h2 class="index-title">Protocol References</h2>
+						<ul>
+							
+							<li><a href="Protocols/MBProgressHUDDelegate.html">MBProgressHUDDelegate</a></li>
+							
+						</ul>
+						
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Matej Bukovinski. All rights reserved. (Last updated: 2013-06-11)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ASICloudFilesObject.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ASICloudFilesObject</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>
+			
+			<NodeRef refid="7"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObject/setName:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesObject/name</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObject/setHash:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *hash</Declaration>
+			
+			
+			<Anchor>//api/name/hash</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesObject/hash</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *hash</Declaration>
+			
+			
+			<Anchor>//api/name/hash</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObject/setBytes:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) NSUInteger bytes</Declaration>
+			
+			
+			<Anchor>//api/name/bytes</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesObject/bytes</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) NSUInteger bytes</Declaration>
+			
+			
+			<Anchor>//api/name/bytes</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObject/setContentType:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *contentType</Declaration>
+			
+			
+			<Anchor>//api/name/contentType</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesObject/contentType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *contentType</Declaration>
+			
+			
+			<Anchor>//api/name/contentType</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObject/setLastModified:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSDate *lastModified</Declaration>
+			
+			
+			<Anchor>//api/name/lastModified</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesObject/lastModified</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSDate *lastModified</Declaration>
+			
+			
+			<Anchor>//api/name/lastModified</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObject/setData:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSData *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesObject/data</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSData *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesObject/setMetadata:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSMutableDictionary *metadata</Declaration>
+			
+			
+			<Anchor>//api/name/metadata</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesObject/metadata</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSMutableDictionary *metadata</Declaration>
+			
+			
+			<Anchor>//api/name/metadata</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesObject/object</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesObject.h</DeclaredIn>			
+			
+			<Declaration>+ (id)object</Declaration>
+			
+			
+			<Anchor>//api/name/object</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

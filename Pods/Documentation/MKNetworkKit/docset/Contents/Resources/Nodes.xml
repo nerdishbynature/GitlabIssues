@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocSetNodes version="1.0">
+    <TOC>
+        <Node type="folder">
+            <Name>MKNetworkKit 0.87</Name>
+            <Path>index.html</Path>
+			<Subnodes>
+                
+				
+				<Node type="folder">
+					<Name>Classes</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="1"/>
+						<NodeRef refid="2"/>
+						
+					</Subnodes>
+				</Node>
+				
+				
+				<Node type="folder">
+					<Name>Categories</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="3"/>
+						<NodeRef refid="4"/>
+						<NodeRef refid="5"/>
+						<NodeRef refid="6"/>
+						<NodeRef refid="7"/>
+						<NodeRef refid="8"/>
+						
+					</Subnodes>
+				</Node>
+				
+				
+			</Subnodes>
+        </Node>
+    </TOC>
+	<Library>
+		
+		<Node id="1">
+			<Name>MKNetworkEngine</Name>
+			<Path>Classes/MKNetworkEngine.html</Path>
+		</Node>
+		<Node id="2">
+			<Name>MKNetworkOperation</Name>
+			<Path>Classes/MKNetworkOperation.html</Path>
+		</Node>
+		
+		<Node id="3">
+			<Name>NSAlert(MKNetworkKitAdditions)</Name>
+			<Path>Categories/NSAlert+MKNetworkKitAdditions.html</Path>
+		</Node>
+		<Node id="4">
+			<Name>NSData(MKNKBase64)</Name>
+			<Path>Categories/NSData+MKNKBase64.html</Path>
+		</Node>
+		<Node id="5">
+			<Name>NSDate(RFC1123)</Name>
+			<Path>Categories/NSDate+RFC1123.html</Path>
+		</Node>
+		<Node id="6">
+			<Name>NSDictionary(RequestEncoding)</Name>
+			<Path>Categories/NSDictionary+RequestEncoding.html</Path>
+		</Node>
+		<Node id="7">
+			<Name>NSString(MKNetworkKitAdditions)</Name>
+			<Path>Categories/NSString+MKNetworkKitAdditions.html</Path>
+		</Node>
+		<Node id="8">
+			<Name>UIAlertView(MKNetworkKitAdditions)</Name>
+			<Path>Categories/UIAlertView+MKNetworkKitAdditions.html</Path>
+		</Node>
+		
+		
+	</Library>
+</DocSetNodes>

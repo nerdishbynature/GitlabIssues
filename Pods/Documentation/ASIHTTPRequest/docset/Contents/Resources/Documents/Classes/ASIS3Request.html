@@ -1,0 +1,715 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>ASIS3Request Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">ASIHTTPRequest 1.8.1 </a></h1>
+				<a id="developerHome" href="../index.html">Ben Copsey</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">ASIS3Request Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/accessKey">&nbsp;&nbsp;&nbsp;&nbsp;accessKey</option>
+	
+	<option value="//api/name/accessPolicy">&nbsp;&nbsp;&nbsp;&nbsp;accessPolicy</option>
+	
+	<option value="//api/name/currentXMLElementContent">&nbsp;&nbsp;&nbsp;&nbsp;currentXMLElementContent</option>
+	
+	<option value="//api/name/currentXMLElementStack">&nbsp;&nbsp;&nbsp;&nbsp;currentXMLElementStack</option>
+	
+	<option value="//api/name/dateString">&nbsp;&nbsp;&nbsp;&nbsp;dateString</option>
+	
+	<option value="//api/name/requestScheme">&nbsp;&nbsp;&nbsp;&nbsp;requestScheme</option>
+	
+	<option value="//api/name/secretAccessKey">&nbsp;&nbsp;&nbsp;&nbsp;secretAccessKey</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/S3Host">&nbsp;&nbsp;&nbsp;&nbsp;+ S3Host</option>
+	
+	<option value="//api/name/S3RequestDateFormatter">&nbsp;&nbsp;&nbsp;&nbsp;+ S3RequestDateFormatter</option>
+	
+	<option value="//api/name/S3ResponseDateFormatter">&nbsp;&nbsp;&nbsp;&nbsp;+ S3ResponseDateFormatter</option>
+	
+	<option value="//api/name/setSharedAccessKey:">&nbsp;&nbsp;&nbsp;&nbsp;+ setSharedAccessKey:</option>
+	
+	<option value="//api/name/setSharedSecretAccessKey:">&nbsp;&nbsp;&nbsp;&nbsp;+ setSharedSecretAccessKey:</option>
+	
+	<option value="//api/name/sharedAccessKey">&nbsp;&nbsp;&nbsp;&nbsp;+ sharedAccessKey</option>
+	
+	<option value="//api/name/sharedSecretAccessKey">&nbsp;&nbsp;&nbsp;&nbsp;+ sharedSecretAccessKey</option>
+	
+	<option value="//api/name/stringByURLEncodingForS3Path:">&nbsp;&nbsp;&nbsp;&nbsp;+ stringByURLEncodingForS3Path:</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/S3Headers">&nbsp;&nbsp;&nbsp;&nbsp;- S3Headers</option>
+	
+	<option value="//api/name/buildURL">&nbsp;&nbsp;&nbsp;&nbsp;- buildURL</option>
+	
+	<option value="//api/name/parseResponseXML">&nbsp;&nbsp;&nbsp;&nbsp;- parseResponseXML</option>
+	
+	<option value="//api/name/setDate:">&nbsp;&nbsp;&nbsp;&nbsp;- setDate:</option>
+	
+	<option value="//api/name/stringToSignForHeaders:resource:">&nbsp;&nbsp;&nbsp;&nbsp;- stringToSignForHeaders:resource:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/accessKey">accessKey</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/accessPolicy">accessPolicy</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentXMLElementContent">currentXMLElementContent</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentXMLElementStack">currentXMLElementStack</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dateString">dateString</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestScheme">requestScheme</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/secretAccessKey">secretAccessKey</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/S3Host">S3Host</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/S3RequestDateFormatter">S3RequestDateFormatter</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/S3ResponseDateFormatter">S3ResponseDateFormatter</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setSharedAccessKey:">setSharedAccessKey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setSharedSecretAccessKey:">setSharedSecretAccessKey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sharedAccessKey">sharedAccessKey</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sharedSecretAccessKey">sharedSecretAccessKey</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringByURLEncodingForS3Path:">stringByURLEncodingForS3Path:</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/S3Headers">S3Headers</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/buildURL">buildURL</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/parseResponseXML">parseResponseXML</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDate:">setDate:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringToSignForHeaders:resource:">stringToSignForHeaders:resource:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="ASIS3Request Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">ASIS3Request Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value"><a href="../Classes/ASIHTTPRequest.html">ASIHTTPRequest</a> : NSOperation</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSCopying<br /><a href="../Protocols/NSXMLParserDelegate.html">NSXMLParserDelegate</a></td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">ASIS3Request.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setDate:">&ndash;&nbsp;setDate:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/S3Headers">&ndash;&nbsp;S3Headers</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringToSignForHeaders:resource:">&ndash;&nbsp;stringToSignForHeaders:resource:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/parseResponseXML">&ndash;&nbsp;parseResponseXML</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sharedAccessKey">+&nbsp;sharedAccessKey</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setSharedAccessKey:">+&nbsp;setSharedAccessKey:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sharedSecretAccessKey">+&nbsp;sharedSecretAccessKey</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setSharedSecretAccessKey:">+&nbsp;setSharedSecretAccessKey:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/S3ResponseDateFormatter">+&nbsp;S3ResponseDateFormatter</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/S3RequestDateFormatter">+&nbsp;S3RequestDateFormatter</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringByURLEncodingForS3Path:">+&nbsp;stringByURLEncodingForS3Path:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/S3Host">+&nbsp;S3Host</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/buildURL">&ndash;&nbsp;buildURL</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dateString">&nbsp;&nbsp;dateString</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/accessKey">&nbsp;&nbsp;accessKey</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/secretAccessKey">&nbsp;&nbsp;secretAccessKey</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/accessPolicy">&nbsp;&nbsp;accessPolicy</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentXMLElementContent">&nbsp;&nbsp;currentXMLElementContent</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentXMLElementStack">&nbsp;&nbsp;currentXMLElementStack</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/requestScheme">&nbsp;&nbsp;requestScheme</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/accessKey" title="accessKey"></a>
+	<h3 class="subsubtitle method-title">accessKey</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (retain) NSString *accessKey</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/accessPolicy" title="accessPolicy"></a>
+	<h3 class="subsubtitle method-title">accessPolicy</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (retain) NSString *accessPolicy</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentXMLElementContent" title="currentXMLElementContent"></a>
+	<h3 class="subsubtitle method-title">currentXMLElementContent</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (retain) NSString *currentXMLElementContent</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentXMLElementStack" title="currentXMLElementStack"></a>
+	<h3 class="subsubtitle method-title">currentXMLElementStack</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (retain) NSMutableArray *currentXMLElementStack</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dateString" title="dateString"></a>
+	<h3 class="subsubtitle method-title">dateString</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (retain) NSString *dateString</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/requestScheme" title="requestScheme"></a>
+	<h3 class="subsubtitle method-title">requestScheme</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (retain) NSString *requestScheme</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/secretAccessKey" title="secretAccessKey"></a>
+	<h3 class="subsubtitle method-title">secretAccessKey</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (retain) NSString *secretAccessKey</code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/S3Host" title="S3Host"></a>
+	<h3 class="subsubtitle method-title">S3Host</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)S3Host</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/S3RequestDateFormatter" title="S3RequestDateFormatter"></a>
+	<h3 class="subsubtitle method-title">S3RequestDateFormatter</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSDateFormatter *)S3RequestDateFormatter</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/S3ResponseDateFormatter" title="S3ResponseDateFormatter"></a>
+	<h3 class="subsubtitle method-title">S3ResponseDateFormatter</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSDateFormatter *)S3ResponseDateFormatter</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setSharedAccessKey:" title="setSharedAccessKey:"></a>
+	<h3 class="subsubtitle method-title">setSharedAccessKey:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (void)setSharedAccessKey:(NSString *)<em>newAccessKey</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setSharedSecretAccessKey:" title="setSharedSecretAccessKey:"></a>
+	<h3 class="subsubtitle method-title">setSharedSecretAccessKey:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (void)setSharedSecretAccessKey:(NSString *)<em>newAccessKey</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sharedAccessKey" title="sharedAccessKey"></a>
+	<h3 class="subsubtitle method-title">sharedAccessKey</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)sharedAccessKey</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sharedSecretAccessKey" title="sharedSecretAccessKey"></a>
+	<h3 class="subsubtitle method-title">sharedSecretAccessKey</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)sharedSecretAccessKey</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringByURLEncodingForS3Path:" title="stringByURLEncodingForS3Path:"></a>
+	<h3 class="subsubtitle method-title">stringByURLEncodingForS3Path:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)stringByURLEncodingForS3Path:(NSString *)<em>key</em></code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/S3Headers" title="S3Headers"></a>
+	<h3 class="subsubtitle method-title">S3Headers</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSMutableDictionary *)S3Headers</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/buildURL" title="buildURL"></a>
+	<h3 class="subsubtitle method-title">buildURL</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)buildURL</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/parseResponseXML" title="parseResponseXML"></a>
+	<h3 class="subsubtitle method-title">parseResponseXML</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)parseResponseXML</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setDate:" title="setDate:"></a>
+	<h3 class="subsubtitle method-title">setDate:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)setDate:(NSDate *)<em>date</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringToSignForHeaders:resource:" title="stringToSignForHeaders:resource:"></a>
+	<h3 class="subsubtitle method-title">stringToSignForHeaders:resource:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)stringToSignForHeaders:(NSString *)<em>canonicalizedAmzHeaders</em> resource:(NSString *)<em>canonicalizedResource</em></code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Ben Copsey. All rights reserved. (Last updated: 2013-06-11)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

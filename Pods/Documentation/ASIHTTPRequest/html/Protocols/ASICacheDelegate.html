@@ -1,0 +1,576 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>ASICacheDelegate Protocol Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">ASIHTTPRequest 1.8.1 </a></h1>
+				<a id="developerHome" href="../index.html">Ben Copsey</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">ASICacheDelegate Protocol Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/cachedResponseDataForURL:">&nbsp;&nbsp;&nbsp;&nbsp;- cachedResponseDataForURL:</option>
+	
+	<option value="//api/name/cachedResponseHeadersForURL:">&nbsp;&nbsp;&nbsp;&nbsp;- cachedResponseHeadersForURL:</option>
+	
+	<option value="//api/name/canUseCachedDataForRequest:">&nbsp;&nbsp;&nbsp;&nbsp;- canUseCachedDataForRequest:</option>
+	
+	<option value="//api/name/clearCachedResponsesForStoragePolicy:">&nbsp;&nbsp;&nbsp;&nbsp;- clearCachedResponsesForStoragePolicy:</option>
+	
+	<option value="//api/name/defaultCachePolicy">&nbsp;&nbsp;&nbsp;&nbsp;- defaultCachePolicy</option>
+	
+	<option value="//api/name/expiryDateForRequest:maxAge:">&nbsp;&nbsp;&nbsp;&nbsp;- expiryDateForRequest:maxAge:</option>
+	
+	<option value="//api/name/isCachedDataCurrentForRequest:">&nbsp;&nbsp;&nbsp;&nbsp;- isCachedDataCurrentForRequest:</option>
+	
+	<option value="//api/name/pathToCachedResponseDataForURL:">&nbsp;&nbsp;&nbsp;&nbsp;- pathToCachedResponseDataForURL:</option>
+	
+	<option value="//api/name/pathToCachedResponseHeadersForURL:">&nbsp;&nbsp;&nbsp;&nbsp;- pathToCachedResponseHeadersForURL:</option>
+	
+	<option value="//api/name/pathToStoreCachedResponseDataForRequest:">&nbsp;&nbsp;&nbsp;&nbsp;- pathToStoreCachedResponseDataForRequest:</option>
+	
+	<option value="//api/name/pathToStoreCachedResponseHeadersForRequest:">&nbsp;&nbsp;&nbsp;&nbsp;- pathToStoreCachedResponseHeadersForRequest:</option>
+	
+	<option value="//api/name/removeCachedDataForRequest:">&nbsp;&nbsp;&nbsp;&nbsp;- removeCachedDataForRequest:</option>
+	
+	<option value="//api/name/removeCachedDataForURL:">&nbsp;&nbsp;&nbsp;&nbsp;- removeCachedDataForURL:</option>
+	
+	<option value="//api/name/storeResponseForRequest:maxAge:">&nbsp;&nbsp;&nbsp;&nbsp;- storeResponseForRequest:maxAge:</option>
+	
+	<option value="//api/name/updateExpiryForRequest:maxAge:">&nbsp;&nbsp;&nbsp;&nbsp;- updateExpiryForRequest:maxAge:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cachedResponseDataForURL:">cachedResponseDataForURL:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cachedResponseHeadersForURL:">cachedResponseHeadersForURL:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/canUseCachedDataForRequest:">canUseCachedDataForRequest:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clearCachedResponsesForStoragePolicy:">clearCachedResponsesForStoragePolicy:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/defaultCachePolicy">defaultCachePolicy</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/expiryDateForRequest:maxAge:">expiryDateForRequest:maxAge:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isCachedDataCurrentForRequest:">isCachedDataCurrentForRequest:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pathToCachedResponseDataForURL:">pathToCachedResponseDataForURL:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pathToCachedResponseHeadersForURL:">pathToCachedResponseHeadersForURL:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pathToStoreCachedResponseDataForRequest:">pathToStoreCachedResponseDataForRequest:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pathToStoreCachedResponseHeadersForRequest:">pathToStoreCachedResponseHeadersForRequest:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeCachedDataForRequest:">removeCachedDataForRequest:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeCachedDataForURL:">removeCachedDataForURL:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/storeResponseForRequest:maxAge:">storeResponseForRequest:maxAge:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateExpiryForRequest:maxAge:">updateExpiryForRequest:maxAge:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="ASICacheDelegate Protocol Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">ASICacheDelegate Protocol Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">ASICacheDelegate.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/defaultCachePolicy">&ndash;&nbsp;defaultCachePolicy</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/expiryDateForRequest:maxAge:">&ndash;&nbsp;expiryDateForRequest:maxAge:</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateExpiryForRequest:maxAge:">&ndash;&nbsp;updateExpiryForRequest:maxAge:</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/canUseCachedDataForRequest:">&ndash;&nbsp;canUseCachedDataForRequest:</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeCachedDataForRequest:">&ndash;&nbsp;removeCachedDataForRequest:</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/isCachedDataCurrentForRequest:">&ndash;&nbsp;isCachedDataCurrentForRequest:</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/storeResponseForRequest:maxAge:">&ndash;&nbsp;storeResponseForRequest:maxAge:</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeCachedDataForURL:">&ndash;&nbsp;removeCachedDataForURL:</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cachedResponseHeadersForURL:">&ndash;&nbsp;cachedResponseHeadersForURL:</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cachedResponseDataForURL:">&ndash;&nbsp;cachedResponseDataForURL:</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pathToCachedResponseDataForURL:">&ndash;&nbsp;pathToCachedResponseDataForURL:</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pathToCachedResponseHeadersForURL:">&ndash;&nbsp;pathToCachedResponseHeadersForURL:</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pathToStoreCachedResponseHeadersForRequest:">&ndash;&nbsp;pathToStoreCachedResponseHeadersForRequest:</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pathToStoreCachedResponseDataForRequest:">&ndash;&nbsp;pathToStoreCachedResponseDataForRequest:</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/clearCachedResponsesForStoragePolicy:">&ndash;&nbsp;clearCachedResponsesForStoragePolicy:</a></code>
+		
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/cachedResponseDataForURL:" title="cachedResponseDataForURL:"></a>
+	<h3 class="subsubtitle method-title">cachedResponseDataForURL:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSData *)cachedResponseDataForURL:(NSURL *)<em>url</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/cachedResponseHeadersForURL:" title="cachedResponseHeadersForURL:"></a>
+	<h3 class="subsubtitle method-title">cachedResponseHeadersForURL:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSDictionary *)cachedResponseHeadersForURL:(NSURL *)<em>url</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/canUseCachedDataForRequest:" title="canUseCachedDataForRequest:"></a>
+	<h3 class="subsubtitle method-title">canUseCachedDataForRequest:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)canUseCachedDataForRequest:(ASIHTTPRequest *)<em>request</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/clearCachedResponsesForStoragePolicy:" title="clearCachedResponsesForStoragePolicy:"></a>
+	<h3 class="subsubtitle method-title">clearCachedResponsesForStoragePolicy:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)clearCachedResponsesForStoragePolicy:(ASICacheStoragePolicy)<em>cachePolicy</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/defaultCachePolicy" title="defaultCachePolicy"></a>
+	<h3 class="subsubtitle method-title">defaultCachePolicy</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (ASICachePolicy)defaultCachePolicy</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/expiryDateForRequest:maxAge:" title="expiryDateForRequest:maxAge:"></a>
+	<h3 class="subsubtitle method-title">expiryDateForRequest:maxAge:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSDate *)expiryDateForRequest:(ASIHTTPRequest *)<em>request</em> maxAge:(NSTimeInterval)<em>maxAge</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/isCachedDataCurrentForRequest:" title="isCachedDataCurrentForRequest:"></a>
+	<h3 class="subsubtitle method-title">isCachedDataCurrentForRequest:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)isCachedDataCurrentForRequest:(ASIHTTPRequest *)<em>request</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pathToCachedResponseDataForURL:" title="pathToCachedResponseDataForURL:"></a>
+	<h3 class="subsubtitle method-title">pathToCachedResponseDataForURL:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)pathToCachedResponseDataForURL:(NSURL *)<em>url</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pathToCachedResponseHeadersForURL:" title="pathToCachedResponseHeadersForURL:"></a>
+	<h3 class="subsubtitle method-title">pathToCachedResponseHeadersForURL:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)pathToCachedResponseHeadersForURL:(NSURL *)<em>url</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pathToStoreCachedResponseDataForRequest:" title="pathToStoreCachedResponseDataForRequest:"></a>
+	<h3 class="subsubtitle method-title">pathToStoreCachedResponseDataForRequest:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)pathToStoreCachedResponseDataForRequest:(ASIHTTPRequest *)<em>request</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pathToStoreCachedResponseHeadersForRequest:" title="pathToStoreCachedResponseHeadersForRequest:"></a>
+	<h3 class="subsubtitle method-title">pathToStoreCachedResponseHeadersForRequest:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)pathToStoreCachedResponseHeadersForRequest:(ASIHTTPRequest *)<em>request</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeCachedDataForRequest:" title="removeCachedDataForRequest:"></a>
+	<h3 class="subsubtitle method-title">removeCachedDataForRequest:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)removeCachedDataForRequest:(ASIHTTPRequest *)<em>request</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeCachedDataForURL:" title="removeCachedDataForURL:"></a>
+	<h3 class="subsubtitle method-title">removeCachedDataForURL:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)removeCachedDataForURL:(NSURL *)<em>url</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/storeResponseForRequest:maxAge:" title="storeResponseForRequest:maxAge:"></a>
+	<h3 class="subsubtitle method-title">storeResponseForRequest:maxAge:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)storeResponseForRequest:(ASIHTTPRequest *)<em>request</em> maxAge:(NSTimeInterval)<em>maxAge</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updateExpiryForRequest:maxAge:" title="updateExpiryForRequest:maxAge:"></a>
+	<h3 class="subsubtitle method-title">updateExpiryForRequest:maxAge:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)updateExpiryForRequest:(ASIHTTPRequest *)<em>request</em> maxAge:(NSTimeInterval)<em>maxAge</em></code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Ben Copsey. All rights reserved. (Last updated: 2013-06-11)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

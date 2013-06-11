@@ -32,7 +32,7 @@
 
 -(void)configureView{
     SVSegmentedControl *navSC = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:NSLocalizedString(@"Created", nil), NSLocalizedString(@"Updated", nil), nil]];
-    navSC.selectedIndex = self.created ? 0 : 1;
+    [navSC setSelectedSegmentIndex:self.created ? 0 : 1 animated:YES];
     navSC.changeHandler = ^(NSUInteger newIndex) {
         self.created = newIndex;
         [self.delegate didChangeSortingTo:self.created];

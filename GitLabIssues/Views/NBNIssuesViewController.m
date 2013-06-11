@@ -311,7 +311,7 @@
 
 -(void)applyFilter:(Filter *)filter{
     self.project.filter = filter;
-    [[NSManagedObjectContext MR_defaultContext] save];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
 }
 
 -(void)reloadUsingFilter{

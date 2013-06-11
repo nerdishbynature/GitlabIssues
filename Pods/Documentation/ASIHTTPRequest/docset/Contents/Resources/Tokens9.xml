@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ASICloudFilesRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ASICloudFilesRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesRequest.h</DeclaredIn>
+			
+			<NodeRef refid="9"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesRequest/storageURL</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)storageURL</Declaration>
+			
+			
+			<Anchor>//api/name/storageURL</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesRequest/cdnManagementURL</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)cdnManagementURL</Declaration>
+			
+			
+			<Anchor>//api/name/cdnManagementURL</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesRequest/authToken</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)authToken</Declaration>
+			
+			
+			<Anchor>//api/name/authToken</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesRequest/authenticationRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)authenticationRequest</Declaration>
+			
+			
+			<Anchor>//api/name/authenticationRequest</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesRequest/authenticate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (NSError *)authenticate</Declaration>
+			
+			
+			<Anchor>//api/name/authenticate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesRequest/username</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesRequest/setUsername:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setUsername:(NSString *)username</Declaration>
+			
+			
+			<Anchor>//api/name/setUsername:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesRequest/apiKey</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)apiKey</Declaration>
+			
+			
+			<Anchor>//api/name/apiKey</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesRequest/setApiKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setApiKey:(NSString *)apiKey</Declaration>
+			
+			
+			<Anchor>//api/name/setApiKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesRequest/dateFromString:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesRequest.h</DeclaredIn>			
+			
+			<Declaration>- (NSDate *)dateFromString:(NSString *)dateString</Declaration>
+			
+			
+			<Anchor>//api/name/dateFromString:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>
