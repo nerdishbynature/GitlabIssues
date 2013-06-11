@@ -103,7 +103,7 @@
                 
                 if (![value isEqual:NSLocalizedString(@"None", nil)]) {
                     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@", value];
-                    self.issue.milestone = [[Milestone findAllWithPredicate:predicate] objectAtIndex:0];
+                    self.issue.milestone = [[Milestone MR_findAllWithPredicate:predicate] objectAtIndex:0];
                     
                     [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
                     
@@ -144,7 +144,7 @@
         } valueFromSelectBlock:^id(id value, id object, NSInteger selectedValueIndex) {
             
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", value];
-            self.issue.assignee = [[Assignee findAllWithPredicate:predicate] objectAtIndex:0];
+            self.issue.assignee = [[Assignee MR_findAllWithPredicate:predicate] objectAtIndex:0];
             
             [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
             

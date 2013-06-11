@@ -60,7 +60,6 @@
 		233712DE16E2567F0061C849 /* NBNFindReposViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 233712DD16E2567F0061C849 /* NBNFindReposViewController.m */; };
 		237FB14316BD19360007FB0A /* NBNDeletionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 237FB14216BD19360007FB0A /* NBNDeletionHelper.m */; };
 		2390D6D1170DE93500B9C865 /* MTTestSemaphor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2390D6D0170DE93500B9C865 /* MTTestSemaphor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		23D7A10D1742D569003D5713 /* SparkInspector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = HYXIFWTDXJPPRRMDCEPMDTJH /* SparkInspector.framework */; };
 		65C01F2711D5449AB56C4966 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3526E8A259E0423889E376F7 /* libPods.a */; };
 		97049FB716A0B34E004BC6E3 /* NBNReachabilityChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 97049FB616A0B34E004BC6E3 /* NBNReachabilityChecker.m */; };
 		9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5A8167E2C4500F26DE2 /* UIKit.framework */; };
@@ -165,7 +164,6 @@
 		97C49F3B16A87262009DEC85 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C49F3716A87262009DEC85 /* star.png */; };
 		97C49F3C16A87262009DEC85 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97C49F3816A87262009DEC85 /* star@2x.png */; };
 		989AC1156D834AA387AC3831 /* libPods-GitLabIssuesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD94947D2FAB487EA0397801 /* libPods-GitLabIssuesTests.a */; };
-		KIYDQKWBMRKIEYEVRWSLKUDQ /* SparkInspector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = HYXIFWTDXJPPRRMDCEPMDTJH /* SparkInspector.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -457,7 +455,6 @@
 		97C49F3816A87262009DEC85 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		AD94947D2FAB487EA0397801 /* libPods-GitLabIssuesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GitLabIssuesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5108C251E964A3DB139D30F /* Pods-GitLabIssuesTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitLabIssuesTests.xcconfig"; path = "Pods/Pods-GitLabIssuesTests.xcconfig"; sourceTree = SOURCE_ROOT; };
-		HYXIFWTDXJPPRRMDCEPMDTJH /* SparkInspector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SparkInspector.framework; path = "/Applications/Spark Inspector.app/Contents/Resources/Frameworks/SparkInspector.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -465,7 +462,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23D7A10D1742D569003D5713 /* SparkInspector.framework in Frameworks */,
 				9728328E16B31D8A00A6DE91 /* StoreKit.framework in Frameworks */,
 				9710B603167E2CE400F26DE2 /* libz.dylib in Frameworks */,
 				9710B5AD167E2C4500F26DE2 /* CoreGraphics.framework in Frameworks */,
@@ -483,7 +479,6 @@
 				9710B5C7167E2C4600F26DE2 /* SenTestingKit.framework in Frameworks */,
 				9710B5C8167E2C4600F26DE2 /* UIKit.framework in Frameworks */,
 				9710B5C9167E2C4600F26DE2 /* Foundation.framework in Frameworks */,
-				KIYDQKWBMRKIEYEVRWSLKUDQ /* SparkInspector.framework in Frameworks */,
 				989AC1156D834AA387AC3831 /* libPods-GitLabIssuesTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -749,7 +744,6 @@
 				9710B5AA167E2C4500F26DE2 /* Foundation.framework */,
 				9710B5AC167E2C4500F26DE2 /* CoreGraphics.framework */,
 				9710B5C6167E2C4600F26DE2 /* SenTestingKit.framework */,
-				HYXIFWTDXJPPRRMDCEPMDTJH /* SparkInspector.framework */,
 				3526E8A259E0423889E376F7 /* libPods.a */,
 				AD94947D2FAB487EA0397801 /* libPods-GitLabIssuesTests.a */,
 			);
@@ -1462,7 +1456,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
 				);
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1560,7 +1553,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
@@ -1586,7 +1578,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
 				);
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
