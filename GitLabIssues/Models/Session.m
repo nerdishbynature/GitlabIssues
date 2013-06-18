@@ -49,6 +49,8 @@
             session.blocked = [NSNumber numberWithBool:[[dict objectForKey:@"blocked"] boolValue]];
             session.name = [dict objectForKey:@"name"];
             
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+            
             if (!session.private_token) {
                 errorBlock(nil);
             } else{
