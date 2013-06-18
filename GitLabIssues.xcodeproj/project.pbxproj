@@ -60,6 +60,7 @@
 		233712DE16E2567F0061C849 /* NBNFindReposViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 233712DD16E2567F0061C849 /* NBNFindReposViewController.m */; };
 		237FB14316BD19360007FB0A /* NBNDeletionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 237FB14216BD19360007FB0A /* NBNDeletionHelper.m */; };
 		2390D6D1170DE93500B9C865 /* MTTestSemaphor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2390D6D0170DE93500B9C865 /* MTTestSemaphor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		23D173ED1767AA950041D286 /* NBNSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D173EC1767AA950041D286 /* NBNSessionTests.m */; };
 		65C01F2711D5449AB56C4966 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3526E8A259E0423889E376F7 /* libPods.a */; };
 		97049FB716A0B34E004BC6E3 /* NBNReachabilityChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 97049FB616A0B34E004BC6E3 /* NBNReachabilityChecker.m */; };
 		9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5A8167E2C4500F26DE2 /* UIKit.framework */; };
@@ -303,6 +304,8 @@
 		237FB1A816BD2FE10007FB0A /* GitLab 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GitLab 2.xcdatamodel"; sourceTree = "<group>"; };
 		2390D6CF170DE93500B9C865 /* MTTestSemaphor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTestSemaphor.h; sourceTree = "<group>"; };
 		2390D6D0170DE93500B9C865 /* MTTestSemaphor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTestSemaphor.m; sourceTree = "<group>"; };
+		23D173EA1767A8F40041D286 /* GitLabIssuesTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GitLabIssuesTests-Prefix.pch"; sourceTree = "<group>"; };
+		23D173EC1767AA950041D286 /* NBNSessionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNSessionTests.m; path = ModelTests/NBNSessionTests.m; sourceTree = "<group>"; };
 		2A7CE991593242A1BC7F5A34 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3526E8A259E0423889E376F7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		97049FB516A0B34E004BC6E3 /* NBNReachabilityChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNReachabilityChecker.h; path = Network/NBNReachabilityChecker.h; sourceTree = "<group>"; };
@@ -708,6 +711,14 @@
 			name = Vendor;
 			sourceTree = "<group>";
 		};
+		23D173EE1767AA980041D286 /* ModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				23D173EC1767AA950041D286 /* NBNSessionTests.m */,
+			);
+			name = ModelTests;
+			sourceTree = "<group>";
+		};
 		9710B599167E2C4500F26DE2 = {
 			isa = PBXGroup;
 			children = (
@@ -783,6 +794,7 @@
 		9710B5CC167E2C4600F26DE2 /* GitLabIssuesTests */ = {
 			isa = PBXGroup;
 			children = (
+				23D173EE1767AA980041D286 /* ModelTests */,
 				9710B5CD167E2C4600F26DE2 /* Supporting Files */,
 			);
 			path = GitLabIssuesTests;
@@ -794,6 +806,7 @@
 				2390D6CE170DE93500B9C865 /* MTTestSemaphore */,
 				9710B5CE167E2C4600F26DE2 /* GitLabIssuesTests-Info.plist */,
 				9710B5CF167E2C4600F26DE2 /* InfoPlist.strings */,
+				23D173EA1767A8F40041D286 /* GitLabIssuesTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1380,6 +1393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2390D6D1170DE93500B9C865 /* MTTestSemaphor.m in Sources */,
+				23D173ED1767AA950041D286 /* NBNSessionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1481,7 +1495,7 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitLabIssues.app/GitLabIssues";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
+				GCC_PREFIX_HEADER = "GitLabIssuesTests/GitLabIssuesTests-Prefix.pch";
 				INFOPLIST_FILE = "GitLabIssuesTests/GitLabIssuesTests-Info.plist";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1603,7 +1617,7 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitLabIssues.app/GitLabIssues";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
+				GCC_PREFIX_HEADER = "GitLabIssuesTests/GitLabIssuesTests-Prefix.pch";
 				INFOPLIST_FILE = "GitLabIssuesTests/GitLabIssuesTests-Info.plist";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1619,7 +1633,7 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitLabIssues.app/GitLabIssues";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GitLabIssues/GitLabIssues-Prefix.pch";
+				GCC_PREFIX_HEADER = "GitLabIssuesTests/GitLabIssuesTests-Prefix.pch";
 				INFOPLIST_FILE = "GitLabIssuesTests/GitLabIssuesTests-Info.plist";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
