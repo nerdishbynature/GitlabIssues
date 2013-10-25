@@ -88,8 +88,9 @@
 }
 
 -(void)loadAuthorImage{
-    
-    [self.authorImageView setImageWithURL:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [self.note.author.email MD5]]];
+
+    NSString *gravatarURLString = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [self.note.author.email MD5]];
+    [self.authorImageView setImageWithURL:[NSURL URLWithString:gravatarURLString]];
     CALayer * l = [self.authorImageView layer];
     [l setMasksToBounds:YES];
     [l setCornerRadius:5.0];

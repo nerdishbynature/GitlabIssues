@@ -62,8 +62,9 @@
     
     [self calculateSizes];
     
-    
-    [self.developerProfilePicture setImageWithURL:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [self.issue.author.email MD5]]];
+
+    NSString *gravatatURLString = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [self.issue.author.email MD5]];
+    [self.developerProfilePicture setImageWithURL:[NSURL URLWithString:gravatatURLString]];
     
     CALayer * l = [self.developerProfilePicture layer];
     [l setMasksToBounds:YES];
