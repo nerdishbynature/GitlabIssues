@@ -1050,7 +1050,6 @@
 				9710B5A0167E2C4500F26DE2 /* Sources */,
 				9710B5A1167E2C4500F26DE2 /* Frameworks */,
 				9710B5A2167E2C4500F26DE2 /* Resources */,
-				974BF5B216B077870027DF63 /* ShellScript */,
 				12FB232171FE4313AAEE557F /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1271,19 +1270,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-		974BF5B216B077870027DF63 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./GitLabIssues/Vendor/Crashlytics.framework/run 05ca0a6e33a6b525e43d012f5f45165567158056";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1446,9 +1432,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -1465,6 +1449,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2A7CE991593242A1BC7F5A34 /* Pods.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Piet Brauer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Piet Brauer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1493,6 +1478,7 @@
 			baseConfigurationReference = C5108C251E964A3DB139D30F /* Pods-GitLabIssuesTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitLabIssues.app/GitLabIssues";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssuesTests/GitLabIssuesTests-Prefix.pch";
@@ -1514,9 +1500,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1545,9 +1529,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -1564,6 +1546,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2A7CE991593242A1BC7F5A34 /* Pods.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1587,6 +1570,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2A7CE991593242A1BC7F5A34 /* Pods.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1615,6 +1599,7 @@
 			baseConfigurationReference = C5108C251E964A3DB139D30F /* Pods-GitLabIssuesTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitLabIssues.app/GitLabIssues";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssuesTests/GitLabIssuesTests-Prefix.pch";
@@ -1631,6 +1616,7 @@
 			baseConfigurationReference = C5108C251E964A3DB139D30F /* Pods-GitLabIssuesTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitLabIssues.app/GitLabIssues";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitLabIssuesTests/GitLabIssuesTests-Prefix.pch";

@@ -18,7 +18,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        self.backgroundView = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
+        self.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
     }
     return self;
 }

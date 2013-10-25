@@ -14,7 +14,7 @@
 
 @interface NBNLabelsConnection ()
 
-@property (nonatomic, retain) AFJSONRequestOperation *labelsOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *labelsOperation;
 
 @end
 

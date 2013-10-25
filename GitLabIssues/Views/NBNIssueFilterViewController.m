@@ -23,7 +23,7 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 
 @interface NBNIssueFilterViewController ()
 
-@property (nonatomic, retain) Filter *filter;
+@property (nonatomic, strong) Filter *filter;
 
 
 @end
@@ -35,7 +35,7 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 @synthesize filter;
 
 +(NBNIssueFilterViewController *)loadViewControllerWithFilter:(Filter *)_filter{
-    NBNIssueFilterViewController *filterController = [[[NBNIssueFilterViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+    NBNIssueFilterViewController *filterController = [[NBNIssueFilterViewController alloc] initWithStyle:UITableViewStyleGrouped];
     filterController.filter = _filter;
     filterController.view.backgroundColor = [UIColor whiteColor];
     //[filterController configureView];
@@ -64,7 +64,7 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     [button addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
     
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
     UIButton *applybutton = [UIButton buttonWithType:UIButtonTypeCustom];
 	[applybutton setTitle:NSLocalizedString(@"Apply", nil) forState:UIControlStateNormal];
@@ -74,7 +74,7 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
     [applybutton addTarget:self action:@selector(apply:) forControlEvents:UIControlEventTouchUpInside];
     [applybutton setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
     
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:applybutton] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:applybutton];
     self.title = NSLocalizedString(@"Issues Filter", nil);
     
 }
@@ -244,14 +244,9 @@ NSString *const kKeySortIssuesFilter = @"kKeySortIssuesFilter";
 }
 
 - (void)dealloc {
-    self.filter = nil;
-    self.project = nil;
     
-    [filter release];
-    [project release];
     
     PBLog(@"deallocing %@", [self class]);
-    [super dealloc];
 }
 
 #pragma mark - Delegates

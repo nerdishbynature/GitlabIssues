@@ -18,11 +18,11 @@
 
 @interface NBNIssuesConnection ()
 
-@property (nonatomic, retain) AFJSONRequestOperation *issuesOperation;
-@property (nonatomic, retain) AFJSONRequestOperation *reloadOperation;
-@property (nonatomic, retain) AFJSONRequestOperation *notesOperation;
-@property (nonatomic, retain) AFJSONRequestOperation *sendNotesOperation;
-@property (nonatomic, retain) AFJSONRequestOperation *allIssuesOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *issuesOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *reloadOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *notesOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *sendNotesOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *allIssuesOperation;
 
 @end
 
@@ -139,7 +139,7 @@ static NBNIssuesConnection *sharedConnection = nil;
         
         self.notesOperation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             NSArray *array = JSON;
-            NSMutableArray *returnArray = [[[NSMutableArray alloc] initWithCapacity:array.count] autorelease];
+            NSMutableArray *returnArray = [[NSMutableArray alloc] initWithCapacity:array.count];
             
             for (NSDictionary *dict in array) {
                 

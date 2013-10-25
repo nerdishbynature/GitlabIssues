@@ -184,7 +184,6 @@
     self.created_at = [formatter dateFromString:[dict objectForKey:@"created_at"]];
     self.updated_at = [formatter dateFromString:[dict objectForKey:@"updated_at"]];
     
-    [formatter release];
 }
 
 #pragma mark - toJSON

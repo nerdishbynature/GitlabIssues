@@ -14,13 +14,13 @@
 
 @interface NBNIssueCell ()
 
-@property (retain, nonatomic) IBOutlet UILabel *titleLabel;
-@property (retain, nonatomic) IBOutlet UILabel *dateLabel;
-@property (retain, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (retain, nonatomic) IBOutlet UIImageView *developerProfilePicture;
-@property (retain, nonatomic) IBOutlet UILabel *developerTitleLabel;
-@property (retain, nonatomic) IBOutlet UILabel *createdLabel;
-@property (nonatomic, retain) Issue *issue;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *developerProfilePicture;
+@property (strong, nonatomic) IBOutlet UILabel *developerTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *createdLabel;
+@property (nonatomic, strong) Issue *issue;
 
 @end
 
@@ -59,7 +59,6 @@
     
     self.dateLabel.text = [formatter stringFromDate:self.issue.created_at];
     
-    [formatter release];
     
     [self calculateSizes];
     
@@ -112,23 +111,4 @@
     return (NBNIssueCell *)[[[NSBundle mainBundle] loadNibNamed:@"NBNIssueCell" owner:self options:0] objectAtIndex:0];
 }
 
-- (void)dealloc {
-    self.titleLabel = nil;
-    self.dateLabel = nil;
-    self.descriptionLabel = nil;
-    self.developerProfilePicture = nil;
-    self.developerTitleLabel = nil;
-    self.createdLabel = nil;
-    self.issue = nil;
-    
-    [_titleLabel release];
-    [_dateLabel release];
-    [_descriptionLabel release];
-    [_developerProfilePicture release];
-    [_developerTitleLabel release];
-    [_createdLabel release];
-    [_issue release];
-    
-    [super dealloc];
-}
 @end

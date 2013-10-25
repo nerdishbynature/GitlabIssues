@@ -47,7 +47,6 @@
     
     self.created_at = [formatter dateFromString:[dict objectForKey:@"created_at"]];
     
-    [formatter release];
 }
 
 @end

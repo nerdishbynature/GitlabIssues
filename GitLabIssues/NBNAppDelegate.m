@@ -16,15 +16,10 @@
 
 @implementation NBNAppDelegate
 
-- (void)dealloc
-{
-    [_window release];
-    [super dealloc];
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"GitLabIssues.sqlite"];
@@ -67,8 +62,6 @@
     
     self.window.rootViewController = navController;
     
-    [navController release];
-    [homeScreen release];
     
     [Crashlytics startWithAPIKey:@"05ca0a6e33a6b525e43d012f5f45165567158056"];
 

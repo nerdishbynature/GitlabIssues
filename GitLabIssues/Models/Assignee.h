@@ -13,14 +13,14 @@
 
 @interface Assignee : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * blocked;
-@property (nonatomic, retain) NSDate * created_at;
-@property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSSet *issues;
-@property (nonatomic, retain) NSSet *mergeRequests;
-@property (nonatomic, retain) Filter *filter;
+@property (nonatomic, strong) NSNumber * blocked;
+@property (nonatomic, strong) NSDate * created_at;
+@property (nonatomic, strong) NSString * email;
+@property (nonatomic, strong) NSNumber * identifier;
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSSet *issues;
+@property (nonatomic, strong) NSSet *mergeRequests;
+@property (nonatomic, strong) Filter *filter;
 
 /**
   This method is used for parsing the returned JSON from the API

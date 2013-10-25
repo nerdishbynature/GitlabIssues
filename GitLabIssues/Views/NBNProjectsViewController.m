@@ -15,12 +15,12 @@
 
 @interface NBNProjectsViewController ()
 
-@property (nonatomic, retain) NSArray *projectsArray;
-@property (nonatomic, retain) MBProgressHUD *HUD;
-@property (nonatomic, retain) NSArray *projectsSearchResults;
-@property (nonatomic, retain) UISearchBar *searchBar;
-@property (nonatomic, retain) UISearchDisplayController *searchDisplayController;
-@property (nonatomic, retain) NSArray *lastOpenedProjects;
+@property (nonatomic, strong) NSArray *projectsArray;
+@property (nonatomic, strong) MBProgressHUD *HUD;
+@property (nonatomic, strong) NSArray *projectsSearchResults;
+@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) UISearchDisplayController *searchDisplayController;
+@property (nonatomic, strong) NSArray *lastOpenedProjects;
 
 @end
 
@@ -47,8 +47,8 @@
 - (void)createSearchBar {
     
     if (self.tableView && !self.tableView.tableHeaderView) {
-        self.searchBar = [[[UISearchBar alloc] init] autorelease];
-        self.searchDisplayController = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
+        self.searchBar = [[UISearchBar alloc] init];
+        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
         self.searchDisplayController.delegate = self;
@@ -65,7 +65,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    self.HUD = [[[MBProgressHUD alloc] initWithView:self.navigationController.view] autorelease];
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.view addSubview:HUD];
     
     [self.navigationController setToolbarHidden:YES animated:YES];
@@ -129,7 +129,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
@@ -155,7 +155,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.HUD = [[[MBProgressHUD alloc] initWithView:self.navigationController.view] autorelease];
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.view addSubview:HUD];
 	
 	// Regiser for HUD callbacks so we can remove it from the window at the right time
@@ -241,22 +241,9 @@
 }
 
 -(void)dealloc{
-    self.projectsArray = nil;
-    self.HUD = nil;
-    self.projectsSearchResults = nil;
-    self.searchBar = nil;
-    self.searchDisplayController = nil;
-    self.lastOpenedProjects = nil;
     
-    [projectsArray release];
-    [HUD release];
-    [projectsSearchResults release];
-    [searchBar release];
-    [searchDisplayController release];
-    [lastOpenedProjects release];
     
     PBLog(@"deallocing %@", [self class]);
-    [super dealloc];
 }
 
 #pragma mark - if helpers

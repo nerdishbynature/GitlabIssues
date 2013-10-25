@@ -13,22 +13,22 @@
 
 @interface Project : NSManagedObject
 
-@property (nonatomic, retain) NSString * code;
-@property (nonatomic, retain) NSDate * created_at;
-@property (nonatomic, retain) NSString * default_branch;
-@property (nonatomic, retain) NSString * descriptionString;
-@property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSNumber * issues_enabled;
-@property (nonatomic, retain) NSNumber * merge_requests_enabled;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * path;
-@property (nonatomic, retain) NSNumber * private;
-@property (nonatomic, retain) NSNumber * wall_enabled;
-@property (nonatomic, retain) NSNumber * wiki_enabled;
-@property (nonatomic, retain) Owner *owner;
-@property (nonatomic, retain) NSNumber * isFavorite;
-@property (nonatomic, retain) Filter *filter;
-@property (nonatomic, retain) NSDate *lastOpened;
+@property (nonatomic, strong) NSString * code;
+@property (nonatomic, strong) NSDate * created_at;
+@property (nonatomic, strong) NSString * default_branch;
+@property (nonatomic, strong) NSString * descriptionString;
+@property (nonatomic, strong) NSNumber * identifier;
+@property (nonatomic, strong) NSNumber * issues_enabled;
+@property (nonatomic, strong) NSNumber * merge_requests_enabled;
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSString * path;
+@property (nonatomic, strong) NSNumber * private;
+@property (nonatomic, strong) NSNumber * wall_enabled;
+@property (nonatomic, strong) NSNumber * wiki_enabled;
+@property (nonatomic, strong) Owner *owner;
+@property (nonatomic, strong) NSNumber * isFavorite;
+@property (nonatomic, strong) Filter *filter;
+@property (nonatomic, strong) NSDate *lastOpened;
 
 /**
  This method is used for parsing the returned JSON from the API

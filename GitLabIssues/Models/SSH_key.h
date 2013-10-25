@@ -12,8 +12,8 @@
 
 @interface SSH_key : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSString * key;
-@property (nonatomic, retain) NSString * title;
+@property (nonatomic, strong) NSNumber * identifier;
+@property (nonatomic, strong) NSString * key;
+@property (nonatomic, strong) NSString * title;
 
 @end

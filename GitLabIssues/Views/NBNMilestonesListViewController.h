@@ -26,7 +26,7 @@
  Called, when a milestone is selected. This delegate method is implemented in NBNIssueFilterViewController
  to get additional filter options.
  */
-@property (nonatomic, assign) id<NBNMilestoneListDelegate> delegate;
+@property (nonatomic, weak) id<NBNMilestoneListDelegate> delegate;
 
 /**
  Method sets up the view controller and returns the allocated and initialized object.

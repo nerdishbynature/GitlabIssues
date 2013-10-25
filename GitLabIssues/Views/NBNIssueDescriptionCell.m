@@ -14,11 +14,11 @@
 
 @interface NBNIssueDescriptionCell ()
 
-@property (nonatomic, retain) IBOutlet UIImageView *authorImage;
-@property (nonatomic, retain) IBOutlet UILabel *authorNameLabel;
-@property (nonatomic, retain) IBOutlet UILabel *issueHeaderLabel;
-@property (nonatomic, retain) IBOutlet UILabel *descriptionLabel;
-@property (nonatomic, retain) Issue *issue;
+@property (nonatomic, strong) IBOutlet UIImageView *authorImage;
+@property (nonatomic, strong) IBOutlet UILabel *authorNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *issueHeaderLabel;
+@property (nonatomic, strong) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, strong) Issue *issue;
 
 @end
 
@@ -79,19 +79,5 @@
     [l setCornerRadius:5.0];
 }
 
-- (void)dealloc
-{
-    self.authorImage = nil;
-    self.authorNameLabel = nil;
-    self.issueHeaderLabel = nil;
-    self.descriptionLabel = nil;
-    
-    [authorImage release];
-    [authorNameLabel release];
-    [issueHeaderLabel release];
-    [descriptionLabel release];
-    
-    [super dealloc];
-}
 
 @end

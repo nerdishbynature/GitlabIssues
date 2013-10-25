@@ -10,7 +10,7 @@
 
 @interface NBNGroupedTableViewHeader ()
 
-@property (nonatomic, retain) IBOutlet UILabel *label;
+@property (nonatomic, strong) IBOutlet UILabel *label;
 
 @end
 
@@ -34,11 +34,5 @@
     self.label.text = title;
 }
 
--(void)dealloc{
-    self.label = nil;
-    
-    [label release];
-    [super dealloc];
-}
 
 @end

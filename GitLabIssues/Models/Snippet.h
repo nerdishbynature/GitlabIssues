@@ -13,12 +13,12 @@
 
 @interface Snippet : NSManagedObject
 
-@property (nonatomic, retain) NSDate * created_at;
-@property (nonatomic, retain) NSDate * expires_at;
-@property (nonatomic, retain) NSString * file_name;
-@property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSDate * updated_at;
-@property (nonatomic, retain) Author *author;
+@property (nonatomic, strong) NSDate * created_at;
+@property (nonatomic, strong) NSDate * expires_at;
+@property (nonatomic, strong) NSString * file_name;
+@property (nonatomic, strong) NSNumber * identifier;
+@property (nonatomic, strong) NSString * title;
+@property (nonatomic, strong) NSDate * updated_at;
+@property (nonatomic, strong) Author *author;
 
 @end

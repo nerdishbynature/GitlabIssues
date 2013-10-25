@@ -15,7 +15,7 @@
 
 @interface NBNMilestoneConnection ()
 
-@property (nonatomic, retain) AFJSONRequestOperation *milestonesForProjectOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *milestonesForProjectOperation;
 
 @end
 
@@ -92,7 +92,7 @@ static NBNMilestoneConnection *sharedConnection = nil;
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         NSArray *milestoneJSONArray = JSON;
-        NSMutableArray *milestoneArray = [[[NSMutableArray alloc] initWithCapacity:milestoneJSONArray.count] autorelease];
+        NSMutableArray *milestoneArray = [[NSMutableArray alloc] initWithCapacity:milestoneJSONArray.count];
         
         for (NSDictionary *dict in milestoneJSONArray) {
             Milestone *milestone = [Milestone createAndParseJSON:dict andProjectID:projectID];

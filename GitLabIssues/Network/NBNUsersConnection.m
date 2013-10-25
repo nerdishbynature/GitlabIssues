@@ -15,7 +15,7 @@
 
 @interface NBNUsersConnection ()
 
-@property (nonatomic, retain) AFJSONRequestOperation *membersOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *membersOperation;
 
 @end
 
@@ -53,7 +53,7 @@ static NBNUsersConnection *sharedConnection = nil;
         self.membersOperation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             NSArray *memberJSONArray = JSON;
             
-            NSMutableArray *memberArray = [[[NSMutableArray alloc] initWithCapacity:memberJSONArray.count] autorelease];
+            NSMutableArray *memberArray = [[NSMutableArray alloc] initWithCapacity:memberJSONArray.count];
             
             for (NSDictionary *dict in memberJSONArray) {
                 NSArray *assigneeArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Assignee"] where:@"identifier == %@", [dict objectForKey:@"id"]] toArray];

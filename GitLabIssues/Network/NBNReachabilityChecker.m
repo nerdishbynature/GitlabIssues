@@ -13,7 +13,7 @@ static NBNReachabilityChecker *sharedChecker = nil;
 
 @interface NBNReachabilityChecker ()
 
-@property (nonatomic, retain) NSDate *lastShown;
+@property (nonatomic, strong) NSDate *lastShown;
 
 @end
 
@@ -49,11 +49,11 @@ static NBNReachabilityChecker *sharedChecker = nil;
         
         NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:self.lastShown];
         if (interval > 60) { // more than 60s ago -> show AlertView
-            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@""
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
                                                              message:NSLocalizedString(@"Your internet connection appears to be offline, reconnect and try again.", nil)
                                                             delegate:nil
                                                    cancelButtonTitle:NSLocalizedString(@"Dismiss", nil)
-                                                   otherButtonTitles:nil] autorelease];
+                                                   otherButtonTitles:nil];
             [alert show];
             
             self.lastShown = [NSDate date];
@@ -64,11 +64,5 @@ static NBNReachabilityChecker *sharedChecker = nil;
     return YES;
 }
 
--(void)dealloc{
-    self.lastShown = nil;
-    
-    [lastShown release];
-    [super dealloc];
-}
 
 @end

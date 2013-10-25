@@ -13,8 +13,8 @@
 
 @interface NBNProjectConnection ()
 
-@property (nonatomic, retain) AFJSONRequestOperation *projectOperation;
-@property (nonatomic, retain) AFJSONRequestOperation *membersOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *projectOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *membersOperation;
 
 @end
 

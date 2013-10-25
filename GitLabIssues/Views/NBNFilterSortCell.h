@@ -16,7 +16,7 @@
 
 @interface NBNFilterSortCell : UITableViewCell
 
-@property (nonatomic, assign) id<NBNFilterSortCellDelegate> delegate;
+@property (nonatomic, weak) id<NBNFilterSortCellDelegate> delegate;
 @property (nonatomic, assign) BOOL created;
 
 -(void)configureView;

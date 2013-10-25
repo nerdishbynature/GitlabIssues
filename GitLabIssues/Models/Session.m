@@ -21,7 +21,7 @@
 @dynamic private_token;
 
 +(void)generateSessionWithCompletion:(void (^)(Session *session))block onError:(void (^)(NSError *error))errorBlock{
-    __block Session *session = [Session MR_createEntity];
+    __weak Session *session = [Session MR_createEntity];
     
     Domain *domain = [[Domain MR_findAll] lastObject];
     

@@ -10,12 +10,12 @@
 
 @interface NBNFilterAssigneeCell ()
 
-@property (nonatomic, retain) Assignee *assignee;
-@property (retain, nonatomic) IBOutlet UILabel *headlineLabel;
-@property (retain, nonatomic) IBOutlet UIView *bubbleContainer;
-@property (retain, nonatomic) IBOutlet UILabel *placeholderLabel;
-@property (nonatomic, retain) HEBubbleView *bubbleView;
-@property (nonatomic, retain) IBOutlet UIButton *clearButton;
+@property (nonatomic, strong) Assignee *assignee;
+@property (strong, nonatomic) IBOutlet UILabel *headlineLabel;
+@property (strong, nonatomic) IBOutlet UIView *bubbleContainer;
+@property (strong, nonatomic) IBOutlet UILabel *placeholderLabel;
+@property (nonatomic, strong) HEBubbleView *bubbleView;
+@property (nonatomic, strong) IBOutlet UIButton *clearButton;
 
 @end
 
@@ -42,7 +42,7 @@
 }
 
 +(NBNFilterAssigneeCell *)loadCellFromNib{
-    return (NBNFilterAssigneeCell *)[[[NSBundle mainBundle] loadNibNamed:@"NBNFilterAssigneeCell" owner:self options:kNilOptions] objectAtIndex:0];
+    return (NBNFilterAssigneeCell *)[[[NSBundle mainBundle] loadNibNamed:@"NBNFilterAssigneeCell" owner:self options:0] objectAtIndex:0];
 }
 
 -(void)configureCellWithAssignee:(Assignee *)_assignee{
@@ -55,7 +55,7 @@
                                                         lineBreakMode:NSLineBreakByWordWrapping];
     self.headlineLabel.frame = CGRectMake(self.headlineLabel.frame.origin.x, self.headlineLabel.frame.origin.y, headlineLabelSize.width, self.headlineLabel.frame.size.height);
     
-    self.bubbleView = [[[HEBubbleView alloc] initWithFrame:CGRectMake(self.headlineLabel.frame.origin.x+self.headlineLabel.frame.size.width+5, self.bubbleContainer.frame.origin.y, self.bubbleContainer.frame.size.width, self.bubbleContainer.frame.size.height)] autorelease];
+    self.bubbleView = [[HEBubbleView alloc] initWithFrame:CGRectMake(self.headlineLabel.frame.origin.x+self.headlineLabel.frame.size.width+5, self.bubbleContainer.frame.origin.y, self.bubbleContainer.frame.size.width, self.bubbleContainer.frame.size.height)];
     
     if (self.assignee) {
         self.placeholderLabel.hidden = YES;
@@ -99,7 +99,7 @@
     HEBubbleViewItem *item = [bubbleView dequeueItemUsingReuseIdentifier:itemIdentifier];
     
     if (item == nil) {
-        item = [[[HEBubbleViewItem alloc] initWithReuseIdentifier:itemIdentifier] autorelease];
+        item = [[HEBubbleViewItem alloc] initWithReuseIdentifier:itemIdentifier];
     }
     
 
@@ -142,16 +142,6 @@
 {
 }
 
--(void)dealloc{
-    self.assignee = nil;
-    
-    [assignee release];    
-    [_headlineLabel release];
-    [_bubbleContainer release];
-    [_placeholderLabel release];
-    
-    [super dealloc];
-}
 
 
 

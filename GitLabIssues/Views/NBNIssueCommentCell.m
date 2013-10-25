@@ -15,11 +15,11 @@
 
 @interface NBNIssueCommentCell ()
 
-@property (nonatomic, retain) IBOutlet UIImageView *authorImageView;
-@property (nonatomic, retain) IBOutlet UILabel *headlineLabel;
-@property (nonatomic, retain) IBOutlet UILabel *descriptionLabel; // PBEmojiLabel
-@property (nonatomic, retain) IBOutlet UILabel *dateTimeLabel;
-@property (nonatomic, retain) Note *note;
+@property (nonatomic, strong) IBOutlet UIImageView *authorImageView;
+@property (nonatomic, strong) IBOutlet UILabel *headlineLabel;
+@property (nonatomic, strong) IBOutlet UILabel *descriptionLabel; // PBEmojiLabel
+@property (nonatomic, strong) IBOutlet UILabel *dateTimeLabel;
+@property (nonatomic, strong) Note *note;
 
 @end
 
@@ -74,7 +74,6 @@
     
     self.dateTimeLabel.text = [formatter stringFromDate:self.note.created_at];
     
-    [formatter release];
     
     self.dateTimeLabel.frame = CGRectMake(self.dateTimeLabel.frame.origin.x, self.descriptionLabel.frame.origin.y+self.descriptionLabel.frame.size.height+3, self.dateTimeLabel.frame.size.width, self.dateTimeLabel.frame.size.height);
 }
@@ -97,21 +96,5 @@
 
 }
 
-- (void)dealloc
-{
-    self.authorImageView = nil;
-    self.headlineLabel = nil;
-    self.descriptionLabel = nil;
-    self.dateTimeLabel = nil;
-    self.note = nil;
-    
-    [_authorImageView release];
-    [_headlineLabel release];
-    [_descriptionLabel release];
-    [_dateTimeLabel release];
-    [_note release];
-    
-    [super dealloc];
-}
 
 @end
