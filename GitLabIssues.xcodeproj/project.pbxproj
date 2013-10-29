@@ -69,7 +69,6 @@
 		9710B5B3167E2C4500F26DE2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9710B5B1167E2C4500F26DE2 /* InfoPlist.strings */; };
 		9710B5B5167E2C4500F26DE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B5B4167E2C4500F26DE2 /* main.m */; };
 		9710B5B9167E2C4500F26DE2 /* NBNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */; };
-		9710B5C7167E2C4600F26DE2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5C6167E2C4600F26DE2 /* SenTestingKit.framework */; };
 		9710B5C8167E2C4600F26DE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5A8167E2C4500F26DE2 /* UIKit.framework */; };
 		9710B5C9167E2C4600F26DE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5AA167E2C4500F26DE2 /* Foundation.framework */; };
 		9710B5D1167E2C4600F26DE2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9710B5CF167E2C4600F26DE2 /* InfoPlist.strings */; };
@@ -320,8 +319,7 @@
 		9710B5B6167E2C4500F26DE2 /* GitLabIssues-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GitLabIssues-Prefix.pch"; sourceTree = "<group>"; };
 		9710B5B7167E2C4500F26DE2 /* NBNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBNAppDelegate.h; sourceTree = "<group>"; };
 		9710B5B8167E2C4500F26DE2 /* NBNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NBNAppDelegate.m; sourceTree = "<group>"; };
-		9710B5C5167E2C4600F26DE2 /* GitLabIssuesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitLabIssuesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9710B5C6167E2C4600F26DE2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9710B5C5167E2C4600F26DE2 /* GitLabIssuesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitLabIssuesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9710B5CE167E2C4600F26DE2 /* GitLabIssuesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GitLabIssuesTests-Info.plist"; sourceTree = "<group>"; };
 		9710B5D0167E2C4600F26DE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9710B602167E2CE400F26DE2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -479,7 +477,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9710B5C7167E2C4600F26DE2 /* SenTestingKit.framework in Frameworks */,
 				9710B5C8167E2C4600F26DE2 /* UIKit.framework in Frameworks */,
 				9710B5C9167E2C4600F26DE2 /* Foundation.framework in Frameworks */,
 				989AC1156D834AA387AC3831 /* libPods-GitLabIssuesTests.a in Frameworks */,
@@ -740,7 +737,7 @@
 			isa = PBXGroup;
 			children = (
 				9710B5A4167E2C4500F26DE2 /* GitLabIssues.app */,
-				9710B5C5167E2C4600F26DE2 /* GitLabIssuesTests.octest */,
+				9710B5C5167E2C4600F26DE2 /* GitLabIssuesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -754,7 +751,6 @@
 				9710B5A8167E2C4500F26DE2 /* UIKit.framework */,
 				9710B5AA167E2C4500F26DE2 /* Foundation.framework */,
 				9710B5AC167E2C4500F26DE2 /* CoreGraphics.framework */,
-				9710B5C6167E2C4600F26DE2 /* SenTestingKit.framework */,
 				3526E8A259E0423889E376F7 /* libPods.a */,
 				AD94947D2FAB487EA0397801 /* libPods-GitLabIssuesTests.a */,
 			);
@@ -1080,8 +1076,8 @@
 			);
 			name = GitLabIssuesTests;
 			productName = GitLabIssuesTests;
-			productReference = 9710B5C5167E2C4600F26DE2 /* GitLabIssuesTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 9710B5C5167E2C4600F26DE2 /* GitLabIssuesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1486,7 +1482,6 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = AdHoc;
 		};
@@ -1607,7 +1602,6 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -1624,7 +1618,6 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
