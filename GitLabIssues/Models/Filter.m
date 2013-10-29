@@ -21,7 +21,7 @@
 @dynamic project;
 
 +(Filter *)loadDefaultFilter{
-    Filter *filter = [Filter createEntity];
+    Filter *filter = [Filter MR_createEntity];
     filter.closed = [NSNumber numberWithBool:NO];
     filter.sortCreated = [NSNumber numberWithBool:YES];
     filter.labels = @[];

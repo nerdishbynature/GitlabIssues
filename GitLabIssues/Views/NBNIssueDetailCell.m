@@ -12,10 +12,10 @@
 
 @interface NBNIssueDetailCell ()
 
-@property (retain, nonatomic) IBOutlet UILabel *headlineLabel;
-@property (retain, nonatomic) IBOutlet UIView *bubbleContainer;
-@property (nonatomic, retain) NSString *detailString;
-@property (retain, nonatomic) HEBubbleView *bubbleView;
+@property (strong, nonatomic) IBOutlet UILabel *headlineLabel;
+@property (strong, nonatomic) IBOutlet UIView *bubbleContainer;
+@property (nonatomic, strong) NSString *detailString;
+@property (strong, nonatomic) HEBubbleView *bubbleView;
 
 @end
 
@@ -55,7 +55,7 @@
                                                         lineBreakMode:NSLineBreakByWordWrapping];
     self.headlineLabel.frame = CGRectMake(self.headlineLabel.frame.origin.x, self.headlineLabel.frame.origin.y, headlineLabelSize.width, self.headlineLabel.frame.size.height);
     
-    self.bubbleView = [[[HEBubbleView alloc] initWithFrame:CGRectMake(self.headlineLabel.frame.origin.x+self.headlineLabel.frame.size.width+5, self.bubbleContainer.frame.origin.y, self.bubbleContainer.frame.size.width, self.bubbleContainer.frame.size.height)] autorelease];
+    self.bubbleView = [[HEBubbleView alloc] initWithFrame:CGRectMake(self.headlineLabel.frame.origin.x+self.headlineLabel.frame.size.width+5, self.bubbleContainer.frame.origin.y, self.bubbleContainer.frame.size.width, self.bubbleContainer.frame.size.height)];
     
     self.detailString = _descriptionString;
     
@@ -89,7 +89,7 @@
     HEBubbleViewItem *item = [bubbleView dequeueItemUsingReuseIdentifier:itemIdentifier];
     
     if (item == nil) {
-        item = [[[HEBubbleViewItem alloc] initWithReuseIdentifier:itemIdentifier] autorelease];
+        item = [[HEBubbleViewItem alloc] initWithReuseIdentifier:itemIdentifier];
     }
     
     item.textLabel.text = self.detailString;
@@ -136,18 +136,9 @@
 }
 
 - (void)dealloc {
-    self.headlineLabel = nil;
-    self.bubbleContainer = nil;
-    self.bubbleView = nil;
-    self.detailString = nil;
     
-    [headlineLabel release];
-    [bubbleContainer release];
-    [bubbleView release];
-    [detailString release];
     
     PBLog(@"deallocing %@", [self class]);
-    [super dealloc];
 }
 
 @end

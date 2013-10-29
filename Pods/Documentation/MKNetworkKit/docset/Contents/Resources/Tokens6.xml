@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSDictionary+RequestEncoding.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSDictionary(RequestEncoding)</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDictionary+RequestEncoding.h</DeclaredIn>
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDictionary(RequestEncoding)/urlEncodedKeyValueString</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDictionary+RequestEncoding.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)urlEncodedKeyValueString</Declaration>
+			
+			
+			<Anchor>//api/name/urlEncodedKeyValueString</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDictionary(RequestEncoding)/jsonEncodedKeyValueString</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDictionary+RequestEncoding.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)jsonEncodedKeyValueString</Declaration>
+			
+			
+			<Anchor>//api/name/jsonEncodedKeyValueString</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDictionary(RequestEncoding)/plistEncodedKeyValueString</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDictionary+RequestEncoding.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)plistEncodedKeyValueString</Declaration>
+			
+			
+			<Anchor>//api/name/plistEncodedKeyValueString</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

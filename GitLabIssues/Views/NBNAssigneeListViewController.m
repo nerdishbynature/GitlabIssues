@@ -13,10 +13,10 @@
 
 @interface NBNAssigneeListViewController ()
 
-@property (nonatomic, retain) NSArray *membersArray;
-@property (nonatomic, retain) NSArray *membersSearchArray;
-@property (nonatomic, retain) UISearchBar *searchBar;
-@property (nonatomic, retain) UISearchDisplayController *searchDisplayController;
+@property (nonatomic, strong) NSArray *membersArray;
+@property (nonatomic, strong) NSArray *membersSearchArray;
+@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) UISearchDisplayController *searchDisplayController;
 @property (nonatomic, assign) NSUInteger projectID;
 
 @end
@@ -30,7 +30,7 @@
 @synthesize projectID;
 
 +(NBNAssigneeListViewController *)loadControllerWithProjectID:(NSUInteger)_projectID{
-    NBNAssigneeListViewController *listController = [[[NBNAssigneeListViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+    NBNAssigneeListViewController *listController = [[NBNAssigneeListViewController alloc] initWithStyle:UITableViewStyleGrouped];
     listController.projectID = _projectID;
     listController.title = NSLocalizedString(@"Assignees", nil);
     [listController createSearchBar];
@@ -56,8 +56,8 @@
 - (void)createSearchBar {
     
     if (self.tableView && !self.tableView.tableHeaderView) {
-        self.searchBar = [[[UISearchBar alloc] init] autorelease];
-        self.searchDisplayController = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
+        self.searchBar = [[UISearchBar alloc] init];
+        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
         self.searchDisplayController.delegate = self;
@@ -98,7 +98,7 @@
     
     // Configure the cell...
     if (!cell) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
     
@@ -160,17 +160,9 @@
 
 - (void)dealloc
 {
-    self.membersArray = nil;
-    self.membersSearchArray = nil;
-    self.searchBar = nil;
-    self.searchDisplayController = nil;
     
-    [membersArray release];
-    [membersSearchArray release];
-    [searchDisplayController release];
     
     PBLog(@"deallocing %@", [self class]);
-    [super dealloc];
 }
 
 @end

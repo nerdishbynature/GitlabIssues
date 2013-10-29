@@ -15,9 +15,9 @@
 
 @interface NBNFavoritesViewController ()
 
-@property (nonatomic, retain) NSArray *favoriteArray;
-@property (nonatomic, retain) MBProgressHUD *HUD;
-@property (nonatomic, retain) NSIndexPath *tappedIndexPath;
+@property (nonatomic, strong) NSArray *favoriteArray;
+@property (nonatomic, strong) MBProgressHUD *HUD;
+@property (nonatomic, strong) NSIndexPath *tappedIndexPath;
 
 @end
 
@@ -48,7 +48,7 @@
     [button addTarget:self action:@selector(enterEditMode:) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
     
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
     [NBNBackButtonHelper setCustomBackButtonForViewController:self andNavigationItem:self.navigationItem];
 }
@@ -60,7 +60,7 @@
 }
 
 -(void)refreshFavorites{
-    self.HUD = [[[MBProgressHUD alloc] initWithView:self.navigationController.view] autorelease];
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.view addSubview:HUD];
     
 	// Show the HUD while the provided method executes in a new thread
@@ -98,7 +98,7 @@
     
     // Configure the cell...
     if (!cell) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     }
     
@@ -147,15 +147,8 @@
 }
 
 -(void)dealloc{
-    self.favoriteArray = nil;
-    self.HUD = nil;
-    self.tappedIndexPath = nil;
     
-    [tappedIndexPath release];
-    [favoriteArray release];
-    [HUD release];
     PBLog(@"deallocing %@", [self class]);
-    [super dealloc];
 }
 
 #pragma mark - IBActions
@@ -173,7 +166,7 @@
         [button addTarget:self action:@selector(enterEditMode:) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
         
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
         [self.tableView setEditing:NO animated:YES];
     }
     else {
@@ -186,7 +179,7 @@
         [button addTarget:self action:@selector(enterEditMode:) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
         
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
         [self.tableView setEditing:YES animated:YES];
     }
 }
@@ -199,7 +192,7 @@
 
     self.tappedIndexPath = nil;
     
-    [[NSManagedObjectContext MR_defaultContext] save];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
 }
 
 - (void)pushBackButton:(id)sender {

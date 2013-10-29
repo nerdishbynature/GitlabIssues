@@ -16,8 +16,8 @@
 
 @interface NBNHomeScreenViewController ()
 
-@property (nonatomic, retain) NSArray *menuArray;
-@property (nonatomic, retain) NSArray *domainArray;
+@property (nonatomic, strong) NSArray *menuArray;
+@property (nonatomic, strong) NSArray *domainArray;
 
 @end
 
@@ -43,12 +43,12 @@
     [button addTarget:self action:@selector(logout:) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
     
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.domainArray = [Domain findAll];
+    self.domainArray = [Domain MR_findAll];
     [self.tableView reloadData];
     
     UIImage *backgroundImage = [UIImage imageNamed:@"NavBar_home.png"];
@@ -60,7 +60,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    [[NSManagedObjectContext MR_defaultContext] saveNestedContexts];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
     
     if ([self.domainArray count] == 0) { // show login screen
         
@@ -120,7 +120,7 @@
     
     // Configure the cell...
     if (!cell) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
@@ -152,8 +152,6 @@
     
     [self presentViewController:navController animated:YES completion:nil];
     
-    [loginViewController release];
-    [navController release];
 }
 
 
@@ -170,35 +168,26 @@
             NBNFavoritesViewController *favorites = [[NBNFavoritesViewController alloc] initWithStyle:UITableViewStyleGrouped];
             [self.navigationController pushViewController:favorites animated:YES];
             
-            [favorites release];
         } else if (indexPath.row == 1){ // Find Repos
             NBNDashboardViewController *dashboard = [[NBNDashboardViewController alloc] initWithNibName:@"NBNDashboardViewController" bundle:nil];
             [self.navigationController pushViewController:dashboard animated:YES];
             
-            [dashboard release];
         } else if (indexPath.row == 2){ // Find Repos
             NBNFindReposViewController *findRepos = [[NBNFindReposViewController alloc] initWithStyle:UITableViewStyleGrouped];
             [self.navigationController pushViewController:findRepos animated:YES];
 
-            [findRepos release];
         }
         
     } else if (indexPath.section == 1){
         NBNProjectsViewController *projects = [[NBNProjectsViewController alloc] initWithStyle:UITableViewStyleGrouped];
         [self.navigationController pushViewController:projects animated:YES];
         
-        [projects release];
     }
 }
 
 -(void)dealloc{
-    self.menuArray = nil;
-    self.domainArray = nil;
     
-    [menuArray release];
-    [domainArray release];
     PBLog(@"deallocing %@", [self class]);
-    [super dealloc];
 }
 
 @end

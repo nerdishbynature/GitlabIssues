@@ -26,7 +26,7 @@
 @dynamic snippets;
 
 +(Author *)createAndParseJSON:(NSDictionary *)dict{
-    Author *author = [Author createEntity];
+    Author *author = [Author MR_createEntity];
     /*{
      
      "id": 1,

@@ -18,7 +18,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        self.backgroundView = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
+        self.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
     }
     return self;
 }
@@ -26,7 +26,7 @@
 -(void)configureView{
     SVSegmentedControl *navSC = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:NSLocalizedString(@"Open Issues", nil), NSLocalizedString(@"Closed Issues", nil), nil]];
     
-    navSC.selectedIndex = self.closed ? 1 : 0;
+    [navSC setSelectedSegmentIndex:self.closed ? 1 : 0 animated:YES];
     
     navSC.changeHandler = ^(NSUInteger newIndex) {
         if (newIndex == 0) {

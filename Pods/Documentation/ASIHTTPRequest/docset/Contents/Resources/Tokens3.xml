@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ASICloudFilesCDNRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ASICloudFilesCDNRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesCDNRequest/setAccountName:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *accountName</Declaration>
+			
+			
+			<Anchor>//api/name/accountName</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesCDNRequest/accountName</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *accountName</Declaration>
+			
+			
+			<Anchor>//api/name/accountName</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesCDNRequest/setContainerName:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *containerName</Declaration>
+			
+			
+			<Anchor>//api/name/containerName</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesCDNRequest/containerName</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *containerName</Declaration>
+			
+			
+			<Anchor>//api/name/containerName</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesCDNRequest/setXmlParserDelegate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) ASICloudFilesContainerXMLParserDelegate *xmlParserDelegate</Declaration>
+			
+			
+			<Anchor>//api/name/xmlParserDelegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASICloudFilesCDNRequest/xmlParserDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) ASICloudFilesContainerXMLParserDelegate *xmlParserDelegate</Declaration>
+			
+			
+			<Anchor>//api/name/xmlParserDelegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesCDNRequest/containerInfoRequest:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)containerInfoRequest:(NSString *)containerName</Declaration>
+			
+			
+			<Anchor>//api/name/containerInfoRequest:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesCDNRequest/cdnEnabled</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)cdnEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/cdnEnabled</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesCDNRequest/cdnURI</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)cdnURI</Declaration>
+			
+			
+			<Anchor>//api/name/cdnURI</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesCDNRequest/cdnTTL</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>- (NSUInteger)cdnTTL</Declaration>
+			
+			
+			<Anchor>//api/name/cdnTTL</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesCDNRequest/listRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)listRequest</Declaration>
+			
+			
+			<Anchor>//api/name/listRequest</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesCDNRequest/listRequestWithLimit:marker:enabledOnly:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)listRequestWithLimit:(NSUInteger)limit marker:(NSString *)marker enabledOnly:(BOOL)enabledOnly</Declaration>
+			
+			
+			<Anchor>//api/name/listRequestWithLimit:marker:enabledOnly:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASICloudFilesCDNRequest/containers</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)containers</Declaration>
+			
+			
+			<Anchor>//api/name/containers</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesCDNRequest/putRequestWithContainer:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)putRequestWithContainer:(NSString *)containerName</Declaration>
+			
+			
+			<Anchor>//api/name/putRequestWithContainer:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesCDNRequest/putRequestWithContainer:ttl:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)putRequestWithContainer:(NSString *)containerName ttl:(NSUInteger)ttl</Declaration>
+			
+			
+			<Anchor>//api/name/putRequestWithContainer:ttl:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesCDNRequest/postRequestWithContainer:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)postRequestWithContainer:(NSString *)containerName</Declaration>
+			
+			
+			<Anchor>//api/name/postRequestWithContainer:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASICloudFilesCDNRequest/postRequestWithContainer:cdnEnabled:ttl:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASICloudFilesCDNRequest.h</DeclaredIn>			
+			
+			<Declaration>+ (id)postRequestWithContainer:(NSString *)containerName cdnEnabled:(BOOL)cdnEnabled ttl:(NSUInteger)ttl</Declaration>
+			
+			
+			<Anchor>//api/name/postRequestWithContainer:cdnEnabled:ttl:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

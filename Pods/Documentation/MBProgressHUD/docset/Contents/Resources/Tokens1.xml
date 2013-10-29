@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/MBProgressHUD.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/MBProgressHUD</TokenIdentifier>
+			<Abstract type="html">Displays a simple HUD window containing a progress indicator and two optional labels for short messages.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/MBProgressHUD/showHUDAddedTo:animated:</TokenIdentifier>
+			<Abstract type="html">Creates a new HUD, adds it to provided view and shows it. The counterpart to this method is hideHUDForView:animated:.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/MBProgressHUD/hideHUDForView:animated:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/animationType</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (MBProgressHUD *)showHUDAddedTo:(UIView *)view animated:(BOOL)animated</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>view</Name>
+					<Abstract type="html">The view that the HUD will be added to</Abstract>
+				</Parameter><Parameter>
+					<Name>animated</Name>
+					<Abstract type="html">If set to YES the HUD will appear using the current animationType. If set to NO the HUD will not use
+animations while appearing.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A reference to the created HUD.</Abstract></ReturnValue>
+			<Anchor>//api/name/showHUDAddedTo:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/MBProgressHUD/hideHUDForView:animated:</TokenIdentifier>
+			<Abstract type="html">Finds the top-most HUD subview and hides it. The counterpart to this method is showHUDAddedTo:animated:.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/MBProgressHUD/showHUDAddedTo:animated:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/animationType</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (BOOL)hideHUDForView:(UIView *)view animated:(BOOL)animated</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>view</Name>
+					<Abstract type="html">The view that is going to be searched for a HUD subview.</Abstract>
+				</Parameter><Parameter>
+					<Name>animated</Name>
+					<Abstract type="html">If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use
+animations while disappearing.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">YES if a HUD was found and removed, NO otherwise.</Abstract></ReturnValue>
+			<Anchor>//api/name/hideHUDForView:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/MBProgressHUD/hideAllHUDsForView:animated:</TokenIdentifier>
+			<Abstract type="html">Finds all the HUD subviews and hides them.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/animationType</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (NSUInteger)hideAllHUDsForView:(UIView *)view animated:(BOOL)animated</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>view</Name>
+					<Abstract type="html">The view that is going to be searched for HUD subviews.</Abstract>
+				</Parameter><Parameter>
+					<Name>animated</Name>
+					<Abstract type="html">If set to YES the HUDs will disappear using the current animationType. If set to NO the HUDs will not use
+animations while disappearing.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">the number of HUDs found and removed.</Abstract></ReturnValue>
+			<Anchor>//api/name/hideAllHUDsForView:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/MBProgressHUD/HUDForView:</TokenIdentifier>
+			<Abstract type="html">Finds the top-most HUD subview and returns it.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>+ (MBProgressHUD *)HUDForView:(UIView *)view</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>view</Name>
+					<Abstract type="html">The view that is going to be searched.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A reference to the last HUD subview discovered.</Abstract></ReturnValue>
+			<Anchor>//api/name/HUDForView:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/MBProgressHUD/allHUDsForView:</TokenIdentifier>
+			<Abstract type="html">Finds all HUD subviews and returns them.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>+ (NSArray *)allHUDsForView:(UIView *)view</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>view</Name>
+					<Abstract type="html">The view that is going to be searched.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">All found HUD views (array of MBProgressHUD objects).</Abstract></ReturnValue>
+			<Anchor>//api/name/allHUDsForView:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/initWithWindow:</TokenIdentifier>
+			<Abstract type="html">A convenience constructor that initializes the HUD with the window&apos;s bounds. Calls the designated constructor with
+window.bounds as the parameter.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithWindow:(UIWindow *)window</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>window</Name>
+					<Abstract type="html">The window instance that will provide the bounds for the HUD. Should be the same instance as
+the HUD&apos;s superview (i.e., the window that the HUD will be added to).</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithWindow:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/initWithView:</TokenIdentifier>
+			<Abstract type="html">A convenience constructor that initializes the HUD with the view&apos;s bounds. Calls the designated constructor with
+view.bounds as the parameter</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithView:(UIView *)view</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>view</Name>
+					<Abstract type="html">The view instance that will provide the bounds for the HUD. Should be the same instance as
+the HUD&apos;s superview (i.e., the view that the HUD will be added to).</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithView:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/show:</TokenIdentifier>
+			<Abstract type="html">Display the HUD. You need to make sure that the main thread completes its run loop soon after this method call so
+the user interface can be updated. Call this method when your task is already set-up to be executed in a new thread
+(e.g., when using something like NSOperation or calling an asynchronous call like NSURLRequest).</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/animationType</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)show:(BOOL)animated</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>animated</Name>
+					<Abstract type="html">If set to YES the HUD will appear using the current animationType. If set to NO the HUD will not use
+animations while appearing.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/show:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/hide:</TokenIdentifier>
+			<Abstract type="html">Hide the HUD. This still calls the hudWasHidden: delegate. This is the counterpart of the show: method. Use it to
+hide the HUD when your task completes.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/animationType</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)hide:(BOOL)animated</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>animated</Name>
+					<Abstract type="html">If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use
+animations while disappearing.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/hide:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/hide:afterDelay:</TokenIdentifier>
+			<Abstract type="html">Hide the HUD after a delay. This still calls the hudWasHidden: delegate. This is the counterpart of the show: method. Use it to
+hide the HUD when your task completes.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/animationType</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)hide:(BOOL)animated afterDelay:(NSTimeInterval)delay</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>animated</Name>
+					<Abstract type="html">If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use
+animations while disappearing.</Abstract>
+				</Parameter><Parameter>
+					<Name>delay</Name>
+					<Abstract type="html">Delay in seconds until the HUD is hidden.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/hide:afterDelay:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/showWhileExecuting:onTarget:withObject:animated:</TokenIdentifier>
+			<Abstract type="html">Shows the HUD while a background task is executing in a new thread, then hides the HUD.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>- (void)showWhileExecuting:(SEL)method onTarget:(id)target withObject:(id)object animated:(BOOL)animated</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>method</Name>
+					<Abstract type="html">The method to be executed while the HUD is shown. This method will be executed in a new thread.</Abstract>
+				</Parameter><Parameter>
+					<Name>target</Name>
+					<Abstract type="html">The object that the target method belongs to.</Abstract>
+				</Parameter><Parameter>
+					<Name>object</Name>
+					<Abstract type="html">An optional object to be passed to the method.</Abstract>
+				</Parameter><Parameter>
+					<Name>animated</Name>
+					<Abstract type="html">If set to YES the HUD will (dis)appear using the current animationType. If set to NO the HUD will not use
+animations while (dis)appearing.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/showWhileExecuting:onTarget:withObject:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/showAnimated:whileExecutingBlock:</TokenIdentifier>
+			<Abstract type="html">Shows the HUD while a block is executing on a background queue, then hides the HUD.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>- (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block</Declaration>
+			
+			
+			<Anchor>//api/name/showAnimated:whileExecutingBlock:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/showAnimated:whileExecutingBlock:completionBlock:</TokenIdentifier>
+			<Abstract type="html">Shows the HUD while a block is executing on a background queue, then hides the HUD.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>- (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block completionBlock:(MBProgressHUDCompletionBlock)completion</Declaration>
+			
+			
+			<Anchor>//api/name/showAnimated:whileExecutingBlock:completionBlock:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/showAnimated:whileExecutingBlock:onQueue:</TokenIdentifier>
+			<Abstract type="html">Shows the HUD while a block is executing on the specified dispatch queue, then hides the HUD.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>- (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block onQueue:(dispatch_queue_t)queue</Declaration>
+			
+			
+			<Anchor>//api/name/showAnimated:whileExecutingBlock:onQueue:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/showAnimated:whileExecutingBlock:onQueue:completionBlock:</TokenIdentifier>
+			<Abstract type="html">Shows the HUD while a block is executing on the specified dispatch queue, executes completion block on the main queue, and then hides the HUD.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/completionBlock</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block onQueue:(dispatch_queue_t)queue completionBlock:(MBProgressHUDCompletionBlock)completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>animated</Name>
+					<Abstract type="html">If set to YES the HUD will (dis)appear using the current animationType. If set to NO the HUD will
+not use animations while (dis)appearing.</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The block to be executed while the HUD is shown.</Abstract>
+				</Parameter><Parameter>
+					<Name>queue</Name>
+					<Abstract type="html">The dispatch queue on which the block should be executed.</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">The block to be executed on completion.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/showAnimated:whileExecutingBlock:onQueue:completionBlock:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setCompletionBlock:</TokenIdentifier>
+			<Abstract type="html">A block that gets called after the HUD was completely hidden.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (copy) MBProgressHUDCompletionBlock completionBlock</Declaration>
+			
+			
+			<Anchor>//api/name/completionBlock</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/completionBlock</TokenIdentifier>
+			<Abstract type="html">A block that gets called after the HUD was completely hidden.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (copy) MBProgressHUDCompletionBlock completionBlock</Declaration>
+			
+			
+			<Anchor>//api/name/completionBlock</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setMode:</TokenIdentifier>
+			<Abstract type="html">MBProgressHUD operation mode. The default is MBProgressHUDModeIndeterminate.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) MBProgressHUDMode mode</Declaration>
+			
+			
+			<Anchor>//api/name/mode</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/mode</TokenIdentifier>
+			<Abstract type="html">MBProgressHUD operation mode. The default is MBProgressHUDModeIndeterminate.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) MBProgressHUDMode mode</Declaration>
+			
+			
+			<Anchor>//api/name/mode</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setAnimationType:</TokenIdentifier>
+			<Abstract type="html">The animation type that should be used when the HUD is shown and hidden.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) MBProgressHUDAnimation animationType</Declaration>
+			
+			
+			<Anchor>//api/name/animationType</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/animationType</TokenIdentifier>
+			<Abstract type="html">The animation type that should be used when the HUD is shown and hidden.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) MBProgressHUDAnimation animationType</Declaration>
+			
+			
+			<Anchor>//api/name/animationType</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setCustomView:</TokenIdentifier>
+			<Abstract type="html">The UIView (e.g., a UIImageView) to be shown when the HUD is in MBProgressHUDModeCustomView.
+For best results use a 37 by 37 pixel view (so the bounds match the built in indicator bounds).</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (MB_STRONG) UIView *customView</Declaration>
+			
+			
+			<Anchor>//api/name/customView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/customView</TokenIdentifier>
+			<Abstract type="html">The UIView (e.g., a UIImageView) to be shown when the HUD is in MBProgressHUDModeCustomView.
+For best results use a 37 by 37 pixel view (so the bounds match the built in indicator bounds).</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (MB_STRONG) UIView *customView</Declaration>
+			
+			
+			<Anchor>//api/name/customView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setDelegate:</TokenIdentifier>
+			<Abstract type="html">The HUD delegate object.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/intf/MBProgressHUDDelegate</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (MB_WEAK) id&lt;MBProgressHUDDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/delegate</TokenIdentifier>
+			<Abstract type="html">The HUD delegate object.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/intf/MBProgressHUDDelegate</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (MB_WEAK) id&lt;MBProgressHUDDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setLabelText:</TokenIdentifier>
+			<Abstract type="html">An optional short message to be displayed below the activity indicator. The HUD is automatically resized to fit
+the entire text. If the text is too long it will get clipped by displaying &quot;...&quot; at the end. If left unchanged or
+set to @&quot;&quot;, then no message is displayed.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (copy) NSString *labelText</Declaration>
+			
+			
+			<Anchor>//api/name/labelText</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/labelText</TokenIdentifier>
+			<Abstract type="html">An optional short message to be displayed below the activity indicator. The HUD is automatically resized to fit
+the entire text. If the text is too long it will get clipped by displaying &quot;...&quot; at the end. If left unchanged or
+set to @&quot;&quot;, then no message is displayed.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (copy) NSString *labelText</Declaration>
+			
+			
+			<Anchor>//api/name/labelText</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setDetailsLabelText:</TokenIdentifier>
+			<Abstract type="html">An optional details message displayed below the labelText message. This message is displayed only if the labelText
+property is also set and is different from an empty string (@&quot;&quot;). The details text can span multiple lines.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (copy) NSString *detailsLabelText</Declaration>
+			
+			
+			<Anchor>//api/name/detailsLabelText</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/detailsLabelText</TokenIdentifier>
+			<Abstract type="html">An optional details message displayed below the labelText message. This message is displayed only if the labelText
+property is also set and is different from an empty string (@&quot;&quot;). The details text can span multiple lines.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (copy) NSString *detailsLabelText</Declaration>
+			
+			
+			<Anchor>//api/name/detailsLabelText</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setOpacity:</TokenIdentifier>
+			<Abstract type="html">The opacity of the HUD window. Defaults to 0.8 (80% opacity).</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) float opacity</Declaration>
+			
+			
+			<Anchor>//api/name/opacity</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/opacity</TokenIdentifier>
+			<Abstract type="html">The opacity of the HUD window. Defaults to 0.8 (80% opacity).</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) float opacity</Declaration>
+			
+			
+			<Anchor>//api/name/opacity</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setColor:</TokenIdentifier>
+			<Abstract type="html">The color of the HUD window. Defaults to black. If this property is set, color is set using
+this UIColor and the opacity property is not used.  using retain because performing copy on
+UIColor base colors (like [UIColor greenColor]) cause problems with the copyZone.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (MB_STRONG) UIColor *color</Declaration>
+			
+			
+			<Anchor>//api/name/color</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/color</TokenIdentifier>
+			<Abstract type="html">The color of the HUD window. Defaults to black. If this property is set, color is set using
+this UIColor and the opacity property is not used.  using retain because performing copy on
+UIColor base colors (like [UIColor greenColor]) cause problems with the copyZone.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (MB_STRONG) UIColor *color</Declaration>
+			
+			
+			<Anchor>//api/name/color</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setXOffset:</TokenIdentifier>
+			<Abstract type="html">The x-axis offset of the HUD relative to the centre of the superview.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) float xOffset</Declaration>
+			
+			
+			<Anchor>//api/name/xOffset</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/xOffset</TokenIdentifier>
+			<Abstract type="html">The x-axis offset of the HUD relative to the centre of the superview.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) float xOffset</Declaration>
+			
+			
+			<Anchor>//api/name/xOffset</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setYOffset:</TokenIdentifier>
+			<Abstract type="html">The y-axis offset of the HUD relative to the centre of the superview.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) float yOffset</Declaration>
+			
+			
+			<Anchor>//api/name/yOffset</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/yOffset</TokenIdentifier>
+			<Abstract type="html">The y-axis offset of the HUD relative to the centre of the superview.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) float yOffset</Declaration>
+			
+			
+			<Anchor>//api/name/yOffset</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setMargin:</TokenIdentifier>
+			<Abstract type="html">The amount of space between the HUD edge and the HUD elements (labels, indicators or custom views).
+Defaults to 20.0</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) float margin</Declaration>
+			
+			
+			<Anchor>//api/name/margin</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/margin</TokenIdentifier>
+			<Abstract type="html">The amount of space between the HUD edge and the HUD elements (labels, indicators or custom views).
+Defaults to 20.0</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) float margin</Declaration>
+			
+			
+			<Anchor>//api/name/margin</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setDimBackground:</TokenIdentifier>
+			<Abstract type="html">Cover the HUD background view with a radial gradient.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) BOOL dimBackground</Declaration>
+			
+			
+			<Anchor>//api/name/dimBackground</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/dimBackground</TokenIdentifier>
+			<Abstract type="html">Cover the HUD background view with a radial gradient.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) BOOL dimBackground</Declaration>
+			
+			
+			<Anchor>//api/name/dimBackground</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setGraceTime:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) float graceTime</Declaration>
+			
+			
+			<Anchor>//api/name/graceTime</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/graceTime</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) float graceTime</Declaration>
+			
+			
+			<Anchor>//api/name/graceTime</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setMinShowTime:</TokenIdentifier>
+			<Abstract type="html">The minimum time (in seconds) that the HUD is shown.
+This avoids the problem of the HUD being shown and than instantly hidden.
+Defaults to 0 (no minimum show time).</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) float minShowTime</Declaration>
+			
+			
+			<Anchor>//api/name/minShowTime</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/minShowTime</TokenIdentifier>
+			<Abstract type="html">The minimum time (in seconds) that the HUD is shown.
+This avoids the problem of the HUD being shown and than instantly hidden.
+Defaults to 0 (no minimum show time).</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) float minShowTime</Declaration>
+			
+			
+			<Anchor>//api/name/minShowTime</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setTaskInProgress:</TokenIdentifier>
+			<Abstract type="html">Indicates that the executed operation is in progress. Needed for correct graceTime operation.
+If you don&apos;t set a graceTime (different than 0.0) this does nothing.
+This property is automatically set when using showWhileExecuting:onTarget:withObject:animated:.
+When threading is done outside of the HUD (i.e., when the show: and hide: methods are used directly),
+you need to set this property when your task starts and completes in order to have normal graceTime
+functionality.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) BOOL taskInProgress</Declaration>
+			
+			
+			<Anchor>//api/name/taskInProgress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/taskInProgress</TokenIdentifier>
+			<Abstract type="html">Indicates that the executed operation is in progress. Needed for correct graceTime operation.
+If you don&apos;t set a graceTime (different than 0.0) this does nothing.
+This property is automatically set when using showWhileExecuting:onTarget:withObject:animated:.
+When threading is done outside of the HUD (i.e., when the show: and hide: methods are used directly),
+you need to set this property when your task starts and completes in order to have normal graceTime
+functionality.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) BOOL taskInProgress</Declaration>
+			
+			
+			<Anchor>//api/name/taskInProgress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setRemoveFromSuperViewOnHide:</TokenIdentifier>
+			<Abstract type="html">Removes the HUD from its parent view when hidden.
+Defaults to NO.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) BOOL removeFromSuperViewOnHide</Declaration>
+			
+			
+			<Anchor>//api/name/removeFromSuperViewOnHide</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/removeFromSuperViewOnHide</TokenIdentifier>
+			<Abstract type="html">Removes the HUD from its parent view when hidden.
+Defaults to NO.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) BOOL removeFromSuperViewOnHide</Declaration>
+			
+			
+			<Anchor>//api/name/removeFromSuperViewOnHide</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setLabelFont:</TokenIdentifier>
+			<Abstract type="html">Font to be used for the main label. Set this property if the default is not adequate.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (MB_STRONG) UIFont *labelFont</Declaration>
+			
+			
+			<Anchor>//api/name/labelFont</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/labelFont</TokenIdentifier>
+			<Abstract type="html">Font to be used for the main label. Set this property if the default is not adequate.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (MB_STRONG) UIFont *labelFont</Declaration>
+			
+			
+			<Anchor>//api/name/labelFont</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setDetailsLabelFont:</TokenIdentifier>
+			<Abstract type="html">Font to be used for the details label. Set this property if the default is not adequate.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (MB_STRONG) UIFont *detailsLabelFont</Declaration>
+			
+			
+			<Anchor>//api/name/detailsLabelFont</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/detailsLabelFont</TokenIdentifier>
+			<Abstract type="html">Font to be used for the details label. Set this property if the default is not adequate.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (MB_STRONG) UIFont *detailsLabelFont</Declaration>
+			
+			
+			<Anchor>//api/name/detailsLabelFont</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setProgress:</TokenIdentifier>
+			<Abstract type="html">The progress of the progress indicator, from 0.0 to 1.0. Defaults to 0.0.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) float progress</Declaration>
+			
+			
+			<Anchor>//api/name/progress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/progress</TokenIdentifier>
+			<Abstract type="html">The progress of the progress indicator, from 0.0 to 1.0. Defaults to 0.0.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) float progress</Declaration>
+			
+			
+			<Anchor>//api/name/progress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setMinSize:</TokenIdentifier>
+			<Abstract type="html">The minimum size of the HUD bezel. Defaults to CGSizeZero (no minimum size).</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) CGSize minSize</Declaration>
+			
+			
+			<Anchor>//api/name/minSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/minSize</TokenIdentifier>
+			<Abstract type="html">The minimum size of the HUD bezel. Defaults to CGSizeZero (no minimum size).</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) CGSize minSize</Declaration>
+			
+			
+			<Anchor>//api/name/minSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBProgressHUD/setSquare:</TokenIdentifier>
+			<Abstract type="html">Force the HUD dimensions to be equal if possible.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, getter=isSquare) BOOL square</Declaration>
+			
+			
+			<Anchor>//api/name/square</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBProgressHUD/square</TokenIdentifier>
+			<Abstract type="html">Force the HUD dimensions to be equal if possible.</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, getter=isSquare) BOOL square</Declaration>
+			
+			
+			<Anchor>//api/name/square</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

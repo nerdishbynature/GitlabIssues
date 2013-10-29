@@ -13,14 +13,14 @@
 
 @interface MergeRequest : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * closed;
-@property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSNumber * merged;
-@property (nonatomic, retain) NSNumber * project_id;
-@property (nonatomic, retain) NSString * source_branch;
-@property (nonatomic, retain) NSString * target_branch;
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) Assignee *assignee;
-@property (nonatomic, retain) Author *author;
+@property (nonatomic, strong) NSNumber * closed;
+@property (nonatomic, strong) NSNumber * identifier;
+@property (nonatomic, strong) NSNumber * merged;
+@property (nonatomic, strong) NSNumber * project_id;
+@property (nonatomic, strong) NSString * source_branch;
+@property (nonatomic, strong) NSString * target_branch;
+@property (nonatomic, strong) NSString * title;
+@property (nonatomic, strong) Assignee *assignee;
+@property (nonatomic, strong) Author *author;
 
 @end

@@ -12,8 +12,6 @@
 #import "NBNUsersConnection.h"
 #import "NBNMilestoneConnection.h"
 #import "NSString+NSHash.h"
-#import "ASIHTTPRequest.h"
-#import "ASIDownloadCache.h"
 
 #import "Issue.h"
 #import "Assignee.h"
@@ -33,11 +31,11 @@
 
 @interface NBNIssueDetailViewController ()
 
-@property (nonatomic, retain) Issue *issue;
-@property (nonatomic, retain) UITableView *tableView;
-@property (nonatomic, retain) NSString *commentString;
-@property (nonatomic, retain) UITextField *textField;
-@property (nonatomic, retain) MBProgressHUD *HUD;
+@property (nonatomic, strong) Issue *issue;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSString *commentString;
+@property (nonatomic, strong) UITextField *textField;
+@property (nonatomic, strong) MBProgressHUD *HUD;
 
 @end
 
@@ -50,9 +48,9 @@
 @synthesize HUD;
 
 +(NBNIssueDetailViewController *)loadViewControllerWithIssue:(Issue *)_issue{
-    NBNIssueDetailViewController *issueController = [[[NBNIssueDetailViewController alloc] init] autorelease];
+    NBNIssueDetailViewController *issueController = [[NBNIssueDetailViewController alloc] init];
     issueController.issue = _issue;
-    issueController.tableView = [[[UITableView alloc] initWithFrame:CGRectMake(0, 0, issueController.view.frame.size.width, issueController.view.frame.size.height-42.f-40.f) style:UITableViewStylePlain] autorelease]; //42.f is navbar image height
+    issueController.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, issueController.view.frame.size.width, issueController.view.frame.size.height-42.f-40.f) style:UITableViewStylePlain]; //42.f is navbar image height
     issueController.tableView.delegate = issueController;
     issueController.tableView.dataSource = issueController;
     issueController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -76,7 +74,7 @@
     [button addTarget:self action:@selector(editIssue) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
     
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -92,7 +90,7 @@
 }
 
 -(void)refreshData{
-    self.HUD = [[[MBProgressHUD alloc] initWithView:self.navigationController.view] autorelease];
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.view addSubview:HUD];
     
 	// Show the HUD while the provided method executes in a new thread
@@ -122,10 +120,10 @@
     
     
     
-    self.textField = [[[UITextField alloc] initWithFrame:CGRectMake(10.0f,
+    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f,
                                                                    6.0f,
                                                                    toolBar.bounds.size.width - 20.0f - 68.0f,
-                                                                   30.0f)] autorelease];
+                                                                   30.0f)];
     self.textField.borderStyle = UITextBorderStyleRoundedRect;
     self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.textField.delegate = self;
@@ -148,7 +146,8 @@
     
     
     self.view.keyboardTriggerOffset = toolBar.bounds.size.height;
-    
+
+
     [self.view addKeyboardPanningWithActionHandler:^(CGRect keyboardFrameInView) {
         /*
          Try not to call "self" inside this block (retain cycle).
@@ -157,14 +156,14 @@
          [self.view removeKeyboardControl];
          */
         
-        CGRect toolBarFrame = toolBar.frame;
-        toolBarFrame.origin.y = keyboardFrameInView.origin.y - toolBarFrame.size.height;
-        toolBar.frame = toolBarFrame;
-        
-        CGRect tableViewFrame = self.tableView.frame;
-        tableViewFrame.size.height = toolBarFrame.origin.y;
-        self.tableView.frame = tableViewFrame;
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.tableView numberOfRowsInSection:0]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+//        CGRect toolBarFrame = toolBar.frame;
+//        toolBarFrame.origin.y = keyboardFrameInView.origin.y - toolBarFrame.size.height;
+//        toolBar.frame = toolBarFrame;
+//        
+//        CGRect tableViewFrame = blockSelf.tableView.frame;
+//        tableViewFrame.size.height = toolBarFrame.origin.y;
+//        self.tableView.frame = tableViewFrame;
+//        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.tableView numberOfRowsInSection:0]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }];
 }
 
@@ -176,7 +175,6 @@
     
     [self presentViewController:navController animated:YES completion:nil];
     
-    [navController release];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -258,7 +256,7 @@
             cell = [NBNIssueCommentCell loadCellFromNib];
         }
         
-        NSSortDescriptor *descriptor = [[[NSSortDescriptor alloc] initWithKey:@"created_at" ascending:YES] autorelease];
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"created_at" ascending:YES];
         NSArray *descriptors = @[descriptor];
         Note *note = [[[self.issue.notes allObjects] sortedArrayUsingDescriptors:descriptors] objectAtIndex:indexPath.row-5];
         
@@ -289,7 +287,7 @@
             cell = [NBNIssueCommentCell loadCellFromNib];
         }
         
-        NSSortDescriptor *descriptor = [[[NSSortDescriptor alloc] initWithKey:@"created_at" ascending:YES] autorelease];
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"created_at" ascending:YES];
         NSArray *descriptors = @[descriptor];
         Note *note = [[[self.issue.notes allObjects] sortedArrayUsingDescriptors:descriptors] objectAtIndex:indexPath.row-5];
         return [cell getHeightForCellWithNote:note];
@@ -414,20 +412,9 @@
 }
 
 -(void)dealloc{
-    self.issue = nil;
-    self.tableView = nil;
-    self.commentString = nil;
-    self.textField = nil;
-    self.HUD = nil;
     
-    [issue release];
-    [tableView release];
-    [commentString release];
-    [textField release];
-    [HUD release];
     
     PBLog(@"deallocing %@", [self class]);
-    [super dealloc];
 }
 
 @end

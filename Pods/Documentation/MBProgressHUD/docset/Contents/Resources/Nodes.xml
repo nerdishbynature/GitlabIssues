@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocSetNodes version="1.0">
+    <TOC>
+        <Node type="folder">
+            <Name>MBProgressHUD 0.6</Name>
+            <Path>index.html</Path>
+			<Subnodes>
+                
+				
+				<Node type="folder">
+					<Name>Classes</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="1"/>
+						<NodeRef refid="2"/>
+						
+					</Subnodes>
+				</Node>
+				
+				
+				
+				<Node type="folder">
+					<Name>Protocols</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="3"/>
+						
+					</Subnodes>
+				</Node>
+				
+			</Subnodes>
+        </Node>
+    </TOC>
+	<Library>
+		
+		<Node id="1">
+			<Name>MBProgressHUD</Name>
+			<Path>Classes/MBProgressHUD.html</Path>
+		</Node>
+		<Node id="2">
+			<Name>MBRoundProgressView</Name>
+			<Path>Classes/MBRoundProgressView.html</Path>
+		</Node>
+		
+		
+		<Node id="3">
+			<Name>MBProgressHUDDelegate</Name>
+			<Path>Protocols/MBProgressHUDDelegate.html</Path>
+		</Node>
+		
+	</Library>
+</DocSetNodes>

@@ -20,7 +20,7 @@
 
 @interface NBNFilterComponentsCell : UITableViewCell <HEBubbleViewDataSource, HEBubbleViewDelegate>
 
-@property (nonatomic, assign) id<NBNFilterComponentsCellDelegate> delegate;
+@property (nonatomic, weak) id<NBNFilterComponentsCellDelegate> delegate;
 
 +(NBNFilterComponentsCell *)loadCellFromNib;
 

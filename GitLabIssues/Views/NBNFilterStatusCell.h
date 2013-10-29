@@ -16,7 +16,7 @@
 
 @interface NBNFilterStatusCell : UITableViewCell
 
-@property (nonatomic, assign) id<NBNFilterStatusCellDelegate> delegate;
+@property (nonatomic, weak) id<NBNFilterStatusCellDelegate> delegate;
 @property (nonatomic, assign) BOOL closed;
 
 -(void)configureView;

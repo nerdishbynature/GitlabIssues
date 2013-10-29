@@ -16,8 +16,8 @@
 #import "WBErrorNoticeView.h"
 
 @interface NBNIssueEditViewController ()
-@property (nonatomic, retain) FKFormModel *formModel;
-@property (nonatomic, retain) Issue *issue;
+@property (nonatomic, strong) FKFormModel *formModel;
+@property (nonatomic, strong) Issue *issue;
 @end
 
 @implementation NBNIssueEditViewController
@@ -26,7 +26,7 @@
 @synthesize editMode;
 
 +(NBNIssueEditViewController *)loadViewControllerWithIssue:(Issue *)_issue{
-    NBNIssueEditViewController *editViewController = [[[NBNIssueEditViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+    NBNIssueEditViewController *editViewController = [[NBNIssueEditViewController alloc] initWithStyle:UITableViewStyleGrouped];
     editViewController.issue = _issue;
     editViewController.view.backgroundColor = [UIColor whiteColor];
     
@@ -103,14 +103,14 @@
                 
                 if (![value isEqual:NSLocalizedString(@"None", nil)]) {
                     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@", value];
-                    self.issue.milestone = [[Milestone findAllWithPredicate:predicate] objectAtIndex:0];
+                    self.issue.milestone = [[Milestone MR_findAllWithPredicate:predicate] objectAtIndex:0];
                     
-                    [[NSManagedObjectContext MR_defaultContext] MR_save];
+                    [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
                     
                     return self.issue.milestone;
                 }else{
                     self.issue.milestone = nil;
-                    [[NSManagedObjectContext MR_defaultContext] MR_save];
+                    [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
                     
                     return self.issue.milestone;
                 }
@@ -144,9 +144,9 @@
         } valueFromSelectBlock:^id(id value, id object, NSInteger selectedValueIndex) {
             
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", value];
-            self.issue.assignee = [[Assignee findAllWithPredicate:predicate] objectAtIndex:0];
+            self.issue.assignee = [[Assignee MR_findAllWithPredicate:predicate] objectAtIndex:0];
             
-            [[NSManagedObjectContext MR_defaultContext] MR_save];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
             
             return self.issue.assignee;
         } labelValueBlock:^id(id value, id object) {
@@ -165,7 +165,7 @@
     [button addTarget:self action:@selector(discard) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
     
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
 	UIButton *applybutton = [UIButton buttonWithType:UIButtonTypeCustom];
 	[applybutton setTitle:NSLocalizedString(@"Apply", nil) forState:UIControlStateNormal];
@@ -175,7 +175,7 @@
     [applybutton addTarget:self action:@selector(saveIssue) forControlEvents:UIControlEventTouchUpInside];
     [applybutton setBackgroundImage:[UIImage imageNamed:@"BarButtonPlain.png"] forState:UIControlStateNormal];
     
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:applybutton] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:applybutton];
 }
 
 -(void)discard{
@@ -183,7 +183,6 @@
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Do you want to discard your changes?", nil) message:@"" delegate:self cancelButtonTitle:NSLocalizedString(@"Keep", nil) otherButtonTitles:NSLocalizedString(@"Discard", nil), nil];
     [alert show];
-    [alert release];
 }
 
 -(void)saveIssue{
@@ -203,7 +202,7 @@
                 
                 [notice show];
             } else{
-                [[NSManagedObjectContext MR_defaultContext] MR_save];
+                [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
          
@@ -213,7 +212,7 @@
         [self.issue createANewOnServerOnSuccess:^(BOOL success){
             if (success) {
                 [self dismissViewControllerAnimated:YES completion:nil];
-                [[NSManagedObjectContext MR_defaultContext] MR_save];
+                [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
             } else{
                 WBErrorNoticeView *notice = [WBErrorNoticeView errorNoticeInView:self.tableView
                                                                           title:NSLocalizedString(@"Error", nil)
@@ -251,14 +250,9 @@
 }
 
 -(void)dealloc{
-    self.formModel = nil;
-    self.issue = nil;
     
-    [formModel release];
-    [issue release];
 
     PBLog(@"deallocing %@", [self class]);
-    [super dealloc];
 }
 
 @end

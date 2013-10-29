@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/ASIProgressDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/ASIProgressDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIProgressDelegate.h</DeclaredIn>
+			
+			<NodeRef refid="26"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASIProgressDelegate/setProgress:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIProgressDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)setProgress:(float)newProgress</Declaration>
+			
+			
+			<Anchor>//api/name/setProgress:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASIProgressDelegate/setDoubleValue:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIProgressDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)setDoubleValue:(double)newProgress</Declaration>
+			
+			
+			<Anchor>//api/name/setDoubleValue:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASIProgressDelegate/setMaxValue:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIProgressDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)setMaxValue:(double)newMax</Declaration>
+			
+			
+			<Anchor>//api/name/setMaxValue:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASIProgressDelegate/request:didReceiveBytes:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIProgressDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)request:(ASIHTTPRequest *)request didReceiveBytes:(long long)bytes</Declaration>
+			
+			
+			<Anchor>//api/name/request:didReceiveBytes:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASIProgressDelegate/request:didSendBytes:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIProgressDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)request:(ASIHTTPRequest *)request didSendBytes:(long long)bytes</Declaration>
+			
+			
+			<Anchor>//api/name/request:didSendBytes:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASIProgressDelegate/request:incrementDownloadSizeBy:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIProgressDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)request:(ASIHTTPRequest *)request incrementDownloadSizeBy:(long long)newLength</Declaration>
+			
+			
+			<Anchor>//api/name/request:incrementDownloadSizeBy:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ASIProgressDelegate/request:incrementUploadSizeBy:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIProgressDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)request:(ASIHTTPRequest *)request incrementUploadSizeBy:(long long)newLength</Declaration>
+			
+			
+			<Anchor>//api/name/request:incrementUploadSizeBy:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

@@ -1,0 +1,9 @@
+language: objective-c
+branches:
+  only:
+    - master
+    - develop
+before_install:
+  - brew update
+  - brew install xctool --HEAD
+  - pod install

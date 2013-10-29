@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/MKNetworkOperation.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/MKNetworkOperation</TokenIdentifier>
+			<Abstract type="html">@class MKNetworkOperation
+@abstract Represents a single unique network operation.</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setUrl:</TokenIdentifier>
+			<Abstract type="html">@abstract Request URL Property
+@property url</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy, readonly) NSString *url</Declaration>
+			
+			
+			<Anchor>//api/name/url</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/url</TokenIdentifier>
+			<Abstract type="html">@abstract Request URL Property
+@property url</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy, readonly) NSString *url</Declaration>
+			
+			
+			<Anchor>//api/name/url</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setReadonlyRequest:</TokenIdentifier>
+			<Abstract type="html">@abstract The internal request object
+@property readonlyRequest</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSURLRequest *readonlyRequest</Declaration>
+			
+			
+			<Anchor>//api/name/readonlyRequest</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/readonlyRequest</TokenIdentifier>
+			<Abstract type="html">@abstract The internal request object
+@property readonlyRequest</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSURLRequest *readonlyRequest</Declaration>
+			
+			
+			<Anchor>//api/name/readonlyRequest</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setReadonlyResponse:</TokenIdentifier>
+			<Abstract type="html">@abstract The internal HTTP Response Object
+@property readonlyResponse</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSHTTPURLResponse *readonlyResponse</Declaration>
+			
+			
+			<Anchor>//api/name/readonlyResponse</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/readonlyResponse</TokenIdentifier>
+			<Abstract type="html">@abstract The internal HTTP Response Object
+@property readonlyResponse</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSHTTPURLResponse *readonlyResponse</Declaration>
+			
+			
+			<Anchor>//api/name/readonlyResponse</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setReadonlyPostDictionary:</TokenIdentifier>
+			<Abstract type="html">@abstract The internal HTTP Post data values
+@property readonlyPostDictionary</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy, readonly) NSDictionary *readonlyPostDictionary</Declaration>
+			
+			
+			<Anchor>//api/name/readonlyPostDictionary</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/readonlyPostDictionary</TokenIdentifier>
+			<Abstract type="html">@abstract The internal HTTP Post data values
+@property readonlyPostDictionary</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy, readonly) NSDictionary *readonlyPostDictionary</Declaration>
+			
+			
+			<Anchor>//api/name/readonlyPostDictionary</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setHTTPMethod:</TokenIdentifier>
+			<Abstract type="html">@abstract The internal request object&apos;s method type
+@property HTTPMethod</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy, readonly) NSString *HTTPMethod</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPMethod</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/HTTPMethod</TokenIdentifier>
+			<Abstract type="html">@abstract The internal request object&apos;s method type
+@property HTTPMethod</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy, readonly) NSString *HTTPMethod</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPMethod</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setHTTPStatusCode:</TokenIdentifier>
+			<Abstract type="html">@abstract The internal response object&apos;s status code
+@property HTTPStatusCode</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSInteger HTTPStatusCode</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPStatusCode</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/HTTPStatusCode</TokenIdentifier>
+			<Abstract type="html">@abstract The internal response object&apos;s status code
+@property HTTPStatusCode</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSInteger HTTPStatusCode</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPStatusCode</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setPostDataEncoding:</TokenIdentifier>
+			<Abstract type="html">@abstract Post Data Encoding Type Property
+@property postDataEncoding</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) MKNKPostDataEncodingType postDataEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/postDataEncoding</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/postDataEncoding</TokenIdentifier>
+			<Abstract type="html">@abstract Post Data Encoding Type Property
+@property postDataEncoding</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) MKNKPostDataEncodingType postDataEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/postDataEncoding</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setCustomPostDataEncodingHandler:forType:</TokenIdentifier>
+			<Abstract type="html">@abstract Set a customized Post Data Encoding Handler for a given HTTP Content Type</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)setCustomPostDataEncodingHandler:(MKNKEncodingBlock)postDataEncodingHandler forType:(NSString *)contentType</Declaration>
+			
+			
+			<Anchor>//api/name/setCustomPostDataEncodingHandler:forType:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setStringEncoding:</TokenIdentifier>
+			<Abstract type="html">@abstract String Encoding Property
+@property stringEncoding</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) NSStringEncoding stringEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/stringEncoding</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/stringEncoding</TokenIdentifier>
+			<Abstract type="html">@abstract String Encoding Property
+@property stringEncoding</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) NSStringEncoding stringEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/stringEncoding</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setFreezable:</TokenIdentifier>
+			<Abstract type="html">@abstract Freezable request
+@property freezable</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL freezable</Declaration>
+			
+			
+			<Anchor>//api/name/freezable</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/freezable</TokenIdentifier>
+			<Abstract type="html">@abstract Freezable request
+@property freezable</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL freezable</Declaration>
+			
+			
+			<Anchor>//api/name/freezable</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setError:</TokenIdentifier>
+			<Abstract type="html">@abstract Error object
+@property error</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSError *error</Declaration>
+			
+			
+			<Anchor>//api/name/error</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/error</TokenIdentifier>
+			<Abstract type="html">@abstract Error object
+@property error</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSError *error</Declaration>
+			
+			
+			<Anchor>//api/name/error</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setShouldContinueWithInvalidCertificate:</TokenIdentifier>
+			<Abstract type="html">@abstract Boolean variable that states whether the operation should continue if the certificate is invalid.
+@property shouldContinueWithInvalidCertificate</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL shouldContinueWithInvalidCertificate</Declaration>
+			
+			
+			<Anchor>//api/name/shouldContinueWithInvalidCertificate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/shouldContinueWithInvalidCertificate</TokenIdentifier>
+			<Abstract type="html">@abstract Boolean variable that states whether the operation should continue if the certificate is invalid.
+@property shouldContinueWithInvalidCertificate</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL shouldContinueWithInvalidCertificate</Declaration>
+			
+			
+			<Anchor>//api/name/shouldContinueWithInvalidCertificate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setCacheHeaders:</TokenIdentifier>
+			<Abstract type="html">@abstract Cache headers of the response
+@property cacheHeaders</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (strong, nonatomic) NSMutableDictionary *cacheHeaders</Declaration>
+			
+			
+			<Anchor>//api/name/cacheHeaders</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/cacheHeaders</TokenIdentifier>
+			<Abstract type="html">@abstract Cache headers of the response
+@property cacheHeaders</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (strong, nonatomic) NSMutableDictionary *cacheHeaders</Declaration>
+			
+			
+			<Anchor>//api/name/cacheHeaders</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setUsername:password:</TokenIdentifier>
+			<Abstract type="html">@abstract Authentication methods</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)setUsername:(NSString *)name password:(NSString *)password</Declaration>
+			
+			
+			<Anchor>//api/name/setUsername:password:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setUsername:password:basicAuth:</TokenIdentifier>
+			<Abstract type="html">@abstract Authentication methods</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)setUsername:(NSString *)username password:(NSString *)password basicAuth:(BOOL)bYesOrNo</Declaration>
+			
+			
+			<Anchor>//api/name/setUsername:password:basicAuth:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setClientCertificate:</TokenIdentifier>
+			<Abstract type="html">@abstract Authentication methods (Client Certificate)
+@property clientCertificate</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (copy, nonatomic) NSString *clientCertificate</Declaration>
+			
+			
+			<Anchor>//api/name/clientCertificate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/clientCertificate</TokenIdentifier>
+			<Abstract type="html">@abstract Authentication methods (Client Certificate)
+@property clientCertificate</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (copy, nonatomic) NSString *clientCertificate</Declaration>
+			
+			
+			<Anchor>//api/name/clientCertificate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setClientCertificatePassword:</TokenIdentifier>
+			<Abstract type="html">@abstract Authentication methods (Password for the Client Certificate)
+@property clientCertificatePassword</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (copy, nonatomic) NSString *clientCertificatePassword</Declaration>
+			
+			
+			<Anchor>//api/name/clientCertificatePassword</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/clientCertificatePassword</TokenIdentifier>
+			<Abstract type="html">@abstract Authentication methods (Password for the Client Certificate)
+@property clientCertificatePassword</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (copy, nonatomic) NSString *clientCertificatePassword</Declaration>
+			
+			
+			<Anchor>//api/name/clientCertificatePassword</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setAuthHandler:</TokenIdentifier>
+			<Abstract type="html">@abstract Custom authentication handler
+@property authHandler</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) MKNKAuthBlock authHandler</Declaration>
+			
+			
+			<Anchor>//api/name/authHandler</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/authHandler</TokenIdentifier>
+			<Abstract type="html">@abstract Custom authentication handler
+@property authHandler</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) MKNKAuthBlock authHandler</Declaration>
+			
+			
+			<Anchor>//api/name/authHandler</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setOperationStateChangedHandler:</TokenIdentifier>
+			<Abstract type="html">@abstract Handler that you implement to monitor reachability changes
+@property operationStateChangedHandler</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (copy, nonatomic) void ( ^ ) ( MKNetworkOperationState newState ) operationStateChangedHandler</Declaration>
+			
+			
+			<Anchor>//api/name/operationStateChangedHandler</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/operationStateChangedHandler</TokenIdentifier>
+			<Abstract type="html">@abstract Handler that you implement to monitor reachability changes
+@property operationStateChangedHandler</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (copy, nonatomic) void ( ^ ) ( MKNetworkOperationState newState ) operationStateChangedHandler</Declaration>
+			
+			
+			<Anchor>//api/name/operationStateChangedHandler</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setCredentialPersistence:</TokenIdentifier>
+			<Abstract type="html">@abstract controls persistence of authentication credentials
+@property credentialPersistence</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) NSURLCredentialPersistence credentialPersistence</Declaration>
+			
+			
+			<Anchor>//api/name/credentialPersistence</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/credentialPersistence</TokenIdentifier>
+			<Abstract type="html">@abstract controls persistence of authentication credentials
+@property credentialPersistence</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) NSURLCredentialPersistence credentialPersistence</Declaration>
+			
+			
+			<Anchor>//api/name/credentialPersistence</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setLocalNotification:</TokenIdentifier>
+			<Abstract type="html">@abstract notification that has to be shown when an error occurs and the app is in background
+@property localNotification</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UILocalNotification *localNotification</Declaration>
+			
+			
+			<Anchor>//api/name/localNotification</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/localNotification</TokenIdentifier>
+			<Abstract type="html">@abstract notification that has to be shown when an error occurs and the app is in background
+@property localNotification</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UILocalNotification *localNotification</Declaration>
+			
+			
+			<Anchor>//api/name/localNotification</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setShouldShowLocalNotificationOnError:</TokenIdentifier>
+			<Abstract type="html">*  @abstract Shows a local notification when an error occurs
+*  @property shouldShowLocalNotificationOnError
+*
+*  @discussion
+*  The default value NO. No notification is shown when an error occurs.
+*  When set to YES, MKNetworkKit shows the NSError localizedDescription text as a notification when the app is in background and the network operation ended in error.
+*  To customize the local notification text, use the property localNotification</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL shouldShowLocalNotificationOnError</Declaration>
+			
+			
+			<Anchor>//api/name/shouldShowLocalNotificationOnError</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MKNetworkOperation/shouldShowLocalNotificationOnError</TokenIdentifier>
+			<Abstract type="html">*  @abstract Shows a local notification when an error occurs
+*  @property shouldShowLocalNotificationOnError
+*
+*  @discussion
+*  The default value NO. No notification is shown when an error occurs.
+*  When set to YES, MKNetworkKit shows the NSError localizedDescription text as a notification when the app is in background and the network operation ended in error.
+*  To customize the local notification text, use the property localNotification</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL shouldShowLocalNotificationOnError</Declaration>
+			
+			
+			<Anchor>//api/name/shouldShowLocalNotificationOnError</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/addHeaders:</TokenIdentifier>
+			<Abstract type="html">@abstract Add additional header parameters</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)addHeaders:(NSDictionary *)headersDictionary</Declaration>
+			
+			
+			<Anchor>//api/name/addHeaders:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setAuthorizationHeaderValue:forAuthType:</TokenIdentifier>
+			<Abstract type="html">@abstract Sets the authorization header after prefixing it with a given auth type</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)setAuthorizationHeaderValue:(NSString *)token forAuthType:(NSString *)authType</Declaration>
+			
+			
+			<Anchor>//api/name/setAuthorizationHeaderValue:forAuthType:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/addFile:forKey:</TokenIdentifier>
+			<Abstract type="html">@abstract Attaches a file to the request</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)addFile:(NSString *)filePath forKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/addFile:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/addFile:forKey:mimeType:</TokenIdentifier>
+			<Abstract type="html">@abstract Attaches a file to the request and allows you to specify a mime-type</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)addFile:(NSString *)filePath forKey:(NSString *)key mimeType:(NSString *)mimeType</Declaration>
+			
+			
+			<Anchor>//api/name/addFile:forKey:mimeType:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/addData:forKey:</TokenIdentifier>
+			<Abstract type="html">@abstract Attaches a resource to the request from a NSData pointer</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)addData:(NSData *)data forKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/addData:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/addData:forKey:mimeType:fileName:</TokenIdentifier>
+			<Abstract type="html">@abstract Attaches a resource to the request from a NSData pointer and allows you to specify a mime-type</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)addData:(NSData *)data forKey:(NSString *)key mimeType:(NSString *)mimeType fileName:(NSString *)fileName</Declaration>
+			
+			
+			<Anchor>//api/name/addData:forKey:mimeType:fileName:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/onCompletion:onError:</TokenIdentifier>
+			<Abstract type="html">@abstract Block Handler for completion and error</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)onCompletion:(MKNKResponseBlock)response onError:(MKNKErrorBlock)error</Declaration>
+			
+			
+			<Anchor>//api/name/onCompletion:onError:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/addCompletionHandler:errorHandler:</TokenIdentifier>
+			<Abstract type="html">@abstract adds a block Handler for completion and error</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)addCompletionHandler:(MKNKResponseBlock)response errorHandler:(MKNKResponseErrorBlock)error</Declaration>
+			
+			
+			<Anchor>//api/name/addCompletionHandler:errorHandler:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/onNotModified:</TokenIdentifier>
+			<Abstract type="html">@abstract Block Handler for tracking 304 not modified state</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)onNotModified:(MKNKVoidBlock)notModifiedBlock</Declaration>
+			
+			
+			<Anchor>//api/name/onNotModified:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/onUploadProgressChanged:</TokenIdentifier>
+			<Abstract type="html">@abstract Block Handler for tracking upload progress</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)onUploadProgressChanged:(MKNKProgressBlock)uploadProgressBlock</Declaration>
+			
+			
+			<Anchor>//api/name/onUploadProgressChanged:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/onDownloadProgressChanged:</TokenIdentifier>
+			<Abstract type="html">@abstract Block Handler for tracking download progress</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)onDownloadProgressChanged:(MKNKProgressBlock)downloadProgressBlock</Declaration>
+			
+			
+			<Anchor>//api/name/onDownloadProgressChanged:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setUploadStream:</TokenIdentifier>
+			<Abstract type="html">@abstract Uploads a resource from a stream</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)setUploadStream:(NSInputStream *)inputStream</Declaration>
+			
+			
+			<Anchor>//api/name/setUploadStream:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/addDownloadStream:</TokenIdentifier>
+			<Abstract type="html">@abstract Downloads a resource directly to a file or any output stream</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)addDownloadStream:(NSOutputStream *)outputStream</Declaration>
+			
+			
+			<Anchor>//api/name/addDownloadStream:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/isCachedResponse</TokenIdentifier>
+			<Abstract type="html">@abstract Helper method to check if the response is from cache</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)isCachedResponse</Declaration>
+			
+			
+			<Anchor>//api/name/isCachedResponse</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/responseData</TokenIdentifier>
+			<Abstract type="html">@abstract Helper method to retrieve the contents</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (NSData *)responseData</Declaration>
+			
+			
+			<Anchor>//api/name/responseData</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/responseString</TokenIdentifier>
+			<Abstract type="html">@abstract Helper method to retrieve the contents as a NSString</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)responseString</Declaration>
+			
+			
+			<Anchor>//api/name/responseString</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/curlCommandLineString</TokenIdentifier>
+			<Abstract type="html">@abstract Helper method to print the request as a cURL command</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)curlCommandLineString</Declaration>
+			
+			
+			<Anchor>//api/name/curlCommandLineString</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/responseStringWithEncoding:</TokenIdentifier>
+			<Abstract type="html">@abstract Helper method to retrieve the contents as a NSString encoded using a specific string encoding</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)responseStringWithEncoding:(NSStringEncoding)encoding</Declaration>
+			
+			
+			<Anchor>//api/name/responseStringWithEncoding:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/responseImage</TokenIdentifier>
+			<Abstract type="html">@abstract Helper method to retrieve the contents as a UIImage</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (UIImage *)responseImage</Declaration>
+			
+			
+			<Anchor>//api/name/responseImage</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/decompressedResponseImageOfSize:completionHandler:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)decompressedResponseImageOfSize:(CGSize)size completionHandler:(void ( ^ ) ( UIImage *decompressedImage ))imageDecompressionHandler</Declaration>
+			
+			
+			<Anchor>//api/name/decompressedResponseImageOfSize:completionHandler:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/responseXML</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (NSXMLDocument *)responseXML</Declaration>
+			
+			
+			<Anchor>//api/name/responseXML</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/responseJSON</TokenIdentifier>
+			<Abstract type="html">*  @abstract Helper method to retrieve the contents as a NSDictionary or NSArray depending on the JSON contents
+*
+*  @discussion
+*	This method is used for accessing the downloaded data as a NSDictionary or an NSArray. If the operation is still in progress, the method returns nil. If the response is not a valid JSON, this method returns nil.
+*
+*  @seealso
+*  responseJSONWithCompletionHandler:</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (id)responseJSON</Declaration>
+			
+			
+			<Anchor>//api/name/responseJSON</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/responseJSONWithCompletionHandler:</TokenIdentifier>
+			<Abstract type="html">@abstract Helper method to retrieve the contents as a NSDictionary or NSArray depending on the JSON contents in the background</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)responseJSONWithCompletionHandler:(void ( ^ ) ( id jsonObject ))jsonDecompressionHandler</Declaration>
+			
+			
+			<Anchor>//api/name/responseJSONWithCompletionHandler:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/operationSucceeded</TokenIdentifier>
+			<Abstract type="html">@abstract Overridable custom method where you can add your custom business logic error handling</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)operationSucceeded</Declaration>
+			
+			
+			<Anchor>//api/name/operationSucceeded</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/operationFailedWithError:</TokenIdentifier>
+			<Abstract type="html">@abstract Overridable custom method where you can add your custom business logic error handling</Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)operationFailedWithError:(NSError *)error</Declaration>
+			
+			
+			<Anchor>//api/name/operationFailedWithError:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/isCacheable</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)isCacheable</Declaration>
+			
+			
+			<Anchor>//api/name/isCacheable</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setCachedData:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)setCachedData:(NSData *)cachedData</Declaration>
+			
+			
+			<Anchor>//api/name/setCachedData:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/setCacheHandler:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)setCacheHandler:(MKNKResponseBlock)cacheHandler</Declaration>
+			
+			
+			<Anchor>//api/name/setCacheHandler:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/updateHandlersFromOperation:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)updateHandlersFromOperation:(MKNetworkOperation *)operation</Declaration>
+			
+			
+			<Anchor>//api/name/updateHandlersFromOperation:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/updateOperationBasedOnPreviousHeaders:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (void)updateOperationBasedOnPreviousHeaders:(NSMutableDictionary *)headers</Declaration>
+			
+			
+			<Anchor>//api/name/updateOperationBasedOnPreviousHeaders:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/uniqueIdentifier</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)uniqueIdentifier</Declaration>
+			
+			
+			<Anchor>//api/name/uniqueIdentifier</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKNetworkOperation/initWithURLString:params:httpMethod:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MKNetworkOperation.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithURLString:(NSString *)aURLString params:(NSDictionary *)params httpMethod:(NSString *)method</Declaration>
+			
+			
+			<Anchor>//api/name/initWithURLString:params:httpMethod:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

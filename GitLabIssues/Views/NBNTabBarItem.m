@@ -10,7 +10,7 @@
 
 @interface NBNTabBarItem ()
 
-@property (nonatomic, retain) UIImage *customHighlightedImage;
+@property (nonatomic, strong) UIImage *customHighlightedImage;
 
 @end
 
@@ -26,12 +26,6 @@
     return self;
 }
 
-- (void)dealloc {
-    self.customHighlightedImage = nil;
-    
-    [customHighlightedImage release];
-    [super dealloc];
-}
 
 -(UIImage *)selectedImage {
     return self.customHighlightedImage;

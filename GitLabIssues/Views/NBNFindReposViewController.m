@@ -15,11 +15,11 @@
 
 @interface NBNFindReposViewController ()
 
-@property (nonatomic, retain) NSArray *projectsArray;
-@property (nonatomic, retain) UISearchDisplayController *searchDisplayController;
-@property (nonatomic, retain) UISearchBar *searchBar;
-@property (nonatomic, retain) NSArray *projectsSearchResults;
-@property (nonatomic, retain) MBProgressHUD *HUD;
+@property (nonatomic, strong) NSArray *projectsArray;
+@property (nonatomic, strong) UISearchDisplayController *searchDisplayController;
+@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) NSArray *projectsSearchResults;
+@property (nonatomic, strong) MBProgressHUD *HUD;
 
 @end
 
@@ -44,8 +44,8 @@
 - (void)createSearchBar {
     
     if (self.tableView && !self.tableView.tableHeaderView) {
-        self.searchBar = [[[UISearchBar alloc] init] autorelease];
-        self.searchDisplayController = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
+        self.searchBar = [[UISearchBar alloc] init];
+        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
         self.searchDisplayController.delegate = self;
@@ -61,14 +61,14 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.HUD = [[[MBProgressHUD alloc] initWithView:self.navigationController.view] autorelease];
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.view addSubview:HUD];
     
 	// Show the HUD while the provided method executes in a new thread
 	[HUD show:YES];
     
-    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain findAll] lastObject] onSuccess:^{
-        self.projectsArray = [Project findAllSortedBy:@"identifier" ascending:YES];
+    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain MR_findAll] lastObject] onSuccess:^{
+        self.projectsArray = [Project MR_findAllSortedBy:@"identifier" ascending:YES];
         [self.tableView reloadData];
         [HUD setHidden:YES];
         [self.HUD removeFromSuperview];
@@ -111,7 +111,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
@@ -164,20 +164,9 @@
 }
 
 -(void)dealloc{
-    self.projectsArray = nil;
-    self.searchDisplayController = nil;
-    self.searchBar = nil;
-    self.projectsSearchResults = nil;
-    self.HUD = nil;
     
-    [projectsArray release];
-    [searchDisplayController release];
-    [searchBar release];
-    [projectsSearchResults release];
-    [HUD release];
     
     PBLog(@"deallocing %@", [self class]);
-    [super dealloc];
 }
 
 @end

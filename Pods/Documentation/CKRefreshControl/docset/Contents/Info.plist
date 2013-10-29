@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.cocoapods.ckrefreshcontrol.CKRefreshControl-1.1.0</string>
+	<key>CFBundleName</key>
+	<string>CKRefreshControl 1.1.0 Documentation</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	
+	
+	<key>DocSetDescription</key>
+	<string>A pull-to-refresh view for iOS 5, 100% API-compatible with UIRefreshControl in iOS 6.</string>
+	
+	<key>DocSetFeedName</key>
+	<string>CKRefreshControl 1.1.0 Documentation</string>
+	
+	<key>DocSetMinimumXcodeVersion</key>
+	<string>3.0</string>
+	
+	<key>DashDocSetFamily</key>
+	<string>appledoc</string>
+	<key>DocSetPublisherIdentifier</key>
+	<string>org.cocoapods.ckrefreshcontrol.documentation</string>
+	<key>DocSetPublisherName</key>
+	<string>Instructure, Inc.</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Instructure, Inc.</string>
+</dict>
+</plist>

@@ -23,7 +23,7 @@
 @dynamic filter;
 
 +(Milestone *)createAndParseJSON:(NSDictionary *)dict andProjectID:(NSUInteger)projectID{
-    Milestone *milestone = [Milestone createEntity];
+    Milestone *milestone = [Milestone MR_createEntity];
     /*
      "milestone": {
      "id": 1,

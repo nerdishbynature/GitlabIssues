@@ -38,12 +38,12 @@ extern NSString *const kKeySortIssuesFilter;
 /**
   Used to tell the associated view controller which filter to apply
  */
-@property (nonatomic, assign) id<NBNIssueFilterDelegate> delegate;
+@property (nonatomic, weak) id<NBNIssueFilterDelegate> delegate;
 
 /**
   Project used fot this ViewController
  */
-@property (nonatomic, retain) Project *project;
+@property (nonatomic, strong) Project *project;
 
 /**
  This is used to allocate and initialize the view controller using a Filter object

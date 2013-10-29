@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ASIAuthenticationDialog.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ASIAuthenticationDialog</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIAuthenticationDialog.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIAuthenticationDialog/presentAuthenticationDialogForRequest:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIAuthenticationDialog.h</DeclaredIn>			
+			
+			<Declaration>+ (void)presentAuthenticationDialogForRequest:(ASIHTTPRequest *)request</Declaration>
+			
+			
+			<Anchor>//api/name/presentAuthenticationDialogForRequest:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIAuthenticationDialog/dismiss</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIAuthenticationDialog.h</DeclaredIn>			
+			
+			<Declaration>+ (void)dismiss</Declaration>
+			
+			
+			<Anchor>//api/name/dismiss</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIAuthenticationDialog/setRequest:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIAuthenticationDialog.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) ASIHTTPRequest *request</Declaration>
+			
+			
+			<Anchor>//api/name/request</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIAuthenticationDialog/request</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIAuthenticationDialog.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) ASIHTTPRequest *request</Declaration>
+			
+			
+			<Anchor>//api/name/request</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIAuthenticationDialog/setType:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIAuthenticationDialog.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) ASIAuthenticationType type</Declaration>
+			
+			
+			<Anchor>//api/name/type</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIAuthenticationDialog/type</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIAuthenticationDialog.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) ASIAuthenticationType type</Declaration>
+			
+			
+			<Anchor>//api/name/type</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIAuthenticationDialog/setDidEnableRotationNotifications:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIAuthenticationDialog.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) BOOL didEnableRotationNotifications</Declaration>
+			
+			
+			<Anchor>//api/name/didEnableRotationNotifications</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIAuthenticationDialog/didEnableRotationNotifications</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIAuthenticationDialog.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) BOOL didEnableRotationNotifications</Declaration>
+			
+			
+			<Anchor>//api/name/didEnableRotationNotifications</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIAuthenticationDialog/setPresentingController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIAuthenticationDialog.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) UIViewController *presentingController</Declaration>
+			
+			
+			<Anchor>//api/name/presentingController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIAuthenticationDialog/presentingController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIAuthenticationDialog.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) UIViewController *presentingController</Declaration>
+			
+			
+			<Anchor>//api/name/presentingController</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

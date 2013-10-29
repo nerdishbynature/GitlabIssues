@@ -18,7 +18,7 @@
 
 @interface NBNIssueDetailCell : UITableViewCell <HEBubbleViewDataSource, HEBubbleViewDelegate>
 
-@property (nonatomic, assign) id<NBNIssueDetailCellDelegate> delegate;
+@property (nonatomic, weak) id<NBNIssueDetailCellDelegate> delegate;
 
 +(NBNIssueDetailCell *)loadCellFromNib;
 

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ASIS3Request.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ASIS3Request</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>
+			
+			<NodeRef refid="21"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3Request/setDate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>- (void)setDate:(NSDate *)date</Declaration>
+			
+			
+			<Anchor>//api/name/setDate:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3Request/S3Headers</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>- (NSMutableDictionary *)S3Headers</Declaration>
+			
+			
+			<Anchor>//api/name/S3Headers</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3Request/stringToSignForHeaders:resource:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringToSignForHeaders:(NSString *)canonicalizedAmzHeaders resource:(NSString *)canonicalizedResource</Declaration>
+			
+			
+			<Anchor>//api/name/stringToSignForHeaders:resource:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3Request/parseResponseXML</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>- (void)parseResponseXML</Declaration>
+			
+			
+			<Anchor>//api/name/parseResponseXML</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3Request/sharedAccessKey</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)sharedAccessKey</Declaration>
+			
+			
+			<Anchor>//api/name/sharedAccessKey</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3Request/setSharedAccessKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setSharedAccessKey:(NSString *)newAccessKey</Declaration>
+			
+			
+			<Anchor>//api/name/setSharedAccessKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3Request/sharedSecretAccessKey</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)sharedSecretAccessKey</Declaration>
+			
+			
+			<Anchor>//api/name/sharedSecretAccessKey</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3Request/setSharedSecretAccessKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setSharedSecretAccessKey:(NSString *)newAccessKey</Declaration>
+			
+			
+			<Anchor>//api/name/setSharedSecretAccessKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3Request/S3ResponseDateFormatter</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDateFormatter *)S3ResponseDateFormatter</Declaration>
+			
+			
+			<Anchor>//api/name/S3ResponseDateFormatter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3Request/S3RequestDateFormatter</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDateFormatter *)S3RequestDateFormatter</Declaration>
+			
+			
+			<Anchor>//api/name/S3RequestDateFormatter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3Request/stringByURLEncodingForS3Path:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)stringByURLEncodingForS3Path:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/stringByURLEncodingForS3Path:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIS3Request/S3Host</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)S3Host</Declaration>
+			
+			
+			<Anchor>//api/name/S3Host</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3Request/buildURL</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>- (void)buildURL</Declaration>
+			
+			
+			<Anchor>//api/name/buildURL</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3Request/setDateString:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *dateString</Declaration>
+			
+			
+			<Anchor>//api/name/dateString</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3Request/dateString</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *dateString</Declaration>
+			
+			
+			<Anchor>//api/name/dateString</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3Request/setAccessKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *accessKey</Declaration>
+			
+			
+			<Anchor>//api/name/accessKey</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3Request/accessKey</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *accessKey</Declaration>
+			
+			
+			<Anchor>//api/name/accessKey</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3Request/setSecretAccessKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *secretAccessKey</Declaration>
+			
+			
+			<Anchor>//api/name/secretAccessKey</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3Request/secretAccessKey</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *secretAccessKey</Declaration>
+			
+			
+			<Anchor>//api/name/secretAccessKey</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3Request/setAccessPolicy:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *accessPolicy</Declaration>
+			
+			
+			<Anchor>//api/name/accessPolicy</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3Request/accessPolicy</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *accessPolicy</Declaration>
+			
+			
+			<Anchor>//api/name/accessPolicy</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3Request/setCurrentXMLElementContent:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *currentXMLElementContent</Declaration>
+			
+			
+			<Anchor>//api/name/currentXMLElementContent</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3Request/currentXMLElementContent</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *currentXMLElementContent</Declaration>
+			
+			
+			<Anchor>//api/name/currentXMLElementContent</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3Request/setCurrentXMLElementStack:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSMutableArray *currentXMLElementStack</Declaration>
+			
+			
+			<Anchor>//api/name/currentXMLElementStack</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3Request/currentXMLElementStack</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSMutableArray *currentXMLElementStack</Declaration>
+			
+			
+			<Anchor>//api/name/currentXMLElementStack</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIS3Request/setRequestScheme:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *requestScheme</Declaration>
+			
+			
+			<Anchor>//api/name/requestScheme</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIS3Request/requestScheme</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIS3Request.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSString *requestScheme</Declaration>
+			
+			
+			<Anchor>//api/name/requestScheme</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

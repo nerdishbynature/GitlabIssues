@@ -12,8 +12,9 @@
 #import "Milestone.h"
 #import "Domain.h"
 #import "Session.h"
-#import "ASIHTTPRequest.h"
 #import "WBErrorNoticeView.h"
+#import <AFNetworking/AFHTTPClient.h>
+#import <AFNetworking/AFHTTPRequestOperation.h>
 
 @implementation Issue
 
@@ -31,7 +32,7 @@
 @dynamic notes;
 
 +(Issue *)createAndParseJSON:(NSDictionary *)dict{
-    Issue *issue = [Issue createEntity];
+    Issue *issue = [Issue MR_createEntity];
     /*{
      "id": 42,
      "project_id": 8,
@@ -79,35 +80,28 @@
 //@see https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/issues.md#edit-issue
 
 -(void)saveChangesonSuccess:(void (^)(BOOL))block{
-    Domain *domain = [[Domain findAll] lastObject];
+    Domain *domain = [[Domain MR_findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@?private_token=%@",domain.protocol, domain.domain, self.project_id , self.identifier, session.private_token]];
-        PBLog(@"url %@", url);
+
+        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
         
-        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-        [request setValidatesSecureCertificate:NO];
-        [request setRequestMethod:@"PUT"];
+        NSDictionary *params = [self toJSON];
         
-        [request appendPostData:[self toJSON]];
-        
-        [request setCompletionBlock:^{
-            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
-        
-            if (request.responseStatusCode == 200) {
+        [httpClient postPath:@"" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:operation.responseData options:kNilOptions error:nil];
+            
+            if (operation.response.statusCode == 200) {
                 [self parseServerResponse:responseDict];
                 block(YES);
             } else{
                 block(NO);
             }
-        }];
-        
-        [request setFailedBlock:^{
-            PBLog(@"%@", request.error);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            PBLog(@"%@", error);
             block(NO);
         }];
-        
-        [request startAsynchronous];
     }];
 }
 
@@ -115,36 +109,27 @@
 
 -(void)createANewOnServerOnSuccess:(void(^)(BOOL success))block{
     
-    Domain *domain = [[Domain findAll] lastObject];
+    Domain *domain = [[Domain MR_findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@",domain.protocol, domain.domain, self.project_id, session.private_token]];
-        PBLog(@"url %@", url);
         
-        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-        [request setValidatesSecureCertificate:NO];
-        [request setRequestMethod:@"POST"];
+        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
         
-        [request appendPostData:[self toCreateJSON]];
-        
-        [request setCompletionBlock:^{
-            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
+        NSDictionary *params = [self toCreateJSON];
+        [httpClient postPath:@"/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:operation.responseData options:kNilOptions error:nil];
             
-            if (request.responseStatusCode == 201) {
+            if (operation.response.statusCode == 201) {
                 [self parseServerResponse:responseDict];
                 block(YES);
             } else{
                 block(NO);
             }
-            
-        }];
-        
-        [request setFailedBlock:^{
-            PBLog(@"%@", request.error);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            PBLog(@"%@", error);
             block(NO);
         }];
-        
-        [request startAsynchronous];
     }];
 }
 
@@ -199,12 +184,11 @@
     self.created_at = [formatter dateFromString:[dict objectForKey:@"created_at"]];
     self.updated_at = [formatter dateFromString:[dict objectForKey:@"updated_at"]];
     
-    [formatter release];
 }
 
 #pragma mark - toJSON
 
--(NSData *)toCreateJSON{
+-(NSDictionary *)toCreateJSON{
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:self.project_id forKey:@"id"];
     
@@ -223,10 +207,10 @@
         [dict setValue:@"null" forKey:@"milestone_id"];
     }
     
-    return [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:nil];
+    return dict;
 }
 
--(NSData *)toJSON{
+-(NSDictionary *)toJSON{
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:self.project_id forKey:@"id"];
     [dict setValue:self.identifier forKey:@"issue_id"];
@@ -257,7 +241,7 @@
 
 
     
-    return [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:nil];
+    return dict;
 }
 
 -(NSData *)milestoneToJSON{

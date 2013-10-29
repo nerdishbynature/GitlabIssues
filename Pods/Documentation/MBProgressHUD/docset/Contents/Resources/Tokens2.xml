@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/MBRoundProgressView.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/MBRoundProgressView</TokenIdentifier>
+			<Abstract type="html">A progress view for showing definite progress by filling up a circle (pie chart).</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBRoundProgressView/setProgress:</TokenIdentifier>
+			<Abstract type="html">Progress (0.0 to 1.0)</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) float progress</Declaration>
+			
+			
+			<Anchor>//api/name/progress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBRoundProgressView/progress</TokenIdentifier>
+			<Abstract type="html">Progress (0.0 to 1.0)</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) float progress</Declaration>
+			
+			
+			<Anchor>//api/name/progress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBRoundProgressView/setProgressTintColor:</TokenIdentifier>
+			<Abstract type="html">Indicator progress color.
+Defaults to white [UIColor whiteColor]</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, MB_STRONG) UIColor *progressTintColor</Declaration>
+			
+			
+			<Anchor>//api/name/progressTintColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBRoundProgressView/progressTintColor</TokenIdentifier>
+			<Abstract type="html">Indicator progress color.
+Defaults to white [UIColor whiteColor]</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, MB_STRONG) UIColor *progressTintColor</Declaration>
+			
+			
+			<Anchor>//api/name/progressTintColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBRoundProgressView/setBackgroundTintColor:</TokenIdentifier>
+			<Abstract type="html">Indicator background (nonprogress color.
+Defaults to translucent white (alpha 0.1)</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, MB_STRONG) UIColor *backgroundTintColor</Declaration>
+			
+			
+			<Anchor>//api/name/backgroundTintColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBRoundProgressView/backgroundTintColor</TokenIdentifier>
+			<Abstract type="html">Indicator background (nonprogress color.
+Defaults to translucent white (alpha 0.1)</Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, MB_STRONG) UIColor *backgroundTintColor</Declaration>
+			
+			
+			<Anchor>//api/name/backgroundTintColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MBRoundProgressView/setAnnular:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, getter=isAnnular) BOOL annular</Declaration>
+			
+			
+			<Anchor>//api/name/annular</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MBRoundProgressView/annular</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MBProgressHUD.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, getter=isAnnular) BOOL annular</Declaration>
+			
+			
+			<Anchor>//api/name/annular</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

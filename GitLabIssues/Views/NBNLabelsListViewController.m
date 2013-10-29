@@ -11,10 +11,10 @@
 
 @interface NBNLabelsListViewController ()
 
-@property (nonatomic, retain) NSArray *labelsArray;
-@property (nonatomic, retain) NSArray *labelsSearchArray;
-@property (nonatomic, retain) UISearchBar *searchBar;
-@property (nonatomic, retain) UISearchDisplayController *searchDisplayController;
+@property (nonatomic, strong) NSArray *labelsArray;
+@property (nonatomic, strong) NSArray *labelsSearchArray;
+@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) UISearchDisplayController *searchDisplayController;
 @property (nonatomic, assign) NSUInteger projectID;
 
 @end
@@ -28,7 +28,7 @@
 @synthesize projectID;
 
 +(NBNLabelsListViewController *)loadControllerWithProjectID:(NSUInteger)_projectID{
-    NBNLabelsListViewController *listController = [[[NBNLabelsListViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+    NBNLabelsListViewController *listController = [[NBNLabelsListViewController alloc] initWithStyle:UITableViewStyleGrouped];
     listController.projectID = _projectID;
     listController.title = NSLocalizedString(@"Milestones", nil);
     [listController createSearchBar];
@@ -49,8 +49,8 @@
 - (void)createSearchBar {
     
     if (self.tableView && !self.tableView.tableHeaderView) {
-        self.searchBar = [[[UISearchBar alloc] init] autorelease];
-        self.searchDisplayController = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
+        self.searchBar = [[UISearchBar alloc] init];
+        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
         self.searchDisplayController.delegate = self;
@@ -91,7 +91,7 @@
     
     // Configure the cell...
     if (!cell) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
 //    Label *label;
@@ -148,18 +148,9 @@
 
 - (void)dealloc
 {
-    self.labelsArray = nil;
-    self.labelsSearchArray = nil;
-    self.searchBar = nil;
-    self.searchDisplayController = nil;
     
-    [labelsArray release];
-    [labelsSearchArray release];
-    [searchBar release];
-    [searchDisplayController release];
     
     PBLog(@"deallocing %@", [self class]);
-    [super dealloc];
 }
 
 @end

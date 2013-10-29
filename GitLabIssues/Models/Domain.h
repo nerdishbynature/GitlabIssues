@@ -12,12 +12,12 @@
 
 @interface Domain : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * access_granted;
-@property (nonatomic, retain) NSString * domain;
-@property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSString * password;
-@property (nonatomic, retain) NSString * protocol;
-@property (nonatomic, retain) NSNumber * remember_me;
+@property (nonatomic, strong) NSNumber * access_granted;
+@property (nonatomic, strong) NSString * domain;
+@property (nonatomic, strong) NSString * email;
+@property (nonatomic, strong) NSString * password;
+@property (nonatomic, strong) NSString * protocol;
+@property (nonatomic, strong) NSNumber * remember_me;
 
 /**
   Only used for FormKit

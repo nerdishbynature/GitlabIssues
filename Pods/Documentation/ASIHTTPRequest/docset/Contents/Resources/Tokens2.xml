@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ASIAutorotatingViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ASIAutorotatingViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIAuthenticationDialog.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

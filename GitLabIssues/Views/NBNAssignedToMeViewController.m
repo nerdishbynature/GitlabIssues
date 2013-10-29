@@ -19,8 +19,8 @@
 
 @interface NBNAssignedToMeViewController ()
 
-@property (nonatomic, retain) NSMutableArray *projects;
-@property (nonatomic, retain) MBProgressHUD *HUD;
+@property (nonatomic, strong) NSMutableArray *projects;
+@property (nonatomic, strong) MBProgressHUD *HUD;
 
 @end
 
@@ -45,7 +45,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    self.HUD = [[[MBProgressHUD alloc] initWithView:self.navigationController.view] autorelease];
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.view addSubview:HUD];
 	
 	// Regiser for HUD callbacks so we can remove it from the window at the right time
@@ -70,7 +70,7 @@
 
 -(void)loadAllIssues{
     
-    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain findAll] lastObject] onSuccess:^{
+    [[NBNProjectConnection sharedConnection] loadProjectsForDomain:[[Domain MR_findAll] lastObject] onSuccess:^{
         [[NBNIssuesConnection sharedConnection] loadAllIssuesOnSuccess:^{
             [self reloadResults];
             [self.HUD hide:YES];
@@ -85,7 +85,7 @@
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         NSArray *projectArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] orderByDescending:@"identifier"] toArray];
         
-        self.projects = [[[NSMutableArray alloc] init] autorelease];
+        self.projects = [[NSMutableArray alloc] init];
         
         for (Project *project in projectArray) {
             NSArray *issues = [[[[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Issue"] where:@"assignee.identifier == %@", session.identifier] where:@"closed == 0"] where:@"project_id == %@", project.identifier] orderByDescending:@"updated_at"] toArray];
@@ -182,13 +182,8 @@
 
 - (void)dealloc
 {
-    self.projects = nil;
-    self.HUD = nil;
     
-    [projects release];
-    [HUD release];
     PBLog(@"deallocing %@", [self class]);
-    [super dealloc];
 }
 
 @end

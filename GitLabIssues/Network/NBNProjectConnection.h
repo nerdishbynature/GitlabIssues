@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASIHTTPRequest.h"
-#import "ASIDownloadCache.h"
 #import "Project.h"
 #import "Domain.h"
 #import "Session.h"

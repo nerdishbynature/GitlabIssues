@@ -13,10 +13,10 @@
 
 @interface NBNMilestonesListViewController ()
 
-@property (nonatomic, retain) NSArray *milestonesArray;
-@property (nonatomic, retain) NSArray *milestonesSearchArray;
-@property (nonatomic, retain) UISearchBar *searchBar;
-@property (nonatomic, retain) UISearchDisplayController *searchDisplayController;
+@property (nonatomic, strong) NSArray *milestonesArray;
+@property (nonatomic, strong) NSArray *milestonesSearchArray;
+@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) UISearchDisplayController *searchDisplayController;
 @property (nonatomic, assign) NSUInteger projectID;
 
 @end
@@ -30,7 +30,7 @@
 @synthesize projectID;
 
 +(NBNMilestonesListViewController *)loadControllerWithProjectID:(NSUInteger)_projectID{
-    NBNMilestonesListViewController *listController = [[[NBNMilestonesListViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+    NBNMilestonesListViewController *listController = [[NBNMilestonesListViewController alloc] initWithStyle:UITableViewStyleGrouped];
     listController.projectID = _projectID;
     listController.title = NSLocalizedString(@"Milestones", nil);
     [listController createSearchBar];
@@ -57,8 +57,8 @@
 - (void)createSearchBar {
     
     if (self.tableView && !self.tableView.tableHeaderView) {
-        self.searchBar = [[[UISearchBar alloc] init] autorelease];
-        self.searchDisplayController = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
+        self.searchBar = [[UISearchBar alloc] init];
+        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
         self.searchDisplayController.delegate = self;
@@ -99,7 +99,7 @@
     
     // Configure the cell...
     if (!cell) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     Milestone *milestone;
@@ -160,18 +160,9 @@
 
 - (void)dealloc
 {
-    self.milestonesArray = nil;
-    self.milestonesSearchArray = nil;
-    self.searchBar = nil;
-    self.searchDisplayController = nil;
     
-    [milestonesArray release];
-    [milestonesSearchArray release];
-    [searchBar release];
-    [searchDisplayController release];
     
     PBLog(@"deallocing %@", [self class]);
-    [super dealloc];
 }
 
 @end

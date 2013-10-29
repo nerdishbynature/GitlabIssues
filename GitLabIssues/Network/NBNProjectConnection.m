@@ -8,21 +8,19 @@
 
 #import "NBNProjectConnection.h"
 #import "User.h"
-#import "NBNGitlabEngine.h"
 #import "NBNReachabilityChecker.h"
+#import <AFNetworking/AFJSONRequestOperation.h>
 
 @interface NBNProjectConnection ()
 
-@property (nonatomic, retain) NBNGitlabEngine *projectConnection;
-@property (nonatomic, retain) NBNGitlabEngine *membersConnection;
+@property (nonatomic, strong) AFJSONRequestOperation *projectOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *membersOperation;
 
 @end
 
 static NBNProjectConnection* sharedConnection = nil;
 
 @implementation NBNProjectConnection
-@synthesize projectConnection;
-@synthesize membersConnection;
 
 + (NBNProjectConnection *) sharedConnection {
     
@@ -45,9 +43,11 @@ static NBNProjectConnection* sharedConnection = nil;
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {        
         
-        self.projectConnection = [[[NBNGitlabEngine alloc] init] autorelease];
-        [self.projectConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects?private_token=%@", domain.protocol, domain.domain, session.private_token] completionHandler:^(MKNetworkOperation *request) {
-            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects?private_token=%@", domain.protocol, domain.domain, session.private_token]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        self.projectOperation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            NSArray *array = JSON;
             
             for (NSDictionary *dict in array) {
                 
@@ -56,20 +56,22 @@ static NBNProjectConnection* sharedConnection = nil;
                 if ([[Project MR_findAllWithPredicate:projectFinder] count] == 0) { // new Project
                     [Project createAndParseJSON:dict];
                 } else if ([[Project MR_findAllWithPredicate:projectFinder] count] == 1){ // update Project
-                    Project *project = [[[[[NSManagedObjectContext defaultContext] ofType:@"Project"] where:@"identifier == %i", [[dict objectForKey:@"id"] integerValue]] toArray] objectAtIndex:0];
+                    Project *project = [[[[[NSManagedObjectContext MR_defaultContext] ofType:@"Project"] where:@"identifier == %i", [[dict objectForKey:@"id"] integerValue]] toArray] objectAtIndex:0];
                     [project parseServerResponseWithDict:dict];
                 }
             }
             
             block();
-        } errorHandler:^(NSError *error) {
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
             block();
         }];
+        
+        [self.projectOperation start];
     }];
 }
 
 -(void)cancelProjectsConnection{
-    [self.projectConnection cancel];
+    [self.projectOperation cancel];
 }
 
 -(void)loadMembersForProject:(Project *)project onSuccess:(void (^)(void))block{
@@ -78,13 +80,15 @@ static NBNProjectConnection* sharedConnection = nil;
         return;
     }
     
-    Domain *domain = [[Domain findAll] lastObject];
+    Domain *domain = [[Domain MR_findAll] lastObject];
 
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         
-        self.membersConnection = [[[NBNGitlabEngine alloc] init] autorelease];
-        [self.membersConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/members?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token] completionHandler:^(MKNetworkOperation *request) {
-            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/members?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        self.membersOperation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            NSArray *array = JSON;
             
             for (NSDictionary *dict in array) {
                 
@@ -96,15 +100,17 @@ static NBNProjectConnection* sharedConnection = nil;
             }
             
             block();
-        } errorHandler:^(NSError *error) {
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
             block();
             PBLog(@"err %@", error);
         }];
+        
+        [self.membersOperation start];
     }];
 }
 
 -(void)cancelMembersConnection{
-    [self.membersConnection cancel];
+    [self.membersOperation cancel];
 }
 
 @end

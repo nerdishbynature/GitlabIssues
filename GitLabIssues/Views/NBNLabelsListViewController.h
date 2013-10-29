@@ -16,6 +16,6 @@
 
 @interface NBNLabelsListViewController : UITableViewController <UISearchDisplayDelegate>
 
-@property (nonatomic, assign) id<NBNLabelListDelegate> delegate;
+@property (nonatomic, weak) id<NBNLabelListDelegate> delegate;
 
 @end

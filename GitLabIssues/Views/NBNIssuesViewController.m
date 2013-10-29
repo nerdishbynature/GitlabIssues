@@ -20,12 +20,12 @@
 
 @interface NBNIssuesViewController ()
 
-@property (nonatomic, retain) Project *project;
-@property (nonatomic, retain) NSArray *issues;
-@property (nonatomic, retain) UISearchDisplayController *searchDisplayController;
-@property (nonatomic, retain) UISearchBar *searchBar;
-@property (nonatomic, retain) NSArray *issuesSearchResults;
-@property (nonatomic, retain) MBProgressHUD *HUD;
+@property (nonatomic, strong) Project *project;
+@property (nonatomic, strong) NSArray *issues;
+@property (nonatomic, strong) UISearchDisplayController *searchDisplayController;
+@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) NSArray *issuesSearchResults;
+@property (nonatomic, strong) MBProgressHUD *HUD;
 
 @end
 
@@ -38,7 +38,7 @@
 @synthesize HUD;
 
 +(NBNIssuesViewController *)loadWithProject:(Project *)_project{
-    NBNIssuesViewController *issueViewController = [[[NBNIssuesViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
+    NBNIssuesViewController *issueViewController = [[NBNIssuesViewController alloc] initWithStyle:UITableViewStylePlain];
     issueViewController.project = _project;
     [issueViewController createSearchBar];
     return issueViewController;
@@ -47,8 +47,8 @@
 - (void)createSearchBar {
 
     if (self.tableView && !self.tableView.tableHeaderView) {
-        self.searchBar = [[[UISearchBar alloc] init] autorelease];
-        self.searchDisplayController = [[[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self] autorelease];
+        self.searchBar = [[UISearchBar alloc] init];
+        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
         self.searchDisplayController.searchResultsDelegate = self;
         self.searchDisplayController.searchResultsDataSource = self;
         self.searchDisplayController.delegate = self;
@@ -83,14 +83,11 @@
         [self setToolbarItems:@[createButton, flex, filterBarButton] animated:YES];
         self.navigationController.toolbarHidden = NO;
         
-        [createButton release];
-        [filterBarButton release];
-        [flex release];
     }
 }
 
 -(void)addNewIssue{
-    Issue *issue = [Issue createEntity];
+    Issue *issue = [Issue MR_createEntity];
     issue.project_id = self.project.identifier; // this is important
     
     NBNIssueEditViewController *editViewController = [NBNIssueEditViewController loadViewControllerWithIssue:issue];
@@ -99,11 +96,10 @@
     
     [self presentViewController:navController animated:YES completion:nil];
     
-    [navController release];
 }
 
 -(void)refreshIssues{
-    self.HUD = [[[MBProgressHUD alloc] initWithView:self.navigationController.view] autorelease];
+    self.HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.navigationController.view addSubview:self.HUD];
     
 	// Show the HUD while the provided method executes in a new thread
@@ -133,7 +129,7 @@
     NBNIssueFilterViewController *issueFilterViewController = [NBNIssueFilterViewController loadViewControllerWithFilter:self.project.filter];
     issueFilterViewController.delegate = self;
     issueFilterViewController.project = self.project;
-    UINavigationController *navController = [[[UINavigationController alloc] initWithRootViewController:issueFilterViewController] autorelease];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:issueFilterViewController];
 
     [self presentViewController:navController animated:YES completion:nil];
 }
@@ -151,7 +147,7 @@
         [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:image forState:UIControlStateNormal];
         
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     } else{
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -160,10 +156,10 @@
         [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:image forState:UIControlStateNormal];
         
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     }
     
-    self.refreshControl = [[[UIRefreshControl alloc] init] autorelease];
+    self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshIssues) forControlEvents:UIControlEventValueChanged];
 }
 
@@ -295,7 +291,7 @@
         [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:image forState:UIControlStateNormal];
         
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     } else{
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -304,14 +300,14 @@
         [button addTarget:self action:@selector(starThisProject) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:image forState:UIControlStateNormal];
         
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     }
 }
 
 
 -(void)applyFilter:(Filter *)filter{
     self.project.filter = filter;
-    [[NSManagedObjectContext MR_defaultContext] save];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
 }
 
 -(void)reloadUsingFilter{
@@ -353,22 +349,9 @@
 
 - (void)dealloc
 {
-    self.project = nil;
-    self.issues = nil;
-    self.searchDisplayController = nil;
-    self.searchBar = nil;
-    self.issuesSearchResults = nil;
-    self.HUD = nil;
     
-    [project release];
-    [issues release];
-    [searchDisplayController release];
-    [searchBar release];
-    [issuesSearchResults release];
-    [HUD release];
     
     PBLog(@"deallocing %@", [self class]);
-    [super dealloc];
 }
 
 @end

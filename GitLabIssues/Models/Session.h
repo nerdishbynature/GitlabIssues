@@ -12,12 +12,12 @@
 
 @interface Session : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * blocked;
-@property (nonatomic, retain) NSDate * created_at;
-@property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * private_token;
+@property (nonatomic, strong) NSNumber * blocked;
+@property (nonatomic, strong) NSDate * created_at;
+@property (nonatomic, strong) NSString * email;
+@property (nonatomic, strong) NSNumber * identifier;
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSString * private_token;
 
 /**
   Generates a new session using the API

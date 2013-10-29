@@ -16,62 +16,62 @@
 /**
  Specifies whether the issue is closed or not
  */
-@property (nonatomic, retain) NSNumber * closed;
+@property (nonatomic, strong) NSNumber * closed;
 
 /**
  Date object when the issue was created (specified by the API)
  */
-@property (nonatomic, retain) NSDate * created_at;
+@property (nonatomic, strong) NSDate * created_at;
 
 /**
  String containing the description
  */
-@property (nonatomic, retain) NSString * descriptionString;
+@property (nonatomic, strong) NSString * descriptionString;
 
 /**
  Returned ID (API)
  */
-@property (nonatomic, retain) NSNumber * identifier;
+@property (nonatomic, strong) NSNumber * identifier;
 
 /**
  Returned labels
  */
-@property (nonatomic, retain) id labels;
+@property (nonatomic, strong) id labels;
 
 /**
  Associated project ID
  */
-@property (nonatomic, retain) NSNumber * project_id;
+@property (nonatomic, strong) NSNumber * project_id;
 
 /**
  Title of the issue
  */
-@property (nonatomic, retain) NSString * title;
+@property (nonatomic, strong) NSString * title;
 
 /**
  Date object when the issue was updated (specified by the API)
  */
-@property (nonatomic, retain) NSDate * updated_at;
+@property (nonatomic, strong) NSDate * updated_at;
 
 /**
  Assigned user
  */
-@property (nonatomic, retain) Assignee *assignee;
+@property (nonatomic, strong) Assignee *assignee;
 
 /**
  Author of the issue
  */
-@property (nonatomic, retain) Author *author;
+@property (nonatomic, strong) Author *author;
 
 /**
  Associated milestone object
  */
-@property (nonatomic, retain) Milestone *milestone;
+@property (nonatomic, strong) Milestone *milestone;
 
 /**
  Contains the Notes of an issue
  */
-@property (nonatomic, retain) NSSet *notes;
+@property (nonatomic, strong) NSSet *notes;
 
 /**
  This method is used for parsing the returned JSON from the API

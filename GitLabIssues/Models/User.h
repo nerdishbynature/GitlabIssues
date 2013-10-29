@@ -12,17 +12,17 @@
 
 @interface User : NSManagedObject
 
-@property (nonatomic, retain) NSString * bio;
-@property (nonatomic, retain) NSNumber * blocked;
-@property (nonatomic, retain) NSDate * created_at;
-@property (nonatomic, retain) NSNumber * dark_scheme;
-@property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSString * linkedin;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * skype;
-@property (nonatomic, retain) NSNumber * theme_id;
-@property (nonatomic, retain) NSString * twitter;
+@property (nonatomic, strong) NSString * bio;
+@property (nonatomic, strong) NSNumber * blocked;
+@property (nonatomic, strong) NSDate * created_at;
+@property (nonatomic, strong) NSNumber * dark_scheme;
+@property (nonatomic, strong) NSString * email;
+@property (nonatomic, strong) NSNumber * identifier;
+@property (nonatomic, strong) NSString * linkedin;
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSString * skype;
+@property (nonatomic, strong) NSNumber * theme_id;
+@property (nonatomic, strong) NSString * twitter;
 
 /**
   This method is used for parsing the returned JSON from the API

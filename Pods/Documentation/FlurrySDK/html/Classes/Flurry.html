@@ -1,0 +1,3045 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>Flurry Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">FlurrySDK 4.2.1 </a></h1>
+				<a id="developerHome" href="../index.html">Flurry</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">Flurry Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/endTimedEvent:withParameters:">&nbsp;&nbsp;&nbsp;&nbsp;+ endTimedEvent:withParameters:</option>
+	
+	<option value="//api/name/getFlurryAgentVersion">&nbsp;&nbsp;&nbsp;&nbsp;+ getFlurryAgentVersion</option>
+	
+	<option value="//api/name/logAllPageViews:">&nbsp;&nbsp;&nbsp;&nbsp;+ logAllPageViews:</option>
+	
+	<option value="//api/name/logError:message:error:">&nbsp;&nbsp;&nbsp;&nbsp;+ logError:message:error:</option>
+	
+	<option value="//api/name/logError:message:exception:">&nbsp;&nbsp;&nbsp;&nbsp;+ logError:message:exception:</option>
+	
+	<option value="//api/name/logEvent:">&nbsp;&nbsp;&nbsp;&nbsp;+ logEvent:</option>
+	
+	<option value="//api/name/logEvent:timed:">&nbsp;&nbsp;&nbsp;&nbsp;+ logEvent:timed:</option>
+	
+	<option value="//api/name/logEvent:withParameters:">&nbsp;&nbsp;&nbsp;&nbsp;+ logEvent:withParameters:</option>
+	
+	<option value="//api/name/logEvent:withParameters:timed:">&nbsp;&nbsp;&nbsp;&nbsp;+ logEvent:withParameters:timed:</option>
+	
+	<option value="//api/name/logPageView">&nbsp;&nbsp;&nbsp;&nbsp;+ logPageView</option>
+	
+	<option value="//api/name/setAge:">&nbsp;&nbsp;&nbsp;&nbsp;+ setAge:</option>
+	
+	<option value="//api/name/setAppVersion:">&nbsp;&nbsp;&nbsp;&nbsp;+ setAppVersion:</option>
+	
+	<option value="//api/name/setCrashReportingEnabled:">&nbsp;&nbsp;&nbsp;&nbsp;+ setCrashReportingEnabled:</option>
+	
+	<option value="//api/name/setDebugLogEnabled:">&nbsp;&nbsp;&nbsp;&nbsp;+ setDebugLogEnabled:</option>
+	
+	<option value="//api/name/setEventLoggingEnabled:">&nbsp;&nbsp;&nbsp;&nbsp;+ setEventLoggingEnabled:</option>
+	
+	<option value="//api/name/setGender:">&nbsp;&nbsp;&nbsp;&nbsp;+ setGender:</option>
+	
+	<option value="//api/name/setLatitude:longitude:horizontalAccuracy:verticalAccuracy:">&nbsp;&nbsp;&nbsp;&nbsp;+ setLatitude:longitude:horizontalAccuracy:verticalAccuracy:</option>
+	
+	<option value="//api/name/setPushToken:">&nbsp;&nbsp;&nbsp;&nbsp;+ setPushToken:</option>
+	
+	<option value="//api/name/setSecureTransportEnabled:">&nbsp;&nbsp;&nbsp;&nbsp;+ setSecureTransportEnabled:</option>
+	
+	<option value="//api/name/setSessionContinueSeconds:">&nbsp;&nbsp;&nbsp;&nbsp;+ setSessionContinueSeconds:</option>
+	
+	<option value="//api/name/setSessionReportsOnCloseEnabled:">&nbsp;&nbsp;&nbsp;&nbsp;+ setSessionReportsOnCloseEnabled:</option>
+	
+	<option value="//api/name/setSessionReportsOnPauseEnabled:">&nbsp;&nbsp;&nbsp;&nbsp;+ setSessionReportsOnPauseEnabled:</option>
+	
+	<option value="//api/name/setShowErrorInLogEnabled:">&nbsp;&nbsp;&nbsp;&nbsp;+ setShowErrorInLogEnabled:</option>
+	
+	<option value="//api/name/setUserID:">&nbsp;&nbsp;&nbsp;&nbsp;+ setUserID:</option>
+	
+	<option value="//api/name/startSession:">&nbsp;&nbsp;&nbsp;&nbsp;+ startSession:</option>
+	
+	<option value="//api/name/startSession:withOptions:">&nbsp;&nbsp;&nbsp;&nbsp;+ startSession:withOptions:</option>
+	
+	
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Pre-Session Calls">Pre-Session Calls</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Event and Error Logging">Event and Error Logging</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Page View Methods">Page View Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_User Info">User Info</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Location Reporting">Location Reporting</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Session Reporting Calls">Session Reporting Calls</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/endTimedEvent:withParameters:">endTimedEvent:withParameters:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getFlurryAgentVersion">getFlurryAgentVersion</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logAllPageViews:">logAllPageViews:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logError:message:error:">logError:message:error:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logError:message:exception:">logError:message:exception:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logEvent:">logEvent:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logEvent:timed:">logEvent:timed:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logEvent:withParameters:">logEvent:withParameters:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logPageView">logPageView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setAge:">setAge:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setAppVersion:">setAppVersion:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCrashReportingEnabled:">setCrashReportingEnabled:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDebugLogEnabled:">setDebugLogEnabled:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setEventLoggingEnabled:">setEventLoggingEnabled:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setGender:">setGender:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setLatitude:longitude:horizontalAccuracy:verticalAccuracy:">setLatitude:longitude:horizontalAccuracy:verticalAccuracy:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setPushToken:">setPushToken:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setSecureTransportEnabled:">setSecureTransportEnabled:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setSessionContinueSeconds:">setSessionContinueSeconds:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setSessionReportsOnCloseEnabled:">setSessionReportsOnCloseEnabled:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setSessionReportsOnPauseEnabled:">setSessionReportsOnPauseEnabled:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setShowErrorInLogEnabled:">setShowErrorInLogEnabled:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setUserID:">setUserID:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startSession:">startSession:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startSession:withOptions:">startSession:withOptions:</a></span></li>
+	
+</ul></li>
+
+
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="Flurry Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">Flurry Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">Flurry.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>@brief Provides all available methods for defining and reporting Analytics from use
+of your app.</p>
+
+<p>Set of methods that allow developers to capture detailed, aggregate information
+regarding the use of their app by end users.</p><div class="note"><p><strong>Note:</strong> This class provides methods necessary for correct function of FlurryAds.h.
+For information on how to use Flurry&rsquo;s Ads SDK to
+attract high-quality users and monetize your user base see <a href="[http://support.flurry.com/index.php?title=Publishers](http://support.flurry.com/index.php?title=Publishers)">Support Center &ndash; Publishers</a>.</p>
+
+<p>@author 2009 &ndash; 2012 Flurry, Inc. All Rights Reserved.
+@version 4.2.0</p></div>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="Pre-Session Calls" name="task_Pre-Session Calls"></a>
+						<h3 class="subsubtitle task-title">Pre-Session Calls</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setAppVersion:">+&nbsp;setAppVersion:</a></code>
+		<span class="tooltip"><p>@brief Explicitly specifies the App Version that Flurry will use to group Analytics data.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getFlurryAgentVersion">+&nbsp;getFlurryAgentVersion</a></code>
+		<span class="tooltip"><p>@brief Retrieves the Flurry Agent Build Version.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setShowErrorInLogEnabled:">+&nbsp;setShowErrorInLogEnabled:</a></code>
+		<span class="tooltip"><p>@brief Displays an exception in the debug log if thrown during a Session.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setDebugLogEnabled:">+&nbsp;setDebugLogEnabled:</a></code>
+		<span class="tooltip"><p>@brief Generates debug logs to console.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setSessionContinueSeconds:">+&nbsp;setSessionContinueSeconds:</a></code>
+		<span class="tooltip"><p>@brief Set the timeout for expiring a Flurry session.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setSecureTransportEnabled:">+&nbsp;setSecureTransportEnabled:</a></code>
+		<span class="tooltip"><p>@brief Send data over a secure transport.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setCrashReportingEnabled:">+&nbsp;setCrashReportingEnabled:</a></code>
+		<span class="tooltip"><p>@brief Enable automatic collection of crash reports.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/startSession:">+&nbsp;startSession:</a></code>
+		<span class="tooltip"><ul>
+<li>@brief Start a Flurry session for the project denoted by @c apiKey.</li>
+<li>@since 2.6
+*</li>
+<li>This method serves as the entry point to Flurry Analytics collection.  It must be</li>
+<li>called in the scope of @c applicationDidFinishLaunching.  The session will continue</li>
+<li>for the period the app is in the foreground until your app is backgrounded for the</li>
+<li>time specified in #<a href="#//api/name/setSessionContinueSeconds:">setSessionContinueSeconds:</a>. If the app is resumed in that period</li>
+<li>the session will continue, otherwise a new session will begin.
+*</li>
+<li>Crash reporting will not be enabled. See #startSession:enableCrashReporting: for</li>
+<li>more information.
+*</li>
+<li>@note If testing on a simulator, please be sure to send App to background via home</li>
+<li>button. Flurry depends on the iOS lifecycle to be complete for full reporting.
+*</li>
+<li>@see #<a href="#//api/name/setSessionContinueSeconds:">setSessionContinueSeconds:</a> for details on setting a custom session timeout.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)applicationDidFinishLaunching:(UIApplication *)application
+{
+// Optional Flurry startup methods
+[Flurry startSession:@&ldquo;YOUR_API_KEY&rdquo;];
+// &hellip;.
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param apiKey The API key for this project.</li>
+</ul>
+</span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/startSession:withOptions:">+&nbsp;startSession:withOptions:</a></code>
+		<span class="tooltip"><ul>
+<li>@brief Start a Flurry session for the project denoted by @c apiKey.</li>
+<li>@since 4.0.8
+*</li>
+<li>This method serves as the entry point to Flurry Analytics collection.  It must be</li>
+<li>called in the scope of @c applicationDidFinishLaunching passing in the launchOptions param.</li>
+<li>The session will continue</li>
+<li>for the period the app is in the foreground until your app is backgrounded for the</li>
+<li>time specified in #<a href="#//api/name/setSessionContinueSeconds:">setSessionContinueSeconds:</a>. If the app is resumed in that period</li>
+<li>the session will continue, otherwise a new session will begin.
+*</li>
+<li>@note If testing on a simulator, please be sure to send App to background via home</li>
+<li>button. Flurry depends on the iOS lifecycle to be complete for full reporting.
+*</li>
+<li>@see #<a href="#//api/name/setSessionContinueSeconds:">setSessionContinueSeconds:</a> for details on setting a custom session timeout.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(BOOL) application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions
+{
+// Optional Flurry startup methods
+[Flurry startSession:@&ldquo;YOUR_API_KEY&rdquo; withOptions:launchOptions];
+// &hellip;.
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param apiKey The API key for this project.</li>
+<li>@param options passed launchOptions from the applicatin&rsquo;s didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</li>
+</ul>
+</span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Event and Error Logging" name="task_Event and Error Logging"></a>
+						<h3 class="subsubtitle task-title">Event and Error Logging</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logEvent:">+&nbsp;logEvent:</a></code>
+		<span class="tooltip"><ul>
+<li>@brief Records a custom event specified by @c eventName.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method allows you to specify custom events within your app.  As a general rule</li>
+<li>you should capture events related to user navigation within your app, any action</li>
+<li>around monetization, and other events as they are applicable to tracking progress</li>
+<li>towards your business goals.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event. \n</li>
+<li>Where applicable, you should make a concerted effort to use timed events with</li>
+<li>parameters (#<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a>) or events with parameters</li>
+<li>(#<a href="#//api/name/logEvent:withParameters:">logEvent:withParameters:</a>). This provides valuable information around the time the user</li>
+<li>spends within an action (e.g. &ndash; time spent on a level or viewing a page) or characteristics</li>
+<li>of an action (e.g. &ndash; Buy Event that has a Parameter of Widget with Value Golden Sword).
+*</li>
+<li>@see #<a href="#//api/name/logEvent:withParameters:">logEvent:withParameters:</a> for details on storing events with parameters. \n</li>
+<li><h1><a href="#//api/name/logEvent:timed:">logEvent:timed:</a> for details on storing timed events. \n</h1></li>
+<li><h1><a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a> for details on storing timed events with parameters. \n</h1></li>
+<li><h1><a href="#//api/name/endTimedEvent:withParameters:">endTimedEvent:withParameters:</a> for details on stopping a timed event and (optionally) updating</h1></li>
+<li>parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)interestingAppAction
+{
+[Flurry logEvent:@&ldquo;Interesting_Action&rdquo;];
+// Perform interesting action
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param eventName Name of the event. For maximum effectiveness, we recommend using a naming scheme</li>
+<li>that can be easily understood by non-technical people in your business domain.</li>
+</ul>
+</span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logEvent:withParameters:">+&nbsp;logEvent:withParameters:</a></code>
+		<span class="tooltip"><ul>
+<li>@brief Records a custom parameterized event specified by @c eventName with @c parameters.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method overrides #logEvent to allow you to associate parameters with an event. Parameters</li>
+<li>are extremely valuable as they allow you to store characteristics of an action. For example,</li>
+<li>if a user purchased an item it may be helpful to know what level that user was on.</li>
+<li>By setting this parameter you will be able to view a distribution of levels for the purcahsed</li>
+<li>event on the <a href="[http://dev.flurry.com](http://dev.flurry.com)">Flurrly Dev Portal</a>.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event. \n</li>
+<li>A maximum of 10 parameter names may be associated with any event. Sending</li>
+<li>over 10 parameter names with a single event will result in no parameters being logged</li>
+<li>for that event. You may specify an infinite number of Parameter values. For example,</li>
+<li>a Search Box would have 1 parameter name (e.g. &ndash; Search Box) and many values, which would</li>
+<li>allow you to see what values users look for the most in your app. \n</li>
+<li>Where applicable, you should make a concerted effort to use timed events with</li>
+<li>parameters (#<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a>). This provides valuable information</li>
+<li>around the time the user spends within an action (e.g. &ndash; time spent on a level or</li>
+<li>viewing a page).
+*</li>
+<li>@see #<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a> for details on storing timed events with parameters. \n</li>
+<li><h1><a href="#//api/name/endTimedEvent:withParameters:">endTimedEvent:withParameters:</a> for details on stopping a timed event and (optionally) updating</h1></li>
+<li>parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)userPurchasedSomethingCool
+{
+NSDictionary *params =
+[NSDictionary dictionaryWithObjectsAndKeys:@&ldquo;Cool Item&rdquo;, // Parameter Value
+@&ldquo;Item Purchased&rdquo;, // Parameter Name
+nil];
+[Flurry logEvent:@&ldquo;Something Cool Purchased&rdquo; withParameters:params];
+// Give user cool item
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param eventName Name of the event. For maximum effectiveness, we recommend using a naming scheme</li>
+<li>that can be easily understood by non-technical people in your business domain.</li>
+<li>@param parameters A map containing Name-Value pairs of parameters.</li>
+</ul>
+</span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logError:message:exception:">+&nbsp;logError:message:exception:</a></code>
+		<span class="tooltip"><ul>
+<li>@brief Records an app exception. Commonly used to catch unhandled exceptions.</li>
+<li>@since 2.7
+*</li>
+<li>This method captures an exception for reporting to Flurry. We recommend adding an uncaught</li>
+<li>exception listener to capture any exceptions that occur during usage that is not</li>
+<li>anticipated by your app.
+*</li>
+<li>@see #<a href="#//api/name/logError:message:error:">logError:message:error:</a> for details on capturing errors.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void) uncaughtExceptionHandler(NSException *exception)
+{
+[Flurry logError:@&ldquo;Uncaught&rdquo; message:@&ldquo;Crash!&rdquo; exception:exception];
+}</li>
+</ul>
+</li>
+</ul>
+</span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logError:message:error:">+&nbsp;logError:message:error:</a></code>
+		<span class="tooltip"><ul>
+<li>@brief Records an app error.</li>
+<li>@since 2.7
+*</li>
+<li>This method captures an error for reporting to Flurry.
+*</li>
+<li>@see #<a href="#//api/name/logError:message:exception:">logError:message:exception:</a> for details on capturing exceptions.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void) webView:(UIWebView <em>)webView didFailLoadWithError:(NSError </em>)error
+{
+[Flurry logError:@&ldquo;WebView No Load&rdquo; message:[error localizedDescription] error:error];
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param errorID Name of the error.</li>
+<li>@param message The message to associate with the error.</li>
+<li>@param error The error object to report.</li>
+</ul>
+</span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logEvent:timed:">+&nbsp;logEvent:timed:</a></code>
+		<span class="tooltip"><ul>
+<li>@brief Records a timed event specified by @c eventName.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method overrides #logEvent to allow you to capture the length of an event. This can</li>
+<li>be extremely valuable to understand the level of engagement with a particular action. For</li>
+<li>example, you can capture how long a user spends on a level or reading an article.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event. \n</li>
+<li>Where applicable, you should make a concerted effort to use parameters with your timed</li>
+<li>events (#<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a>). This provides valuable information</li>
+<li>around the characteristics of an action (e.g. &ndash; Buy Event that has a Parameter of Widget with</li>
+<li>Value Golden Sword).
+*</li>
+<li>@see #<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a> for details on storing timed events with parameters. \n</li>
+<li><h1><a href="#//api/name/endTimedEvent:withParameters:">endTimedEvent:withParameters:</a> for details on stopping a timed event and (optionally) updating</h1></li>
+<li>parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)startLevel
+{
+[Flurry logEvent:@&ldquo;Level Played&rdquo; timed:YES];
+// Start user on level
+}</li>
+</ul>
+</li>
+</ul>
+</span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logEvent:withParameters:timed:">+&nbsp;logEvent:withParameters:timed:</a></code>
+		<span class="tooltip"><ul>
+<li>@brief Records a custom parameterized timed event specified by @c eventName with @c parameters.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method overrides #logEvent to allow you to capture the length of an event with parameters.</li>
+<li>This can be extremely valuable to understand the level of engagement with a particular action</li>
+<li>and the characteristics associated with that action. For example, you can capture how long a user</li>
+<li>spends on a level or reading an article. Parameters can be used to capture, for example, the</li>
+<li>author of an article or if something was purchased while on the level.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event.
+*</li>
+<li>@see #<a href="#//api/name/endTimedEvent:withParameters:">endTimedEvent:withParameters:</a> for details on stopping a timed event and (optionally) updating</li>
+<li>parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)startLevel
+{
+NSDictionary *params =
+[NSDictionary dictionaryWithObjectsAndKeys:@&ldquo;100&rdquo;, // Parameter Value
+@&ldquo;Current Points&rdquo;, // Parameter Name
+nil];</li>
+</ul>
+</li>
+</ul>
+</span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/endTimedEvent:withParameters:">+&nbsp;endTimedEvent:withParameters:</a></code>
+		<span class="tooltip"><ul>
+<li>@brief Ends a timed event specified by @c eventName and optionally updates parameters with @c parameters.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method ends an existing timed event.  If parameters are provided, this will overwrite existing</li>
+<li>parameters with the same name or create new parameters if the name does not exist in the parameter</li>
+<li>map set by #<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a>.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event. \n</li>
+<li>If the app is backgrounded prior to ending a timed event, the Flurry SDK will automatically</li>
+<li>end the timer on the event. \n</li>
+<li><h1>endTimedEvent:withParameters: is ignored if called on a previously</h1></li>
+<li>terminated event.
+*</li>
+<li>@see #<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a> for details on starting a timed event with parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)startLevel
+{
+NSDictionary *params =
+[NSDictionary dictionaryWithObjectsAndKeys:@&ldquo;100&rdquo;, // Parameter Value
+@&ldquo;Current Points&rdquo;, // Parameter Name
+nil];</li>
+</ul>
+</li>
+</ul>
+</span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Page View Methods" name="task_Page View Methods"></a>
+						<h3 class="subsubtitle task-title">Page View Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logAllPageViews:">+&nbsp;logAllPageViews:</a></code>
+		<span class="tooltip"><ul>
+<li>@brief Automatically track page views on a @c UINavigationController or @c UITabBarController.</li>
+<li>@since 2.7
+*</li>
+<li>This method increments the page view count for a session based on traversing a UINavigationController</li>
+<li>or UITabBarController. The page view count is only a counter for the number of transitions in your</li>
+<li>app. It does not associate a name with the page count. To associate a name with a count of occurences</li>
+<li>see #<a href="#//api/name/logEvent:">logEvent:</a>.
+*</li>
+<li>@note Please make sure you assign the Tab and Navigation controllers to the view controllers before</li>
+<li>passing them to this method.
+*</li>
+<li>@see #<a href="#//api/name/logPageView">logPageView</a> for details on explictly incrementing page view count.
+*</li>
+<li>@code</li>
+<li>&ndash;(void) trackViewsFromTabBar:(UITabBarController*) tabBar
+{
+[Flurry logAllPageViews:tabBar];
+}</li>
+<li>@endcode
+*</li>
+<li>@param target The navigation or tab bar controller.</li>
+</ul>
+</span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logPageView">+&nbsp;logPageView</a></code>
+		<span class="tooltip"><ul>
+<li>@brief Explicitly track a page view during a session.</li>
+<li>@since 2.7
+*</li>
+<li>This method increments the page view count for a session when invoked. It does not associate a name</li>
+<li>with the page count. To associate a name with a count of occurences see #<a href="#//api/name/logEvent:">logEvent:</a>.
+*</li>
+<li>@see #logAllPageViews for details on automatically incrementing page view count based on user</li>
+<li>traversing navigation or tab bar controller.
+*</li>
+<li>@code</li>
+<li>&ndash;(void) trackView
+{
+<a href="#//api/name/logPageView">[Flurry logPageView]</a>;
+}</li>
+<li>@endcode
+*</li>
+</ul>
+</span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="User Info" name="task_User Info"></a>
+						<h3 class="subsubtitle task-title">User Info</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setUserID:">+&nbsp;setUserID:</a></code>
+		<span class="tooltip"><p>@brief Assign a unique id for a user in your app.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setAge:">+&nbsp;setAge:</a></code>
+		<span class="tooltip"><p>@brief Set your user&rsquo;s age in years.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setGender:">+&nbsp;setGender:</a></code>
+		<span class="tooltip"><p>@brief Set your user&rsquo;s gender.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Location Reporting" name="task_Location Reporting"></a>
+						<h3 class="subsubtitle task-title">Location Reporting</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setLatitude:longitude:horizontalAccuracy:verticalAccuracy:">+&nbsp;setLatitude:longitude:horizontalAccuracy:verticalAccuracy:</a></code>
+		<span class="tooltip"><ul>
+<li>@brief Set the location of the session.</li>
+<li>@since 2.7
+*</li>
+<li>Use information from the CLLocationManager to specify the location of the session. Flurry does not</li>
+<li>automatically track this information or include the CLLocation framework.
+*</li>
+<li>@note Only the last location entered is captured per session. \n</li>
+<li>Regardless of accuracy specified, the Flurry SDK will only report location at city level or higher. \n</li>
+<li>Location is aggregated across all users of your app and not available on a per user basis. \n</li>
+<li>This information should only be captured if it is germaine to the use of your app.
+*</li>
+<li>@code
+CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+[locationManager startUpdatingLocation];</li>
+<li>@endcode
+*</li>
+<li>After starting the location manager, you can set the location with Flurry. You can implement</li>
+<li>CLLocationManagerDelegate to be aware of when the location is updated. Below is an example</li>
+<li>of how to use this method, after you have recieved a location update from the locationManager.
+*</li>
+<li>@code
+CLLocation *location = locationManager.location;
+[Flurry  setLatitude:location.coordinate.latitude
+         longitude:location.coordinate.longitude
+horizontalAccuracy:location.horizontalAccuracy
+  verticalAccuracy:location.verticalAccuracy];</li>
+<li>@endcode</li>
+<li>@param latitude The latitude.</li>
+<li>@param longitude The longitude.</li>
+<li>@param horizontalAccuracy The radius of uncertainty for the location in meters.</li>
+<li>@param verticalAccuracy The accuracy of the altitude value in meters.
+*</li>
+</ul>
+</span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Session Reporting Calls" name="task_Session Reporting Calls"></a>
+						<h3 class="subsubtitle task-title">Session Reporting Calls</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setSessionReportsOnCloseEnabled:">+&nbsp;setSessionReportsOnCloseEnabled:</a></code>
+		<span class="tooltip"><p>@brief Set session to report when app closes.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setSessionReportsOnPauseEnabled:">+&nbsp;setSessionReportsOnPauseEnabled:</a></code>
+		<span class="tooltip"><p>@brief Set session to report when app is sent to the background.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setEventLoggingEnabled:">+&nbsp;setEventLoggingEnabled:</a></code>
+		<span class="tooltip"><p>@brief Enable custom event logging.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setPushToken:">+&nbsp;setPushToken:</a></code>
+		<span class="tooltip"><p>@brief Set device push token.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/endTimedEvent:withParameters:" title="endTimedEvent:withParameters:"></a>
+	<h3 class="subsubtitle method-title">endTimedEvent:withParameters:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<ul>
+<li>@brief Ends a timed event specified by @c eventName and optionally updates parameters with @c parameters.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method ends an existing timed event.  If parameters are provided, this will overwrite existing</li>
+<li>parameters with the same name or create new parameters if the name does not exist in the parameter</li>
+<li>map set by #<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a>.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event. \n</li>
+<li>If the app is backgrounded prior to ending a timed event, the Flurry SDK will automatically</li>
+<li>end the timer on the event. \n</li>
+<li><h1>endTimedEvent:withParameters: is ignored if called on a previously</h1></li>
+<li>terminated event.
+*</li>
+<li>@see #<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a> for details on starting a timed event with parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)startLevel
+{
+NSDictionary *params =
+[NSDictionary dictionaryWithObjectsAndKeys:@&ldquo;100&rdquo;, // Parameter Value
+@&ldquo;Current Points&rdquo;, // Parameter Name
+nil];</li>
+</ul>
+</li>
+</ul>
+
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)endTimedEvent:(NSString *)<em>eventName</em> withParameters:(NSDictionary *)<em>parameters</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<ul>
+<li>@brief Ends a timed event specified by @c eventName and optionally updates parameters with @c parameters.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method ends an existing timed event.  If parameters are provided, this will overwrite existing</li>
+<li>parameters with the same name or create new parameters if the name does not exist in the parameter</li>
+<li>map set by #<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a>.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event. \n</li>
+<li>If the app is backgrounded prior to ending a timed event, the Flurry SDK will automatically</li>
+<li>end the timer on the event. \n</li>
+<li><h1>endTimedEvent:withParameters: is ignored if called on a previously</h1></li>
+<li>terminated event.
+*</li>
+<li>@see #<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a> for details on starting a timed event with parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)startLevel
+{
+NSDictionary *params =
+[NSDictionary dictionaryWithObjectsAndKeys:@&ldquo;100&rdquo;, // Parameter Value
+@&ldquo;Current Points&rdquo;, // Parameter Name
+nil];</li>
+</ul>
+</li>
+</ul>
+
+
+<p>[Flurry logEvent:@&ldquo;Level Played&rdquo; withParameters:params timed:YES];
+// Start user on level
+}</p>
+
+<ul>
+<li>(void)endLevel
+{
+// User gained additional 100 points in Level
+NSDictionary *params =
+[NSDictionary dictionaryWithObjectsAndKeys:@&ldquo;200&rdquo;, // Parameter Value
+@&ldquo;Current Points&rdquo;, // Parameter Name
+nil];
+[Flurry endTimedEvent:@&ldquo;Level Played&rdquo; withParameters:params];
+// User done with level
+}</li>
+<li>@endcode
+*</li>
+<li>@param eventName Name of the event. For maximum effectiveness, we recommend using a naming scheme</li>
+<li>that can be easily understood by non-technical people in your business domain.</li>
+<li>@param parameters A map containing Name-Value pairs of parameters.</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getFlurryAgentVersion" title="getFlurryAgentVersion"></a>
+	<h3 class="subsubtitle method-title">getFlurryAgentVersion</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>@brief Retrieves the Flurry Agent Build Version.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)getFlurryAgentVersion</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The agent version of the Flurry SDK.</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>2.7</p>
+
+<p>This is an optional method that retrieves the Flurry Agent Version the app is running under.
+It is most often used if reporting an unexpected behavior of the SDK to <a href="[iphonesupport@flurry.com](mailto:iphonesupport@flurry.com)">
+Flurry Support</a></p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@brief Retrieves the Flurry Agent Build Version.</p><div class="note"><p><strong>Note:</strong> This method must be called prior to invoking #startSession:. \n
+FAQ for the iPhone SDK is located at <a href="[http://wiki.flurry.com/index.php?title=IPhone_FAQ](http://wiki.flurry.com/index.php?title=IPhone_FAQ)">
+Support Center &ndash; iPhone FAQ</a>.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><h1><a href="#//api/name/setDebugLogEnabled:">+ setDebugLogEnabled:</a> for information on how to view debugging information on your console.</h1></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logAllPageViews:" title="logAllPageViews:"></a>
+	<h3 class="subsubtitle method-title">logAllPageViews:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<ul>
+<li>@brief Automatically track page views on a @c UINavigationController or @c UITabBarController.</li>
+<li>@since 2.7
+*</li>
+<li>This method increments the page view count for a session based on traversing a UINavigationController</li>
+<li>or UITabBarController. The page view count is only a counter for the number of transitions in your</li>
+<li>app. It does not associate a name with the page count. To associate a name with a count of occurences</li>
+<li>see #<a href="#//api/name/logEvent:">logEvent:</a>.
+*</li>
+<li>@note Please make sure you assign the Tab and Navigation controllers to the view controllers before</li>
+<li>passing them to this method.
+*</li>
+<li>@see #<a href="#//api/name/logPageView">logPageView</a> for details on explictly incrementing page view count.
+*</li>
+<li>@code</li>
+<li>&ndash;(void) trackViewsFromTabBar:(UITabBarController*) tabBar
+{
+[Flurry logAllPageViews:tabBar];
+}</li>
+<li>@endcode
+*</li>
+<li>@param target The navigation or tab bar controller.</li>
+</ul>
+
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)logAllPageViews:(id)<em>target</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<ul>
+<li>@brief Automatically track page views on a @c UINavigationController or @c UITabBarController.</li>
+<li>@since 2.7
+*</li>
+<li>This method increments the page view count for a session based on traversing a UINavigationController</li>
+<li>or UITabBarController. The page view count is only a counter for the number of transitions in your</li>
+<li>app. It does not associate a name with the page count. To associate a name with a count of occurences</li>
+<li>see #<a href="#//api/name/logEvent:">logEvent:</a>.
+*</li>
+<li>@note Please make sure you assign the Tab and Navigation controllers to the view controllers before</li>
+<li>passing them to this method.
+*</li>
+<li>@see #<a href="#//api/name/logPageView">logPageView</a> for details on explictly incrementing page view count.
+*</li>
+<li>@code</li>
+<li>&ndash;(void) trackViewsFromTabBar:(UITabBarController*) tabBar
+{
+[Flurry logAllPageViews:tabBar];
+}</li>
+<li>@endcode
+*</li>
+<li>@param target The navigation or tab bar controller.</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logError:message:error:" title="logError:message:error:"></a>
+	<h3 class="subsubtitle method-title">logError:message:error:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<ul>
+<li>@brief Records an app error.</li>
+<li>@since 2.7
+*</li>
+<li>This method captures an error for reporting to Flurry.
+*</li>
+<li>@see #<a href="#//api/name/logError:message:exception:">logError:message:exception:</a> for details on capturing exceptions.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void) webView:(UIWebView <em>)webView didFailLoadWithError:(NSError </em>)error
+{
+[Flurry logError:@&ldquo;WebView No Load&rdquo; message:[error localizedDescription] error:error];
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param errorID Name of the error.</li>
+<li>@param message The message to associate with the error.</li>
+<li>@param error The error object to report.</li>
+</ul>
+
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)logError:(NSString *)<em>errorID</em> message:(NSString *)<em>message</em> error:(NSError *)<em>error</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<ul>
+<li>@brief Records an app error.</li>
+<li>@since 2.7
+*</li>
+<li>This method captures an error for reporting to Flurry.
+*</li>
+<li>@see #<a href="#//api/name/logError:message:exception:">logError:message:exception:</a> for details on capturing exceptions.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void) webView:(UIWebView <em>)webView didFailLoadWithError:(NSError </em>)error
+{
+[Flurry logError:@&ldquo;WebView No Load&rdquo; message:[error localizedDescription] error:error];
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param errorID Name of the error.</li>
+<li>@param message The message to associate with the error.</li>
+<li>@param error The error object to report.</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logError:message:exception:" title="logError:message:exception:"></a>
+	<h3 class="subsubtitle method-title">logError:message:exception:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<ul>
+<li>@brief Records an app exception. Commonly used to catch unhandled exceptions.</li>
+<li>@since 2.7
+*</li>
+<li>This method captures an exception for reporting to Flurry. We recommend adding an uncaught</li>
+<li>exception listener to capture any exceptions that occur during usage that is not</li>
+<li>anticipated by your app.
+*</li>
+<li>@see #<a href="#//api/name/logError:message:error:">logError:message:error:</a> for details on capturing errors.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void) uncaughtExceptionHandler(NSException *exception)
+{
+[Flurry logError:@&ldquo;Uncaught&rdquo; message:@&ldquo;Crash!&rdquo; exception:exception];
+}</li>
+</ul>
+</li>
+</ul>
+
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)logError:(NSString *)<em>errorID</em> message:(NSString *)<em>message</em> exception:(NSException *)<em>exception</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<ul>
+<li>@brief Records an app exception. Commonly used to catch unhandled exceptions.</li>
+<li>@since 2.7
+*</li>
+<li>This method captures an exception for reporting to Flurry. We recommend adding an uncaught</li>
+<li>exception listener to capture any exceptions that occur during usage that is not</li>
+<li>anticipated by your app.
+*</li>
+<li>@see #<a href="#//api/name/logError:message:error:">logError:message:error:</a> for details on capturing errors.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void) uncaughtExceptionHandler(NSException *exception)
+{
+[Flurry logError:@&ldquo;Uncaught&rdquo; message:@&ldquo;Crash!&rdquo; exception:exception];
+}</li>
+</ul>
+</li>
+<li><p>(void)applicationDidFinishLaunching:(UIApplication *)application
+{
+NSSetUncaughtExceptionHandler(&amp;uncaughtExceptionHandler);
+[Flurry startSession:@&ldquo;YOUR_API_KEY&rdquo;];
+// &hellip;.
+}</p></li>
+<li>@endcode
+*</li>
+<li>@param errorID Name of the error.</li>
+<li>@param message The message to associate with the error.</li>
+<li>@param exception The exception object to report.</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logEvent:" title="logEvent:"></a>
+	<h3 class="subsubtitle method-title">logEvent:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<ul>
+<li>@brief Records a custom event specified by @c eventName.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method allows you to specify custom events within your app.  As a general rule</li>
+<li>you should capture events related to user navigation within your app, any action</li>
+<li>around monetization, and other events as they are applicable to tracking progress</li>
+<li>towards your business goals.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event. \n</li>
+<li>Where applicable, you should make a concerted effort to use timed events with</li>
+<li>parameters (#<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a>) or events with parameters</li>
+<li>(#<a href="#//api/name/logEvent:withParameters:">logEvent:withParameters:</a>). This provides valuable information around the time the user</li>
+<li>spends within an action (e.g. &ndash; time spent on a level or viewing a page) or characteristics</li>
+<li>of an action (e.g. &ndash; Buy Event that has a Parameter of Widget with Value Golden Sword).
+*</li>
+<li>@see #<a href="#//api/name/logEvent:withParameters:">logEvent:withParameters:</a> for details on storing events with parameters. \n</li>
+<li><h1><a href="#//api/name/logEvent:timed:">logEvent:timed:</a> for details on storing timed events. \n</h1></li>
+<li><h1><a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a> for details on storing timed events with parameters. \n</h1></li>
+<li><h1><a href="#//api/name/endTimedEvent:withParameters:">endTimedEvent:withParameters:</a> for details on stopping a timed event and (optionally) updating</h1></li>
+<li>parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)interestingAppAction
+{
+[Flurry logEvent:@&ldquo;Interesting_Action&rdquo;];
+// Perform interesting action
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param eventName Name of the event. For maximum effectiveness, we recommend using a naming scheme</li>
+<li>that can be easily understood by non-technical people in your business domain.</li>
+</ul>
+
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)logEvent:(NSString *)<em>eventName</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<ul>
+<li>@brief Records a custom event specified by @c eventName.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method allows you to specify custom events within your app.  As a general rule</li>
+<li>you should capture events related to user navigation within your app, any action</li>
+<li>around monetization, and other events as they are applicable to tracking progress</li>
+<li>towards your business goals.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event. \n</li>
+<li>Where applicable, you should make a concerted effort to use timed events with</li>
+<li>parameters (#<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a>) or events with parameters</li>
+<li>(#<a href="#//api/name/logEvent:withParameters:">logEvent:withParameters:</a>). This provides valuable information around the time the user</li>
+<li>spends within an action (e.g. &ndash; time spent on a level or viewing a page) or characteristics</li>
+<li>of an action (e.g. &ndash; Buy Event that has a Parameter of Widget with Value Golden Sword).
+*</li>
+<li>@see #<a href="#//api/name/logEvent:withParameters:">logEvent:withParameters:</a> for details on storing events with parameters. \n</li>
+<li><h1><a href="#//api/name/logEvent:timed:">logEvent:timed:</a> for details on storing timed events. \n</h1></li>
+<li><h1><a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a> for details on storing timed events with parameters. \n</h1></li>
+<li><h1><a href="#//api/name/endTimedEvent:withParameters:">endTimedEvent:withParameters:</a> for details on stopping a timed event and (optionally) updating</h1></li>
+<li>parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)interestingAppAction
+{
+[Flurry logEvent:@&ldquo;Interesting_Action&rdquo;];
+// Perform interesting action
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param eventName Name of the event. For maximum effectiveness, we recommend using a naming scheme</li>
+<li>that can be easily understood by non-technical people in your business domain.</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logEvent:timed:" title="logEvent:timed:"></a>
+	<h3 class="subsubtitle method-title">logEvent:timed:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<ul>
+<li>@brief Records a timed event specified by @c eventName.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method overrides #logEvent to allow you to capture the length of an event. This can</li>
+<li>be extremely valuable to understand the level of engagement with a particular action. For</li>
+<li>example, you can capture how long a user spends on a level or reading an article.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event. \n</li>
+<li>Where applicable, you should make a concerted effort to use parameters with your timed</li>
+<li>events (#<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a>). This provides valuable information</li>
+<li>around the characteristics of an action (e.g. &ndash; Buy Event that has a Parameter of Widget with</li>
+<li>Value Golden Sword).
+*</li>
+<li>@see #<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a> for details on storing timed events with parameters. \n</li>
+<li><h1><a href="#//api/name/endTimedEvent:withParameters:">endTimedEvent:withParameters:</a> for details on stopping a timed event and (optionally) updating</h1></li>
+<li>parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)startLevel
+{
+[Flurry logEvent:@&ldquo;Level Played&rdquo; timed:YES];
+// Start user on level
+}</li>
+</ul>
+</li>
+</ul>
+
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)logEvent:(NSString *)<em>eventName</em> timed:(BOOL)<em>timed</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<ul>
+<li>@brief Records a timed event specified by @c eventName.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method overrides #logEvent to allow you to capture the length of an event. This can</li>
+<li>be extremely valuable to understand the level of engagement with a particular action. For</li>
+<li>example, you can capture how long a user spends on a level or reading an article.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event. \n</li>
+<li>Where applicable, you should make a concerted effort to use parameters with your timed</li>
+<li>events (#<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a>). This provides valuable information</li>
+<li>around the characteristics of an action (e.g. &ndash; Buy Event that has a Parameter of Widget with</li>
+<li>Value Golden Sword).
+*</li>
+<li>@see #<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a> for details on storing timed events with parameters. \n</li>
+<li><h1><a href="#//api/name/endTimedEvent:withParameters:">endTimedEvent:withParameters:</a> for details on stopping a timed event and (optionally) updating</h1></li>
+<li>parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)startLevel
+{
+[Flurry logEvent:@&ldquo;Level Played&rdquo; timed:YES];
+// Start user on level
+}</li>
+</ul>
+</li>
+<li><p>(void)endLevel
+{
+[Flurry endTimedEvent:@&ldquo;Level Played&rdquo; withParameters:nil];
+// User done with level
+}</p></li>
+<li>@endcode
+*</li>
+<li>@param eventName Name of the event. For maximum effectiveness, we recommend using a naming scheme</li>
+<li>that can be easily understood by non-technical people in your business domain.</li>
+<li>@param timed Specifies the event will be timed.</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logEvent:withParameters:" title="logEvent:withParameters:"></a>
+	<h3 class="subsubtitle method-title">logEvent:withParameters:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<ul>
+<li>@brief Records a custom parameterized event specified by @c eventName with @c parameters.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method overrides #logEvent to allow you to associate parameters with an event. Parameters</li>
+<li>are extremely valuable as they allow you to store characteristics of an action. For example,</li>
+<li>if a user purchased an item it may be helpful to know what level that user was on.</li>
+<li>By setting this parameter you will be able to view a distribution of levels for the purcahsed</li>
+<li>event on the <a href="[http://dev.flurry.com](http://dev.flurry.com)">Flurrly Dev Portal</a>.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event. \n</li>
+<li>A maximum of 10 parameter names may be associated with any event. Sending</li>
+<li>over 10 parameter names with a single event will result in no parameters being logged</li>
+<li>for that event. You may specify an infinite number of Parameter values. For example,</li>
+<li>a Search Box would have 1 parameter name (e.g. &ndash; Search Box) and many values, which would</li>
+<li>allow you to see what values users look for the most in your app. \n</li>
+<li>Where applicable, you should make a concerted effort to use timed events with</li>
+<li>parameters (#<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a>). This provides valuable information</li>
+<li>around the time the user spends within an action (e.g. &ndash; time spent on a level or</li>
+<li>viewing a page).
+*</li>
+<li>@see #<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a> for details on storing timed events with parameters. \n</li>
+<li><h1><a href="#//api/name/endTimedEvent:withParameters:">endTimedEvent:withParameters:</a> for details on stopping a timed event and (optionally) updating</h1></li>
+<li>parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)userPurchasedSomethingCool
+{
+NSDictionary *params =
+[NSDictionary dictionaryWithObjectsAndKeys:@&ldquo;Cool Item&rdquo;, // Parameter Value
+@&ldquo;Item Purchased&rdquo;, // Parameter Name
+nil];
+[Flurry logEvent:@&ldquo;Something Cool Purchased&rdquo; withParameters:params];
+// Give user cool item
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param eventName Name of the event. For maximum effectiveness, we recommend using a naming scheme</li>
+<li>that can be easily understood by non-technical people in your business domain.</li>
+<li>@param parameters A map containing Name-Value pairs of parameters.</li>
+</ul>
+
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)logEvent:(NSString *)<em>eventName</em> withParameters:(NSDictionary *)<em>parameters</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<ul>
+<li>@brief Records a custom parameterized event specified by @c eventName with @c parameters.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method overrides #logEvent to allow you to associate parameters with an event. Parameters</li>
+<li>are extremely valuable as they allow you to store characteristics of an action. For example,</li>
+<li>if a user purchased an item it may be helpful to know what level that user was on.</li>
+<li>By setting this parameter you will be able to view a distribution of levels for the purcahsed</li>
+<li>event on the <a href="[http://dev.flurry.com](http://dev.flurry.com)">Flurrly Dev Portal</a>.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event. \n</li>
+<li>A maximum of 10 parameter names may be associated with any event. Sending</li>
+<li>over 10 parameter names with a single event will result in no parameters being logged</li>
+<li>for that event. You may specify an infinite number of Parameter values. For example,</li>
+<li>a Search Box would have 1 parameter name (e.g. &ndash; Search Box) and many values, which would</li>
+<li>allow you to see what values users look for the most in your app. \n</li>
+<li>Where applicable, you should make a concerted effort to use timed events with</li>
+<li>parameters (#<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a>). This provides valuable information</li>
+<li>around the time the user spends within an action (e.g. &ndash; time spent on a level or</li>
+<li>viewing a page).
+*</li>
+<li>@see #<a href="#//api/name/logEvent:withParameters:timed:">logEvent:withParameters:timed:</a> for details on storing timed events with parameters. \n</li>
+<li><h1><a href="#//api/name/endTimedEvent:withParameters:">endTimedEvent:withParameters:</a> for details on stopping a timed event and (optionally) updating</h1></li>
+<li>parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)userPurchasedSomethingCool
+{
+NSDictionary *params =
+[NSDictionary dictionaryWithObjectsAndKeys:@&ldquo;Cool Item&rdquo;, // Parameter Value
+@&ldquo;Item Purchased&rdquo;, // Parameter Name
+nil];
+[Flurry logEvent:@&ldquo;Something Cool Purchased&rdquo; withParameters:params];
+// Give user cool item
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param eventName Name of the event. For maximum effectiveness, we recommend using a naming scheme</li>
+<li>that can be easily understood by non-technical people in your business domain.</li>
+<li>@param parameters A map containing Name-Value pairs of parameters.</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logEvent:withParameters:timed:" title="logEvent:withParameters:timed:"></a>
+	<h3 class="subsubtitle method-title">logEvent:withParameters:timed:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<ul>
+<li>@brief Records a custom parameterized timed event specified by @c eventName with @c parameters.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method overrides #logEvent to allow you to capture the length of an event with parameters.</li>
+<li>This can be extremely valuable to understand the level of engagement with a particular action</li>
+<li>and the characteristics associated with that action. For example, you can capture how long a user</li>
+<li>spends on a level or reading an article. Parameters can be used to capture, for example, the</li>
+<li>author of an article or if something was purchased while on the level.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event.
+*</li>
+<li>@see #<a href="#//api/name/endTimedEvent:withParameters:">endTimedEvent:withParameters:</a> for details on stopping a timed event and (optionally) updating</li>
+<li>parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)startLevel
+{
+NSDictionary *params =
+[NSDictionary dictionaryWithObjectsAndKeys:@&ldquo;100&rdquo;, // Parameter Value
+@&ldquo;Current Points&rdquo;, // Parameter Name
+nil];</li>
+</ul>
+</li>
+</ul>
+
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)logEvent:(NSString *)<em>eventName</em> withParameters:(NSDictionary *)<em>parameters</em> timed:(BOOL)<em>timed</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<ul>
+<li>@brief Records a custom parameterized timed event specified by @c eventName with @c parameters.</li>
+<li>@since 2.8.4
+*</li>
+<li>This method overrides #logEvent to allow you to capture the length of an event with parameters.</li>
+<li>This can be extremely valuable to understand the level of engagement with a particular action</li>
+<li>and the characteristics associated with that action. For example, you can capture how long a user</li>
+<li>spends on a level or reading an article. Parameters can be used to capture, for example, the</li>
+<li>author of an article or if something was purchased while on the level.
+*</li>
+<li>@note You should not pass private or confidential information about your users in a</li>
+<li>custom event.
+*</li>
+<li>@see #<a href="#//api/name/endTimedEvent:withParameters:">endTimedEvent:withParameters:</a> for details on stopping a timed event and (optionally) updating</li>
+<li>parameters.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)startLevel
+{
+NSDictionary *params =
+[NSDictionary dictionaryWithObjectsAndKeys:@&ldquo;100&rdquo;, // Parameter Value
+@&ldquo;Current Points&rdquo;, // Parameter Name
+nil];</li>
+</ul>
+</li>
+</ul>
+
+
+<p>[Flurry logEvent:@&ldquo;Level Played&rdquo; withParameters:params timed:YES];
+// Start user on level
+}</p>
+
+<ul>
+<li>(void)endLevel
+{
+// User gained additional 100 points in Level
+NSDictionary *params =
+[NSDictionary dictionaryWithObjectsAndKeys:@&ldquo;200&rdquo;, // Parameter Value
+@&ldquo;Current Points&rdquo;, // Parameter Name
+nil];
+[Flurry endTimedEvent:@&ldquo;Level Played&rdquo; withParameters:params];
+// User done with level
+}</li>
+<li>@endcode
+*</li>
+<li>@param eventName Name of the event. For maximum effectiveness, we recommend using a naming scheme</li>
+<li>that can be easily understood by non-technical people in your business domain.</li>
+<li>@param parameters A map containing Name-Value pairs of parameters.</li>
+<li>@param timed Specifies the event will be timed.</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logPageView" title="logPageView"></a>
+	<h3 class="subsubtitle method-title">logPageView</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<ul>
+<li>@brief Explicitly track a page view during a session.</li>
+<li>@since 2.7
+*</li>
+<li>This method increments the page view count for a session when invoked. It does not associate a name</li>
+<li>with the page count. To associate a name with a count of occurences see #<a href="#//api/name/logEvent:">logEvent:</a>.
+*</li>
+<li>@see #logAllPageViews for details on automatically incrementing page view count based on user</li>
+<li>traversing navigation or tab bar controller.
+*</li>
+<li>@code</li>
+<li>&ndash;(void) trackView
+{
+<a href="#//api/name/logPageView">[Flurry logPageView]</a>;
+}</li>
+<li>@endcode
+*</li>
+</ul>
+
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)logPageView</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<ul>
+<li>@brief Explicitly track a page view during a session.</li>
+<li>@since 2.7
+*</li>
+<li>This method increments the page view count for a session when invoked. It does not associate a name</li>
+<li>with the page count. To associate a name with a count of occurences see #<a href="#//api/name/logEvent:">logEvent:</a>.
+*</li>
+<li>@see #logAllPageViews for details on automatically incrementing page view count based on user</li>
+<li>traversing navigation or tab bar controller.
+*</li>
+<li>@code</li>
+<li>&ndash;(void) trackView
+{
+<a href="#//api/name/logPageView">[Flurry logPageView]</a>;
+}</li>
+<li>@endcode
+*</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setAge:" title="setAge:"></a>
+	<h3 class="subsubtitle method-title">setAge:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>@brief Set your user&rsquo;s age in years.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setAge:(int)<em>age</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>age</em></dt>
+			<dd><p>Reported age of user.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>2.7</p>
+
+<p>Use this method to capture the age of your user. Only use this method if you collect this
+information explictly from your user (i.e. &ndash; there is no need to set a default value).</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@brief Set your user&rsquo;s age in years.</p><div class="note"><p><strong>Note:</strong> The age is aggregated across all users of your app and not available on a per user
+basis.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setAppVersion:" title="setAppVersion:"></a>
+	<h3 class="subsubtitle method-title">setAppVersion:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>@brief Explicitly specifies the App Version that Flurry will use to group Analytics data.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setAppVersion:(NSString *)<em>version</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>version</em></dt>
+			<dd><p>The custom version name.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>2.7</p>
+
+<p>This is an optional method that overrides the App Version Flurry uses for reporting. Flurry will
+use the CFBundleVersion in your info.plist file when this method is not invoked.</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@brief Explicitly specifies the App Version that Flurry will use to group Analytics data.</p><div class="note"><p><strong>Note:</strong> There is a maximum of 605 versions allowed for a single app. \n
+This method must be called prior to invoking #<a href="#//api/name/startSession:">startSession:</a>.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setCrashReportingEnabled:" title="setCrashReportingEnabled:"></a>
+	<h3 class="subsubtitle method-title">setCrashReportingEnabled:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>@brief Enable automatic collection of crash reports.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setCrashReportingEnabled:(BOOL)<em>value</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>value</em></dt>
+			<dd><p>@c YES to enable collection of crash reports.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>4.1</p>
+
+<p>This is an optional method that collects crash reports when enabled. The
+default value is @c NO.</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@brief Enable automatic collection of crash reports.</p><div class="note"><p><strong>Note:</strong> This method must be called prior to invoking #<a href="#//api/name/startSession:">startSession:</a>.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setDebugLogEnabled:" title="setDebugLogEnabled:"></a>
+	<h3 class="subsubtitle method-title">setDebugLogEnabled:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>@brief Generates debug logs to console.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setDebugLogEnabled:(BOOL)<em>value</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>value</em></dt>
+			<dd><p>@c YES to show debug logs, @c NO to omit debug logs.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>2.7</p>
+
+<p>This is an optional method that displays debug information related to the Flurry SDK.
+display information to the console. The default setting for this method is @c NO.</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@brief Generates debug logs to console.</p><div class="note"><p><strong>Note:</strong> This method must be called prior to invoking #<a href="#//api/name/startSession:">startSession:</a>.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setEventLoggingEnabled:" title="setEventLoggingEnabled:"></a>
+	<h3 class="subsubtitle method-title">setEventLoggingEnabled:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>@brief Enable custom event logging.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setEventLoggingEnabled:(BOOL)<em>value</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>value</em></dt>
+			<dd><p>YES to enable event logging, NO to stop custom logging.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>2.7</p>
+
+<p>Use this method to allow the capture of custom events. The default value is @c YES.</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@brief Enable custom event logging.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setGender:" title="setGender:"></a>
+	<h3 class="subsubtitle method-title">setGender:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>@brief Set your user&rsquo;s gender.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setGender:(NSString *)<em>gender</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gender</em></dt>
+			<dd><p>Reported gender of user.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>2.7</p>
+
+<p>Use this method to capture the gender of your user. Only use this method if you collect this
+information explictly from your user (i.e. &ndash; there is no need to set a default value). Allowable
+values are @c @&ldquo;M&rdquo; or @c @&ldquo;F&rdquo;</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@brief Set your user&rsquo;s gender.</p><div class="note"><p><strong>Note:</strong> The gender is aggregated across all users of your app and not available on a per user
+basis.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setLatitude:longitude:horizontalAccuracy:verticalAccuracy:" title="setLatitude:longitude:horizontalAccuracy:verticalAccuracy:"></a>
+	<h3 class="subsubtitle method-title">setLatitude:longitude:horizontalAccuracy:verticalAccuracy:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<ul>
+<li>@brief Set the location of the session.</li>
+<li>@since 2.7
+*</li>
+<li>Use information from the CLLocationManager to specify the location of the session. Flurry does not</li>
+<li>automatically track this information or include the CLLocation framework.
+*</li>
+<li>@note Only the last location entered is captured per session. \n</li>
+<li>Regardless of accuracy specified, the Flurry SDK will only report location at city level or higher. \n</li>
+<li>Location is aggregated across all users of your app and not available on a per user basis. \n</li>
+<li>This information should only be captured if it is germaine to the use of your app.
+*</li>
+<li>@code
+CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+[locationManager startUpdatingLocation];</li>
+<li>@endcode
+*</li>
+<li>After starting the location manager, you can set the location with Flurry. You can implement</li>
+<li>CLLocationManagerDelegate to be aware of when the location is updated. Below is an example</li>
+<li>of how to use this method, after you have recieved a location update from the locationManager.
+*</li>
+<li>@code
+CLLocation *location = locationManager.location;
+[Flurry  setLatitude:location.coordinate.latitude
+         longitude:location.coordinate.longitude
+horizontalAccuracy:location.horizontalAccuracy
+  verticalAccuracy:location.verticalAccuracy];</li>
+<li>@endcode</li>
+<li>@param latitude The latitude.</li>
+<li>@param longitude The longitude.</li>
+<li>@param horizontalAccuracy The radius of uncertainty for the location in meters.</li>
+<li>@param verticalAccuracy The accuracy of the altitude value in meters.
+*</li>
+</ul>
+
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setLatitude:(double)<em>latitude</em> longitude:(double)<em>longitude</em> horizontalAccuracy:(float)<em>horizontalAccuracy</em> verticalAccuracy:(float)<em>verticalAccuracy</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<ul>
+<li>@brief Set the location of the session.</li>
+<li>@since 2.7
+*</li>
+<li>Use information from the CLLocationManager to specify the location of the session. Flurry does not</li>
+<li>automatically track this information or include the CLLocation framework.
+*</li>
+<li>@note Only the last location entered is captured per session. \n</li>
+<li>Regardless of accuracy specified, the Flurry SDK will only report location at city level or higher. \n</li>
+<li>Location is aggregated across all users of your app and not available on a per user basis. \n</li>
+<li>This information should only be captured if it is germaine to the use of your app.
+*</li>
+<li>@code
+CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+[locationManager startUpdatingLocation];</li>
+<li>@endcode
+*</li>
+<li>After starting the location manager, you can set the location with Flurry. You can implement</li>
+<li>CLLocationManagerDelegate to be aware of when the location is updated. Below is an example</li>
+<li>of how to use this method, after you have recieved a location update from the locationManager.
+*</li>
+<li>@code
+CLLocation *location = locationManager.location;
+[Flurry  setLatitude:location.coordinate.latitude
+         longitude:location.coordinate.longitude
+horizontalAccuracy:location.horizontalAccuracy
+  verticalAccuracy:location.verticalAccuracy];</li>
+<li>@endcode</li>
+<li>@param latitude The latitude.</li>
+<li>@param longitude The longitude.</li>
+<li>@param horizontalAccuracy The radius of uncertainty for the location in meters.</li>
+<li>@param verticalAccuracy The accuracy of the altitude value in meters.
+*</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setPushToken:" title="setPushToken:"></a>
+	<h3 class="subsubtitle method-title">setPushToken:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>@brief Set device push token.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setPushToken:(NSString *)<em>pushToken</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>2.7</p>
+
+<p>After the device has successfully registered with APNS, call this method to set the push token received from APNS.</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@brief Set device push token.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setSecureTransportEnabled:" title="setSecureTransportEnabled:"></a>
+	<h3 class="subsubtitle method-title">setSecureTransportEnabled:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>@brief Send data over a secure transport.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setSecureTransportEnabled:(BOOL)<em>value</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>value</em></dt>
+			<dd><p>@c YES to send data over secure connection.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>3.0</p>
+
+<p>This is an optional method that sends data over an SSL connection when enabled. The
+default value is @c NO.</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@brief Send data over a secure transport.</p><div class="note"><p><strong>Note:</strong> This method must be called prior to invoking #<a href="#//api/name/startSession:">startSession:</a>.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setSessionContinueSeconds:" title="setSessionContinueSeconds:"></a>
+	<h3 class="subsubtitle method-title">setSessionContinueSeconds:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>@brief Set the timeout for expiring a Flurry session.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setSessionContinueSeconds:(int)<em>seconds</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>seconds</em></dt>
+			<dd><p>The time in seconds to set the session timeout to.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>2.7</p>
+
+<p>This is an optional method that sets the time the app may be in the background before
+starting a new session upon resume.  The default value for the session timeout is 10
+seconds in the background.</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@brief Set the timeout for expiring a Flurry session.</p><div class="note"><p><strong>Note:</strong> This method must be called prior to invoking #<a href="#//api/name/startSession:">startSession:</a>.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setSessionReportsOnCloseEnabled:" title="setSessionReportsOnCloseEnabled:"></a>
+	<h3 class="subsubtitle method-title">setSessionReportsOnCloseEnabled:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>@brief Set session to report when app closes.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setSessionReportsOnCloseEnabled:(BOOL)<em>sendSessionReportsOnClose</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sendSessionReportsOnClose</em></dt>
+			<dd><p>YES to send on close, NO to omit reporting on close.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>2.7</p>
+
+<p>Use this method report session data when the app is closed. The default value is @c YES.</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@brief Set session to report when app closes.</p><div class="note"><p><strong>Note:</strong> This method is rarely invoked in iOS >= 3.2 due to the updated iOS lifecycle.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><h1><a href="#//api/name/setSessionReportsOnPauseEnabled:">+ setSessionReportsOnPauseEnabled:</a></h1></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setSessionReportsOnPauseEnabled:" title="setSessionReportsOnPauseEnabled:"></a>
+	<h3 class="subsubtitle method-title">setSessionReportsOnPauseEnabled:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>@brief Set session to report when app is sent to the background.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setSessionReportsOnPauseEnabled:(BOOL)<em>setSessionReportsOnPauseEnabled</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>setSessionReportsOnPauseEnabled</em></dt>
+			<dd><p>YES to send on pause, NO to omit reporting on pause.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>2.7</p>
+
+<p>Use this method report session data when the app is paused. The default value is @c YES.</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@brief Set session to report when app is sent to the background.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setShowErrorInLogEnabled:" title="setShowErrorInLogEnabled:"></a>
+	<h3 class="subsubtitle method-title">setShowErrorInLogEnabled:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>@brief Displays an exception in the debug log if thrown during a Session.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setShowErrorInLogEnabled:(BOOL)<em>value</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>value</em></dt>
+			<dd><p>@c YES to show errors in debug logs, @c NO to omit errors in debug logs.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>2.7</p>
+
+<p>This is an optional method that augments the debug logs with exceptions that occur during the session.
+You must both capture exceptions to Flurry and set debug logging to enabled for this method to
+display information to the console. The default setting for this method is @c NO.</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@brief Displays an exception in the debug log if thrown during a Session.</p><div class="note"><p><strong>Note:</strong> This method must be called prior to invoking #<a href="#//api/name/startSession:">startSession:</a>.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><h1><a href="#//api/name/setDebugLogEnabled:">+ setDebugLogEnabled:</a> for information on how to view debugging information on your console. \n</h1>
+
+<h1><a href="#//api/name/logError:message:exception:">+ logError:message:exception:</a> for details on logging exceptions. \n</h1>
+
+<h1><a href="#//api/name/logError:message:error:">+ logError:message:error:</a> for details on logging errors.</h1></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setUserID:" title="setUserID:"></a>
+	<h3 class="subsubtitle method-title">setUserID:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>@brief Assign a unique id for a user in your app.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)setUserID:(NSString *)<em>userID</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>userID</em></dt>
+			<dd><p>The app id for a user.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>2.7</p>
+	</div>
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@brief Assign a unique id for a user in your app.</p><div class="note"><p><strong>Note:</strong> Please be sure not to use this method to pass any private or confidential information
+about the user.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/startSession:" title="startSession:"></a>
+	<h3 class="subsubtitle method-title">startSession:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<ul>
+<li>@brief Start a Flurry session for the project denoted by @c apiKey.</li>
+<li>@since 2.6
+*</li>
+<li>This method serves as the entry point to Flurry Analytics collection.  It must be</li>
+<li>called in the scope of @c applicationDidFinishLaunching.  The session will continue</li>
+<li>for the period the app is in the foreground until your app is backgrounded for the</li>
+<li>time specified in #<a href="#//api/name/setSessionContinueSeconds:">setSessionContinueSeconds:</a>. If the app is resumed in that period</li>
+<li>the session will continue, otherwise a new session will begin.
+*</li>
+<li>Crash reporting will not be enabled. See #startSession:enableCrashReporting: for</li>
+<li>more information.
+*</li>
+<li>@note If testing on a simulator, please be sure to send App to background via home</li>
+<li>button. Flurry depends on the iOS lifecycle to be complete for full reporting.
+*</li>
+<li>@see #<a href="#//api/name/setSessionContinueSeconds:">setSessionContinueSeconds:</a> for details on setting a custom session timeout.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)applicationDidFinishLaunching:(UIApplication *)application
+{
+// Optional Flurry startup methods
+[Flurry startSession:@&ldquo;YOUR_API_KEY&rdquo;];
+// &hellip;.
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param apiKey The API key for this project.</li>
+</ul>
+
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)startSession:(NSString *)<em>apiKey</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<ul>
+<li>@brief Start a Flurry session for the project denoted by @c apiKey.</li>
+<li>@since 2.6
+*</li>
+<li>This method serves as the entry point to Flurry Analytics collection.  It must be</li>
+<li>called in the scope of @c applicationDidFinishLaunching.  The session will continue</li>
+<li>for the period the app is in the foreground until your app is backgrounded for the</li>
+<li>time specified in #<a href="#//api/name/setSessionContinueSeconds:">setSessionContinueSeconds:</a>. If the app is resumed in that period</li>
+<li>the session will continue, otherwise a new session will begin.
+*</li>
+<li>Crash reporting will not be enabled. See #startSession:enableCrashReporting: for</li>
+<li>more information.
+*</li>
+<li>@note If testing on a simulator, please be sure to send App to background via home</li>
+<li>button. Flurry depends on the iOS lifecycle to be complete for full reporting.
+*</li>
+<li>@see #<a href="#//api/name/setSessionContinueSeconds:">setSessionContinueSeconds:</a> for details on setting a custom session timeout.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(void)applicationDidFinishLaunching:(UIApplication *)application
+{
+// Optional Flurry startup methods
+[Flurry startSession:@&ldquo;YOUR_API_KEY&rdquo;];
+// &hellip;.
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param apiKey The API key for this project.</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/startSession:withOptions:" title="startSession:withOptions:"></a>
+	<h3 class="subsubtitle method-title">startSession:withOptions:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<ul>
+<li>@brief Start a Flurry session for the project denoted by @c apiKey.</li>
+<li>@since 4.0.8
+*</li>
+<li>This method serves as the entry point to Flurry Analytics collection.  It must be</li>
+<li>called in the scope of @c applicationDidFinishLaunching passing in the launchOptions param.</li>
+<li>The session will continue</li>
+<li>for the period the app is in the foreground until your app is backgrounded for the</li>
+<li>time specified in #<a href="#//api/name/setSessionContinueSeconds:">setSessionContinueSeconds:</a>. If the app is resumed in that period</li>
+<li>the session will continue, otherwise a new session will begin.
+*</li>
+<li>@note If testing on a simulator, please be sure to send App to background via home</li>
+<li>button. Flurry depends on the iOS lifecycle to be complete for full reporting.
+*</li>
+<li>@see #<a href="#//api/name/setSessionContinueSeconds:">setSessionContinueSeconds:</a> for details on setting a custom session timeout.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(BOOL) application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions
+{
+// Optional Flurry startup methods
+[Flurry startSession:@&ldquo;YOUR_API_KEY&rdquo; withOptions:launchOptions];
+// &hellip;.
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param apiKey The API key for this project.</li>
+<li>@param options passed launchOptions from the applicatin&rsquo;s didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</li>
+</ul>
+
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)startSession:(NSString *)<em>apiKey</em> withOptions:(id)<em>options</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<ul>
+<li>@brief Start a Flurry session for the project denoted by @c apiKey.</li>
+<li>@since 4.0.8
+*</li>
+<li>This method serves as the entry point to Flurry Analytics collection.  It must be</li>
+<li>called in the scope of @c applicationDidFinishLaunching passing in the launchOptions param.</li>
+<li>The session will continue</li>
+<li>for the period the app is in the foreground until your app is backgrounded for the</li>
+<li>time specified in #<a href="#//api/name/setSessionContinueSeconds:">setSessionContinueSeconds:</a>. If the app is resumed in that period</li>
+<li>the session will continue, otherwise a new session will begin.
+*</li>
+<li>@note If testing on a simulator, please be sure to send App to background via home</li>
+<li>button. Flurry depends on the iOS lifecycle to be complete for full reporting.
+*</li>
+<li>@see #<a href="#//api/name/setSessionContinueSeconds:">setSessionContinueSeconds:</a> for details on setting a custom session timeout.
+*</li>
+<li>@code</li>
+<li><ul>
+<li>(BOOL) application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions
+{
+// Optional Flurry startup methods
+[Flurry startSession:@&ldquo;YOUR_API_KEY&rdquo; withOptions:launchOptions];
+// &hellip;.
+}</li>
+</ul>
+</li>
+<li>@endcode
+*</li>
+<li>@param apiKey The API key for this project.</li>
+<li>@param options passed launchOptions from the applicatin&rsquo;s didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Flurry.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Flurry. All rights reserved. (Last updated: 2013-06-11)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

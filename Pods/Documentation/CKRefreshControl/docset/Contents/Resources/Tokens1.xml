@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CKRefreshControl.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CKRefreshControl</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CKRefreshControl.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CKRefreshControl/init</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CKRefreshControl.h</DeclaredIn>			
+			
+			<Declaration>- (id)init</Declaration>
+			
+			
+			<Anchor>//api/name/init</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CKRefreshControl/setRefreshing:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CKRefreshControl.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, getter=isRefreshing) BOOL refreshing</Declaration>
+			
+			
+			<Anchor>//api/name/refreshing</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CKRefreshControl/refreshing</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CKRefreshControl.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, getter=isRefreshing) BOOL refreshing</Declaration>
+			
+			
+			<Anchor>//api/name/refreshing</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CKRefreshControl/setUI_APPEARANCE_SELECTOR:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CKRefreshControl.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UIColor *UI_APPEARANCE_SELECTOR</Declaration>
+			
+			
+			<Anchor>//api/name/UI_APPEARANCE_SELECTOR</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CKRefreshControl/UI_APPEARANCE_SELECTOR</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CKRefreshControl.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UIColor *UI_APPEARANCE_SELECTOR</Declaration>
+			
+			
+			<Anchor>//api/name/UI_APPEARANCE_SELECTOR</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CKRefreshControl/beginRefreshing</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CKRefreshControl.h</DeclaredIn>			
+			
+			<Declaration>- (void)beginRefreshing</Declaration>
+			
+			
+			<Anchor>//api/name/beginRefreshing</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CKRefreshControl/endRefreshing</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CKRefreshControl.h</DeclaredIn>			
+			
+			<Declaration>- (void)endRefreshing</Declaration>
+			
+			
+			<Anchor>//api/name/endRefreshing</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

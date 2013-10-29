@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.cocoapods.pbemojilabel.PBEmojiLabel-1.0</string>
+	<key>CFBundleName</key>
+	<string>PBEmojiLabel 1.0 Documentation</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	
+	
+	<key>DocSetDescription</key>
+	<string>UILabel category which allows you to insert Emojis without the need to calculate where to insert some UIImages representing the Emojis.</string>
+	
+	<key>DocSetFeedName</key>
+	<string>PBEmojiLabel 1.0 Documentation</string>
+	
+	<key>DocSetMinimumXcodeVersion</key>
+	<string>3.0</string>
+	
+	<key>DashDocSetFamily</key>
+	<string>appledoc</string>
+	<key>DocSetPublisherIdentifier</key>
+	<string>org.cocoapods.pbemojilabel.documentation</string>
+	<key>DocSetPublisherName</key>
+	<string>Piet Brauer</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Piet Brauer</string>
+</dict>
+</plist>

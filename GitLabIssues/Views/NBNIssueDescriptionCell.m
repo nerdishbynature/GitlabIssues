@@ -8,19 +8,17 @@
 
 #import "NBNIssueDescriptionCell.h"
 #import <QuartzCore/QuartzCore.h>
-#import "NBNGitlabEngine.h"
 #import "Author.h"
 #import "NSString+NSHash.h"
-#import "ASIDownloadCache.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface NBNIssueDescriptionCell ()
 
-@property (nonatomic, retain) IBOutlet UIImageView *authorImage;
-@property (nonatomic, retain) IBOutlet UILabel *authorNameLabel;
-@property (nonatomic, retain) IBOutlet UILabel *issueHeaderLabel;
-@property (nonatomic, retain) IBOutlet UILabel *descriptionLabel;
-@property (nonatomic, retain) Issue *issue;
-@property (nonatomic, retain) NBNGitlabEngine *requestEngine;
+@property (nonatomic, strong) IBOutlet UIImageView *authorImage;
+@property (nonatomic, strong) IBOutlet UILabel *authorNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *issueHeaderLabel;
+@property (nonatomic, strong) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, strong) Issue *issue;
 
 @end
 
@@ -30,7 +28,6 @@
 @synthesize issueHeaderLabel;
 @synthesize descriptionLabel;
 @synthesize issue;
-@synthesize requestEngine;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -74,35 +71,14 @@
 }
 
 -(void)loadAuthorImage{
-    self.requestEngine = [[[NBNGitlabEngine alloc] init] autorelease];
+
+    NSString *gravatatURLString = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [self.issue.author.email MD5]];
+    [self.authorImage setImageWithURL:[NSURL URLWithString:gravatatURLString]];
     
-    [self.requestEngine requestWithURL:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=44", [self.issue.author.email MD5]] completionHandler:^(MKNetworkOperation *request) {
-        self.authorImage.image = [UIImage imageWithData:request.responseData];
-        CALayer * l = [self.authorImage layer];
-        [l setMasksToBounds:YES];
-        [l setCornerRadius:5.0];
-        
-    } errorHandler:^(NSError *error) {
-        [Flurry logError:@"loadAuthorImage" message:error.localizedDescription error:error];
-        PBLog(@"%@", [error localizedDescription]);
-    }];
+    CALayer * l = [self.authorImage layer];
+    [l setMasksToBounds:YES];
+    [l setCornerRadius:5.0];
 }
 
-- (void)dealloc
-{
-    self.authorImage = nil;
-    self.authorNameLabel = nil;
-    self.issueHeaderLabel = nil;
-    self.descriptionLabel = nil;
-    self.requestEngine = nil;
-    
-    [authorImage release];
-    [authorNameLabel release];
-    [issueHeaderLabel release];
-    [descriptionLabel release];
-    [requestEngine release];
-    
-    [super dealloc];
-}
 
 @end

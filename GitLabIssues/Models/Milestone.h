@@ -13,15 +13,15 @@
 
 @interface Milestone : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * closed;
-@property (nonatomic, retain) NSDate * created_at;
-@property (nonatomic, retain) NSString * descriptionString;
-@property (nonatomic, retain) NSDate * due_date;
-@property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSSet *issue;
-@property (nonatomic, retain) NSNumber *project_id;
-@property (nonatomic, retain) Filter *filter;
+@property (nonatomic, strong) NSNumber * closed;
+@property (nonatomic, strong) NSDate * created_at;
+@property (nonatomic, strong) NSString * descriptionString;
+@property (nonatomic, strong) NSDate * due_date;
+@property (nonatomic, strong) NSNumber * identifier;
+@property (nonatomic, strong) NSString * title;
+@property (nonatomic, strong) NSSet *issue;
+@property (nonatomic, strong) NSNumber *project_id;
+@property (nonatomic, strong) Filter *filter;
 
 /**
   This method is used for parsing the returned JSON from the API

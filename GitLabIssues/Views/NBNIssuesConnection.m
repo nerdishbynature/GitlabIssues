@@ -12,28 +12,23 @@
 #import "Domain.h"
 #import "Issue.h"
 #import "Note.h"
-#import "NBNGitlabEngine.h"
-#import "ASIHTTPRequest.h"
 #import "NBNReachabilityChecker.h"
+#import <AFNetworking/AFJSONRequestOperation.h>
+#import <AFNetworking/AFHTTPClient.h>
 
 @interface NBNIssuesConnection ()
 
-@property (nonatomic, retain) NBNGitlabEngine *issuesConnection;
-@property (nonatomic, retain) NBNGitlabEngine *reloadConnection;
-@property (nonatomic, retain) NBNGitlabEngine *notesConnection;
-@property (nonatomic, retain) ASIHTTPRequest *sendNotesConnection;
-@property (nonatomic, retain) NBNGitlabEngine *allIssuesConnection;
+@property (nonatomic, strong) AFJSONRequestOperation *issuesOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *reloadOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *notesOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *sendNotesOperation;
+@property (nonatomic, strong) AFJSONRequestOperation *allIssuesOperation;
 
 @end
 
 static NBNIssuesConnection *sharedConnection = nil;
 
 @implementation NBNIssuesConnection
-@synthesize issuesConnection;
-@synthesize reloadConnection;
-@synthesize notesConnection;
-@synthesize sendNotesConnection;
-@synthesize allIssuesConnection;
 
 + (NBNIssuesConnection *) sharedConnection {
     
@@ -54,13 +49,16 @@ static NBNIssuesConnection *sharedConnection = nil;
         return;
     }
     
-    Domain *domain = [[Domain findAll] lastObject];
+    Domain *domain = [[Domain MR_findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
     
-        self.issuesConnection = [[[NBNGitlabEngine alloc] init] autorelease];
-        [self.issuesConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token] completionHandler:^(MKNetworkOperation *request) {
-            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+        
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues?private_token=%@", domain.protocol, domain.domain, project.identifier, session.private_token]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        self.issuesOperation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            NSArray *array = JSON;
             
             for (NSDictionary *dict in array) {
                 
@@ -77,15 +75,17 @@ static NBNIssuesConnection *sharedConnection = nil;
                 }
             }
             block();
-        } errorHandler:^(NSError *error) {
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
             block();
             PBLog(@"err %@", error);
         }];
+        
+        [self.issuesOperation start];
     }];
 }
 
 -(void)cancelIssuesConnection{
-    [self.issuesConnection cancel];
+    [self.issuesOperation cancel];
 }
 
 -(void)reloadIssue:(Issue *)issue onSuccess:(void(^)(void))block{
@@ -95,26 +95,31 @@ static NBNIssuesConnection *sharedConnection = nil;
         return;
     }
     
-    Domain *domain = [[Domain findAll] lastObject];
+    Domain *domain = [[Domain MR_findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
-        //GET /projects/:id/issues/:issue_id        
-        self.reloadConnection = [[[NBNGitlabEngine alloc] init] autorelease];
-        [self.reloadConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@?private_token=%@", domain.protocol, domain.domain, issue.project_id, issue.identifier, session.private_token] completionHandler:^(MKNetworkOperation *request) {
-            NSDictionary *returnDict = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+        //GET /projects/:id/issues/:issue_id
+        
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@?private_token=%@", domain.protocol, domain.domain, issue.project_id, issue.identifier, session.private_token]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        self.reloadOperation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            NSDictionary *returnDict = JSON;
             
             [issue parseServerResponse:returnDict];
             
             block();
-        } errorHandler:^(NSError *error) {
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
             block();
             PBLog(@"err %@", error);
         }];
+        
+        [self.reloadOperation start];
     }];
 }
 
 -(void)cancelReloadConnection{
-    [self.reloadConnection cancel];
+    [self.reloadOperation cancel];
 }
 
 -(void)loadNotesForIssue:(Issue *)issue onSuccess:(void (^)(NSArray *))block{
@@ -123,16 +128,18 @@ static NBNIssuesConnection *sharedConnection = nil;
         return;
     }
 
-    Domain *domain = [[Domain findAll] lastObject];
+    Domain *domain = [[Domain MR_findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         //GET /projects/:id/issues/:issue_id/notes
         
-        self.notesConnection = [[[NBNGitlabEngine alloc] init] autorelease];
-        [self.notesConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@/notes?private_token=%@", domain.protocol,
-                                              domain.domain, issue.project_id, issue.identifier, session.private_token] completionHandler:^(MKNetworkOperation *request) {
-            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
-            NSMutableArray *returnArray = [[[NSMutableArray alloc] initWithCapacity:array.count] autorelease];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@/notes?private_token=%@", domain.protocol,
+                                           domain.domain, issue.project_id, issue.identifier, session.private_token]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        self.notesOperation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            NSArray *array = JSON;
+            NSMutableArray *returnArray = [[NSMutableArray alloc] initWithCapacity:array.count];
             
             for (NSDictionary *dict in array) {
                 
@@ -152,15 +159,17 @@ static NBNIssuesConnection *sharedConnection = nil;
                 }
             }
             block(returnArray);
-        } errorHandler:^(NSError *error) {
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
             block(@[]);
             PBLog(@"err %@", error);
         }];
+        
+        [self.notesOperation start];
     }];
 }
 
 -(void)cancelNotesConnection{
-    [self.notesConnection cancel];
+    [self.notesOperation cancel];
 }
 
 -(void)sendNoteForIssue:(Issue *)issue andBody:(NSString *)body onSuccess:(void (^)(BOOL success))block{
@@ -170,37 +179,26 @@ static NBNIssuesConnection *sharedConnection = nil;
         return;
     }
     
-    Domain *domain = [[Domain findAll] lastObject];
+    Domain *domain = [[Domain MR_findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         //POST /projects/:id/issues/:issue_id/notes
+        
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%@/issues/%@/notes?private_token=%@", domain.protocol, domain.domain, issue.project_id, issue.identifier, session.private_token]];
-        self.sendNotesConnection = [ASIHTTPRequest requestWithURL:url];
-        [self.sendNotesConnection setValidatesSecureCertificate:NO];
-        [self.sendNotesConnection setRequestMethod:@"POST"];
+        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
         
-        NSDictionary *postDict = @{@"id": issue.project_id, @"issue_id":issue.identifier, @"body": body};
-        [self.sendNotesConnection appendPostData:[NSJSONSerialization dataWithJSONObject:postDict options:kNilOptions error:nil]];
+        NSDictionary *params = @{@"id": issue.project_id, @"issue_id":issue.identifier, @"body": body};
         
-        [self.sendNotesConnection setCompletionBlock:^{
-                block(YES);
+        [httpClient postPath:@"" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            block(YES);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+           block(NO);
         }];
-        
-        [self.sendNotesConnection setFailedBlock:^{            
-            block(NO);
-        }];
-        
-        [self.sendNotesConnection startAsynchronous];
-        
     }];
 }
 
 -(void)cancelSendNotesConnection{
-    if ([self.sendNotesConnection isExecuting]){
-        [self.sendNotesConnection clearDelegatesAndCancel];
-        self.sendNotesConnection = nil;
-        PBLog(@"cancel sendNotesConnection!");
-    }
+
 }
 
 -(void)loadAllIssuesOnSuccess:(void(^)(void))block{
@@ -209,14 +207,16 @@ static NBNIssuesConnection *sharedConnection = nil;
         return;
     }
     
-    Domain *domain = [[Domain findAll] lastObject];
+    Domain *domain = [[Domain MR_findAll] lastObject];
     
     [Session getCurrentSessionWithCompletion:^(Session *session) {
 
         //GET /issues/
-        self.allIssuesConnection = [[[NBNGitlabEngine alloc] init] autorelease];
-        [self.allIssuesConnection requestWithURL:[NSString stringWithFormat:@"%@://%@/api/v3/issues/?private_token=%@", domain.protocol, domain.domain, session.private_token] completionHandler:^(MKNetworkOperation *request) {
-            NSArray *array = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:nil];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/issues/?private_token=%@", domain.protocol, domain.domain, session.private_token]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        self.allIssuesOperation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            NSArray *array = JSON;
             
             for (NSDictionary *dict in array) {
                 
@@ -235,15 +235,17 @@ static NBNIssuesConnection *sharedConnection = nil;
             }
             
             block();
-        } errorHandler:^(NSError *error) {
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
             block();
             PBLog(@"err %@", error);
         }];
+        
+        [self.allIssuesOperation start];
     }];
 }
 
 -(void)cancelAllIssuesConnection{
-    [self.allIssuesConnection cancel];
+    [self.allIssuesOperation cancel];
 }
 
 @end

@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>DAKeyboardControl 2.2.0 Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">DAKeyboardControl 2.2.0 </a></h1>
+				<a id="developerHome" href="index.html">Daniel Amitay</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">DAKeyboardControl 2.2.0 Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">DAKeyboardControl 2.2.0 Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>DAKeyboardControl</h1>
+
+<p>DAKeyboardControl allows you to easily add keyboard awareness and scrolling dismissal (a receding keyboard ala iMessages app) to any UIView, UIScrollView or UITableView with only 1 line of code. DAKeyboardControl automatically extends UIView and provides a block callback with the keyboard&rsquo;s current origin.</p>
+
+<p>DAKeyboardControl now fully supports orientation changes, iPhone &amp; iPad, and is even aware of keyboard undocking or splitting on the iPad.</p>
+
+<p>No hacks, fully App Store safe.</p>
+
+<p>!<a href="https://github.com/danielamitay/DAKeyboardControl/raw/master/screenshot.png">Screenshot</a></p>
+
+<p><a href="http://www.youtube.com/watch?v=J6GLro0cyDU">Video demonstration on YouTube</a></p>
+
+<h2>Installation</h2>
+
+<ul>
+<li>Copy over the <code>DAKeyboardControl</code> folder to your project folder.</li>
+<li><code>#import "DAKeyboardControl.h"</code></li>
+</ul>
+
+
+<h2>Usage</h2>
+
+<p>Example project included (DAKeyboardControlExample)</p>
+
+<h3>Adding pan-to-dismiss (functionality introduced in iMessages)</h3>
+
+<p>```objective-c
+[self.view addKeyboardPanningWithActionHandler:^(CGRect keyboardFrameInView) {</p>
+
+<pre><code>    // Move interface objects accordingly
+    // Animation block is handled for you
+}];
+// Make sure to call [self.view removeKeyboardControl] before the view is released.
+// (It's the balancing call)
+</code></pre>
+
+<p>```</p>
+
+<h3>Adding keyboard awareness (appearance and disappearance only)</h3>
+
+<p>```objective-c
+[self.view addKeyboardNonpanningWithActionHandler:^(CGRect keyboardFrameInView) {</p>
+
+<pre><code>    // Move interface objects accordingly
+    // Animation block is handled for you
+}];
+// Make sure to call [self.view removeKeyboardControl] before the view is released.
+// (It's the balancing call)
+</code></pre>
+
+<p>```</p>
+
+<h3>Supporting an above-keyboard input view</h3>
+
+<p>The <code>keyboardTriggerOffset</code> property allows you to choose at what point the user&rsquo;s finger &ldquo;engages&rdquo; the keyboard.</p>
+
+<p>```objective-c
+self.view.keyboardTriggerOffset = 44.0f;    // Input view frame height</p>
+
+<p>[self.view addKeyboardPanningWithActionHandler:^(CGRect keyboardFrameInView) {</p>
+
+<pre><code>    // Move input view accordingly
+    // Animation block is handled for you
+}];
+// Make sure to call [self.view removeKeyboardControl] before the view is released.
+// (It's the balancing call)
+</code></pre>
+
+<p>```</p>
+
+<h3>Dismissing the keyboard (convenience method)</h3>
+
+<p><code>objective-c
+[self.view hideKeyboard];
+</code></p>
+
+<h3>Remove the NSNotification observer at the end of a VC&rsquo;s life (convenience method)</h3>
+
+<p><code>objective-c
+[self.view removeKeyboardControl];
+</code></p>
+
+<h2>Notes</h2>
+
+<h3>Tested in App Store!</h3>
+
+<p>All code is iOS 4.0+ safe and well documented, and is already in production apps on the App Store.</p>
+
+<h3>Using with a UITextView</h3>
+
+<p>Make sure to call <code>addKeyboardPanningWithActionHandler:</code> on the UITextView itself if you wish for it to allow panning inside itself.</p>
+
+<h3>Keyboard Delay On First Appearance</h3>
+
+<p>Standard iOS issue. Use Brandon William&rsquo;s <a href="https://github.com/mbrandonw/UIResponder-KeyboardCache">UIResponder category</a> to cache the keyboard before first use.</p>
+
+<h3>Automatic Reference Counting (ARC) support</h3>
+
+<p>DAKeyboardControl was made with ARC enabled by default.</p>
+
+<h2>Contact</h2>
+
+<ul>
+<li><a href="http://danielamitay.com">Personal website</a></li>
+<li><a href="http://github.com/danielamitay">GitHub</a></li>
+<li><a href="http://twitter.com/danielamitay">Twitter</a></li>
+<li><a href="http://www.linkedin.com/in/danielamitay">LinkedIn</a></li>
+<li><a href="mailto:hello@danielamitay.com">Email</a></li>
+</ul>
+
+
+<p>If you use/enjoy DAKeyboardControl, let me know!</p>
+
+<h2>License</h2>
+
+<h3>MIT License</h3>
+
+<p>Copyright &copy; 2012 Daniel Amitay (<a href="http://danielamitay.com">http://danielamitay.com</a>)</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &ldquo;Software&rdquo;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					
+						
+					<div class="index-column">
+						
+						
+						<h2 class="index-title">Category References</h2>
+						<ul>
+							
+							<li><a href="Categories/UIView+DAKeyboardControl.html">UIView(DAKeyboardControl)</a></li>
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Daniel Amitay. All rights reserved. (Last updated: 2013-06-11)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>

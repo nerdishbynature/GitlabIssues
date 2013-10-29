@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ASIFormDataRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ASIFormDataRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>
+			
+			<NodeRef refid="13"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIFormDataRequest/encodeURL:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)encodeURL:(NSString *)string</Declaration>
+			
+			
+			<Anchor>//api/name/encodeURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIFormDataRequest/addPostValue:forKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>- (void)addPostValue:(id&lt;NSObject&gt;)value forKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/addPostValue:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIFormDataRequest/setPostValue:forKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>- (void)setPostValue:(id&lt;NSObject&gt;)value forKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/setPostValue:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIFormDataRequest/addFile:forKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>- (void)addFile:(NSString *)filePath forKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/addFile:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIFormDataRequest/addFile:withFileName:andContentType:forKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>- (void)addFile:(id)data withFileName:(NSString *)fileName andContentType:(NSString *)contentType forKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/addFile:withFileName:andContentType:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIFormDataRequest/setFile:forKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>- (void)setFile:(NSString *)filePath forKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/setFile:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIFormDataRequest/setFile:withFileName:andContentType:forKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>- (void)setFile:(id)data withFileName:(NSString *)fileName andContentType:(NSString *)contentType forKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/setFile:withFileName:andContentType:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIFormDataRequest/addData:forKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>- (void)addData:(NSData *)data forKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/addData:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIFormDataRequest/addData:withFileName:andContentType:forKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>- (void)addData:(id)data withFileName:(NSString *)fileName andContentType:(NSString *)contentType forKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/addData:withFileName:andContentType:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIFormDataRequest/setData:forKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>- (void)setData:(NSData *)data forKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/setData:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIFormDataRequest/setData:withFileName:andContentType:forKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>- (void)setData:(id)data withFileName:(NSString *)fileName andContentType:(NSString *)contentType forKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/setData:withFileName:andContentType:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIFormDataRequest/setPostFormat:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) ASIPostFormat postFormat</Declaration>
+			
+			
+			<Anchor>//api/name/postFormat</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIFormDataRequest/postFormat</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) ASIPostFormat postFormat</Declaration>
+			
+			
+			<Anchor>//api/name/postFormat</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIFormDataRequest/setStringEncoding:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) NSStringEncoding stringEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/stringEncoding</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIFormDataRequest/stringEncoding</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIFormDataRequest.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) NSStringEncoding stringEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/stringEncoding</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

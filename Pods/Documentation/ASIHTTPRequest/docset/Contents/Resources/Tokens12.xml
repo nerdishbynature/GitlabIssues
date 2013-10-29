@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ASIDownloadCache.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ASIDownloadCache</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDownloadCache.h</DeclaredIn>
+			
+			<NodeRef refid="12"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIDownloadCache/sharedCache</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDownloadCache.h</DeclaredIn>			
+			
+			<Declaration>+ (id)sharedCache</Declaration>
+			
+			
+			<Anchor>//api/name/sharedCache</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ASIDownloadCache/serverAllowsResponseCachingForRequest:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDownloadCache.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)serverAllowsResponseCachingForRequest:(ASIHTTPRequest *)request</Declaration>
+			
+			
+			<Anchor>//api/name/serverAllowsResponseCachingForRequest:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIDownloadCache/setDefaultCachePolicy:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDownloadCache.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) ASICachePolicy defaultCachePolicy</Declaration>
+			
+			
+			<Anchor>//api/name/defaultCachePolicy</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIDownloadCache/defaultCachePolicy</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDownloadCache.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) ASICachePolicy defaultCachePolicy</Declaration>
+			
+			
+			<Anchor>//api/name/defaultCachePolicy</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIDownloadCache/setStoragePath:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDownloadCache.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *storagePath</Declaration>
+			
+			
+			<Anchor>//api/name/storagePath</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIDownloadCache/storagePath</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDownloadCache.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) NSString *storagePath</Declaration>
+			
+			
+			<Anchor>//api/name/storagePath</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIDownloadCache/setAccessLock:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDownloadCache.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSRecursiveLock *accessLock</Declaration>
+			
+			
+			<Anchor>//api/name/accessLock</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIDownloadCache/accessLock</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDownloadCache.h</DeclaredIn>			
+			
+			<Declaration>@property (retain) NSRecursiveLock *accessLock</Declaration>
+			
+			
+			<Anchor>//api/name/accessLock</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ASIDownloadCache/setShouldRespectCacheControlHeaders:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDownloadCache.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) BOOL shouldRespectCacheControlHeaders</Declaration>
+			
+			
+			<Anchor>//api/name/shouldRespectCacheControlHeaders</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ASIDownloadCache/shouldRespectCacheControlHeaders</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ASIDownloadCache.h</DeclaredIn>			
+			
+			<Declaration>@property (assign) BOOL shouldRespectCacheControlHeaders</Declaration>
+			
+			
+			<Anchor>//api/name/shouldRespectCacheControlHeaders</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

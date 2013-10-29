@@ -7,7 +7,7 @@
 //
 
 #import "NBNUsersConnection.h"
-#import "ASIHTTPRequest.h"
+#import <AFNetworking/AFJSONRequestOperation.h>
 #import "Domain.h"
 #import "Session.h"
 #import "Assignee.h"
@@ -15,7 +15,7 @@
 
 @interface NBNUsersConnection ()
 
-@property (nonatomic, retain) ASIHTTPRequest *membersConnection;
+@property (nonatomic, strong) AFJSONRequestOperation *membersOperation;
 
 @end
 
@@ -37,28 +37,23 @@ static NBNUsersConnection *sharedConnection = nil;
 
 - (void) cancelMembersRequest
 {
-    if ([self.membersConnection isExecuting]){
-        [self.membersConnection clearDelegatesAndCancel];
-        self.membersConnection = nil;
-        PBLog(@"cancel membersConnection!");
-    }
+    [self.membersOperation cancel];
 }
 
 -(void)loadMembersWithProjectID:(NSUInteger)project_id onSuccess:(void (^)(NSArray *array))block{
 
     if (![[NBNReachabilityChecker sharedChecker] isReachable]) block(@[]);
     
-    Domain *domain = [[Domain findAll] lastObject];
+    Domain *domain = [[Domain MR_findAll] lastObject];
     [Session getCurrentSessionWithCompletion:^(Session *session) {
         
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/api/v3/projects/%i/members?private_token=%@", domain.protocol, domain.domain, project_id, session.private_token]];
-        self.membersConnection = [ASIHTTPRequest requestWithURL:url];
-        [self.membersConnection setValidatesSecureCertificate:NO];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
-        [self.membersConnection setCompletionBlock:^{
-            NSArray *memberJSONArray = [NSJSONSerialization JSONObjectWithData:[self.membersConnection responseData] options:kNilOptions error:nil];
+        self.membersOperation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            NSArray *memberJSONArray = JSON;
             
-            NSMutableArray *memberArray = [[[NSMutableArray alloc] initWithCapacity:memberJSONArray.count] autorelease];
+            NSMutableArray *memberArray = [[NSMutableArray alloc] initWithCapacity:memberJSONArray.count];
             
             for (NSDictionary *dict in memberJSONArray) {
                 NSArray *assigneeArray = [[[[NSManagedObjectContext MR_defaultContext] ofType:@"Assignee"] where:@"identifier == %@", [dict objectForKey:@"id"]] toArray];
@@ -72,17 +67,13 @@ static NBNUsersConnection *sharedConnection = nil;
                 }
             }
             
-            [[NSManagedObjectContext MR_defaultContext] MR_save];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:nil];
             
             block(memberArray);
-        }];
-        
-        [self.membersConnection setFailedBlock:^{
-            PBLog(@"%@", self.membersConnection.error);
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            PBLog(@"%@", error.localizedDescription);
             block(@[]);
         }];
-        
-        [self.membersConnection startAsynchronous];
     }];
 }
 
