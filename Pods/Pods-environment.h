@@ -10,19 +10,19 @@
 #define COCOAPODS_POD_AVAILABLE_AFNetworking
 #define COCOAPODS_VERSION_MAJOR_AFNetworking 1
 #define COCOAPODS_VERSION_MINOR_AFNetworking 3
-#define COCOAPODS_VERSION_PATCH_AFNetworking 0
+#define COCOAPODS_VERSION_PATCH_AFNetworking 3
 
 // Appirater
 #define COCOAPODS_POD_AVAILABLE_Appirater
 #define COCOAPODS_VERSION_MAJOR_Appirater 1
 #define COCOAPODS_VERSION_MINOR_Appirater 0
-#define COCOAPODS_VERSION_PATCH_Appirater 3
+#define COCOAPODS_VERSION_PATCH_Appirater 5
 
 // CKRefreshControl
 #define COCOAPODS_POD_AVAILABLE_CKRefreshControl
 #define COCOAPODS_VERSION_MAJOR_CKRefreshControl 1
 #define COCOAPODS_VERSION_MINOR_CKRefreshControl 1
-#define COCOAPODS_VERSION_PATCH_CKRefreshControl 0
+#define COCOAPODS_VERSION_PATCH_CKRefreshControl 1
 
 // DAKeyboardControl
 #define COCOAPODS_POD_AVAILABLE_DAKeyboardControl
@@ -34,7 +34,7 @@
 #define COCOAPODS_POD_AVAILABLE_FlurrySDK
 #define COCOAPODS_VERSION_MAJOR_FlurrySDK 4
 #define COCOAPODS_VERSION_MINOR_FlurrySDK 2
-#define COCOAPODS_VERSION_PATCH_FlurrySDK 1
+#define COCOAPODS_VERSION_PATCH_FlurrySDK 4
 
 // IOSQueryable
 #define COCOAPODS_POD_AVAILABLE_IOSQueryable
@@ -45,13 +45,13 @@
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
 #define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0
-#define COCOAPODS_VERSION_MINOR_MBProgressHUD 6
+#define COCOAPODS_VERSION_MINOR_MBProgressHUD 8
 #define COCOAPODS_VERSION_PATCH_MBProgressHUD 0
 
 // MagicalRecord
 #define COCOAPODS_POD_AVAILABLE_MagicalRecord
 #define COCOAPODS_VERSION_MAJOR_MagicalRecord 2
-#define COCOAPODS_VERSION_MINOR_MagicalRecord 1
+#define COCOAPODS_VERSION_MINOR_MagicalRecord 2
 #define COCOAPODS_VERSION_PATCH_MagicalRecord 0
 
 // NSHash

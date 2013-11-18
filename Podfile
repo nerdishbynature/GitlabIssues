@@ -15,5 +15,6 @@ pod 'AFNetworking', '~> 1.3.0'
 pod 'Reachability',  '~> 3.0.0'
 
 target :GitLabIssuesTests, :exclusive => true do
-  pod 'Kiwi'
+  pod 'OCMock', '~> 2.1.1'
+  pod 'Expecta', '~> 0.2.1'
 end  
