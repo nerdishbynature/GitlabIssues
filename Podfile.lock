@@ -49,4 +49,4 @@ SPEC CHECKSUMS:
   Reachability: 500bd76bf6cd8ff2c6fb715fc5f44ef6e4c024f2
   SVSegmentedControl: e874fc56c2a1efb9f597ddf0908101393f53fe96
 
-COCOAPODS: 0.26.2
+COCOAPODS: 0.28.0
