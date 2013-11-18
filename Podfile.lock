@@ -8,6 +8,7 @@ PODS:
   - IOSQueryable (0.0.1)
   - MagicalRecord (2.2)
   - MBProgressHUD (0.8)
+  - MTTestSemaphore (0.0.1)
   - NSHash (1.0.1)
   - OCMock (2.1.1)
   - PBEmojiLabel (1.0)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - IOSQueryable (~> 0.0.1)
   - MagicalRecord (~> 2.1)
   - MBProgressHUD (~> 0.6)
+  - MTTestSemaphore (~> 0.0.1)
   - NSHash (~> 1.0.1)
   - OCMock (~> 2.1.1)
   - PBEmojiLabel (~> 1.0)
@@ -42,6 +44,7 @@ SPEC CHECKSUMS:
   IOSQueryable: 8f32a0f6a18ce01518cc27ae96d1f3d6217fd8b6
   MagicalRecord: b1fc46c99a9749fe7fe7e6f43a89b62ef5201933
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
+  MTTestSemaphore: a0e4d39a17955264612f44541d509617384acd35
   NSHash: 7e728a3e7fdff6828f3fce387049b1e0ca7fe8a0
   OCMock: 79212e5e328378af5cfd6edb5feacfd6c49cd8a3
   PBEmojiLabel: fecfc9295b50b730cd5e68293b706dcac4071629

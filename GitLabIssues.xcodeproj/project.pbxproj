@@ -59,7 +59,6 @@
 		233712DB16E2566C0061C849 /* NBNIssueDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 233712DA16E2566C0061C849 /* NBNIssueDescriptionCell.m */; };
 		233712DE16E2567F0061C849 /* NBNFindReposViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 233712DD16E2567F0061C849 /* NBNFindReposViewController.m */; };
 		237FB14316BD19360007FB0A /* NBNDeletionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 237FB14216BD19360007FB0A /* NBNDeletionHelper.m */; };
-		2390D6D1170DE93500B9C865 /* MTTestSemaphor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2390D6D0170DE93500B9C865 /* MTTestSemaphor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		65C01F2711D5449AB56C4966 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3526E8A259E0423889E376F7 /* libPods.a */; };
 		97049FB716A0B34E004BC6E3 /* NBNReachabilityChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 97049FB616A0B34E004BC6E3 /* NBNReachabilityChecker.m */; };
 		9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9710B5A8167E2C4500F26DE2 /* UIKit.framework */; };
@@ -300,8 +299,6 @@
 		237FB14216BD19360007FB0A /* NBNDeletionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNDeletionHelper.m; path = Models/NBNDeletionHelper.m; sourceTree = "<group>"; };
 		237FB14416BD19810007FB0A /* Models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Models.h; path = Models/Models.h; sourceTree = "<group>"; };
 		237FB1A816BD2FE10007FB0A /* GitLab 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GitLab 2.xcdatamodel"; sourceTree = "<group>"; };
-		2390D6CF170DE93500B9C865 /* MTTestSemaphor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTestSemaphor.h; sourceTree = "<group>"; };
-		2390D6D0170DE93500B9C865 /* MTTestSemaphor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTestSemaphor.m; sourceTree = "<group>"; };
 		23D173EA1767A8F40041D286 /* GitLabIssuesTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GitLabIssuesTests-Prefix.pch"; sourceTree = "<group>"; };
 		2A7CE991593242A1BC7F5A34 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3526E8A259E0423889E376F7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -645,16 +642,6 @@
 			path = Vendor/HEBubbleView;
 			sourceTree = "<group>";
 		};
-		2390D6CE170DE93500B9C865 /* MTTestSemaphore */ = {
-			isa = PBXGroup;
-			children = (
-				2390D6CF170DE93500B9C865 /* MTTestSemaphor.h */,
-				2390D6D0170DE93500B9C865 /* MTTestSemaphor.m */,
-			);
-			name = MTTestSemaphore;
-			path = GitLabIssues/Vendor/MTTestSemaphore;
-			sourceTree = SOURCE_ROOT;
-		};
 		23D173E6176797F20041D286 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -788,7 +775,6 @@
 		9710B5CD167E2C4600F26DE2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2390D6CE170DE93500B9C865 /* MTTestSemaphore */,
 				9710B5CE167E2C4600F26DE2 /* GitLabIssuesTests-Info.plist */,
 				9710B5CF167E2C4600F26DE2 /* InfoPlist.strings */,
 				23D173EA1767A8F40041D286 /* GitLabIssuesTests-Prefix.pch */,
@@ -1363,7 +1349,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2390D6D1170DE93500B9C865 /* MTTestSemaphor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

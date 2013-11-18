@@ -17,4 +17,5 @@ pod 'Reachability',  '~> 3.0.0'
 target :GitLabIssuesTests, :exclusive => true do
   pod 'OCMock', '~> 2.1.1'
   pod 'Expecta', '~> 0.2.1'
+  pod 'MTTestSemaphore', '~> 0.0.1'
 end  
