@@ -18,7 +18,6 @@
 		23142AD11706F83900D3C200 /* WBRedGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AC41706F83900D3C200 /* WBRedGradientView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		23142AD21706F83900D3C200 /* WBStickyNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AC61706F83900D3C200 /* WBStickyNoticeView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		23142AD31706F83900D3C200 /* WBSuccessNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23142AC81706F83900D3C200 /* WBSuccessNoticeView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		23142AD51706FCFA00D3C200 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23142AD41706FCFA00D3C200 /* Crashlytics.framework */; };
 		23142ADE1707822800D3C200 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23142ADC1707822800D3C200 /* Localizable.strings */; };
 		2337119C16E2559D0061C849 /* GLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119B16E2559D0061C849 /* GLLoginViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		2337119F16E255AB0061C849 /* NBNBackButtonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2337119E16E255AB0061C849 /* NBNBackButtonHelper.m */; };
@@ -463,7 +462,6 @@
 				9710B5AD167E2C4500F26DE2 /* CoreGraphics.framework in Frameworks */,
 				9710B5A9167E2C4500F26DE2 /* UIKit.framework in Frameworks */,
 				9710B5AB167E2C4500F26DE2 /* Foundation.framework in Frameworks */,
-				23142AD51706FCFA00D3C200 /* Crashlytics.framework in Frameworks */,
 				65C01F2711D5449AB56C4966 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
