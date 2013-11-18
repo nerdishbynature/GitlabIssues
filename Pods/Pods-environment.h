@@ -18,12 +18,6 @@
 #define COCOAPODS_VERSION_MINOR_Appirater 0
 #define COCOAPODS_VERSION_PATCH_Appirater 5
 
-// CKRefreshControl
-#define COCOAPODS_POD_AVAILABLE_CKRefreshControl
-#define COCOAPODS_VERSION_MAJOR_CKRefreshControl 1
-#define COCOAPODS_VERSION_MINOR_CKRefreshControl 1
-#define COCOAPODS_VERSION_PATCH_CKRefreshControl 1
-
 // DAKeyboardControl
 #define COCOAPODS_POD_AVAILABLE_DAKeyboardControl
 #define COCOAPODS_VERSION_MAJOR_DAKeyboardControl 2

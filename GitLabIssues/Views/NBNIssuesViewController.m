@@ -16,7 +16,6 @@
 #import "NBNIssueCell.h"
 #import "MBProgressHUD.h"
 #import "NBNBackButtonHelper.h"
-#import "CKRefreshControl.h"
 
 @interface NBNIssuesViewController ()
 
