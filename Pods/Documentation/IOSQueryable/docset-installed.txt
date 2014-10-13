@@ -1,4 +1,0 @@
-Documentation set was installed to Xcode!
-
-Path: /Users/pietbrauer/Library/Developer/Shared/Documentation/DocSets/org.cocoapods.iosqueryable.IOSQueryable-0.0.1.docset
-Time: 2013-06-11 17:11:02 +0000
