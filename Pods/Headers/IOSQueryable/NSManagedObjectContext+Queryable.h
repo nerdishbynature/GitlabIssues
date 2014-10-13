@@ -1,1 +1,0 @@
-../../IOSQueryable/ios-queryable/NSManagedObjectContext+Queryable.h

@@ -67,6 +67,7 @@
             errorBlock(nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        PBLog(@"%@", error);
         [Flurry logError:@"generateSessionWithCompletion:onError:" message:error.localizedFailureReason error:error];
         errorBlock(error);
     }];

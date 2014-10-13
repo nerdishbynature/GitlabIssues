@@ -1,6 +1,6 @@
 //
 // MBProgressHUD.m
-// Version 0.6
+// Version 0.8
 // Created by Matej Bukovinski on 2.4.09.
 //
 
@@ -21,6 +21,22 @@
     #define MBLabelAlignmentCenter NSTextAlignmentCenter
 #else
     #define MBLabelAlignmentCenter UITextAlignmentCenter
+#endif
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+	#define MB_TEXTSIZE(text, font) [text length] > 0 ? [text \
+		sizeWithAttributes:@{NSFontAttributeName:font}] : CGSizeZero;
+#else
+	#define MB_TEXTSIZE(text, font) [text length] > 0 ? [text sizeWithFont:font] : CGSizeZero;
+#endif
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+	#define MB_MULTILINE_TEXTSIZE(text, font, maxSize, mode) [text length] > 0 ? [text \
+		boundingRectWithSize:maxSize options:(NSStringDrawingUsesLineFragmentOrigin) \
+		attributes:@{NSFontAttributeName:font} context:nil].size : CGSizeZero;
+#else
+	#define MB_MULTILINE_TEXTSIZE(text, font, maxSize, mode) [text length] > 0 ? [text \
+		sizeWithFont:font constrainedToSize:maxSize lineBreakMode:mode] : CGSizeZero;
 #endif
 
 
@@ -104,15 +120,15 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 
 #pragma mark - Class methods
 
-+ (MBProgressHUD *)showHUDAddedTo:(UIView *)view animated:(BOOL)animated {
-	MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
++ (MB_INSTANCETYPE)showHUDAddedTo:(UIView *)view animated:(BOOL)animated {
+	MBProgressHUD *hud = [[self alloc] initWithView:view];
 	[view addSubview:hud];
 	[hud show:animated];
 	return MB_AUTORELEASE(hud);
 }
 
 + (BOOL)hideHUDForView:(UIView *)view animated:(BOOL)animated {
-	MBProgressHUD *hud = [MBProgressHUD HUDForView:view];
+	MBProgressHUD *hud = [self HUDForView:view];
 	if (hud != nil) {
 		hud.removeFromSuperViewOnHide = YES;
 		[hud hide:animated];
@@ -122,7 +138,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 }
 
 + (NSUInteger)hideAllHUDsForView:(UIView *)view animated:(BOOL)animated {
-	NSArray *huds = [self allHUDsForView:view];
+	NSArray *huds = [MBProgressHUD allHUDsForView:view];
 	for (MBProgressHUD *hud in huds) {
 		hud.removeFromSuperViewOnHide = YES;
 		[hud hide:animated];
@@ -130,11 +146,10 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	return [huds count];
 }
 
-+ (MBProgressHUD *)HUDForView:(UIView *)view {
-	Class hudClass = [MBProgressHUD class];
++ (MB_INSTANCETYPE)HUDForView:(UIView *)view {
 	NSEnumerator *subviewsEnum = [view.subviews reverseObjectEnumerator];
 	for (UIView *subview in subviewsEnum) {
-		if ([subview isKindOfClass:hudClass]) {
+		if ([subview isKindOfClass:self]) {
 			return (MBProgressHUD *)subview;
 		}
 	}
@@ -144,9 +159,8 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 + (NSArray *)allHUDsForView:(UIView *)view {
 	NSMutableArray *huds = [NSMutableArray array];
 	NSArray *subviews = view.subviews;
-	Class hudClass = [MBProgressHUD class];
 	for (UIView *aView in subviews) {
-		if ([aView isKindOfClass:hudClass]) {
+		if ([aView isKindOfClass:self]) {
 			[huds addObject:aView];
 		}
 	}
@@ -345,8 +359,8 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 - (void)done {
 	isFinished = YES;
 	self.alpha = 0.0f;
-	if ([delegate respondsToSelector:@selector(hudWasHidden:)]) {
-		[delegate performSelector:@selector(hudWasHidden:) withObject:self];
+	if (removeFromSuperViewOnHide) {
+		[self removeFromSuperview];
 	}
 #if NS_BLOCKS_AVAILABLE
 	if (self.completionBlock) {
@@ -354,8 +368,8 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		self.completionBlock = NULL;
 	}
 #endif
-	if (removeFromSuperViewOnHide) {
-		[self removeFromSuperview];
+	if ([delegate respondsToSelector:@selector(hudWasHidden:)]) {
+		[delegate performSelector:@selector(hudWasHidden:) withObject:self];
 	}
 }
 
@@ -418,7 +432,6 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 
 - (void)cleanUp {
 	taskInProgress = NO;
-	self.indicator = nil;
 #if !__has_feature(objc_arc)
 	[targetForExecution release];
 	[objectForExecution release];
@@ -468,6 +481,12 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		[(UIActivityIndicatorView *)indicator startAnimating];
 		[self addSubview:indicator];
 	}
+	else if (mode == MBProgressHUDModeDeterminateHorizontalBar) {
+		// Update to bar determinate indicator
+		[indicator removeFromSuperview];
+        self.indicator = MB_AUTORELEASE([[MBBarProgressView alloc] init]);
+		[self addSubview:indicator];
+	}
 	else if (mode == MBProgressHUDModeDeterminate || mode == MBProgressHUDModeAnnularDeterminate) {
 		if (!isRoundIndicator) {
 			// Update to determinante indicator
@@ -510,7 +529,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	totalSize.width = MAX(totalSize.width, indicatorF.size.width);
 	totalSize.height += indicatorF.size.height;
 	
-	CGSize labelSize = [label.text sizeWithFont:label.font];
+	CGSize labelSize = MB_TEXTSIZE(label.text, label.font);
 	labelSize.width = MIN(labelSize.width, maxWidth);
 	totalSize.width = MAX(totalSize.width, labelSize.width);
 	totalSize.height += labelSize.height;
@@ -520,8 +539,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 
 	CGFloat remainingHeight = bounds.size.height - totalSize.height - kPadding - 4 * margin; 
 	CGSize maxSize = CGSizeMake(maxWidth, remainingHeight);
-	CGSize detailsLabelSize = [detailsLabel.text sizeWithFont:detailsLabel.font 
-								constrainedToSize:maxSize lineBreakMode:detailsLabel.lineBreakMode];
+	CGSize detailsLabelSize = MB_MULTILINE_TEXTSIZE(detailsLabel.text, detailsLabel.font, maxSize, detailsLabel.lineBreakMode);
 	totalSize.width = MAX(totalSize.width, detailsLabelSize.width);
 	totalSize.height += detailsLabelSize.height;
 	if (detailsLabelSize.height > 0.f && (indicatorF.size.height > 0.f || labelSize.height > 0.f)) {
@@ -734,35 +752,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 @end
 
 
-@implementation MBRoundProgressView {
-	float _progress;
-	BOOL _annular;
-}
-
-#pragma mark - Properties
-
-@synthesize progressTintColor = _progressTintColor;
-@synthesize backgroundTintColor = _backgroundTintColor;
-
-#pragma mark - Accessors
-
-- (float)progress {
-	return _progress;
-}
-
-- (void)setProgress:(float)progress {
-	_progress = progress;
-	[self setNeedsDisplay];
-}
-
-- (BOOL)isAnnular {
-	return _annular;
-}
-
-- (void)setAnnular:(BOOL)annular {
-	_annular = annular;
-	[self setNeedsDisplay];
-}
+@implementation MBRoundProgressView
 
 #pragma mark - Lifecycle
 
@@ -857,7 +847,158 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 }
 
 - (NSArray *)observableKeypaths {
-	return [NSArray arrayWithObjects:@"progressTintColor", @"backgroundTintColor", nil];
+	return [NSArray arrayWithObjects:@"progressTintColor", @"backgroundTintColor", @"progress", @"annular", nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	[self setNeedsDisplay];
+}
+
+@end
+
+
+@implementation MBBarProgressView
+
+#pragma mark - Lifecycle
+
+- (id)init {
+	return [self initWithFrame:CGRectMake(.0f, .0f, 120.0f, 20.0f)];
+}
+
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+		_progress = 0.f;
+		_lineColor = [UIColor whiteColor];
+		_progressColor = [UIColor whiteColor];
+		_progressRemainingColor = [UIColor clearColor];
+		self.backgroundColor = [UIColor clearColor];
+		self.opaque = NO;
+		[self registerForKVO];
+    }
+    return self;
+}
+
+- (void)dealloc {
+	[self unregisterFromKVO];
+#if !__has_feature(objc_arc)
+	[_lineColor release];
+	[_progressColor release];
+	[_progressRemainingColor release];
+	[super dealloc];
+#endif
+}
+
+#pragma mark - Drawing
+
+- (void)drawRect:(CGRect)rect {
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	
+	// setup properties
+	CGContextSetLineWidth(context, 2);
+	CGContextSetStrokeColorWithColor(context,[_lineColor CGColor]);
+	CGContextSetFillColorWithColor(context, [_progressRemainingColor CGColor]);
+	
+	// draw line border
+	float radius = (rect.size.height / 2) - 2;
+	CGContextMoveToPoint(context, 2, rect.size.height/2);
+	CGContextAddArcToPoint(context, 2, 2, radius + 2, 2, radius);
+	CGContextAddLineToPoint(context, rect.size.width - radius - 2, 2);
+	CGContextAddArcToPoint(context, rect.size.width - 2, 2, rect.size.width - 2, rect.size.height / 2, radius);
+	CGContextAddArcToPoint(context, rect.size.width - 2, rect.size.height - 2, rect.size.width - radius - 2, rect.size.height - 2, radius);
+	CGContextAddLineToPoint(context, radius + 2, rect.size.height - 2);
+	CGContextAddArcToPoint(context, 2, rect.size.height - 2, 2, rect.size.height/2, radius);
+	CGContextFillPath(context);
+	
+	// draw progress background
+	CGContextMoveToPoint(context, 2, rect.size.height/2);
+	CGContextAddArcToPoint(context, 2, 2, radius + 2, 2, radius);
+	CGContextAddLineToPoint(context, rect.size.width - radius - 2, 2);
+	CGContextAddArcToPoint(context, rect.size.width - 2, 2, rect.size.width - 2, rect.size.height / 2, radius);
+	CGContextAddArcToPoint(context, rect.size.width - 2, rect.size.height - 2, rect.size.width - radius - 2, rect.size.height - 2, radius);
+	CGContextAddLineToPoint(context, radius + 2, rect.size.height - 2);
+	CGContextAddArcToPoint(context, 2, rect.size.height - 2, 2, rect.size.height/2, radius);
+	CGContextStrokePath(context);
+	
+	// setup to draw progress color
+	CGContextSetFillColorWithColor(context, [_progressColor CGColor]);
+	radius = radius - 2;
+	float amount = self.progress * rect.size.width;
+	
+	// if progress is in the middle area
+	if (amount >= radius + 4 && amount <= (rect.size.width - radius - 4)) {
+		// top
+		CGContextMoveToPoint(context, 4, rect.size.height/2);
+		CGContextAddArcToPoint(context, 4, 4, radius + 4, 4, radius);
+		CGContextAddLineToPoint(context, amount, 4);
+		CGContextAddLineToPoint(context, amount, radius + 4);
+		
+		// bottom
+		CGContextMoveToPoint(context, 4, rect.size.height/2);
+		CGContextAddArcToPoint(context, 4, rect.size.height - 4, radius + 4, rect.size.height - 4, radius);
+		CGContextAddLineToPoint(context, amount, rect.size.height - 4);
+		CGContextAddLineToPoint(context, amount, radius + 4);
+		
+		CGContextFillPath(context);
+	}
+	
+	// progress is in the right arc
+	else if (amount > radius + 4) {
+		float x = amount - (rect.size.width - radius - 4);
+		
+		// top
+		CGContextMoveToPoint(context, 4, rect.size.height/2);
+		CGContextAddArcToPoint(context, 4, 4, radius + 4, 4, radius);
+		CGContextAddLineToPoint(context, rect.size.width - radius - 4, 4);
+		float angle = -acos(x/radius);
+		if (isnan(angle)) angle = 0;
+		CGContextAddArc(context, rect.size.width - radius - 4, rect.size.height/2, radius, M_PI, angle, 0);
+		CGContextAddLineToPoint(context, amount, rect.size.height/2);
+		
+		// bottom
+		CGContextMoveToPoint(context, 4, rect.size.height/2);
+		CGContextAddArcToPoint(context, 4, rect.size.height - 4, radius + 4, rect.size.height - 4, radius);
+		CGContextAddLineToPoint(context, rect.size.width - radius - 4, rect.size.height - 4);
+		angle = acos(x/radius);
+		if (isnan(angle)) angle = 0;
+		CGContextAddArc(context, rect.size.width - radius - 4, rect.size.height/2, radius, -M_PI, angle, 1);
+		CGContextAddLineToPoint(context, amount, rect.size.height/2);
+		
+		CGContextFillPath(context);
+	}
+	
+	// progress is in the left arc
+	else if (amount < radius + 4 && amount > 0) {
+		// top
+		CGContextMoveToPoint(context, 4, rect.size.height/2);
+		CGContextAddArcToPoint(context, 4, 4, radius + 4, 4, radius);
+		CGContextAddLineToPoint(context, radius + 4, rect.size.height/2);
+		
+		// bottom
+		CGContextMoveToPoint(context, 4, rect.size.height/2);
+		CGContextAddArcToPoint(context, 4, rect.size.height - 4, radius + 4, rect.size.height - 4, radius);
+		CGContextAddLineToPoint(context, radius + 4, rect.size.height/2);
+		
+		CGContextFillPath(context);
+	}
+}
+
+#pragma mark - KVO
+
+- (void)registerForKVO {
+	for (NSString *keyPath in [self observableKeypaths]) {
+		[self addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:NULL];
+	}
+}
+
+- (void)unregisterFromKVO {
+	for (NSString *keyPath in [self observableKeypaths]) {
+		[self removeObserver:self forKeyPath:keyPath];
+	}
+}
+
+- (NSArray *)observableKeypaths {
+	return [NSArray arrayWithObjects:@"lineColor", @"progressRemainingColor", @"progressColor", @"progress", nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

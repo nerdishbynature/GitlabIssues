@@ -12,7 +12,9 @@ PODS:
   - Kiwi/SenTestingKit (2.2.2):
     - Kiwi/ARC
     - Kiwi/NonARC
-  - MagicalRecord (2.2)
+  - MagicalRecord (2.2):
+    - MagicalRecord/Core
+  - MagicalRecord/Core (2.2)
   - MBProgressHUD (0.8)
   - NSHash (1.0.1)
   - PBEmojiLabel (1.0)
@@ -37,19 +39,19 @@ DEPENDENCIES:
   - SVSegmentedControl (~> 0.2)
 
 SPEC CHECKSUMS:
-  AFNetworking: 0700ec7a58c36ad217173e167f6e4df7270df66b
-  Appirater: 5addfe3fac0aa85209b553f894b6b0533152786f
-  CKRefreshControl: 1811aea0153ff33b362ed7a17291ac80e5e09ded
-  DAKeyboardControl: 3f58b2958b4d6785ee395211c6f175af7eb9de8d
-  FlurrySDK: 2c1e7070d0d76dd597de7b0d09cbbdd4193f1622
-  IOSQueryable: 8f32a0f6a18ce01518cc27ae96d1f3d6217fd8b6
-  Kiwi: 03539aeb004ccd42bdbc31253617b26364315df4
-  MagicalRecord: b1fc46c99a9749fe7fe7e6f43a89b62ef5201933
-  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
-  NSHash: 7e728a3e7fdff6828f3fce387049b1e0ca7fe8a0
-  PBEmojiLabel: fecfc9295b50b730cd5e68293b706dcac4071629
-  PBLog: 6860b08c6d1821f2283fcc0c1862c5b321f579cb
-  Reachability: 500bd76bf6cd8ff2c6fb715fc5f44ef6e4c024f2
-  SVSegmentedControl: e874fc56c2a1efb9f597ddf0908101393f53fe96
+  AFNetworking: 5f5b2a731d6fc2082b8abc63d40fcaed5482c42f
+  Appirater: 8b42af58fc213279bc9d573e71d765ed43251e8e
+  CKRefreshControl: 1bc5261fde6784f56b0e98e36e13d21f6ff37643
+  DAKeyboardControl: 723b8854d230f6d0c07d4a52a7f1683f422db9f5
+  FlurrySDK: f7f7a0c8cefddc8df0233a283b15db0c56970668
+  IOSQueryable: 092c787c9ab20891c8e3fb7101d33a99160ddc6b
+  Kiwi: 513ec6b10d7545b0cbeeb89f4f3adffe8e5520be
+  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
+  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
+  NSHash: 757e3ba784954b730eae472f3f4e12eb79a18d82
+  PBEmojiLabel: 6f4a26399826f402e1aae55d6e353626b0f7ac1c
+  PBLog: d9c47f74a97e110e8ed62a07a5be49562e8f4619
+  Reachability: d369b8d7d33730a4bb71d0f601e287da9867c9dd
+  SVSegmentedControl: 755a9721054734a77841147de3cc8babf09ba7f1
 
-COCOAPODS: 0.26.2
+COCOAPODS: 0.34.2

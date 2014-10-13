@@ -1,1 +1,0 @@
-../../PBEmojiLabel/Classes/PBEmojiLabel.h
